@@ -93,7 +93,7 @@ export default function ActivityPage() {
               onClick={() => { haptics.light(); setFilter(f); setDropdownOpen(false) }}
               className={`px-4 py-2 rounded-full text-[13px] font-label font-bold whitespace-nowrap transition-colors border ${
                 filter === f
-                  ? 'bg-primary-container text-primary border-primary'
+                  ? 'bg-primary text-white border-primary'
                   : 'bg-surface border-outline-variant/30 text-on-surface-variant hover:bg-surface-container-low'
               }`}
             >
@@ -106,7 +106,7 @@ export default function ActivityPage() {
               onClick={() => { haptics.light(); setDropdownOpen(o => !o) }}
               className={`flex items-center gap-1 px-3 py-2 rounded-full text-[13px] font-label font-bold transition-colors border ${
                 ['Swapped','On-ramp','Off-ramp'].includes(filter)
-                  ? 'bg-primary-container text-primary border-primary'
+                  ? 'bg-primary text-white border-primary'
                   : 'bg-surface border-outline-variant/30 text-on-surface-variant hover:bg-surface-container-low'
               }`}
             >
@@ -271,7 +271,7 @@ function TransactionDetailSheet({ tx, onClose }: { tx: Transaction | null, onClo
           <div className="w-12 h-1.5 bg-outline-variant/30 rounded-full" />
         </div>
 
-        <div className="p-6 overflow-y-auto">
+        <div className="p-6 pb-36 overflow-y-auto">
           <div className="flex flex-col items-center mb-8 relative">
             <button onClick={onClose} className="absolute -top-2 right-0 w-8 h-8 flex items-center justify-center bg-surface-container-low rounded-full text-on-surface-variant hover:bg-surface-container transition-colors">
               <span className="material-symbols-outlined text-[20px]">close</span>

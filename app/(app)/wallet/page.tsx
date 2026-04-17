@@ -1,5 +1,6 @@
 'use client'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { useWalletStore } from '@/store/wallet.store'
 import { CURATED_ASSETS } from '@/mock/assets'
@@ -9,6 +10,21 @@ export default function WalletPage() {
   const router = useRouter()
   const { assets } = useWalletStore()
   const [isManageMode, setIsManageMode] = useState(false)
+  const [tradeAssetIdx, setTradeAssetIdx] = useState(0)
+  const [curatedMoreOpen, setCuratedMoreOpen] = useState(false)
+  const curatedMoreRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (curatedMoreRef.current && !curatedMoreRef.current.contains(e.target as Node)) {
+        setCuratedMoreOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [])
+
+  const tradeAsset = assets[tradeAssetIdx] || assets[0]
   const portfolioValue = assets.reduce((acc, curr) => acc + curr.fiatValue, 0)
   const isBalanceHidden = false // Mock toggle
 
@@ -32,7 +48,23 @@ export default function WalletPage() {
               </button>
             </div>
           </div>
-          <div className="flex gap-2 mt-4">
+          {/* Asset context for Buy/Sell */}
+          <div className="flex items-center gap-2 mt-3 mb-1">
+            <span className="font-label font-bold text-[10px] text-white/60 uppercase tracking-widest">Trade asset:</span>
+            <div className="flex gap-1">
+              {assets.map((a, idx) => (
+                <button
+                  key={a.id}
+                  onClick={() => { haptics.light(); setTradeAssetIdx(idx) }}
+                  className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-label font-bold transition-colors ${tradeAssetIdx === idx ? 'bg-white text-primary' : 'bg-white/15 text-white hover:bg-white/25'}`}
+                >
+                  {a.symbol}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex gap-2 mt-2">
             <button onClick={() => { haptics.light(); router.push('/send') }} className="flex-1 bg-white/10 hover:bg-white/20 rounded-xl py-2 flex flex-col items-center justify-center gap-1 transition-colors active:scale-95 text-white">
               <span className="material-symbols-outlined text-[20px]">arrow_upward</span>
               <span className="font-label font-bold text-[10px]">Send</span>
@@ -45,45 +77,78 @@ export default function WalletPage() {
               <span className="material-symbols-outlined text-[20px]">swap_horiz</span>
               <span className="font-label font-bold text-[10px]">Swap</span>
             </button>
-            <button onClick={() => { haptics.light(); router.push('/buy') }} className="flex-1 bg-white/10 hover:bg-white/20 rounded-xl py-2 flex flex-col items-center justify-center gap-1 transition-colors active:scale-95 text-white">
+            <button onClick={() => { haptics.light(); router.push(`/buy?asset=${tradeAsset.symbol}`) }} className="flex-1 bg-white/10 hover:bg-white/20 rounded-xl py-2 flex flex-col items-center justify-center gap-1 transition-colors active:scale-95 text-white">
               <span className="material-symbols-outlined text-[20px]">add_card</span>
               <span className="font-label font-bold text-[10px]">Buy</span>
             </button>
-            <button onClick={() => { haptics.light(); router.push('/sell') }} className="flex-1 bg-white/10 hover:bg-white/20 rounded-xl py-2 flex flex-col items-center justify-center gap-1 transition-colors active:scale-95 text-white">
+            <button onClick={() => { haptics.light(); router.push(`/sell?asset=${tradeAsset.symbol}`) }} className="flex-1 bg-white/10 hover:bg-white/20 rounded-xl py-2 flex flex-col items-center justify-center gap-1 transition-colors active:scale-95 text-white">
               <span className="material-symbols-outlined text-[20px]">payments</span>
               <span className="font-label font-bold text-[10px]">Sell</span>
             </button>
           </div>
         </div>
 
-        {/* Curated Assets Grid */}
-        <div className="bg-primary-container/20 -mx-6 px-6 py-5 border-y border-outline-variant/10">
-          <div className="flex items-center gap-2 mb-4">
+        {/* Curated Assets — compact row + overflow dropdown */}
+        <div className="bg-primary-container/20 -mx-6 px-6 py-4 border-y border-outline-variant/10">
+          <div className="flex items-center gap-2 mb-3">
             <span className="font-label font-bold text-[10px] text-primary tracking-[0.15em] uppercase">Curated by BantuPay</span>
             <span className="material-symbols-outlined text-primary text-[14px]">verified</span>
           </div>
-          <div className="grid grid-cols-4 gap-3">
-            {CURATED_ASSETS.map((tick, idx) => {
+          <div className="flex items-center gap-4">
+            {CURATED_ASSETS.slice(0, 3).map((tick, idx) => {
               const asset = assets.find(a => a.symbol === tick)
               const isInWallet = !!asset
               return (
-                <div key={idx} className="bg-surface p-3 rounded-[16px] shadow-sm border border-outline-variant/10 flex flex-col items-center gap-2">
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center font-headline font-bold text-[13px]" style={{ backgroundColor: asset?.iconBg ?? 'var(--color-surface-container)', color: asset?.color ?? 'var(--color-on-surface)' }}>
+                <div key={idx} className="flex flex-col items-center gap-1.5">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center font-headline font-bold text-[15px] shadow-sm border border-outline-variant/10" style={{ backgroundColor: asset?.iconBg ?? '#F0F1F5', color: asset?.color ?? '#0F0F0F' }}>
                     {asset?.iconText ?? tick.charAt(0)}
                   </div>
-                  <span className="font-headline font-bold text-[12px] text-on-surface">{tick}</span>
+                  <span className="font-headline font-bold text-[11px] text-on-surface">{tick}</span>
                   {isInWallet ? (
-                    <div className="bg-surface-container text-on-surface-variant font-label text-[9px] px-2 py-0.5 rounded-full font-bold flex items-center gap-0.5">
-                      <span className="material-symbols-outlined text-[11px]">check</span> Added
-                    </div>
+                    <span className="material-symbols-outlined text-[#16A34A] text-[14px]">check_circle</span>
                   ) : (
-                    <button className="bg-primary text-white font-label text-[9px] px-2.5 py-0.5 rounded-full font-bold active:scale-95 transition-transform">
-                      Add
-                    </button>
+                    <button className="font-label font-bold text-[10px] text-primary active:opacity-70">+ Add</button>
                   )}
                 </div>
               )
             })}
+            {CURATED_ASSETS.length > 3 && (
+              <div ref={curatedMoreRef} className="relative ml-auto">
+                <button
+                  onClick={() => { haptics.light(); setCuratedMoreOpen(o => !o) }}
+                  className="flex flex-col items-center gap-1.5"
+                >
+                  <div className="w-12 h-12 rounded-full bg-surface-container border border-outline-variant/10 flex items-center justify-center shadow-sm">
+                    <span className="material-symbols-outlined text-on-surface-variant text-[20px]">more_horiz</span>
+                  </div>
+                  <span className="font-label font-bold text-[11px] text-on-surface-variant">{CURATED_ASSETS.length - 3} more</span>
+                </button>
+                <AnimatePresence>
+                  {curatedMoreOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -6, scale: 0.96 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -6, scale: 0.96 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                      className="absolute right-0 top-full mt-2 z-50 bg-surface rounded-[16px] border border-outline-variant/10 shadow-xl overflow-hidden min-w-[160px]"
+                    >
+                      {CURATED_ASSETS.slice(3).map((tick, idx) => {
+                        const asset = assets.find(a => a.symbol === tick)
+                        return (
+                          <button key={idx} onClick={() => { haptics.light(); setCuratedMoreOpen(false) }} className="w-full flex items-center gap-3 px-4 py-3 hover:bg-surface-container-low transition-colors">
+                            <div className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-[12px]" style={{ backgroundColor: asset?.iconBg ?? '#F0F1F5', color: asset?.color ?? '#0F0F0F' }}>
+                              {asset?.iconText ?? tick.charAt(0)}
+                            </div>
+                            <span className="font-headline font-bold text-[14px] text-on-surface">{tick}</span>
+                            <span className="ml-auto font-label font-bold text-[11px] text-primary">+ Add</span>
+                          </button>
+                        )
+                      })}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            )}
           </div>
         </div>
 
@@ -122,7 +187,7 @@ export default function WalletPage() {
                   <div className="flex-1 min-w-0 pr-2">
                     <h3 className="font-headline font-bold text-[15px] text-on-surface leading-snug truncate">{asset.symbol}</h3>
                     <p className="font-body text-[13px] text-on-surface-variant truncate">
-                      {asset.issuer === 'native' ? 'Bantu Network' : `${asset.fiatSymbol}${1.0.toFixed(2)}`}
+                      {asset.name}
                     </p>
                   </div>
                   {!isManageMode ? (
@@ -154,9 +219,9 @@ export default function WalletPage() {
               </button>
             )}
 
-            <button onClick={() => haptics.medium()} className="w-full h-[64px] border-2 border-dashed border-outline-variant/30 rounded-[16px] flex items-center justify-center gap-2 text-on-surface-variant hover:bg-surface-container-lowest transition-colors mt-4">
-              <span className="material-symbols-outlined text-[20px] text-primary">add_circle</span>
-              <span className="font-headline font-semibold text-[14px] text-primary">Add custom token</span>
+            <button onClick={() => { haptics.medium(); router.push('/add-token') }} className="w-full h-[64px] border-2 border-dashed border-outline-variant/30 rounded-[16px] flex items-center justify-center gap-2 text-primary hover:bg-primary/5 transition-colors mt-4">
+              <span className="material-symbols-outlined text-[20px]">add_circle</span>
+              <span className="font-headline font-semibold text-[14px]">Add custom token</span>
             </button>
           </div>
         </div>

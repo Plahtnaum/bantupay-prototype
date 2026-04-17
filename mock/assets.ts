@@ -14,19 +14,6 @@ export type Asset = {
 
 export const MOCK_ASSETS: Asset[] = [
   {
-    id: 'cngn',
-    symbol: 'cNGN',
-    name: 'Digital Naira',
-    balance: 45320.00,
-    fiatValue: 45320.00,
-    fiatSymbol: '₦',
-    change24h: 0.00,
-    issuer: 'GCNGN7F3BISSUER',
-    color: '#7C3AED',
-    iconBg: '#EDE9FE',
-    iconText: '₦',
-  },
-  {
     id: 'xbn',
     symbol: 'XBN',
     name: 'Bantu Token',
@@ -38,6 +25,19 @@ export const MOCK_ASSETS: Asset[] = [
     color: '#FC690A',
     iconBg: '#FFF3EC',
     iconText: 'X',
+  },
+  {
+    id: 'cngn',
+    symbol: 'cNGN',
+    name: 'Digital Naira',
+    balance: 45320.00,
+    fiatValue: 45320.00,
+    fiatSymbol: '₦',
+    change24h: 0.00,
+    issuer: 'GCNGN7F3BISSUER',
+    color: '#7C3AED',
+    iconBg: '#EDE9FE',
+    iconText: '₦',
   },
   {
     id: 'usdc',
@@ -74,4 +74,4 @@ export const MOCK_RATES = {
   XBN_USDC: 0.000067,
 }
 
-export const CURATED_ASSETS = ['cNGN', 'XBN', 'USDC', 'BNR']
+export const CURATED_ASSETS = ['XBN', 'cNGN', 'USDC', 'BNR']
