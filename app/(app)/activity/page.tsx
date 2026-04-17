@@ -1,6 +1,7 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import { useWalletStore } from '@/store/wallet.store'
 import { Transaction } from '@/mock/transactions'
 import { haptics } from '@/lib/haptics'
@@ -45,6 +46,7 @@ function groupTransactionsByDate(txs: Transaction[]) {
 }
 
 export default function ActivityPage() {
+  const router = useRouter()
   const { transactions } = useWalletStore()
   const [filter, setFilter] = useState('All')
   const [selectedTx, setSelectedTx] = useState<Transaction | null>(null)
@@ -79,7 +81,12 @@ export default function ActivityPage() {
     <div className="bg-background min-h-screen text-on-background pb-24">
       <header className="sticky top-0 w-full max-w-[430px] z-30 bg-surface/80 backdrop-blur-xl px-6 pt-12 pb-4">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-[24px] font-headline font-semibold tracking-tight text-on-surface">Activity</h1>
+          <div className="flex items-center gap-3">
+            <button onClick={() => { haptics.light(); router.back() }} className="w-9 h-9 flex items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-colors active:scale-95">
+              <span className="material-symbols-outlined text-[20px]">arrow_back</span>
+            </button>
+            <h1 className="text-[24px] font-headline font-semibold tracking-tight text-on-surface">Activity</h1>
+          </div>
           <button onClick={() => haptics.light()} className="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-colors active:scale-95">
             <span className="material-symbols-outlined text-[22px]">tune</span>
           </button>

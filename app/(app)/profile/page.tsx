@@ -61,7 +61,7 @@ export default function ProfilePage() {
         { icon: 'shield', label: 'Safes (Multi-sig)', sub: 'Shared treasury and co-signed accounts', action: () => router.push('/safes') },
         { icon: 'history', label: 'Activity History', sub: 'All transactions and on-ramp records', action: () => router.push('/activity') },
         { icon: 'share', label: 'Share Profile', sub: 'Your payment link and QR code', action: () => router.push('/receive') },
-        { icon: 'storefront', label: 'Merchant Dashboard', sub: 'Sales, QR payments and analytics', action: () => router.push('/merchant') },
+        ...(appMode === 'merchant' ? [{ icon: 'storefront', label: 'Merchant Dashboard', sub: 'Sales, QR payments and analytics', action: () => router.push('/merchant') }] : []),
       ],
     },
     {

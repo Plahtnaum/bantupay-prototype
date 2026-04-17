@@ -89,13 +89,13 @@ export default function WalletPage() {
         </div>
 
         {/* Curated Assets — compact row + overflow dropdown */}
-        <div className="bg-primary-container/20 -mx-6 px-6 py-4 border-y border-outline-variant/10">
+        <div className="-mx-6 px-6 py-4 border-y border-outline-variant/10">
           <div className="flex items-center gap-2 mb-3">
             <span className="font-label font-bold text-[10px] text-primary tracking-[0.15em] uppercase">Curated by BantuPay</span>
             <span className="material-symbols-outlined text-primary text-[14px]">verified</span>
           </div>
           <div className="flex items-center gap-4">
-            {CURATED_ASSETS.slice(0, 3).map((tick, idx) => {
+            {CURATED_ASSETS.slice(0, 5).map((tick, idx) => {
               const asset = assets.find(a => a.symbol === tick)
               const isInWallet = !!asset
               return (
@@ -112,7 +112,7 @@ export default function WalletPage() {
                 </div>
               )
             })}
-            {CURATED_ASSETS.length > 3 && (
+            {CURATED_ASSETS.length > 5 && (
               <div ref={curatedMoreRef} className="relative ml-auto">
                 <button
                   onClick={() => { haptics.light(); setCuratedMoreOpen(o => !o) }}
@@ -121,7 +121,7 @@ export default function WalletPage() {
                   <div className="w-12 h-12 rounded-full bg-surface-container border border-outline-variant/10 flex items-center justify-center shadow-sm">
                     <span className="material-symbols-outlined text-on-surface-variant text-[20px]">more_horiz</span>
                   </div>
-                  <span className="font-label font-bold text-[11px] text-on-surface-variant">{CURATED_ASSETS.length - 3} more</span>
+                  <span className="font-label font-bold text-[11px] text-on-surface-variant">{CURATED_ASSETS.length - 5} more</span>
                 </button>
                 <AnimatePresence>
                   {curatedMoreOpen && (
@@ -132,7 +132,7 @@ export default function WalletPage() {
                       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                       className="absolute right-0 top-full mt-2 z-50 bg-surface rounded-[16px] border border-outline-variant/10 shadow-xl overflow-hidden min-w-[160px]"
                     >
-                      {CURATED_ASSETS.slice(3).map((tick, idx) => {
+                      {CURATED_ASSETS.slice(5).map((tick, idx) => {
                         const asset = assets.find(a => a.symbol === tick)
                         return (
                           <button key={idx} onClick={() => { haptics.light(); setCuratedMoreOpen(false) }} className="w-full flex items-center gap-3 px-4 py-3 hover:bg-surface-container-low transition-colors">
@@ -175,7 +175,7 @@ export default function WalletPage() {
                </div>
             ) : (
               assets.map((asset) => (
-                <div key={asset.id} onClick={() => !isManageMode && haptics.light()} className={`h-[72px] bg-surface rounded-[16px] px-4 flex items-center shadow-[0_2px_8px_rgba(0,0,0,0.06)] ${!isManageMode ? 'active:bg-surface-container-lowest cursor-pointer' : ''} transition-colors border border-outline-variant/10`}>
+                <div key={asset.id} onClick={() => { if (!isManageMode) { haptics.light(); router.push(`/asset/${asset.id}`) } }} className={`h-[72px] bg-surface rounded-[16px] px-4 flex items-center shadow-[0_2px_8px_rgba(0,0,0,0.06)] ${!isManageMode ? 'active:bg-surface-container-lowest cursor-pointer' : ''} transition-colors border border-outline-variant/10`}>
                   {isManageMode && (
                     <button className="mr-3 text-error active:scale-90 transition-transform">
                       <span className="material-symbols-outlined">remove_circle</span>
