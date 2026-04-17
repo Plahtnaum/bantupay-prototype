@@ -1,13 +1,10 @@
 'use client'
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { haptics } from '@/lib/haptics'
-import Link from 'next/link'
 
 export default function BuyPage() {
   const router = useRouter()
-  const [amount, setAmount] = useState('50000')
+  const amount = '50000'
 
   return (
     <div className="bg-background text-on-background font-body min-h-screen selection:bg-primary-container selection:text-on-primary">
@@ -23,7 +20,7 @@ export default function BuyPage() {
         </div>
       </header>
 
-      <main className="pt-24 pb-40 px-6 max-w-lg mx-auto">
+      <main className="pt-20 pb-40 px-6 max-w-lg mx-auto">
         <section className="text-center mb-10">
           <div className="inline-flex items-baseline gap-2 mb-2">
             <span className="text-on-surface-variant font-headline font-semibold text-lg uppercase tracking-widest">NGN</span>
@@ -71,8 +68,8 @@ export default function BuyPage() {
 
           <div className="group cursor-pointer bg-surface-container-low rounded-2xl p-4 flex items-center justify-between transition-all hover:bg-surface-container-high active:scale-[0.98] border border-transparent hover:border-outline-variant/20 shadow-sm hover:shadow-md">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-[#77320b]/10 flex items-center justify-center">
-                <span className="material-symbols-outlined text-[#77320b]">credit_card</span>
+              <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center">
+                <span className="material-symbols-outlined text-secondary">credit_card</span>
               </div>
               <div>
                 <h3 className="font-headline font-bold text-on-surface text-[15px]">Debit/Credit Card</h3>
@@ -87,8 +84,8 @@ export default function BuyPage() {
 
           <div className="group cursor-pointer bg-surface-container-low rounded-2xl p-4 flex items-center justify-between transition-all hover:bg-surface-container-high active:scale-[0.98] border border-transparent hover:border-outline-variant/20 shadow-sm hover:shadow-md">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-[#0062a1]/10 flex items-center justify-center">
-                <span className="material-symbols-outlined text-[#0062a1]">dialpad</span>
+              <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
+                <span className="material-symbols-outlined text-on-surface-variant">dialpad</span>
               </div>
               <div>
                 <h3 className="font-headline font-bold text-on-surface text-[15px]">USSD</h3>

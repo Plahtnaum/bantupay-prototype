@@ -51,7 +51,7 @@ export default function SellPage() {
               </div>
             </header>
 
-            <main className="pt-24 pb-40 px-6">
+            <main className="pt-20 pb-40 px-6">
               <section className="text-center mb-8">
                 <p className="font-label font-bold text-[11px] text-on-surface-variant uppercase tracking-widest mb-3">Amount to sell</p>
                 <div className="inline-flex items-baseline gap-2 mb-2">

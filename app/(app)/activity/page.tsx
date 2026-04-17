@@ -77,7 +77,7 @@ export default function ActivityPage() {
 
   return (
     <div className="bg-background min-h-screen text-on-background pb-24">
-      <header className="sticky top-0 w-full max-w-[430px] z-30 bg-surface/80 backdrop-blur-xl px-6 pt-16 pb-4">
+      <header className="sticky top-0 w-full max-w-[430px] z-30 bg-surface/80 backdrop-blur-xl px-6 pt-12 pb-4">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-[24px] font-headline font-semibold tracking-tight text-on-surface">Activity</h1>
           <button onClick={() => haptics.light()} className="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-colors active:scale-95">
@@ -192,9 +192,9 @@ function TransactionItemRow({ tx, onClick }: { tx: Transaction, onClick: () => v
   const isReceive = tx.type === 'receive' || tx.type === 'claim' || tx.type === 'onramp'
   const isSwap = tx.type === 'swap'
 
-  const iconBg = isSend ? 'bg-[#FC690A]/10 text-[#FC690A]' : 
-                 isReceive ? 'bg-[#16A34A]/10 text-[#16A34A]' : 
-                 'bg-[#2563EB]/10 text-[#2563EB]'
+  const iconBg = isSend ? 'bg-primary/10 text-primary' :
+                 isReceive ? 'bg-[#16A34A]/10 text-[#16A34A]' :
+                 'bg-secondary/10 text-secondary'
   
   const iconName = isSend ? 'arrow_upward' : isReceive ? 'arrow_downward' : 'swap_horiz'
 
@@ -220,8 +220,8 @@ function TransactionItemRow({ tx, onClick }: { tx: Transaction, onClick: () => v
       <div className="flex-1 min-w-0 pr-2">
         <div className="flex items-center gap-2">
           <h3 className="font-headline font-bold text-[15px] text-on-surface truncate leading-tight">{title}</h3>
-          {tx.status === 'pending' && <span className="bg-[#FFF3EC] text-[#FC690A] text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">Pending</span>}
-          {tx.status === 'failed' && <span className="bg-[#FEF2F2] text-[#DC2626] text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">Failed</span>}
+          {tx.status === 'pending' && <span className="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">Pending</span>}
+          {tx.status === 'failed' && <span className="bg-error-container/30 text-error text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">Failed</span>}
         </div>
         <p className="font-body text-[13px] text-on-surface-variant mt-1 truncate">
           {tx.asset} · {formatRelative(new Date(tx.timestamp))}
@@ -247,9 +247,9 @@ function TransactionDetailSheet({ tx, onClose }: { tx: Transaction | null, onClo
   const isPending = tx.status === 'pending'
   const isSuccess = tx.status === 'confirmed'
 
-  const iconCircleClass = isFailed ? 'bg-[#FEF2F2] text-[#DC2626]' : 
-                          isPending ? 'bg-[#FFF3EC] text-[#FC690A]' : 
-                          'bg-[#F0FDF4] text-[#16A34A]'
+  const iconCircleClass = isFailed ? 'bg-error-container/30 text-error' :
+                          isPending ? 'bg-primary/10 text-primary' :
+                          'bg-[#16A34A]/10 text-[#16A34A]'
   
   const iconName = isFailed ? 'close' : isPending ? 'sync' : 'check'
   
@@ -279,7 +279,7 @@ function TransactionDetailSheet({ tx, onClose }: { tx: Transaction | null, onClo
             <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 ${iconCircleClass} ${isPending ? 'animate-pulse' : ''}`}>
               <span className={`material-symbols-outlined text-[32px] ${isPending ? 'animate-spin' : ''}`} style={{ fontVariationSettings: "'wght' 600" }}>{iconName}</span>
             </div>
-            <span className={`font-label font-bold text-sm tracking-widest uppercase mb-2 ${isFailed ? 'text-[#DC2626]' : isPending ? 'text-[#FC690A]' : 'text-[#16A34A]'}`}>
+            <span className={`font-label font-bold text-sm tracking-widest uppercase mb-2 ${isFailed ? 'text-error' : isPending ? 'text-primary' : 'text-[#16A34A]'}`}>
               {tx.status}
             </span>
             <div className={`font-headline font-extrabold text-[36px] ${color}`}>

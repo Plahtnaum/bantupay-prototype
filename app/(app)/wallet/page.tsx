@@ -14,8 +14,8 @@ export default function WalletPage() {
 
   return (
     <div className="bg-background min-h-screen text-on-background pb-32">
-      <header className="px-6 pt-16 pb-4 flex justify-between items-center sticky top-0 bg-surface/80 backdrop-blur-xl z-30">
-        <h1 className="font-headline font-bold text-[24px] text-on-surface">Wallet</h1>
+      <header className="px-6 pt-12 pb-4 flex justify-between items-center sticky top-0 bg-surface/80 backdrop-blur-xl z-30">
+        <h1 className="font-headline font-bold text-[24px] text-on-surface">Assets</h1>
       </header>
 
       <main className="px-6 pt-4 space-y-6 max-w-md mx-auto w-full">
@@ -56,30 +56,30 @@ export default function WalletPage() {
           </div>
         </div>
 
-        {/* Curated Assets Horizontal Scroll */}
-        <div className="bg-primary-container/20 -mx-6 px-6 py-6 border-y border-outline-variant/10">
+        {/* Curated Assets Grid */}
+        <div className="bg-primary-container/20 -mx-6 px-6 py-5 border-y border-outline-variant/10">
           <div className="flex items-center gap-2 mb-4">
             <span className="font-label font-bold text-[10px] text-primary tracking-[0.15em] uppercase">Curated by BantuPay</span>
             <span className="material-symbols-outlined text-primary text-[14px]">verified</span>
           </div>
-          
-          <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-2">
+          <div className="grid grid-cols-4 gap-3">
             {CURATED_ASSETS.map((tick, idx) => {
-              const isInWallet = assets.some(a => a.symbol === tick)
+              const asset = assets.find(a => a.symbol === tick)
+              const isInWallet = !!asset
               return (
-                <div key={idx} className="bg-surface w-[100px] flex-shrink-0 p-3 rounded-[16px] shadow-sm border border-outline-variant/10 flex flex-col items-center gap-2">
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center font-headline font-bold text-on-surface bg-surface-container" style={{ backgroundColor: isInWallet ? assets.find(a=>a.symbol===tick)?.iconBg : '#F0F1F5', color: assets.find(a=>a.symbol===tick)?.color || '#0F0F0F' }}>
-                     {assets.find(a=>a.symbol===tick)?.iconText || tick.charAt(0)}
+                <div key={idx} className="bg-surface p-3 rounded-[16px] shadow-sm border border-outline-variant/10 flex flex-col items-center gap-2">
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center font-headline font-bold text-[13px]" style={{ backgroundColor: asset?.iconBg ?? 'var(--color-surface-container)', color: asset?.color ?? 'var(--color-on-surface)' }}>
+                    {asset?.iconText ?? tick.charAt(0)}
                   </div>
-                  <span className="font-headline font-bold text-[13px] text-on-surface">{tick}</span>
+                  <span className="font-headline font-bold text-[12px] text-on-surface">{tick}</span>
                   {isInWallet ? (
-                     <div className="bg-surface-container text-on-surface-variant font-label text-[10px] px-2 py-1 rounded-full font-bold flex items-center gap-1">
-                       <span className="material-symbols-outlined text-[12px]">check</span> Added
-                     </div>
+                    <div className="bg-surface-container text-on-surface-variant font-label text-[9px] px-2 py-0.5 rounded-full font-bold flex items-center gap-0.5">
+                      <span className="material-symbols-outlined text-[11px]">check</span> Added
+                    </div>
                   ) : (
-                     <button className="bg-primary text-white font-label text-[10px] px-3 py-1 rounded-full font-bold active:scale-95 transition-transform shadow-sm">
-                       Add
-                     </button>
+                    <button className="bg-primary text-white font-label text-[9px] px-2.5 py-0.5 rounded-full font-bold active:scale-95 transition-transform">
+                      Add
+                    </button>
                   )}
                 </div>
               )
