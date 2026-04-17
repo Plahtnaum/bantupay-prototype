@@ -13,6 +13,7 @@ export type UserPersona = {
   totalBalance: number
   label: string
   description: string
+  avatar?: string
   walletAddress: string
   address: string
   pin: string
