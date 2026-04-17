@@ -6,10 +6,11 @@ import { haptics } from '@/lib/haptics'
 import Link from 'next/link'
 
 const quickActions = [
-  { href: '/send',    icon: 'send',             label: 'Send'    },
-  { href: '/receive', icon: 'call_received',     label: 'Receive' },
+  { href: '/send',    icon: 'arrow_upward',      label: 'Send'    },
+  { href: '/receive', icon: 'arrow_downward',    label: 'Receive' },
+  { href: '/buy',     icon: 'add_card',          label: 'Buy'     },
+  { href: '/sell',    icon: 'payments',          label: 'Sell'    },
   { href: '/swap',    icon: 'swap_horiz',        label: 'Swap'    },
-  { href: '/buy',     icon: 'shopping_bag',      label: 'Buy'     },
 ]
 
 export function BalanceCard() {

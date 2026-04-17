@@ -1,10 +1,9 @@
 'use client'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useWalletStore } from '@/store/wallet.store'
 import { Transaction } from '@/mock/transactions'
 import { haptics } from '@/lib/haptics'
-const FILTERS = ['All', 'Sent', 'Received', 'Swapped', 'On-ramp', 'Off-ramp']
 
 function isToday(d: Date) {
   const today = new Date();
@@ -49,6 +48,18 @@ export default function ActivityPage() {
   const { transactions } = useWalletStore()
   const [filter, setFilter] = useState('All')
   const [selectedTx, setSelectedTx] = useState<Transaction | null>(null)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
 
   const filtered = transactions.filter(tx => {
     if (filter === 'All') return true
@@ -74,20 +85,61 @@ export default function ActivityPage() {
           </button>
         </div>
 
-        <div className="-mx-6 px-6 overflow-x-auto scrollbar-hide flex gap-2">
-          {FILTERS.map(f => (
+        <div className="flex items-center gap-3">
+          {/* Primary quick filters */}
+          {['All', 'Sent', 'Received'].map(f => (
             <button
               key={f}
-              onClick={() => { haptics.light(); setFilter(f) }}
-              className={`px-4 py-2 rounded-full text-[13px] font-label font-bold whitespace-nowrap transition-colors flex-shrink-0 border ${
-                filter === f 
-                  ? 'bg-primary-container text-primary border-primary font-bold' 
+              onClick={() => { haptics.light(); setFilter(f); setDropdownOpen(false) }}
+              className={`px-4 py-2 rounded-full text-[13px] font-label font-bold whitespace-nowrap transition-colors border ${
+                filter === f
+                  ? 'bg-primary-container text-primary border-primary'
                   : 'bg-surface border-outline-variant/30 text-on-surface-variant hover:bg-surface-container-low'
               }`}
             >
               {f}
             </button>
           ))}
+          {/* More dropdown */}
+          <div className="relative ml-auto" ref={dropdownRef}>
+            <button
+              onClick={() => { haptics.light(); setDropdownOpen(o => !o) }}
+              className={`flex items-center gap-1 px-3 py-2 rounded-full text-[13px] font-label font-bold transition-colors border ${
+                ['Swapped','On-ramp','Off-ramp'].includes(filter)
+                  ? 'bg-primary-container text-primary border-primary'
+                  : 'bg-surface border-outline-variant/30 text-on-surface-variant hover:bg-surface-container-low'
+              }`}
+            >
+              {['Swapped','On-ramp','Off-ramp'].includes(filter) ? filter : 'More'}
+              <span className="material-symbols-outlined text-[16px]">{dropdownOpen ? 'expand_less' : 'expand_more'}</span>
+            </button>
+            <AnimatePresence>
+              {dropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -6, scale: 0.97 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -6, scale: 0.97 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute right-0 top-full mt-2 bg-surface border border-outline-variant/20 rounded-[16px] shadow-[0_8px_24px_rgba(0,0,0,0.12)] overflow-hidden z-50 min-w-[130px]"
+                >
+                  {['Swapped', 'On-ramp', 'Off-ramp'].map(f => (
+                    <button
+                      key={f}
+                      onClick={() => { haptics.light(); setFilter(f); setDropdownOpen(false) }}
+                      className={`w-full px-4 py-3 text-left text-[13px] font-label font-bold transition-colors flex items-center justify-between gap-3 ${
+                        filter === f
+                          ? 'bg-primary-container text-primary'
+                          : 'text-on-surface hover:bg-surface-container-low'
+                      }`}
+                    >
+                      {f}
+                      {filter === f && <span className="material-symbols-outlined text-[16px]">check</span>}
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </header>
 

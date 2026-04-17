@@ -5,7 +5,7 @@ import { haptics } from '@/lib/haptics'
 
 const tabs = [
   { href: '/home',    icon: 'home',                   label: 'Home'     },
-  { href: '/wallet',  icon: 'account_balance_wallet',  label: 'Wallet'   },
+  { href: '/wallet',  icon: 'account_balance_wallet',  label: 'Assets'   },
   { href: '/scan',    icon: 'qr_code_scanner',         label: 'SCAN',    isFAB: true },
   { href: '/activity',icon: 'history',                 label: 'History'  },
   { href: '/profile', icon: 'person',                  label: 'Profile'  },
