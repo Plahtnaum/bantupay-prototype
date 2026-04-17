@@ -1,7 +1,9 @@
 'use client'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { useUserStore } from '@/store/user.store'
+import { useTheme } from '@/components/ThemeProvider'
 import { haptics } from '@/lib/haptics'
 
 type MenuItem = {
@@ -14,9 +16,13 @@ type MenuItem = {
   badge?: string
 }
 
+type AppMode = 'personal' | 'merchant'
+
 export default function ProfilePage() {
   const router = useRouter()
   const { persona, darkMode, toggleDarkMode } = useUserStore()
+  const { setTheme } = useTheme()
+  const [appMode, setAppMode] = useState<AppMode>('personal')
 
   const menuGroups: { title: string; items: MenuItem[] }[] = [
     {
@@ -31,7 +37,7 @@ export default function ProfilePage() {
     {
       title: 'Preferences',
       items: [
-        { icon: 'dark_mode', label: 'Dark Mode', sub: 'Switch high-contrast appearance', toggle: true, value: darkMode, action: toggleDarkMode },
+        { icon: 'dark_mode', label: 'Dark Mode', sub: 'Switch high-contrast appearance', toggle: true, value: darkMode, action: () => { toggleDarkMode(); setTheme(darkMode ? 'light' : 'dark') } },
         { icon: 'notifications', label: 'Notifications', sub: 'Manage your alerts and updates' },
         { icon: 'language', label: 'Currency', sub: 'Nigerian Naira (NGN)' },
       ]
@@ -75,6 +81,26 @@ export default function ProfilePage() {
       </header>
 
       <main className="px-4 py-6 space-y-8">
+        {/* Mode Switcher */}
+        <div className="bg-surface rounded-[24px] p-2 shadow-sm border border-outline-variant/10 flex gap-1">
+          {(['personal', 'merchant'] as AppMode[]).map((mode) => {
+            const isActive = appMode === mode
+            return (
+              <button
+                key={mode}
+                onClick={() => { haptics.light(); setAppMode(mode) }}
+                className={`flex-1 flex items-center justify-center gap-2 h-11 rounded-[18px] transition-all font-headline font-bold text-[14px] ${isActive ? 'bg-primary text-white shadow-sm' : 'text-on-surface-variant hover:bg-surface-container'}`}
+              >
+                <span className="material-symbols-outlined text-[18px]">{mode === 'personal' ? 'person' : 'storefront'}</span>
+                {mode === 'personal' ? 'Personal' : 'Merchant'}
+                {isActive && (
+                  <motion.span layoutId="mode-pip" className="w-1.5 h-1.5 rounded-full bg-white/60" />
+                )}
+              </button>
+            )
+          })}
+        </div>
+
         {menuGroups.map((group, gIdx) => (
           <div key={gIdx} className="space-y-3">
             <h3 className="px-2 font-label font-bold text-[11px] text-on-surface-variant tracking-widest uppercase">{group.title}</h3>

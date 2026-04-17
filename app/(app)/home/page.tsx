@@ -30,7 +30,6 @@ export default function HomePage() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-xs text-secondary font-medium uppercase tracking-widest">Personal Mode</span>
             <h1 className="text-on-surface font-headline font-bold text-lg tracking-tight">
               Hi, {persona?.name.split(' ')[0] ?? 'Amara'}
             </h1>
