@@ -72,7 +72,7 @@ function QuickActionBtn({
   return (
     <Link 
       href={href} 
-      onClick={() => haptics.selection()}
+      onClick={() => haptics.light()}
       className={`flex flex-col items-center gap-1.5 flex-1 transition-all active:scale-95 group/btn ${isMiddle ? 'border-l border-white/10' : ''}`}
     >
       <div className="text-white group-hover/btn:scale-110 transition-transform">
