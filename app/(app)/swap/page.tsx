@@ -1,315 +1,222 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { haptics } from '@/lib/haptics'
+import { useWalletStore } from '@/store/wallet.store'
 
 type SwapState = 'input' | 'confirm' | 'success'
 
 export default function SwapPage() {
   const router = useRouter()
+  const { assets } = useWalletStore()
+  
   const [state, setState] = useState<SwapState>('input')
-  const [isFlipped, setIsFlipped] = useState(false)
-  const [amount, setAmount] = useState('450.00')
+  const [payAssetIdx, setPayAssetIdx] = useState(0)
+  const [receiveAssetIdx, setReceiveAssetIdx] = useState(1)
+  const [amount, setAmount] = useState('')
+  const [isProcessing, setIsProcessing] = useState(false)
 
-  // Derived values for prototype
-  const payAsset = isFlipped ? 'cNGN' : 'XBN'
-  const payBalance = isFlipped ? '150,000.00' : '1,240.50'
-  const payAmount = amount
-  const payFiat = '≈ $42.15 USD'
-  const payIcon = isFlipped ? '₦' : 'XBN'
-  const payColor = isFlipped ? 'bg-blue-500' : 'bg-[#FC690A]'
-
-  const receiveAsset = isFlipped ? 'XBN' : 'cNGN'
-  const receiveAmount = isFlipped ? (Number(amount) / 142.77).toFixed(2) : '64,250.00'
-  const receiveIcon = isFlipped ? 'XBN' : '₦'
-  const receiveColor = isFlipped ? 'bg-[#FC690A]' : 'bg-blue-500'
-  const rateText = isFlipped ? '1 cNGN = 0.007 XBN' : '1 XBN = 142.77 cNGN'
+  const payAsset = assets[payAssetIdx] || assets[0]
+  const receiveAsset = assets[receiveAssetIdx] || assets[1] || assets[0]
+  
+  // Mock exchange rate: 1 XBN = 142.77 cNGN (or similar)
+  const rate = payAsset.symbol === 'XBN' ? 142.77 : 0.007
+  const estimatedReceive = amount ? (parseFloat(amount) * rate).toLocaleString(undefined, { maximumFractionDigits: 4 }) : '0'
 
   const handleFlip = () => {
     haptics.medium()
-    setIsFlipped(!isFlipped)
+    const oldPay = payAssetIdx
+    setPayAssetIdx(receiveAssetIdx)
+    setReceiveAssetIdx(oldPay)
     setAmount('')
   }
 
-  const handleConfirm = () => {
-    haptics.medium()
-    setState('success')
+  const handleSwap = () => {
+    haptics.success()
+    setIsProcessing(true)
+    setTimeout(() => {
+        setIsProcessing(false)
+        setState('success')
+    }, 1500)
   }
 
   return (
-    <div className="min-h-screen bg-bg-base relative pt-24 pb-32">
-      <header className="fixed top-0 w-full max-w-[430px] z-20 bg-[#F5F6FA]/80 backdrop-blur-xl flex justify-between items-center px-6 py-4">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest border border-outline-variant/30">
-            <img alt="User Profile Avatar" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUqwit_yyHudJpED_gELyJZ7x51UH12dR-hR_XFVesaQqhUtPFU7j3VHB4ZwVnH2olU5ekcrCEYB8KNGmT8VjTYDMpgEzP7GrWnf6k9-TiYK6tJE_NwUXrn9pxcKu3GiVcCmyq1qtGCzIKiw2cpPr-Fb9AVwaQf00JKLAKpymdKGna3s-M0RJDjrX4pqmxkEQJO63UQDntMph63G05Jb8lRJ7yegjPSsucxj7tHQWv6XSJ1gLF5hfb1iA7Lt4heQUSGDla6fsfWQ" />
-          </div>
-          <span className="font-headline font-black text-xl text-[#FC690A] tracking-tighter">BantuPay</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <button className="text-slate-500 hover:opacity-80 transition-opacity" onClick={() => haptics.light()}>
-            <span className="material-symbols-outlined">settings</span>
-          </button>
-          <button className="text-slate-500 hover:opacity-80 transition-opacity" onClick={() => haptics.light()}>
-            <span className="material-symbols-outlined">notifications</span>
-          </button>
-        </div>
-      </header>
-
+    <div className="bg-background min-h-screen text-on-background pb-32 w-full max-w-[430px] mx-auto">
       <AnimatePresence mode="wait">
-        {state === 'success' ? (
-          <motion.main
-            key="success"
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            className="flex-1 flex flex-col items-center justify-center px-6 mt-12"
-          >
-            <div className="w-32 h-32 bg-primary/10 rounded-full flex items-center justify-center mb-6 relative">
-              <div className="absolute w-40 h-40 border border-primary/20 rounded-full animate-ping opacity-50" />
-              <div className="w-24 h-24 bg-gradient-to-br from-[#FC690A] to-[#D4560A] rounded-full flex items-center justify-center shadow-brand">
-                <span className="material-symbols-outlined text-white text-5xl font-bold" style={{ fontVariationSettings: "'wght' 700" }}>check</span>
-              </div>
-            </div>
-            
-            <h1 className="text-4xl font-headline font-extrabold tracking-tight text-on-surface mb-4">Swap complete!</h1>
-            <div className="px-4 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase tracking-widest mb-10 border border-primary/20 flex items-center gap-1">
-              <span className="w-1.5 h-1.5 bg-primary rounded-full" /> Transaction Confirmed
-            </div>
-            
-            <div className="w-full bg-surface-container-lowest border border-outline-variant/20 rounded-2xl p-6 shadow-sm mb-12">
-              <div className="space-y-6 text-left relative">
-                <div className="absolute right-4 top-4 opacity-10">
-                  <span className="material-symbols-outlined text-[100px]">sync_alt</span>
-                </div>
-                <div>
-                  <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-1">From</p>
-                  <p className="text-3xl font-headline font-bold text-on-surface flex items-baseline gap-2">
-                    {payAmount} <span className="text-lg font-medium text-slate-500">{payAsset}</span>
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-1">To</p>
-                  <p className="text-3xl font-headline font-bold text-primary flex items-baseline gap-2">
-                    {receiveAmount} <span className="text-lg font-medium text-primary/80">{receiveAsset}</span>
-                  </p>
-                </div>
-                <div className="h-px w-full bg-outline-variant/30 my-4" />
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center text-sm">
-                    <span className="text-slate-500 font-medium">Network Fee</span>
-                    <span className="font-mono text-on-surface font-bold">0.00045 XBN</span>
-                  </div>
-                  <div className="flex justify-between items-center text-sm">
-                    <span className="text-slate-500 font-medium">Transaction Hash</span>
-                    <span className="font-mono text-primary font-bold">8xK2...R9e1</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="w-full space-y-4">
-              <button className="w-full bg-gradient-to-br from-[#FC690A] to-[#D4560A] text-white py-4 rounded-full font-bold text-lg shadow-brand flex items-center justify-center gap-2 active:scale-95 transition-transform">
-                <span className="material-symbols-outlined text-[20px]">share</span>
-                Share Receipt
+        {state === 'input' && (
+          <motion.div key="input" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="px-6 pt-16">
+            <header className="flex justify-between items-center mb-10">
+              <h1 className="font-headline font-bold text-[28px] text-on-surface tracking-tight">Swap</h1>
+              <button onClick={() => haptics.light()} className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+                <span className="material-symbols-outlined text-[20px]">settings</span>
               </button>
-              <button onClick={() => { haptics.light(); setState('input'); setAmount(''); router.push('/home') }} className="w-full bg-surface-container-high text-on-surface font-bold py-4 rounded-full active:scale-95 transition-transform">
-                Back to Home
-              </button>
-            </div>
-          </motion.main>
-        ) : (
-          <motion.main key="input" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="px-6">
-            <div className="mb-8">
-              <h1 className="text-4xl font-headline font-extrabold tracking-tighter text-on-surface">Swap</h1>
-              <p className="text-on-surface-variant text-sm mt-1">Exchange assets instantly with zero slippage</p>
-            </div>
+            </header>
 
-            <div className="bg-surface-container-lowest rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
-              <div className="p-6 bg-surface-container-low/30">
+            <main className="space-y-1 relative">
+              {/* Pay Card */}
+              <div className="bg-surface rounded-t-[24px] rounded-b-[4px] p-6 border border-outline-variant/10 shadow-sm">
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-xs font-bold uppercase tracking-widest text-slate-400">You pay</span>
-                  <span className="text-xs font-medium text-[#FC690A] bg-[#FC690A]/10 px-2 py-1 rounded-full">Balance: {payBalance}</span>
+                  <span className="font-label font-bold text-[11px] text-on-surface-variant tracking-widest uppercase">You pay</span>
+                  <span className="font-label font-bold text-[11px] text-primary bg-primary/10 px-2 py-0.5 rounded-full">Balance: {payAsset.balance.toLocaleString()}</span>
                 </div>
-                <div className="flex items-center justify-between gap-4">
-                  <input
+                <div className="flex items-center gap-4">
+                  <input 
+                    type="number"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
-                    placeholder="0.00"
-                    className="bg-transparent border-none p-0 focus:ring-0 text-4xl font-headline font-bold text-on-surface w-full outline-none"
+                    placeholder="0"
+                    className="flex-1 bg-transparent border-none p-0 focus:ring-0 text-[40px] font-headline font-bold text-on-surface outline-none placeholder:text-on-surface/10"
                   />
-                  <button className="flex items-center gap-2 bg-white flex-shrink-0 shadow-sm border border-outline-variant/20 px-3 py-2 rounded-full hover:bg-surface-container-low transition-colors">
-                    <div className={`w-6 h-6 rounded-full ${payColor} flex items-center justify-center text-[10px] font-bold text-white`}>{payIcon}</div>
-                    <span className="font-bold text-sm">{payAsset}</span>
-                    <span className="material-symbols-outlined text-sm">expand_more</span>
+                  <button onClick={() => haptics.light()} className="flex items-center gap-2 bg-surface-container-low px-3 py-2 rounded-full border border-outline-variant/10 hover:bg-surface-container transition-colors shadow-sm">
+                    <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold" style={{ backgroundColor: payAsset.iconBg, color: payAsset.color }}>{payAsset.iconText}</div>
+                    <span className="font-headline font-bold text-[14px]">{payAsset.symbol}</span>
+                    <span className="material-symbols-outlined text-[18px]">expand_more</span>
                   </button>
                 </div>
-                <div className="mt-2 text-sm text-on-surface-variant font-mono">
-                  {payFiat}
-                </div>
+                <p className="font-body text-[13px] text-on-surface-variant/60 font-medium mt-1">≈ {payAsset.fiatSymbol}{((parseFloat(amount)||0) * (payAsset.fiatValue / (payAsset.balance||1))).toLocaleString()}</p>
               </div>
 
-              <div className="relative h-2 flex justify-center items-center z-10">
-                <button
+              {/* Flip Button */}
+              <div className="absolute left-1/2 -translate-x-1/2 top-[162px] -translate-y-1/2 z-10">
+                 <button 
                   onClick={handleFlip}
-                  className="w-12 h-12 bg-[#FC690A] rounded-full flex items-center justify-center text-white shadow-lg shadow-[#FC690A]/20 active:scale-90 transition-transform duration-300 peer group"
-                  style={{ transform: isFlipped ? 'rotate(180deg)' : 'rotate(0deg)' }}
-                >
-                  <span className="material-symbols-outlined">swap_vert</span>
-                </button>
+                  className="w-10 h-10 bg-surface rounded-full shadow-lg border border-outline-variant/10 flex items-center justify-center text-primary active:scale-90 transition-transform group"
+                 >
+                    <span className="material-symbols-outlined group-hover:rotate-180 transition-transform duration-500">swap_vert</span>
+                 </button>
               </div>
 
-              <div className="p-6 pt-10">
+              {/* Receive Card */}
+              <div className="bg-surface rounded-b-[24px] rounded-t-[4px] p-6 border border-outline-variant/10 shadow-sm pt-10">
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-xs font-bold uppercase tracking-widest text-slate-400">You receive</span>
+                  <span className="font-label font-bold text-[11px] text-on-surface-variant tracking-widest uppercase">You receive</span>
                 </div>
-                <div className="flex items-center justify-between gap-4">
-                  <div className="text-4xl font-headline font-bold text-on-surface w-full truncate">
-                    {amount ? receiveAmount : '0.00'}
+                <div className="flex items-center gap-4">
+                  <div className="flex-1 text-[40px] font-headline font-bold text-on-surface truncate">
+                    {amount ? estimatedReceive : '0'}
                   </div>
-                  <button className="flex items-center gap-2 bg-surface-container-low flex-shrink-0 shadow-sm px-3 py-2 rounded-full hover:bg-surface-container-high transition-colors">
-                    <div className={`w-6 h-6 rounded-full ${receiveColor} flex items-center justify-center text-[10px] font-bold text-white`}>{receiveIcon}</div>
-                    <span className="font-bold text-sm">{receiveAsset}</span>
-                    <span className="material-symbols-outlined text-sm">expand_more</span>
+                  <button onClick={() => haptics.light()} className="flex items-center gap-2 bg-surface-container-low px-3 py-2 rounded-full border border-outline-variant/10 hover:bg-surface-container transition-colors shadow-sm">
+                    <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold" style={{ backgroundColor: receiveAsset.iconBg, color: receiveAsset.color }}>{receiveAsset.iconText}</div>
+                    <span className="font-headline font-bold text-[14px]">{receiveAsset.symbol}</span>
+                    <span className="material-symbols-outlined text-[18px]">expand_more</span>
                   </button>
                 </div>
-                <div className="mt-2 text-sm text-on-surface-variant font-mono">
-                  {rateText}
-                </div>
+                <p className="font-body text-[13px] text-on-surface-variant/60 font-medium mt-1">1 {payAsset.symbol} = {rate} {receiveAsset.symbol}</p>
               </div>
+            </main>
 
-              <div className="px-6 py-4 border-t border-surface-container-low">
-                <div className="flex flex-col gap-2">
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center gap-1 text-slate-500">
-                      <span className="text-xs font-medium">Network fee</span>
-                      <span className="material-symbols-outlined text-[14px]">info</span>
+            <section className="mt-8 space-y-4">
+                <div className="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/10 flex flex-col gap-2">
+                    <div className="flex justify-between items-center text-[12px]">
+                        <span className="text-on-surface-variant font-medium">Network fee</span>
+                        <span className="text-on-surface font-bold text-[#16A34A]">&lt; ₦0.01</span>
                     </div>
-                    <span className="text-xs font-bold font-mono text-on-surface">&lt; ₦0.01</span>
-                  </div>
-                  <div className="flex flex-col gap-2"><div className="flex justify-between items-center">
-                    <div className="flex items-center gap-1 text-slate-500">
-                      <span className="text-xs font-medium">Slippage Tolerance</span>
+                    <div className="flex justify-between items-center text-[12px]">
+                        <span className="text-on-surface-variant font-medium">Slippage Tolerance</span>
+                        <span className="text-on-surface font-bold">0.5%</span>
                     </div>
-                    <span className="text-xs font-bold font-mono text-on-surface">0.5%</span>
-                  </div></div>
                 </div>
-              </div>
-            </div>
 
-            <div className="mt-8">
-              <button
-                onClick={() => { haptics.medium(); setState('confirm') }}
-                disabled={!amount}
-                className="w-full py-5 rounded-full bg-gradient-to-br from-[#FC690A] to-[#D4560A] text-white font-bold text-lg shadow-lg shadow-[#FC690A]/20 active:scale-95 transition-transform disabled:opacity-50 disabled:shadow-none"
-              >
-                Swap Now
-              </button>
-              <p className="text-center text-xs text-on-surface-variant mt-4 px-8 leading-relaxed">
-                By swapping, you agree to BantuPay's <span className="text-[#FC690A] font-semibold">Terms of Service</span> and decentralized liquidity protocols.
-              </p>
-            </div>
-          </motion.main>
+                <div className="pt-4">
+                    <button 
+                      disabled={!amount || parseFloat(amount) <= 0}
+                      onClick={() => { haptics.medium(); setState('confirm') }}
+                      className="w-full h-14 bg-gradient-to-br from-[#FC690A] to-[#D4560A] text-white font-headline font-bold text-lg rounded-full shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2 disabled:opacity-40 disabled:grayscale disabled:shadow-none"
+                    >
+                        Preview Swap
+                    </button>
+                </div>
+            </section>
+          </motion.div>
         )}
-      </AnimatePresence>
 
-      {/* Confirmation Bottom Sheet Overlay */}
-      <AnimatePresence>
         {state === 'confirm' && (
-          <div className="fixed inset-0 z-50 flex items-end justify-center pointer-events-none">
-            <motion.div
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-on-background/20 backdrop-blur-sm pointer-events-auto"
-              onClick={() => setState('input')}
-            />
-            <motion.div
-              initial={{ y: '100%' }} animate={{ y: 0 }} exit={{ y: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="bg-surface/95 backdrop-blur-2xl w-full max-w-[430px] rounded-t-3xl shadow-2xl flex flex-col pointer-events-auto z-10"
-            >
-              <div className="w-full flex justify-center py-4">
-                <div className="w-12 h-1.5 bg-on-surface-variant/20 rounded-full" />
-              </div>
-              <div className="px-8 pb-6 text-center">
-                <h2 className="text-2xl font-headline font-extrabold tracking-tight text-on-surface">Confirm Swap</h2>
-              </div>
-              <div className="px-8 space-y-6">
-                <div className="bg-surface-container-low rounded-xl p-6 space-y-6 relative overflow-hidden">
-                  <div className="absolute -top-12 -right-12 w-32 h-32 bg-primary-container/10 blur-3xl rounded-full" />
-                  
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                      <div className="relative">
-                        <div className={`w-12 h-12 rounded-full ${payColor} flex items-center justify-center text-white text-xl shadow-md border-2 border-white`}><span className="font-bold">{payIcon}</span></div>
-                        <div className="absolute -bottom-1 -right-1 bg-white p-0.5 rounded-full">
-                          <span className="material-symbols-outlined text-[12px] text-slate-400">arrow_upward</span>
+           <motion.div key="confirm" initial={{ y: '100%' }} animate={{ y: 0 }} exit={{ y: '100%' }} className="fixed inset-0 z-[100] bg-background flex flex-col pt-16">
+                <header className="px-6 flex justify-between items-center mb-8">
+                    <button onClick={() => setState('input')} className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+                        <span className="material-symbols-outlined">arrow_back</span>
+                    </button>
+                    <h2 className="font-headline font-bold text-[20px]">Confirm Swap</h2>
+                    <div className="w-10" />
+                </header>
+
+                <main className="px-6 flex-1 space-y-6">
+                    <div className="bg-surface rounded-[24px] p-6 border border-outline-variant/10 shadow-sm space-y-6">
+                        <div className="flex items-center justify-between">
+                            <div className="text-left">
+                                <p className="font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Pay</p>
+                                <p className="font-headline font-bold text-[24px] text-on-surface">{amount} {payAsset.symbol}</p>
+                            </div>
+                            <div className="w-10 h-10 rounded-full flex items-center justify-center text-[12px] font-bold" style={{ backgroundColor: payAsset.iconBg, color: payAsset.color }}>{payAsset.iconText}</div>
                         </div>
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">You pay</p>
-                        <p className="text-xl font-bold font-mono text-on-surface">{payAmount} {payAsset}</p>
-                      </div>
-                    </div>
-                    <p className="text-sm font-medium text-slate-500">{payFiat}</p>
-                  </div>
 
-                  <div className="flex items-center gap-4">
-                    <div className="h-px flex-grow bg-outline-variant/30" />
-                    <span className="material-symbols-outlined text-primary-container font-bold bg-white rounded-full">expand_circle_down</span>
-                    <div className="h-px flex-grow bg-outline-variant/30" />
-                  </div>
-
-                  <div className="flex items-center justify-between relative z-10">
-                    <div className="flex items-center gap-4">
-                      <div className="relative">
-                        <div className={`w-12 h-12 rounded-full ${receiveColor} flex items-center justify-center text-white text-xl shadow-md text-white border-2 border-white`}><span className="font-bold">{receiveIcon}</span></div>
-                        <div className="absolute -bottom-1 -right-1 bg-white p-0.5 rounded-full">
-                          <span className="material-symbols-outlined text-[12px] text-primary-container">arrow_downward</span>
+                        <div className="h-px bg-outline-variant/10 relative">
+                             <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-surface p-1">
+                                <span className="material-symbols-outlined text-on-surface-variant text-[18px]">arrow_downward</span>
+                             </div>
                         </div>
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">You receive</p>
-                        <p className="text-xl font-bold font-mono text-on-surface">{receiveAmount} {receiveAsset}</p>
-                      </div>
+
+                        <div className="flex items-center justify-between">
+                            <div className="text-left">
+                                <p className="font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Receive (Estimated)</p>
+                                <p className="font-headline font-bold text-[24px] text-[#16A34A]">≈ {estimatedReceive} {receiveAsset.symbol}</p>
+                            </div>
+                            <div className="w-10 h-10 rounded-full flex items-center justify-center text-[12px] font-bold" style={{ backgroundColor: receiveAsset.iconBg, color: receiveAsset.color }}>{receiveAsset.iconText}</div>
+                        </div>
                     </div>
-                  </div>
-                </div>
 
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm font-medium text-slate-500">Exchange rate</span>
-                    <span className="text-sm font-bold font-mono">{rateText}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm font-medium text-slate-500">Network Fee</span>
-                    <span className="text-sm font-bold font-mono text-on-surface">&lt; ₦0.01</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm font-medium text-slate-500">Price impact</span>
-                    <span className="text-[11px] font-bold text-tertiary font-body bg-tertiary-container/30 px-2 py-0.5 rounded-full">&lt; 0.01%</span>
-                  </div>
-                </div>
+                    <div className="space-y-4 px-2">
+                         <div className="flex justify-between items-center text-[13px]">
+                             <span className="text-on-surface-variant font-medium">Exchange Rate</span>
+                             <span className="text-on-surface font-bold font-mono">1 {payAsset.symbol} = {rate} {receiveAsset.symbol}</span>
+                         </div>
+                         <div className="flex justify-between items-center text-[13px]">
+                             <span className="text-on-surface-variant font-medium">Price Impact</span>
+                             <span className="text-[#16A34A] font-bold">0.05%</span>
+                         </div>
+                    </div>
 
-                <div className="space-y-2 pt-2">
-                  <div className="flex justify-between items-end">
-                    <span className="text-[10px] font-bold text-slate-400/80 uppercase tracking-widest">Rate valid for 30s</span>
-                    <span className="text-xs font-bold font-mono text-primary">24s</span>
-                  </div>
-                  <div className="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
-                    <motion.div initial={{ width: '100%' }} animate={{ width: '80%' }} transition={{ duration: 6, ease: 'linear' }} className="bg-primary/80 h-full rounded-full" />
-                  </div>
-                </div>
-              </div>
+                    <div className="pt-8 flex flex-col items-center gap-4">
+                        <button 
+                            onClick={handleSwap}
+                            className={\`w-20 h-20 rounded-full flex items-center justify-center shadow-xl transition-all active:scale-95 \${isProcessing ? 'bg-surface-container animate-pulse' : 'bg-primary shadow-primary/25'}\`}
+                        >
+                            {isProcessing ? (
+                                <div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
+                            ) : (
+                                <span className="material-symbols-outlined text-white text-3xl font-bold">face</span>
+                            )}
+                        </button>
+                        <p className="font-headline font-bold text-[14px] text-on-surface">{isProcessing ? 'Processing Transaction...' : 'Hold for Biometric Swap'}</p>
+                        <p className="font-body text-[11px] text-on-surface-variant/60 font-bold uppercase tracking-widest">Authorized by BantuPay Safe</p>
+                    </div>
+                </main>
+           </motion.div>
+        )}
 
-              <div className="p-8 mt-4 bg-surface-container-lowest rounded-t-3xl border-t border-outline-variant/10">
-                <button onClick={handleConfirm} className="w-full bg-gradient-to-br from-[#FC690A] to-[#D4560A] text-white py-4 rounded-full flex items-center justify-center gap-3 font-bold text-lg shadow-brand active:scale-95 transition-transform">
-                  <span className="material-symbols-outlined font-bold" style={{ fontVariationSettings: "'FILL' 1" }}>face</span>
-                  Confirm with Face ID
-                </button>
-                <button onClick={() => setState('input')} className="w-full mt-4 text-slate-500 font-bold py-2 hover:text-on-surface transition-colors active:scale-95 transition-transform text-sm uppercase tracking-wider">
-                  Cancel Swap
-                </button>
-              </div>
+        {state === 'success' && (
+            <motion.div key="success" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="fixed inset-0 bg-background z-[110] flex flex-col items-center justify-center px-8">
+                 <div className="w-24 h-24 bg-[#16A34A]/10 rounded-full flex items-center justify-center mb-8 relative">
+                    <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="w-16 h-16 bg-[#16A34A] rounded-full flex items-center justify-center text-white">
+                        <span className="material-symbols-outlined text-3xl font-bold">check</span>
+                    </motion.div>
+                 </div>
+
+                 <h1 className="font-headline font-extrabold text-[32px] text-on-surface text-center mb-2 tracking-tight">Swap complete!</h1>
+                 <p className="font-body text-[15px] text-on-surface-variant text-center leading-relaxed mb-10 max-w-[280px]">
+                    Successfully exchanged {amount} {payAsset.symbol} for {estimatedReceive} {receiveAsset.symbol}.
+                 </p>
+
+                 <div className="w-full space-y-3">
+                    <button onClick={() => { haptics.light(); router.push('/home') }} className="w-full h-14 bg-surface-container text-on-surface font-headline font-bold text-[15px] rounded-full active:scale-95 transition-transform border border-outline-variant/10">
+                        Back to Home
+                    </button>
+                    <button onClick={() => { haptics.light(); setState('input'); setAmount('') }} className="w-full h-14 text-on-surface-variant font-headline font-bold text-[13px] uppercase tracking-widest">
+                        New Swap
+                    </button>
+                 </div>
             </motion.div>
-          </div>
         )}
       </AnimatePresence>
     </div>

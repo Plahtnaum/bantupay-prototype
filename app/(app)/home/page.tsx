@@ -6,10 +6,15 @@ import { TransactionListItem } from '@/components/wallet/TransactionListItem'
 import { useWalletStore } from '@/store/wallet.store'
 import { useUserStore } from '@/store/user.store'
 import { haptics } from '@/lib/haptics'
+import { useState } from 'react'
+import { NotificationCenter } from '@/components/layout/NotificationCenter'
+import { useRouter } from 'next/navigation'
 
 export default function HomePage() {
+  const router = useRouter()
   const { assets, transactions } = useWalletStore()
   const { persona } = useUserStore()
+  const [isNotifOpen, setIsNotifOpen] = useState(false)
   const recent = transactions.slice(0, 3)
 
   return (
@@ -33,14 +38,14 @@ export default function HomePage() {
         </div>
         <div className="flex items-center gap-2">
           <button
-            onClick={() => haptics.light()}
+            onClick={() => { haptics.light(); setIsNotifOpen(true) }}
             className="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:opacity-80 transition-opacity relative"
           >
             <span className="material-symbols-outlined text-on-surface">notifications</span>
             <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-primary rounded-full border-2 border-surface" />
           </button>
           <button
-            onClick={() => haptics.light()}
+            onClick={() => { haptics.light(); router.push('/scan') }}
             className="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:opacity-80 transition-opacity"
           >
             <span className="material-symbols-outlined text-on-surface">qr_code_scanner</span>
@@ -56,7 +61,7 @@ export default function HomePage() {
         <section className="space-y-4">
           <div className="flex justify-between items-end">
             <h2 className="text-secondary font-headline font-extrabold tracking-widest text-xs uppercase">ASSETS</h2>
-            <button className="text-primary font-bold text-xs hover:underline transition-all" onClick={() => haptics.light()}>Manage</button>
+            <button className="text-primary font-bold text-xs hover:underline transition-all" onClick={() => { haptics.light(); router.push('/wallet') }}>Manage</button>
           </div>
           <div className="space-y-3">
             {assets.map((asset, i) => (
@@ -88,6 +93,8 @@ export default function HomePage() {
           </section>
         )}
       </main>
+
+      <NotificationCenter isOpen={isNotifOpen} onClose={() => setIsNotifOpen(false)} />
     </div>
   )
 }
