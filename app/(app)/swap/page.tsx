@@ -185,7 +185,7 @@ export default function SwapPage() {
                     </div>
                     <span className="text-xs font-bold font-mono text-on-surface">&lt; ₦0.01</span>
                   </div>
-                  <div class="flex flex-col gap-2"><div className="flex justify-between items-center">
+                  <div className="flex flex-col gap-2"><div className="flex justify-between items-center">
                     <div className="flex items-center gap-1 text-slate-500">
                       <span className="text-xs font-medium">Slippage Tolerance</span>
                     </div>
