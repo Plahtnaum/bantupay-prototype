@@ -12,21 +12,26 @@ const config: Config = {
           light:   '#FF8A3D',
           wash:    '#FFF3EC',
         },
+        // Kinetic Surface Tiers
+        surface: {
+          DEFAULT: 'var(--surface)',
+          container: {
+            lowest:  'var(--surface-container-lowest)',
+            low:     'var(--surface-container-low)',
+            DEFAULT: 'var(--surface-container)',
+            high:    'var(--surface-container-high)',
+            highest: 'var(--surface-container-highest)',
+          },
+          variant: 'var(--surface-variant)',
+        },
         bg: {
-          base:       '#F5F6FA',
-          surface:    '#FFFFFF',
-          surface2:   '#F0F1F5',
-          'base-dark':     '#0F0F12',
-          'surface-dark':  '#1A1A20',
-          'surface2-dark': '#24242C',
+          base:    'var(--bg-base)',
         },
         text: {
-          primary:   '#0F0F0F',
-          secondary: '#6B7080',
-          tertiary:  '#A0A8B8',
+          primary:   'var(--text-primary)',
+          secondary: 'var(--text-secondary)',
+          tertiary:  'var(--text-tertiary)',
           'on-brand': '#FFFFFF',
-          'primary-dark':   '#F5F5F5',
-          'secondary-dark': '#9BA3B4',
         },
         semantic: {
           success:        '#16A34A',
@@ -39,18 +44,14 @@ const config: Config = {
           'info-wash':    '#EFF6FF',
         },
         border: {
-          DEFAULT: '#E8EAF0',
+          DEFAULT: 'var(--border)',
           focus:   '#FC690A',
-          dark:    '#2A2A35',
-        },
-        surface: {
-          dark:  '#1A1A20',
-          dark2: '#24242C',
         },
       },
       fontFamily: {
         display: ['var(--font-jakarta)', 'sans-serif'],
         body:    ['var(--font-inter)', 'sans-serif'],
+        label:   ['var(--font-inter)', 'sans-serif'],
         mono:    ['var(--font-jetbrains)', 'monospace'],
       },
       borderRadius: {
@@ -60,9 +61,10 @@ const config: Config = {
         lg:   '16px',
         xl:   '24px',
         '2xl':'32px',
+        full: '9999px',
       },
       boxShadow: {
-        brand: '0 4px 20px rgba(252,105,10,0.30), 0 2px 8px rgba(252,105,10,0.15)',
+        brand: '0 24px 48px -12px rgba(252, 105, 10, 0.35)',
         card:  '0 2px 8px rgba(0,0,0,0.06)',
         md:    '0 4px 16px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06)',
         lg:    '0 8px 32px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08)',

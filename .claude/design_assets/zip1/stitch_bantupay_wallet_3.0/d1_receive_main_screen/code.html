@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e7e8ec",
+                    "surface-bright": "#f8f9fd",
+                    "tertiary-fixed": "#d0e4ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#5a4137",
+                    "outline": "#8e7165",
+                    "on-background": "#191c1f",
+                    "background": "#f8f9fd",
+                    "on-primary-fixed-variant": "#7b2f00",
+                    "on-secondary-fixed-variant": "#77320b",
+                    "surface-dim": "#d9dade",
+                    "secondary-fixed-dim": "#ffb695",
+                    "primary-fixed": "#ffdbcc",
+                    "on-secondary-container": "#753009",
+                    "tertiary-container": "#009cfc",
+                    "inverse-surface": "#2e3134",
+                    "on-surface": "#191c1f",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#9ccaff",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#551e00",
+                    "outline-variant": "#e2bfb1",
+                    "on-tertiary-fixed-variant": "#00497b",
+                    "secondary-container": "#fd9a6c",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#001d35",
+                    "error": "#ba1a1a",
+                    "surface": "#f8f9fd",
+                    "inverse-on-surface": "#eff1f5",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#0062a1",
+                    "primary-fixed-dim": "#ffb695",
+                    "on-secondary-fixed": "#351000",
+                    "on-tertiary-container": "#003155",
+                    "surface-tint": "#a23f00",
+                    "inverse-primary": "#ffb695",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#edeef2",
+                    "primary": "#a23f00",
+                    "surface-container-low": "#f2f3f7",
+                    "secondary-fixed": "#ffdbcc",
+                    "secondary": "#964921",
+                    "surface-variant": "#e1e2e6",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e1e2e6",
+                    "on-primary-fixed": "#351000",
+                    "primary-container": "#fc690a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "mono": ["JetBrains Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .qr-gradient-border {
+            background: linear-gradient(135deg, #FC690A 0%, #D4560A 100%);
+            padding: 2px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen">
+<!-- Top Navigation Anchor (Manual for Task) -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 backdrop-blur-xl flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<h1 class="text-xl font-bold font-headline tracking-tight text-on-surface">Receive</h1>
+</div>
+<div class="flex items-center bg-surface-container-low px-3 py-1.5 rounded-full border border-outline-variant/15">
+<img alt="cNGN Currency" class="w-6 h-6 rounded-full mr-2" data-alt="Close up of a stylized orange digital currency icon with geometric patterns on a clean studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSfRaKlQOpYm0a1VfLNGGxmJq0s_ijufWeYUKRkHO1LeuV5FWWUojzydQw-1Y4vs4Yj0X828dNFJ-eO_ce7CDaZcCPYn5o3VItPpwNWiioCmAsSpSkMX9uO5CLF3BBRt3yyC3vKqOx5wji_6P_WqtUEfOcMqrYTnguNAdI7o95rz_HHWyikhjgJ1aeQPbIkgdZeUolq2ZCXuPhwMqTQf6vESYLui0Y4SopQQiaeXyDmr-sCLU5PX2AhDIcELoRvBH6jjAiJtVSRg"/>
+<span class="text-sm font-semibold">cNGN</span>
+<span class="material-symbols-outlined text-xs ml-1">expand_more</span>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 px-6 max-w-md mx-auto">
+<!-- Kinetic QR Card Composition -->
+<div class="relative group">
+<!-- Glow background effect -->
+<div class="absolute inset-0 bg-primary/10 blur-[60px] rounded-full scale-75 -z-10"></div>
+<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center shadow-[0_8px_40px_rgba(0,0,0,0.04)] border border-outline-variant/10">
+<!-- QR Code Container -->
+<div class="relative w-[220px] h-[220px] bg-white p-4 rounded-lg shadow-md mb-6 flex items-center justify-center">
+<img alt="Payment QR Code" class="w-full h-full grayscale brightness-90" data-alt="Digital QR code grid with crisp black squares on a white background for electronic payment scanning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8OPlYGqNBw9uKzF53YacUkZn5oBMzcC5OIuLuOF0jo049bspTRv0WI45KP49NPJJUUCNQH0WwzPllA7NVRr9PPlvqboDbJfm6c0iN2sL9I1KxDV8d26BYZMHx-MCysDjT5-Qjzvp3f-N3XuSrhpITPSNoiYLbK-3KlpNvJJne1H_HCngqO_7Go5BkVtqbUBkIDkZhs2HjFxB7dT1L9mAuSpdETNCI5a6WRfin9fpa3G86ILK0pFNkZI0BEittcq9bGaB-nVRmRA"/>
+<!-- BantuPay Branding in Center of QR -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-white p-1.5 rounded-lg shadow-sm">
+<div class="bg-primary-container w-8 h-8 rounded-md flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center space-y-1">
+<p class="text-sm font-medium text-on-surface/80">Receiving <span class="text-on-surface font-extrabold text-base">[cNGN]</span></p>
+<p class="text-[10px] uppercase tracking-widest text-outline font-bold">BANTU NETWORK</p>
+</div>
+</div>
+</div>
+<!-- Address & Action Cluster -->
+<section class="mt-8 space-y-4">
+<!-- Address Mono Strip -->
+<div class="bg-surface-container-low/50 p-2 rounded-2xl flex items-center gap-2 border border-outline-variant/20">
+<div class="flex-1 px-4 py-2 bg-surface-container-lowest rounded-xl">
+<p class="font-mono text-on-surface tracking-tight truncate text-sm font-bold">GBPTV...XXXQ</p>
+</div>
+<div class="flex gap-1.5 pr-1.5">
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-primary-container text-white shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">content_copy</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-primary-container text-white shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+</div>
+</div>
+<!-- Bento Share Link Section -->
+<div class="grid grid-cols-1 gap-4">
+<div class="bg-surface-container-low p-5 rounded-2xl flex items-center justify-between group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">link</span>
+</div>
+<div>
+<p class="text-[11px] text-on-surface-variant uppercase tracking-wider font-bold text-primary">Personal Link</p>
+<p class="text-on-surface font-medium"><span class="font-bold">bantupay.link/amara</span></p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Request Specific Amount CTA -->
+<div class="mt-10">
+<button class="w-full py-4 px-6 rounded-full bg-primary text-white flex items-center justify-between shadow-[0_4px_14px_0_rgba(252,105,10,0.39)] group hover:brightness-110 transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-semibold tracking-tight">Request specific amount</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Shell (JSON Defined) -->
+<nav class="fixed bottom-0 left-0 w-full h-[80px] bg-slate-50/90 backdrop-blur-2xl flex justify-around items-center px-4 pb-safe rounded-t-[24px] shadow-[0_-4px_20px_rgba(252,105,10,0.08)] z-50">
+<div class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-600 transition-colors">
+<span class="material-symbols-outlined text-[24px]">home</span>
+<span class="font-['Inter'] text-[10px] font-medium mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-orange-600 dark:text-orange-500 transition-colors">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-['Inter'] text-[10px] font-medium mt-1">Assets</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-600 transition-colors">
+<span class="material-symbols-outlined text-[24px]">qr_code_scanner</span>
+<span class="font-['Inter'] text-[10px] font-medium mt-1">Scan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-600 transition-colors">
+<span class="material-symbols-outlined text-[24px]">history</span>
+<span class="font-['Inter'] text-[10px] font-medium mt-1">History</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-600 transition-colors">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<span class="font-['Inter'] text-[10px] font-medium mt-1">Settings</span>
+</div>
+</nav>
+<!-- Floating Security Decorative Element -->
+<div class="fixed bottom-24 right-6 pointer-events-none opacity-20">
+<span class="material-symbols-outlined text-[80px] text-primary">verified_user</span>
+</div>
+</body></html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BantuPay - PIN Setup</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e7e8ec",
+                        "surface-bright": "#f8f9fd",
+                        "tertiary-fixed": "#d0e4ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#5a4137",
+                        "outline": "#8e7165",
+                        "on-background": "#0F0F0F",
+                        "background": "#F5F6FA",
+                        "on-primary-fixed-variant": "#7b2f00",
+                        "on-secondary-fixed-variant": "#77320b",
+                        "surface-dim": "#d9dade",
+                        "secondary-fixed-dim": "#ffb695",
+                        "primary-fixed": "#ffdbcc",
+                        "on-secondary-container": "#753009",
+                        "tertiary-container": "#009cfc",
+                        "inverse-surface": "#2e3134",
+                        "on-surface": "#0F0F0F",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#551e00",
+                        "outline-variant": "#e2bfb1",
+                        "on-tertiary-fixed-variant": "#00497b",
+                        "secondary-container": "#fd9a6c",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#001d35",
+                        "error": "#ba1a1a",
+                        "surface": "#F5F6FA",
+                        "inverse-on-surface": "#eff1f5",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#0062a1",
+                        "primary-fixed-dim": "#ffb695",
+                        "on-secondary-fixed": "#351000",
+                        "on-tertiary-container": "#003155",
+                        "surface-tint": "#a23f00",
+                        "inverse-primary": "#ffb695",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#F0F1F5",
+                        "primary": "#FC690A",
+                        "surface-container-low": "#F0F1F5",
+                        "secondary-fixed": "#ffdbcc",
+                        "secondary": "#964921",
+                        "surface-variant": "#E4E6ED",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#E4E6ED",
+                        "on-primary-fixed": "#351000",
+                        "primary-container": "#FC690A"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #F5F6FA;
+            color: #0F0F0F;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen items-center justify-between overflow-hidden">
+<!-- Top Navigation / Logo -->
+<header class="w-full flex justify-center pt-12 pb-6 px-6">
+<div class="flex flex-col items-center gap-1">
+<span class="text-primary font-['Plus_Jakarta_Sans'] font-black tracking-tighter text-2xl">BANTUPAY</span>
+</div>
+</header>
+<!-- Content Area -->
+<main class="flex-1 w-full max-w-md flex flex-col items-center justify-start px-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+<!-- Icon Container -->
+<div class="mt-8 mb-8 flex items-center justify-center">
+<div class="w-24 h-24 rounded-full bg-surface-container-highest flex items-center justify-center relative overflow-hidden">
+<!-- Decorative Glow -->
+<div class="absolute inset-0 bg-primary opacity-5 blur-2xl"></div>
+<span class="material-symbols-outlined text-primary text-[52px]" data-icon="shield_person" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shield_person</span>
+</div>
+</div>
+<!-- Headline & Subtext -->
+<div class="text-center mb-10">
+<h1 class="font-headline font-bold text-3xl tracking-tight text-on-surface mb-3">Create your PIN</h1>
+<p class="font-body text-zinc-500 text-sm max-w-[280px] mx-auto leading-relaxed">6 digits that will be used to authorize your transactions and secure your assets.</p>
+</div>
+<!-- PIN Dots Container -->
+<div class="flex gap-4 mb-12">
+<!-- Active/Filled - Orange Accents -->
+<div class="w-3.5 h-3.5 rounded-full bg-primary ring-4 ring-primary/10"></div>
+<div class="w-3.5 h-3.5 rounded-full bg-primary ring-4 ring-primary/10"></div>
+<div class="w-3.5 h-3.5 rounded-full bg-primary ring-4 ring-primary/10"></div>
+<!-- Inactive/Empty -->
+<div class="w-3.5 h-3.5 rounded-full border-2 border-zinc-300 bg-transparent"></div>
+<div class="w-3.5 h-3.5 rounded-full border-2 border-zinc-300 bg-transparent"></div>
+<div class="w-3.5 h-3.5 rounded-full border-2 border-zinc-300 bg-transparent"></div>
+</div>
+</main>
+<!-- Keypad Section -->
+<section class="w-full max-w-md bg-surface-container-low rounded-t-[3rem] pt-10 pb-12 px-10 shadow-[0_-20px_50px_rgba(0,0,0,0.05)]">
+<div class="grid grid-cols-3 gap-y-6 gap-x-8">
+<!-- Row 1 -->
+<button class="flex items-center justify-center h-16 w-full rounded-2xl bg-surface-variant hover:bg-zinc-200 active:scale-95 transition-all text-2xl font-medium text-on-surface font-body">1</button>
+<button class="flex items-center justify-center h-16 w-full rounded-2xl bg-surface-variant hover:bg-zinc-200 active:scale-95 transition-all text-2xl font-medium text-on-surface font-body">2</button>
+<button class="flex items-center justify-center h-16 w-full rounded-2xl bg-surface-variant hover:bg-zinc-200 active:scale-95 transition-all text-2xl font-medium text-on-surface font-body">3</button>
+<!-- Row 2 -->
+<button class="flex items-center justify-center h-16 w-full rounded-2xl bg-surface-variant hover:bg-zinc-200 active:scale-95 transition-all text-2xl font-medium text-on-surface font-body">4</button>
+<button class="flex items-center justify-center h-16 w-full rounded-2xl bg-surface-variant hover:bg-zinc-200 active:scale-95 transition-all text-2xl font-medium text-on-surface font-body">5</button>
+<button class="flex items-center justify-center h-16 w-full rounded-2xl bg-surface-variant hover:bg-zinc-200 active:scale-95 transition-all text-2xl font-medium text-on-surface font-body">6</button>
+<!-- Row 3 -->
+<button class="flex items-center justify-center h-16 w-full rounded-2xl bg-surface-variant hover:bg-zinc-200 active:scale-95 transition-all text-2xl font-medium text-on-surface font-body">7</button>
+<button class="flex items-center justify-center h-16 w-full rounded-2xl bg-surface-variant hover:bg-zinc-200 active:scale-95 transition-all text-2xl font-medium text-on-surface font-body">8</button>
+<button class="flex items-center justify-center h-16 w-full rounded-2xl bg-surface-variant hover:bg-zinc-200 active:scale-95 transition-all text-2xl font-medium text-on-surface font-body">9</button>
+<!-- Row 4 -->
+<button class="flex items-center justify-center h-16 w-full rounded-2xl hover:bg-zinc-200 active:scale-95 transition-all text-zinc-500">
+<span class="material-symbols-outlined text-3xl" data-icon="fingerprint">fingerprint</span>
+</button>
+<button class="flex items-center justify-center h-16 w-full rounded-2xl bg-surface-variant hover:bg-zinc-200 active:scale-95 transition-all text-2xl font-medium text-on-surface font-body">0</button>
+<button class="flex items-center justify-center h-16 w-full rounded-2xl hover:bg-zinc-200 active:scale-95 transition-all text-zinc-500">
+<span class="material-symbols-outlined text-3xl" data-icon="backspace">backspace</span>
+</button>
+</div>
+<!-- Bottom Indicator -->
+<div class="mt-8 flex justify-center">
+<div class="w-32 h-1.5 bg-zinc-200 rounded-full"></div>
+</div>
+</section>
+<!-- Invisible spacer for mobile safety areas if needed -->
+<div class="h-safe-bottom"></div>
+</body></html>

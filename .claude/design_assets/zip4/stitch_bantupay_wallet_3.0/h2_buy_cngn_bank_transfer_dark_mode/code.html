@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fund via Bank Transfer - BantuPay</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#1A1A20",
+                    "on-secondary-fixed": "#351000",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-low": "#1A1A20",
+                    "surface-bright": "#24242B",
+                    "background": "#0F0F12",
+                    "surface-variant": "#2D2D35",
+                    "surface": "#1A1A20",
+                    "on-tertiary-fixed": "#001d35",
+                    "surface-container-highest": "#33333D",
+                    "on-secondary-container": "#ffdbcc",
+                    "secondary-fixed-dim": "#ffb695",
+                    "surface-container-lowest": "#0A0A0D",
+                    "tertiary-fixed-dim": "#9ccaff",
+                    "outline-variant": "#5a4137",
+                    "on-tertiary-fixed-variant": "#00497b",
+                    "on-primary-fixed-variant": "#7b2f00",
+                    "tertiary-fixed": "#d0e4ff",
+                    "error": "#ffb4ab",
+                    "on-background": "#F5F5F5",
+                    "inverse-primary": "#a23f00",
+                    "surface-tint": "#ffb695",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#ffdbcc",
+                    "error-container": "#93000a",
+                    "tertiary-container": "#00497b",
+                    "surface-container": "#24242B",
+                    "on-surface-variant": "#9BA3B4",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#351000",
+                    "tertiary": "#9ccaff",
+                    "outline": "#a08d85",
+                    "secondary-fixed": "#ffdbcc",
+                    "primary-fixed": "#ffdbcc",
+                    "on-surface": "#F5F5F5",
+                    "secondary-container": "#77320b",
+                    "primary-fixed-dim": "#ffb695",
+                    "primary": "#FC690A",
+                    "on-tertiary-container": "#d0e4ff",
+                    "inverse-on-surface": "#191c1f",
+                    "surface-container-high": "#2D2D35",
+                    "primary-container": "#FC690A",
+                    "on-error": "#690005",
+                    "on-secondary-fixed-variant": "#77320b",
+                    "secondary": "#ffb695",
+                    "inverse-surface": "#e1e2e6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "mono": ["JetBrains Mono"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(26, 26, 32, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#0F0F12] text-[#F5F5F5] font-body min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F12]/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#FC690A]/10 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[#F5F5F5]">arrow_back</span>
+</button>
+<h1 class="text-xl font-bold bg-gradient-to-br from-[#FC690A] to-[#D4560A] bg-clip-text text-transparent font-['Plus_Jakarta_Sans'] tracking-tight">Fund via Bank Transfer</h1>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#9BA3B4]">help_outline</span>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-[#2D2D35] ring-2 ring-[#FC690A]/20">
+<img class="w-full h-full object-cover" data-alt="minimalist user profile avatar icon with a soft geometric background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7hR7eMNOMfSgZUeXMmSqUbd7HUajW29znZjBCLKC4X5KZGKvflchAqwWgTyf28Hw-TjqostA5uHT3yK25s4cNC1zPgzOQJZXor1UE-z0SrK5QJ8wGvoRO7c_vtw5hbskuGVEgFNjtL5XeXWJaJLdczqmxKX03lSiSeIYMmw8g6e-KjGKALdijE8_OemXfqagOGc7OogCThVfrV_roLtJ7rYX6iDpEQiPK_WPwrmqU8Uhqif5r0BVqkMwu4K_MpkNANeBQstdNqg"/>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-lg mx-auto">
+<!-- Status Indicator -->
+<div class="mb-8 flex flex-col items-center text-center">
+<div class="relative mb-4">
+<div class="absolute inset-0 bg-[#FC690A]/20 rounded-full animate-ping"></div>
+<div class="relative bg-[#FC690A]/10 p-4 rounded-full">
+<span class="material-symbols-outlined text-[#FC690A] text-3xl">sync</span>
+</div>
+</div>
+<h2 class="text-[#F5F5F5] font-headline font-bold text-lg">Waiting for payment...</h2>
+<p class="text-[#9BA3B4] text-sm mt-1">We are monitoring your virtual account for incoming funds.</p>
+</div>
+<!-- Transfer Card -->
+<div class="relative group">
+<!-- Background Glow Decor -->
+<div class="absolute -inset-1 bg-gradient-to-br from-[#FC690A] to-[#D4560A] rounded-lg blur opacity-5 group-hover:opacity-10 transition duration-1000"></div>
+<div class="relative bg-[#1A1A20] rounded-lg p-8 flex flex-col gap-8 border border-[#2D2D35]">
+<!-- Amount Section -->
+<div class="flex flex-col items-center border-b border-[#2D2D35] pb-8">
+<span class="text-[#9BA3B4] text-xs font-label font-semibold tracking-widest uppercase mb-2">Transfer exactly</span>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-headline font-bold text-[#F5F5F5]">₦</span>
+<span class="text-5xl font-headline font-extrabold text-[#F5F5F5] tracking-tighter">1,000.00</span>
+</div>
+</div>
+<!-- Account Details Grid -->
+<div class="grid gap-6">
+<div class="flex flex-col gap-1">
+<label class="text-[#9BA3B4] text-[11px] font-label font-bold uppercase tracking-wider">Bank Name</label>
+<div class="flex items-center justify-between">
+<span class="text-[#F5F5F5] font-headline font-semibold text-lg">GTBank</span>
+<span class="material-symbols-outlined text-[#9BA3B4]/40">account_balance</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[#9BA3B4] text-[11px] font-label font-bold uppercase tracking-wider">Account Number</label>
+<div class="flex items-center justify-between bg-[#0F0F12] p-4 rounded-md border border-[#2D2D35]">
+<span class="text-2xl font-mono font-medium text-[#FC690A] tracking-tight">0123456789</span>
+<button class="bg-[#FC690A] text-white p-2 rounded-full shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[#9BA3B4] text-[11px] font-label font-bold uppercase tracking-wider">Account Name</label>
+<span class="text-[#F5F5F5] font-headline font-bold">BANTUPAY DIGITAL / JOHN DOE</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Info Callout -->
+<div class="mt-8 bg-[#FC690A]/10 text-[#F5F5F5] p-5 rounded-md flex gap-4 items-start border border-[#FC690A]/20">
+<span class="material-symbols-outlined text-[#FC690A] shrink-0">info</span>
+<p class="text-sm leading-relaxed font-medium">
+                Your <span class="font-bold text-[#FC690A]">cNGN</span> assets will appear in your wallet automatically within <span class="text-[#FC690A] font-bold">60 seconds</span> after the transfer is successful.
+            </p>
+</div>
+<!-- Secondary Actions -->
+<div class="mt-12 flex flex-col gap-3">
+<button class="w-full h-14 rounded-full font-headline font-bold text-[#F5F5F5] border border-[#2D2D35] hover:bg-[#2D2D35] transition-colors">
+                I've made the transfer
+            </button>
+<button class="w-full h-14 rounded-full font-headline font-bold text-error bg-error-container/10 border border-error-container/20 hover:bg-error-container/20 transition-colors">
+                Cancel Transaction
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-[#0F0F12]/90 backdrop-blur-lg flex justify-around items-end pb-6 pt-3 px-4 rounded-t-[32px] shadow-[0_-4px_24px_rgba(0,0,0,0.4)] border-t border-[#2D2D35]">
+<a class="flex flex-col items-center justify-center text-[#9BA3B4] gap-1 hover:text-[#FC690A] transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#FC690A] gap-1 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide">Assets</span>
+</a>
+<div class="relative flex flex-col items-center -top-8">
+<button class="w-16 h-16 bg-[#FC690A] rounded-full flex items-center justify-center text-white shadow-lg active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined text-3xl">qr_code_scanner</span>
+</button>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide text-[#9BA3B4] mt-2">Scan</span>
+</div>
+<a class="flex flex-col items-center justify-center text-[#9BA3B4] gap-1 hover:text-[#FC690A] transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#9BA3B4] gap-1 hover:text-[#FC690A] transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide">Settings</span>
+</a>
+</nav>
+</body></html>

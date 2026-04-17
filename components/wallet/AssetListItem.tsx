@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { formatFiat, formatCrypto } from '@/lib/formatting'
 import type { Asset } from '@/mock/assets'
+import { haptics } from '@/lib/haptics'
 
 interface AssetListItemProps {
   asset: Asset
@@ -9,44 +10,51 @@ interface AssetListItemProps {
 }
 
 export function AssetListItem({ asset, index = 0 }: AssetListItemProps) {
-  const isPositive = asset.change24h >= 0
+  const isXBN = asset.symbol === 'XBN'
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       transition={{ delay: index * 0.05 }}
     >
-      <Link href={`/asset/${asset.id}`} className="flex items-center gap-3 px-4 py-3 hover:bg-[#F9F9FB] transition-colors active:bg-[#F5F5F5]">
-        <div
-          className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold"
-          style={{ backgroundColor: asset.iconBg, color: asset.color }}
-        >
-          {asset.iconText}
+      <Link 
+        href={`/asset/${asset.id}`} 
+        onClick={() => haptics.light()}
+        className="bg-surface-container-lowest h-[72px] px-4 rounded-xl flex items-center justify-between transition-all hover:bg-surface-container-high border border-border/10 dark:border-white/5 active:scale-[0.98]"
+      >
+        <div className="flex items-center gap-4">
+          <div 
+            className="w-12 h-12 rounded-full flex items-center justify-center text-lg shadow-sm"
+            style={{ backgroundColor: asset.iconBg, color: asset.color }}
+          >
+            {asset.iconText}
+          </div>
+          <div className="flex flex-col">
+            <div className="flex items-center gap-1.5">
+              <span className="font-display font-bold text-text-primary tracking-tight">
+                {asset.symbol}
+              </span>
+              {isXBN && (
+                <span className="text-[10px] px-1.5 py-0.5 bg-surface-container-high rounded text-text-secondary font-bold uppercase tracking-tighter">
+                  Native
+                </span>
+              )}
+            </div>
+            <span className="font-mono text-[11px] text-text-secondary group-hover:text-text-primary transition-colors">
+              {formatFiat(asset.fiatValue / asset.balance, '₦')}
+            </span>
+          </div>
         </div>
 
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center justify-between">
-            <span className="font-semibold text-[#0F0F0F] text-sm font-[family-name:var(--font-inter)]">
-              {asset.symbol}
-            </span>
-            <span className="font-semibold text-[#0F0F0F] text-sm font-[family-name:var(--font-jetbrains)]">
-              {formatCrypto(asset.balance, asset.symbol)}
-            </span>
-          </div>
-          <div className="flex items-center justify-between mt-0.5">
-            <span className="text-text-secondary text-xs font-[family-name:var(--font-inter)]">
-              {asset.name}
-            </span>
-            <div className="flex items-center gap-2">
-              <span className="text-text-secondary text-xs font-[family-name:var(--font-inter)]">
-                {formatFiat(asset.fiatValue, '₦')}
-              </span>
-              <span className={`text-xs font-medium font-[family-name:var(--font-inter)] ${isPositive ? 'text-semantic-success' : 'text-semantic-error'}`}>
-                {isPositive ? '+' : ''}{asset.change24h.toFixed(2)}%
-              </span>
-            </div>
-          </div>
+        <div className="flex flex-col items-end">
+          <span className="font-display font-bold text-text-primary text-sm">
+            {asset.balance.toLocaleString()} {asset.symbol}
+          </span>
+          <span className="font-mono text-[11px] text-text-tertiary">
+            {formatFiat(asset.fiatValue, '₦')}
+          </span>
         </div>
       </Link>
     </motion.div>

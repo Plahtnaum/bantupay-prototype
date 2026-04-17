@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#2A2A32",
+                    "surface-bright": "#1A1A20",
+                    "tertiary-fixed": "#d0e4ff",
+                    "surface-container-lowest": "#0F0F12",
+                    "on-surface-variant": "#9BA3B4",
+                    "outline": "#4A4A52",
+                    "on-background": "#F5F5F5",
+                    "background": "#0F0F12",
+                    "on-primary-fixed-variant": "#7b2f00",
+                    "on-secondary-fixed-variant": "#77320b",
+                    "surface-dim": "#0F0F12",
+                    "secondary-fixed-dim": "#ffb695",
+                    "primary-fixed": "#332118",
+                    "on-secondary-container": "#753009",
+                    "tertiary-container": "#009cfc",
+                    "inverse-surface": "#F5F5F5",
+                    "on-surface": "#F5F5F5",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#9ccaff",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#ffffff",
+                    "outline-variant": "#4A4A52",
+                    "on-tertiary-fixed-variant": "#00497b",
+                    "secondary-container": "#fd9a6c",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#001d35",
+                    "error": "#ba1a1a",
+                    "surface": "#1A1A20",
+                    "inverse-on-surface": "#0F0F12",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#0062a1",
+                    "primary-fixed-dim": "#ffb695",
+                    "on-secondary-fixed": "#351000",
+                    "on-tertiary-container": "#003155",
+                    "surface-tint": "#FC690A",
+                    "inverse-primary": "#FC690A",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#1A1A20",
+                    "primary": "#FC690A",
+                    "surface-container-low": "#15151A",
+                    "secondary-fixed": "#ffdbcc",
+                    "secondary": "#964921",
+                    "surface-variant": "#2A2A32",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#33333D",
+                    "on-primary-fixed": "#FFDBCC",
+                    "primary-container": "#FC690A"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .hero-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .kinetic-rings {
+            background: radial-gradient(circle, transparent 20%, rgba(252,105,10,0.15) 20%, rgba(252,105,10,0.15) 21%, transparent 21%),
+                        radial-gradient(circle, transparent 40%, rgba(252,105,10,0.15) 40%, rgba(252,105,10,0.15) 41%, transparent 41%),
+                        radial-gradient(circle, transparent 60%, rgba(252,105,10,0.15) 60%, rgba(252,105,10,0.15) 61%, transparent 61%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background font-body text-on-surface antialiased min-h-screen flex flex-col overflow-x-hidden">
+<!-- Top Half: Kinetic Hero Section -->
+<section class="relative h-[486px] w-full flex flex-col justify-end px-8 pb-12 overflow-hidden bg-gradient-to-br from-[#FC690A] to-[#D4560A]">
+<!-- Visual Texture Layers -->
+<div class="absolute inset-0 hero-pattern opacity-40"></div>
+<div class="absolute -top-20 -right-20 w-[400px] h-[400px] kinetic-rings animate-pulse"></div>
+<div class="absolute -bottom-40 -left-20 w-[300px] h-[300px] rounded-full bg-white/10 blur-[80px]"></div>
+<!-- Content Shell -->
+<div class="relative z-10 max-w-md mx-auto w-full">
+<div class="mb-6 inline-flex items-center space-x-2 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-white"></span>
+<span class="text-white text-[11px] font-bold tracking-widest uppercase">BANTUPAY 3.0</span>
+</div>
+<h1 class="text-white font-headline font-bold text-[32px] leading-tight tracking-tight mb-4">
+                More than just a wallet
+            </h1>
+<p class="text-white/85 font-body text-[15px] leading-relaxed max-w-[280px]">
+                Send, receive and save digital assets with simplicity
+            </p><p class="text-white/60 font-body text-[12px] mt-2 italic">Supports cNGN natively</p>
+</div>
+</section>
+<!-- Bottom Half: Content Card -->
+<main class="relative flex-grow bg-surface-container-lowest rounded-t-[28px] -mt-8 z-20 shadow-[0_-20px_60px_rgba(0,0,0,0.4)] px-8 pt-10 pb-12 flex flex-col justify-between items-center">
+<!-- Feature Highlights Section -->
+<div class="w-full max-w-md space-y-8">
+<div class="flex justify-between items-center gap-4">
+<!-- Feature Chip 1 -->
+<div class="flex flex-col items-center gap-3 flex-1">
+<div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center text-primary transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[28px]" data-icon="bolt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<span class="text-[12px] font-semibold text-on-surface-variant tracking-tight">Instant</span>
+</div>
+<!-- Feature Chip 2 -->
+<div class="flex flex-col items-center gap-3 flex-1">
+<div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center text-primary transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[28px]" data-icon="shield_lock" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shield_lock</span>
+</div>
+<span class="text-[12px] font-semibold text-on-surface-variant tracking-tight">Secure</span>
+</div>
+<!-- Feature Chip 3 -->
+<div class="flex flex-col items-center gap-3 flex-1">
+<div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center text-primary transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[28px]" data-icon="sync_alt">sync_alt</span>
+</div>
+<span class="text-[12px] font-semibold text-on-surface-variant tracking-tight">Limitless</span>
+</div>
+</div>
+<!-- Descriptive Moment -->
+</div>
+<!-- Action Shell -->
+<div class="w-full max-w-md mt-10 space-y-4">
+<!-- Primary CTA -->
+<button class="w-full h-[56px] bg-[#FC690A] text-white rounded-full font-headline font-bold text-base shadow-lg shadow-primary/20 active:scale-[0.98] transition-all">
+                Get Started
+            </button>
+<!-- Secondary CTA -->
+<button class="w-full h-[56px] flex items-center justify-center gap-2 text-on-surface font-semibold text-[15px] hover:bg-surface-container-high rounded-full transition-colors active:scale-[0.98]">
+                I already have a wallet
+                <span class="material-symbols-outlined text-primary text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Compliance/Trust Anchor -->
+<div class="mt-8">
+<p class="text-[10px] text-on-surface-variant/60 font-medium tracking-wide uppercase">Powered by Bantu Blockchain Technology</p>
+</div>
+</main>
+<!-- Invisible Anchor for Navigation Rules -->
+<div class="hidden">
+<!-- Suppression rule applied: No Nav Shell on Onboarding screens per "Semantic Shell Mandate" -->
+</div>
+</body></html>

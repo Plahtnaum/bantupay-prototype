@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#191c1f",
+                        "on-secondary-fixed-variant": "#77320b",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#ffdbcc",
+                        "primary": "#a23f00",
+                        "secondary-container": "#fd9a6c",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#eff1f5",
+                        "tertiary-fixed": "#d0e4ff",
+                        "primary-fixed": "#ffdbcc",
+                        "inverse-surface": "#2e3134",
+                        "surface-tint": "#a23f00",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e7e8ec",
+                        "on-secondary-container": "#753009",
+                        "on-primary": "#ffffff",
+                        "outline": "#8e7165",
+                        "on-tertiary-fixed": "#001d35",
+                        "on-secondary-fixed": "#351000",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#edeef2",
+                        "secondary-fixed-dim": "#ffb695",
+                        "surface-variant": "#e1e2e6",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#7b2f00",
+                        "surface-dim": "#d9dade",
+                        "surface-bright": "#f8f9fd",
+                        "secondary": "#964921",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#ffb695",
+                        "surface-container-low": "#f2f3f7",
+                        "tertiary": "#0062a1",
+                        "on-background": "#191c1f",
+                        "on-primary-container": "#551e00",
+                        "on-tertiary-fixed-variant": "#00497b",
+                        "primary-fixed-dim": "#ffb695",
+                        "outline-variant": "#e2bfb1",
+                        "tertiary-container": "#009cfc",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fd",
+                        "on-primary-fixed": "#351000",
+                        "background": "#f8f9fd",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "primary-container": "#fc690a",
+                        "surface-container-highest": "#e1e2e6",
+                        "on-tertiary-container": "#003155",
+                        "on-surface-variant": "#5a4137"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "data": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<header class="fixed top-0 w-full z-50 bg-[#F5F6FA]/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border-2 border-primary-container/20">
+<img class="w-full h-full object-cover" data-alt="professional portrait of a confident man with a warm smile in a well-lit modern office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTBmxaRoIZE0FYqjiP-rqb0VH8M63QI7QwY8mM05deHLmCuU4ra8a7azwKb9Ki3pTtg-xnyfzW8tM5ecBRL-qwN09W_1p0Ggu5bhjppZq9DfR4LNJbhdgVC3AAi5LgzVt8IwMBbHzoHZzwDMRrY011lWljF843J_kBNRGqx8iVZxTBhkKELv2V9mkvjUH-BSZV64ptdSG-JyTyh36rHeZ58Jdz2JcWosYUp6AwvWxGDfL8IRz4VonJn49foioyZ-H2XVRui05FQg"/>
+</div>
+<h1 class="font-headline font-bold tracking-tight text-xl text-on-surface">My Safes</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary-container text-on-primary font-headline font-bold py-2 px-5 rounded-full flex items-center gap-2 transition-transform active:scale-95 shadow-[0_4px_16px_rgba(252,105,10,0.2)]">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="text-sm">Create</span>
+</button>
+<span class="material-symbols-outlined text-gray-500 hover:opacity-80 transition-opacity cursor-pointer">settings</span>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto space-y-8">
+<section class="space-y-4">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-sm font-semibold text-on-surface-variant uppercase tracking-widest px-1">Active Multisig</h2>
+<span class="text-[10px] font-bold bg-primary-container/10 text-primary-container px-2 py-0.5 rounded-full">1 ACTIVE</span>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-5 shadow-sm border border-outline-variant/10 relative overflow-hidden transition-all hover:shadow-md">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<div class="flex items-start justify-between relative z-10">
+<div class="flex gap-4">
+<div class="w-14 h-14 bg-surface-container rounded-2xl flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[32px]">lock</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline font-bold text-lg text-on-surface">Chidi &amp; Emeka Business</h3>
+<div class="flex items-center gap-2">
+<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-bold px-2 py-0.5 rounded-full">2-of-2</span>
+<span class="bg-primary-container text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="w-1 h-1 bg-white rounded-full animate-pulse"></span>
+                                    1 pending approval
+                                </span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 flex items-end justify-between border-t border-surface-container-low pt-4 relative z-10">
+<div class="space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Current Balance</p>
+<div class="flex items-baseline gap-1">
+<span class="font-data font-bold text-2xl text-on-surface">₦25,000</span>
+<span class="font-body text-xs text-on-surface-variant font-medium">cNGN</span>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary-container/10 transition-colors">
+<span class="material-symbols-outlined text-primary-container">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<section class="pt-8 text-center space-y-6">
+<div class="relative inline-block">
+<div class="w-48 h-48 mx-auto bg-gradient-to-tr from-surface-container-low to-surface-container-highest rounded-full flex items-center justify-center">
+<img class="w-40 h-40 object-contain" data-alt="minimalist 3d render of an abstract floating golden safe and digital coins with soft studio lighting and clean pastel background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt6HWaH8dyTu7rCFI0X__TD8b2-b4FxkWyc01SLXwI74tta3Vc80h_U6y1--EnA3qRah8ZpTMDHM0q-UmK2IGSo-713uPqAMJrTznuznEj1jDOD1i0rRWh3dedypi3d0oUy2zWPNl1-z5aqAUGxOagsrkWC3G44yxnL9LDndxXSnm7ZNn9mGe7Q7KvtWQYUVM_NoqFa12J2K1dC3htUtCxOOJvHUL78sl9m5BB42NZL5fvbatpJgeVV4N6LzgdAYdiVfrOEYE5Xg"/>
+</div>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-white px-4 py-2 rounded-2xl shadow-lg border border-outline-variant/20 flex items-center gap-3">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-white bg-blue-100"></div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-orange-100"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">Shared with contacts</span>
+</div>
+</div>
+<div class="space-y-2">
+<h3 class="font-headline font-extrabold text-2xl px-8">Joint Security for Digital Assets</h3>
+<p class="text-on-surface-variant text-sm px-10 leading-relaxed">Create a shared wallet with any BantuPay user and secure your treasury with multi-signature approvals.</p>
+</div>
+<button class="inline-flex items-center gap-2 text-primary-container font-bold text-sm hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+                Learn how Safes work
+            </button>
+</section>
+</main>
+<div class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[60] md:hidden">
+<button class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center text-white shadow-[0_8px_24px_rgba(252,105,10,0.3)] active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+</button>
+</div>
+<nav class="fixed bottom-0 w-full z-50 bg-[#F5F6FA]/90 backdrop-blur-2xl rounded-t-[28px] shadow-[0_-4px_24px_rgba(252,105,10,0.08)] flex justify-around items-center h-20 px-4 pb-safe">
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-600 transition-all duration-300 active:scale-90 hover:text-[#FC690A]" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-['Inter'] text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-600 transition-all duration-300 active:scale-90 hover:text-[#FC690A]" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-['Inter'] text-[10px] font-medium">Merchant</span>
+</a>
+<div class="w-16"></div>
+<a class="flex flex-col items-center justify-center text-[#FC690A] scale-110 font-bold transition-all duration-300 active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group_work</span>
+<span class="font-['Inter'] text-[10px] font-medium">Multi-sig</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-600 transition-all duration-300 active:scale-90 hover:text-[#FC690A]" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-['Inter'] text-[10px] font-medium">History</span>
+</a>
+</nav>
+</body></html>

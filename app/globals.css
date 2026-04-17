@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@config "../tailwind.config.ts";
 
 @theme {
   /* Brand */
@@ -7,49 +8,53 @@
   --color-brand-light: #FF8A3D;
   --color-brand-wash:  #FFF3EC;
 
-  /* Backgrounds */
-  --color-bg-base:      #F5F6FA;
-  --color-bg-surface:   #FFFFFF;
-  --color-bg-surface2:  #F0F1F5;
-
-  /* Text */
-  --color-text-primary:   #0F0F0F;
-  --color-text-secondary: #6B7080;
-  --color-text-tertiary:  #A0A8B8;
-  --color-text-on-brand:  #FFFFFF;
-
-  /* Semantic */
-  --color-semantic-success:      #16A34A;
-  --color-semantic-success-wash: #F0FDF4;
-  --color-semantic-warning:      #D97706;
-  --color-semantic-warning-wash: #FFFBEB;
-  --color-semantic-error:        #DC2626;
-  --color-semantic-error-wash:   #FEF2F2;
-  --color-semantic-info:         #2563EB;
-  --color-semantic-info-wash:    #EFF6FF;
-
-  /* Borders */
-  --color-border:       #E8EAF0;
-  --color-border-focus: #FC690A;
-
-  /* Font families */
-  --font-display:  var(--font-jakarta), sans-serif;
-  --font-body:     var(--font-inter), sans-serif;
-  --font-mono:     var(--font-jetbrains), monospace;
-
-  /* Border radius */
-  --radius-xs:  4px;
-  --radius-sm:  8px;
-  --radius-md:  12px;
-  --radius-lg:  16px;
-  --radius-xl:  24px;
-  --radius-2xl: 32px;
-
   /* Shadows */
-  --shadow-brand: 0 4px 20px rgba(252,105,10,0.30), 0 2px 8px rgba(252,105,10,0.15);
-  --shadow-card:  0 2px 8px rgba(0,0,0,0.06);
-  --shadow-md:    0 4px 16px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06);
-  --shadow-lg:    0 8px 32px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-brand: 0 24px 48px -12px rgba(252, 105, 10, 0.35);
+}
+
+:root {
+  /* Surfaces - Light */
+  --surface:                   #FFFFFF;
+  --bg-base:                   #F5F6FA;
+  --surface-container-lowest:  #FFFFFF;
+  --surface-container-low:     #F5F6FA;
+  --surface-container:         #F0F1F5;
+  --surface-container-high:    #E8EAF0;
+  --surface-container-highest: #E2E4E9;
+  --surface-variant:           #F0F1F5;
+
+  /* Text - Light */
+  --text-primary:              #0F0F0F;
+  --text-secondary:            #6B7080;
+  --text-tertiary:             #A0A8B8;
+  
+  /* Border - Light */
+  --border:                    #E8EAF0;
+
+  /* Fonts */
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-jetbrains: "JetBrains Mono", monospace;
+}
+
+.dark {
+  /* Surfaces - Dark */
+  --surface:                   #0F0F12;
+  --bg-base:                   #0F0F12;
+  --surface-container-lowest:  #1A1A20;
+  --surface-container-low:     #15151A;
+  --surface-container:         #1A1A20;
+  --surface-container-high:    #2A2A32;
+  --surface-container-highest: #33333C;
+  --surface-variant:           #2A2A32;
+
+  /* Text - Dark */
+  --text-primary:              #F5F5F5;
+  --text-secondary:            #9BA3B4;
+  --text-tertiary:             #6B7080;
+
+  /* Border - Dark */
+  --border:                    #2A2A32;
 }
 
 /* ─── Base ─────────────────────────────────────────────── */
@@ -67,37 +72,33 @@ html, body {
 }
 
 body {
-  background-color: #F5F6FA;
-  color: #0F0F0F;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-inter);
 }
 
-body.dark-mode {
-  background-color: #0F0F12;
-  color: #F5F5F5;
+/* ─── Kinetic Utilities ────────────────────────────────── */
+.glass-nav {
+  background: rgba(var(--surface-rgb), 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
 }
 
-/* ─── Shimmer skeleton ──────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Shimmer skeleton */
 @keyframes shimmer {
   0%   { background-position: -200% 0; }
   100% { background-position:  200% 0; }
 }
 
 .shimmer {
-  background: linear-gradient(90deg, #F0F1F5 25%, #E8EAF0 50%, #F0F1F5 75%);
+  background: linear-gradient(90deg, var(--surface-container-low) 25%, var(--surface-container-high) 50%, var(--surface-container-low) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.4s infinite;
-}
-
-/* ─── Misc ──────────────────────────────────────────────── */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-}
-input[type="number"] { -moz-appearance: textfield; }
-
-::-webkit-scrollbar { width: 0; height: 0; }
-
-/* Safe area bottom helper */
-.safe-bottom {
-  padding-bottom: env(safe-area-inset-bottom);
 }

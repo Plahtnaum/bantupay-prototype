@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#964921",
+                    "surface-container-high": "#e7e8ec",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#ffdbcc",
+                    "inverse-primary": "#ffb695",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed-variant": "#7b2f00",
+                    "inverse-surface": "#2e3134",
+                    "inverse-on-surface": "#eff1f5",
+                    "tertiary-fixed": "#d0e4ff",
+                    "tertiary-fixed-dim": "#9ccaff",
+                    "surface-tint": "#a23f00",
+                    "surface-variant": "#e1e2e6",
+                    "surface-container-highest": "#e1e2e6",
+                    "on-primary-fixed": "#351000",
+                    "surface-bright": "#f8f9fd",
+                    "outline-variant": "#e2bfb1",
+                    "on-surface-variant": "#5a4137",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#edeef2",
+                    "on-background": "#191c1f",
+                    "tertiary": "#0062a1",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f2f3f7",
+                    "primary-fixed": "#ffdbcc",
+                    "secondary-container": "#fd9a6c",
+                    "surface": "#f8f9fd",
+                    "on-primary-container": "#551e00",
+                    "background": "#f8f9fd",
+                    "secondary-fixed-dim": "#ffb695",
+                    "on-tertiary-container": "#003155",
+                    "on-surface": "#191c1f",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#753009",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#fc690a",
+                    "on-tertiary-fixed": "#001d35",
+                    "on-secondary-fixed-variant": "#77320b",
+                    "primary": "#a23f00",
+                    "surface-dim": "#d9dade",
+                    "outline": "#8e7165",
+                    "on-secondary-fixed": "#351000",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#009cfc",
+                    "on-tertiary-fixed-variant": "#00497b",
+                    "primary-fixed-dim": "#ffb695"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "mono": ["JetBrains Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .mono-font { font-family: 'JetBrains Mono', monospace; }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#F5F6FA] text-on-surface min-h-screen pb-32">
+<!-- Top AppBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#F5F6FA]/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container/20">
+<img class="w-full h-full object-cover" data-alt="Professional portrait of a young man with a friendly expression, studio lighting, clean minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKXMXT6i5wdGZDxI8jYb5CKGoX2YFwukDMiQiDSFUkSOkjjlIITRqkrxQTXGBIY-zG_Sku10cbWKvYzo9JFZu8mKfb3cpWkh7iva0zy5TsK-8_irG5LbEr1I74AHJ71Pn9tcNFxMEo_uA14Woq6HzOJY5D6pTyB1lMTR-8R6qEAO_ylR5wfDZkl0fq6NhEZ9BT5Hmn9yth__tVNZ1y1TGllDDvQ_5j-TF2O2j2G5PiAIi3TcPrbRmfdTLyT_DLfvkE0rSYQKyfPg"/>
+</div>
+<span class="font-['Plus_Jakarta_Sans'] font-bold tracking-tight text-xl font-black text-[#FC690A] tracking-tighter">BantuPay</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-500 hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</nav>
+<main class="pt-24 px-6 max-w-2xl mx-auto">
+<!-- Profile Hero Card -->
+<section class="mb-8">
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-card flex flex-col items-center relative overflow-hidden">
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-primary-container/10 rounded-full blur-3xl"></div>
+<div class="relative mb-6">
+<div class="w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-primary-container to-secondary">
+<div class="w-full h-full rounded-full border-4 border-white overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a young male professional with a warm smile, high-end editorial lighting, sharp focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgUcRK-GfWWjDbUUQCce9nGHGLinH4t9Nji0IE_2GSiQHfK-nvpUI5GOnc0mOZot35uajZn8s4MX0m4mP8rxqk-6t6zrgfJux7T-T1653fpV79oKkgb9_j4qCZ9-fPheMw1mzvD2D_3U8Q2mG5JYzM1jTHPfSktFVFkfuldh32qKfP8QTbNkJJiMSlfmmbU__TKha-Q6X5Pi8F_g6GvROUhWSOkLjoDbtnCN6DLSbJiwFVVZpIzQSCARtTWROgduIrvG7zyaPYMg"/>
+</div>
+</div>
+<div class="absolute bottom-0 right-0 bg-primary-container text-white w-7 h-7 rounded-full flex items-center justify-center border-2 border-white">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<h1 class="text-2xl font-bold tracking-tight text-on-surface">Kingsley Ajayi</h1>
+<p class="text-slate-500 font-medium mb-4">@kingsley_bantu</p>
+<div class="bg-surface-container-low px-4 py-2 rounded-full flex items-center gap-3">
+<span class="mono-font text-xs text-on-surface-variant tracking-tighter">0x71C...92A4</span>
+<button class="text-primary hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Wallet Group -->
+<section class="mb-6">
+<h2 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 mb-4 px-2">Wallet Management</h2>
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden">
+<!-- Referral -->
+<div class="flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined" data-icon="redeem">redeem</span>
+</div>
+<span class="font-medium text-on-surface">Referral Program</span>
+</div>
+<span class="material-symbols-outlined text-slate-300 group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Curated Assets -->
+<div class="flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<span class="font-medium text-on-surface">Curated Assets</span>
+</div>
+<span class="material-symbols-outlined text-slate-300 group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Backup Wallet -->
+<div class="flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-error-container/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined" data-icon="backup">backup</span>
+</div>
+<span class="font-medium text-on-surface">Backup Wallet</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-error text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Needed</span>
+<span class="material-symbols-outlined text-slate-300 group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Preferences Group -->
+<section class="mb-6">
+<h2 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 mb-4 px-2">App Preferences</h2>
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden">
+<!-- Language -->
+<div class="flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</div>
+<span class="font-medium text-on-surface">Language</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-sm text-slate-400">English</span>
+<span class="material-symbols-outlined text-slate-300 group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Theme -->
+<div class="flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+</div>
+<span class="font-medium text-on-surface">Appearance</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-sm text-slate-400">Light Mode</span>
+<span class="material-symbols-outlined text-slate-300 group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Security Group -->
+<section class="mb-12">
+<h2 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 mb-4 px-2">Security &amp; Privacy</h2>
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden">
+<!-- Biometrics Toggle -->
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
+<span class="material-symbols-outlined" data-icon="fingerprint">fingerprint</span>
+</div>
+<span class="font-medium text-on-surface">Biometrics</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Hide Balance -->
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
+<span class="material-symbols-outlined" data-icon="visibility_off">visibility_off</span>
+</div>
+<span class="font-medium text-on-surface">Hide Balance</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Logout Action -->
+<div class="flex flex-col items-center">
+<button class="flex items-center gap-2 text-error font-semibold py-3 px-6 rounded-full hover:bg-error-container/10 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Logout
+            </button>
+<p class="text-[10px] text-slate-300 font-mono mt-4 tracking-widest uppercase">Version 3.0.12 - Beta</p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full flex justify-around items-end pb-6 pt-3 px-4 bg-[#F5F6FA]/90 backdrop-blur-lg z-50 rounded-t-[32px] shadow-[0_-4px_24px_rgba(252,105,10,0.1)]">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-slate-400 hover:text-[#FC690A] transition-colors active:scale-90 duration-200 gap-1" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide uppercase">Home</span>
+</a>
+<!-- Assets -->
+<a class="flex flex-col items-center justify-center text-slate-400 hover:text-[#FC690A] transition-colors active:scale-90 duration-200 gap-1" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide uppercase">Assets</span>
+</a>
+<!-- Scan FAB -->
+<div class="relative -top-6">
+<button class="w-16 h-16 bg-[#FC690A] rounded-full flex items-center justify-center text-white shadow-lg shadow-[#FC690A]/40 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-3xl">qr_code_scanner</span>
+</button>
+</div>
+<!-- History -->
+<a class="flex flex-col items-center justify-center text-slate-400 hover:text-[#FC690A] transition-colors active:scale-90 duration-200 gap-1" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide uppercase">History</span>
+</a>
+<!-- Settings (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-[#FC690A] active:scale-90 transition-transform duration-200 gap-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide uppercase">Settings</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#e1e2e6",
+                    "secondary-fixed-dim": "#ffb695",
+                    "on-primary-container": "#551e00",
+                    "outline": "#8e7165",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#ffb695",
+                    "on-secondary-fixed-variant": "#77320b",
+                    "inverse-on-surface": "#eff1f5",
+                    "on-tertiary-container": "#003155",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#7b2f00",
+                    "surface-container-high": "#e7e8ec",
+                    "surface-container-highest": "#e1e2e6",
+                    "on-secondary-fixed": "#351000",
+                    "on-background": "#191c1f",
+                    "tertiary-fixed": "#d0e4ff",
+                    "surface-bright": "#f8f9fd",
+                    "background": "#0F0F12", // Updated to bg-base-dark
+                    "tertiary": "#0062a1",
+                    "primary": "#FC690A", // Maintained primary brand orange
+                    "on-secondary-container": "#753009",
+                    "on-tertiary-fixed": "#001d35",
+                    "inverse-surface": "#2e3134",
+                    "surface-tint": "#FC690A",
+                    "secondary": "#964921",
+                    "on-surface": "#F5F5F5", // Updated to text-primary-dark
+                    "primary-fixed": "#ffdbcc",
+                    "primary-container": "#FC690A",
+                    "outline-variant": "#e2bfb1",
+                    "secondary-fixed": "#ffdbcc",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#ffb695",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#1A1A20", // Surface dark
+                    "surface-container-low": "#1A1A20", // Updated to bg-surface-dark
+                    "surface": "#0F0F12", // Updated to bg-base-dark
+                    "surface-dim": "#d9dade",
+                    "secondary-container": "#fd9a6c",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#24242B",
+                    "tertiary-fixed-dim": "#9ccaff",
+                    "on-surface-variant": "#9BA3B4", // Updated to text-secondary-dark
+                    "on-tertiary-fixed-variant": "#00497b",
+                    "on-primary-fixed": "#351000",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#009cfc",
+                    "base-dark": "#0F0F12",
+                    "surface-dark": "#1A1A20",
+                    "primary-dark": "#F5F5F5",
+                    "secondary-dark": "#9BA3B4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {},
+            "fontFamily": {
+                    "headline": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body": [
+                            "Inter"
+                    ],
+                    "label": [
+                            "Inter"
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(26, 26, 32, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-base-dark font-body text-primary-dark min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-[#0F0F12]/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-white/5">
+<div class="flex items-center justify-between px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 duration-200 hover:bg-white/5 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined text-[#FC690A]">arrow_back</span>
+</button>
+<h1 class="font-['Plus_Jakarta_Sans'] font-bold text-lg tracking-tight text-primary-dark">Settings</h1>
+</div>
+<button class="active:scale-95 duration-200 hover:bg-white/5 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined text-secondary-dark">more_vert</span>
+</button>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto">
+<!-- Security Hero Section (Asymmetric Editorial Layout) -->
+<section class="mb-12 relative overflow-hidden rounded-lg p-8 bg-gradient-to-br from-[#FC690A] to-[#ff8c42] text-white shadow-xl shadow-[#FC690A]/20">
+<div class="relative z-10">
+<p class="font-headline font-bold text-sm uppercase tracking-[0.2em] opacity-80 mb-2">Shield Status</p>
+<div class="flex items-end gap-2 mb-6">
+<span class="font-headline font-extrabold text-7xl tracking-tighter">84</span>
+<span class="font-headline font-bold text-xl mb-3 opacity-90">/100</span>
+</div>
+<div class="h-2 w-full bg-white/20 rounded-full mb-8">
+<div class="h-full w-[84%] bg-white rounded-full"></div>
+</div>
+<div class="flex flex-wrap gap-4">
+<div class="bg-white/10 backdrop-blur-md rounded-xl px-4 py-3 flex items-center gap-3 border border-white/10">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div class="leading-tight">
+<p class="text-[10px] font-bold uppercase opacity-70">Security Level</p>
+<p class="font-bold">Elevated</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative background element -->
+<div class="absolute -right-12 -top-12 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+</section>
+<!-- Configuration Grid -->
+<div class="space-y-4">
+<h2 class="font-headline font-bold text-xl mb-6 px-2 text-primary-dark">Access Controls</h2>
+<!-- Bento Card: Change PIN -->
+<button class="w-full text-left bg-surface-dark hover:bg-white/5 transition-all p-5 rounded-lg flex items-center justify-between group border border-white/5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-[#0F0F12] flex items-center justify-center text-[#FC690A] shadow-sm border border-white/5">
+<span class="material-symbols-outlined">password</span>
+</div>
+<div>
+<p class="font-headline font-bold text-primary-dark">Change PIN</p>
+<p class="text-sm text-secondary-dark">Update your 6-digit transaction code</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary-dark group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<!-- Bento Card: Biometric Toggle -->
+<div class="bg-surface-dark p-5 rounded-lg flex items-center justify-between border border-white/5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-[#0F0F12] flex items-center justify-center text-[#FC690A] shadow-sm border border-white/5">
+<span class="material-symbols-outlined">fingerprint</span>
+</div>
+<div>
+<p class="font-headline font-bold text-primary-dark">Biometric login</p>
+<p class="text-sm text-secondary-dark">FaceID or TouchID authentication</p>
+</div>
+</div>
+<div class="relative inline-flex h-6 w-11 items-center rounded-full bg-[#FC690A]">
+<div class="h-4 w-4 rounded-full bg-white translate-x-6 transition-transform"></div>
+</div>
+</div>
+<!-- Bento Card: Session Timeout -->
+<div class="bg-surface-dark p-5 rounded-lg border border-white/5">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-[#0F0F12] flex items-center justify-center text-[#FC690A] shadow-sm border border-white/5">
+<span class="material-symbols-outlined">timer</span>
+</div>
+<div>
+<p class="font-headline font-bold text-primary-dark">Session Timeout</p>
+<p class="text-sm text-secondary-dark">Auto-lock when inactive</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<button class="py-2 px-1 text-[11px] font-bold uppercase rounded-md bg-[#FC690A] text-white">1m</button>
+<button class="py-2 px-1 text-[11px] font-bold uppercase rounded-md bg-[#0F0F12] text-secondary-dark border border-white/5 hover:bg-white/5 transition-colors">5m</button>
+<button class="py-2 px-1 text-[11px] font-bold uppercase rounded-md bg-[#0F0F12] text-secondary-dark border border-white/5 hover:bg-white/5 transition-colors">1h</button>
+<button class="py-2 px-1 text-[11px] font-bold uppercase rounded-md bg-[#0F0F12] text-secondary-dark border border-white/5 hover:bg-white/5 transition-colors">Never</button>
+</div>
+</div>
+<h2 class="font-headline font-bold text-xl mt-10 mb-6 px-2 text-primary-dark">Danger Zone</h2>
+<!-- Critical Action: Freeze Wallet -->
+<button class="w-full text-left bg-error/10 border border-error/20 p-5 rounded-lg flex items-center justify-between group active:scale-[0.98] transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-error/20 flex items-center justify-center text-[#ff5252]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">ac_unit</span>
+</div>
+<div>
+<p class="font-headline font-bold text-[#ff5252]">Freeze Wallet</p>
+<p class="text-sm text-[#ff5252]/70">Instantly disable all outgoing transactions</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#ff5252]">lock_open</span>
+</button>
+<!-- Recovery Info -->
+<div class="mt-8 p-6 rounded-lg bg-[#1A1A20] border border-white/5">
+<p class="text-xs font-mono text-secondary-dark mb-2">SECURITY_ID: BP-772-X09</p>
+<p class="text-sm text-secondary-dark leading-relaxed">
+                    Changes to security settings may require a 24-hour cooling period for large withdrawals to ensure your assets remain protected.
+                </p>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-[#0F0F12]/90 backdrop-blur-lg fixed bottom-0 w-full z-50 rounded-t-[32px] shadow-[0_-4px_24px_rgba(0,0,0,0.5)] border-t border-white/5">
+<div class="flex justify-around items-end pb-6 pt-3 px-4 w-full">
+<button class="flex flex-col items-center justify-center text-secondary-dark gap-1 hover:text-[#FC690A] transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide uppercase">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary-dark gap-1 hover:text-[#FC690A] transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide uppercase">Assets</span>
+</button>
+<!-- Floating QR Scan FAB -->
+<div class="relative -top-6">
+<button class="flex flex-col items-center justify-center bg-[#FC690A] text-white p-4 rounded-full shadow-lg shadow-[#FC690A]/40 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined text-3xl">qr_code_scanner</span>
+</button>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide uppercase text-secondary-dark mt-2 block text-center absolute -bottom-5 w-full">Scan</span>
+</div>
+<button class="flex flex-col items-center justify-center text-secondary-dark gap-1 hover:text-[#FC690A] transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">history</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide uppercase">History</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#FC690A] gap-1 active:scale-90 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide uppercase">Settings</span>
+</button>
+</div>
+</nav>
+</body></html>

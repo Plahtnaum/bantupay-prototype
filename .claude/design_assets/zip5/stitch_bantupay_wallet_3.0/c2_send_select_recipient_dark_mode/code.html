@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "base-dark": "#0F0F12",
+                        "surface-dark": "#1A1A20",
+                        "primary-dark": "#F5F5F5",
+                        "secondary-dark": "#9BA3B4",
+                        "brand-orange": "#FC690A",
+                        "surface-dim": "#d9dade",
+                        "surface-container-high": "#e7e8ec",
+                        "outline-variant": "#e2bfb1",
+                        "on-tertiary-container": "#003155",
+                        "secondary-container": "#fd9a6c",
+                        "outline": "#8e7165",
+                        "secondary-fixed": "#ffdbcc",
+                        "on-tertiary-fixed-variant": "#00497b",
+                        "on-secondary-fixed-variant": "#77320b",
+                        "inverse-surface": "#2e3134",
+                        "surface-container-highest": "#e1e2e6",
+                        "secondary": "#964921",
+                        "on-surface-variant": "#5a4137",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "surface": "#f8f9fd",
+                        "surface-variant": "#e1e2e6",
+                        "on-primary-container": "#551e00",
+                        "primary-container": "#fc690a",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f2f3f7",
+                        "on-primary-fixed": "#351000",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#eff1f5",
+                        "on-secondary-container": "#753009",
+                        "surface-container": "#edeef2",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#001d35",
+                        "surface-tint": "#a23f00",
+                        "tertiary-fixed": "#d0e4ff",
+                        "surface-bright": "#f8f9fd",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#009cfc",
+                        "on-background": "#191c1f",
+                        "on-secondary-fixed": "#351000",
+                        "background": "#f8f9fd",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#0062a1",
+                        "primary-fixed-dim": "#ffb695",
+                        "on-primary-fixed-variant": "#7b2f00",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#ffb695",
+                        "primary-fixed": "#ffdbcc",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#ffb695",
+                        "primary": "#a23f00",
+                        "on-surface": "#191c1f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "data": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-base-dark font-body text-primary-dark antialiased">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F12]/80 backdrop-blur-xl">
+<div class="flex items-center justify-between px-6 py-4 w-full max-w-xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 duration-150 p-2 -ml-2 rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-primary-dark" data-icon="arrow_back">arrow_back</span>
+</button>
+<div>
+<h1 class="font-headline text-lg font-bold tracking-tight text-primary-dark leading-tight">Send cNGN</h1>
+<p class="text-xs font-data text-brand-orange">25,000.00 cNGN</p>
+</div>
+</div>
+<button class="active:scale-95 duration-150 p-2 rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-brand-orange" data-icon="qr_code_scanner">qr_code_scanner</span>
+</button>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-xl mx-auto space-y-8">
+<!-- Search Composition -->
+<section class="relative group">
+<div class="flex items-center bg-surface-dark rounded-lg px-4 py-3.5 transition-all focus-within:ring-1 focus-within:ring-brand-orange/40">
+<span class="material-symbols-outlined text-secondary-dark mr-3" data-icon="search">search</span>
+<input class="bg-transparent border-none p-0 w-full text-sm focus:ring-0 placeholder:text-secondary-dark/50 font-body text-primary-dark" placeholder="Name, @username, phone number, or address" type="text"/>
+</div>
+</section>
+<!-- Kinetic Recent Recipients (Horizontal Editorial) -->
+<section class="space-y-4">
+<h2 class="font-headline text-[11px] font-extrabold tracking-[0.1em] text-secondary-dark uppercase">RECENT RECIPIENTS</h2>
+<div class="flex gap-6 overflow-x-auto scrollbar-hide -mx-6 px-6 py-2">
+<!-- Recipient 1 -->
+<div class="flex flex-col items-center gap-3 shrink-0 active:scale-95 duration-150 cursor-pointer">
+<div class="relative w-16 h-16 p-0.5 rounded-full bg-gradient-to-tr from-brand-orange to-secondary">
+<div class="w-full h-full rounded-full border-2 border-base-dark overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a young smiling man with professional lighting and clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5yfIrUOa7B_hFjf2NBgs5avFHU_hioz4ItUI-HDQjxDLBvsNNCIX3PLA_PuQQmUKFbyuRXNTm1HTtGgjPyDAqVl70bVsgAD8LO-dW8j08nfe8tHuTOpybtLFhhi4tHVZtPavRKjr_S81ANsrE8JWbTBtnfWJrfYbhyekgaY-ITKlIxqDc2cY1TBjstFs9SVblPSt-PAXzDkh1LCct_15K6LI6EdCW5jbiuaCTDayP1-ZwrePBDMHhbERuLuVcqZO9FQ0UV_KATA"/>
+</div>
+</div>
+<span class="text-[12px] font-semibold text-primary-dark">Felix</span>
+</div>
+<!-- Recipient 2 -->
+<div class="flex flex-col items-center gap-3 shrink-0 active:scale-95 duration-150 cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-surface-dark flex items-center justify-center overflow-hidden border border-white/5">
+<img class="w-full h-full object-cover" data-alt="Modern minimalist portrait of a woman with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWBclwZChNORf7sqV-BjaDmt3KIj8l5fyljXlbYsPFA0WtnWeQGDHXI-Iiln9t_GNKoxsBrUD38zkw1BEX_mZOoK1x3ZJwvIEgDmTQCy6ny9j1K4BUbCmwU4FYhc0ROf6Fq9CNN-e6Vonmb1qbO3sYOmdJSRsly_57PkZEYOKQvcpcPTkZ9_6GFK1kw890Oe-D6y8zWyBSpyRmUcplvkuD3fEm1syzDhCyKHGDhat1Xcygm8AhfW3IfvuwbDv156GiRBS5nXX1Fg"/>
+</div>
+<span class="text-[12px] font-semibold text-primary-dark">Sarah</span>
+</div>
+<!-- Recipient 3 -->
+<div class="flex flex-col items-center gap-3 shrink-0 active:scale-95 duration-150 cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-surface-dark flex items-center justify-center overflow-hidden border border-white/5">
+<img class="w-full h-full object-cover" data-alt="Professional studio portrait of an African woman with soft ambient light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs1ZEmNmNLK8Q40W-AH3sB1_5NGdiI_Rim4rownVwJs7H4RxU9EFsUudDI2VR9PyWRlw-RHTPM3oBKlJujqjtIh9YDHRlXZtTXJU8jTmLwCmfeble5F-U2JBwDVaSKvNyvw7tSYedVqeixQ_aVUclLnjdGi2tOKWWikEb-dTueG3-jPQTUDG1JoQ0hwVeIcmsa2sPZDu2wcunOuGzjs_gIG42yQU9k7_a0gprX0I7_ihtlC_BM4RPsrR9XRw-N-pffWHSXkIXOzg"/>
+</div>
+<span class="text-[12px] font-semibold text-primary-dark">Chioma</span>
+</div>
+<!-- Recipient 4 -->
+<div class="flex flex-col items-center gap-3 shrink-0 active:scale-95 duration-150 cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-surface-dark flex items-center justify-center overflow-hidden border border-white/5">
+<img class="w-full h-full object-cover" data-alt="Close-up of a stylish man with warm natural sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKAlx7OTV0Q4dTVTUJQ3IodZ-2MJGbkLwkwGJAJwkolrbNaWAyiejt-9-192GA9WXU-O8OR9FVAlkfl4AL6xhXjo0PAwk9GMHbtI3snfcgTVThsQTcslIm7HXtUgKFstAhm5u72O-0Zs7AcgFHZ6m53uq3yEOIMrtQh1X0pRCcGMOILkDGp3g33mIqmzrWzzKOK4FzLk8YWnsq4b7c-My0nQYRxzUVehUUIS-en1AwHwWrw0j-dktBWskrdbk_TM0YA_p39L_0Qw"/>
+</div>
+<span class="text-[12px] font-semibold text-primary-dark">Ade</span>
+</div>
+<!-- Recipient 5 -->
+<div class="flex flex-col items-center gap-3 shrink-0 active:scale-95 duration-150 cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-surface-dark flex items-center justify-center overflow-hidden border border-white/5">
+<img class="w-full h-full object-cover" data-alt="Confident woman with vibrant background and soft focus lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaK2Jr9f3SQi5UVuXTywEkC0CsFeUPXTv2x475ww4JOcXb3wrVM13J9uB2FZk5W2bzqFEacvgA2CUXOciDRsjuoA2wUs82F-5TLLjHxj65OiOdixPqtfpCvU3o-YP31XH9K5Bzpt4WvhGTTEpDSMbZkZo9ggcVnW7UWlwhDF9EKZCaDLUzK4hQGR-3zaa2CpYCbvbU0jRou4S9w0xLjuc-FbmbPBwbktAya1BJT-mDzKUw4FN5NUqVnwwx9Nzemk4M9sTYpmryhQ"/>
+</div>
+<span class="text-[12px] font-semibold text-primary-dark">Lilian</span>
+</div>
+</div>
+</section>
+<!-- Contact Lists (Bento-style depth) -->
+<div class="space-y-10">
+<!-- BantuPay Contacts -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline text-[11px] font-extrabold tracking-[0.1em] text-secondary-dark uppercase">BANTUPAY CONTACTS</h2>
+<span class="text-[10px] bg-brand-orange/10 text-brand-orange px-2 py-0.5 rounded-full font-bold">128 ONLINE</span>
+</div>
+<div class="bg-surface-dark rounded-lg overflow-hidden border border-white/5">
+<!-- Contact Item -->
+<div class="flex items-center justify-between p-4 hover:bg-white/5 transition-colors group cursor-pointer border-b border-white/5">
+<div class="flex items-center gap-4">
+<div class="w-11 h-11 rounded-full overflow-hidden bg-base-dark">
+<img class="w-full h-full object-cover" data-alt="Clean minimal portrait of a user for contact list" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFO-7HfNFhuyFeW7gINp_ELwlj8icSpnlJR5z2_dtTr19gQeOjQ4JxTFT9qVMk9eogljb2ZXOOqV6gUVw7vJXKjGDxQWjEKrh20gTfjgLE3pioSLmiVh5Jr2RPjqIWNuToJKH0pVeBDFxOt7rABtC4DXzdaNVd8XhJCOc5JR09q-aTIH0EDIuboL4i_faiTnfd_NtIJ9axD3x70wx7vJrDKe32OVJ-ucUHm9PmRkNXehjnc7WVGkXrtCftTurVMfzPFkP72BEY9g"/>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[15px] font-semibold text-primary-dark">Amina Jibril</span>
+<span class="material-symbols-outlined text-[14px] text-brand-orange font-bold" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="text-[13px] text-secondary-dark">@amina_j</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary-dark/40 group-hover:text-brand-orange transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Contact Item -->
+<div class="flex items-center justify-between p-4 hover:bg-white/5 transition-colors group cursor-pointer border-b border-white/5">
+<div class="flex items-center gap-4">
+<div class="w-11 h-11 rounded-full overflow-hidden bg-base-dark">
+<img class="w-full h-full object-cover" data-alt="Portrait of a young man with glasses and soft studio light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjLPb8zjOoRSJ9V3HrR8NWDikPnHm31FgJOOk8fCHMFy9fgXQwKdgSC7kjN6FyRzZp4MyHqXtrh5-2wyLZ5ADxGOOd7OfM0hlZg_TlDVzjFbrZ8_D0Vb_9pcj40z9FRc3-mQfMEDoVNWgjma8ljTGleSe3MNBYtEZhji83Cd2PYUtp_80gK2ZUeOzsGEjpi_5rdNBpwatdUaSRgoMHvsnvLz2uk3NySwI2MoRjmZUpUCE1-aZJ1M3RKI6sBuInYTOouMkYk3kJIQ"/>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[15px] font-semibold text-primary-dark">David Chen</span>
+<span class="material-symbols-outlined text-[14px] text-brand-orange font-bold" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="text-[13px] text-secondary-dark">@d_chen_crypto</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary-dark/40 group-hover:text-brand-orange transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Contact Item -->
+<div class="flex items-center justify-between p-4 hover:bg-white/5 transition-colors group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-11 h-11 rounded-full overflow-hidden bg-base-dark">
+<img class="w-full h-full object-cover" data-alt="User avatar with neutral background and sharp focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANZfnqdaxHKMZtYSWEKiAzVAN-5zJp9ahfK7VS7dhwja08Xa-3-mM7nC89RazoyccIAAPmBp7mrBkPxYJusULjSL2EU4nRSndlhD-mvldzQZx6uJIYYFLxwxITv2tZ43nu8EC_c9ROZAQL62OFGBNDHk7ebz3vHfh-lZwHdukc-34d7qE50zTZYMs_taot7g3U78fEZhB5RsrDByYV1NrD3DZO1T00Y_yDLedaWpG3NXrf28T1lCelYGj4BGygEaDsFDnhWOvxPg"/>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[15px] font-semibold text-primary-dark">Ibrahim Sule</span>
+<span class="material-symbols-outlined text-[14px] text-brand-orange font-bold" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="text-[13px] text-secondary-dark">@ibro_sule</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary-dark/40 group-hover:text-brand-orange transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Other Contacts -->
+<section class="space-y-4">
+<h2 class="font-headline text-[11px] font-extrabold tracking-[0.1em] text-secondary-dark uppercase">OTHER</h2>
+<div class="space-y-2">
+<!-- Contact Item -->
+<div class="flex items-center justify-between p-4 bg-surface-dark rounded-lg hover:bg-white/5 transition-colors group cursor-pointer border border-white/5">
+<div class="flex items-center gap-4">
+<div class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center text-secondary-dark font-bold">
+                                B
+                            </div>
+<div>
+<span class="text-[15px] font-semibold text-primary-dark block">Bode Thomas</span>
+<span class="text-[13px] text-secondary-dark font-data">+234 803 123 4567</span>
+</div>
+</div>
+<button class="text-[11px] font-bold text-brand-orange py-2 px-4 rounded-full bg-brand-orange/10 active:scale-95 duration-150">INVITE</button>
+</div>
+<!-- Contact Item -->
+<div class="flex items-center justify-between p-4 bg-surface-dark rounded-lg hover:bg-white/5 transition-colors group cursor-pointer border border-white/5">
+<div class="flex items-center gap-4">
+<div class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center text-secondary-dark font-bold">
+                                M
+                            </div>
+<div>
+<span class="text-[15px] font-semibold text-primary-dark block">Mary Okoro</span>
+<span class="text-[13px] text-secondary-dark font-data">+234 902 987 6543</span>
+</div>
+</div>
+<button class="text-[11px] font-bold text-brand-orange py-2 px-4 rounded-full bg-brand-orange/10 active:scale-95 duration-150">INVITE</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer Action -->
+<div class="fixed bottom-0 left-0 w-full p-6 pb-10 bg-gradient-to-t from-base-dark via-base-dark/95 to-transparent z-40 flex justify-center">
+<button class="flex items-center gap-2 bg-surface-dark hover:bg-white/10 text-primary-dark py-3.5 px-8 rounded-full font-semibold text-sm transition-all shadow-xl active:scale-95 duration-150 border border-white/10">
+<span class="material-symbols-outlined text-[20px] text-brand-orange" data-icon="content_paste">content_paste</span>
+            Paste address
+        </button>
+</div>
+</body></html>

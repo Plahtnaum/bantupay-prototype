@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BantuPay 3.0 | Kinetic Curator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FC690A",
+                        "on-primary": "#ffffff",
+                        "background": "#0F0F12",
+                        "on-background": "#F5F5F5",
+                        "surface": "#1A1A20",
+                        "on-surface": "#F5F5F5",
+                        "surface-container-low": "#25252D",
+                        "surface-container-high": "#2D2D37",
+                        "surface-container-highest": "#3A3A45",
+                        "on-surface-variant": "#9BA3B4",
+                        "outline-variant": "rgba(252, 105, 10, 0.15)",
+                        "error": "#BA1A1A",
+                        "secondary": "#964921",
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0F0F12;
+            color: #F5F5F5;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(26, 26, 32, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #FC690A 0%, #D4560A 100%);
+        }
+        .shadow-brand {
+            box-shadow: 0 10px 30px -10px rgba(252, 105, 10, 0.3);
+        }
+        /* Overriding Shared Component Logic for Dark Theme Integration */
+        .shared-nav-container {
+            background-color: #1A1A20 !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Header Section -->
+<header class="flex items-center bg-background/50 backdrop-blur-md sticky top-0 z-50 p-4 justify-between">
+<div class="text-on-background flex size-12 shrink-0 items-center" data-icon="List" data-size="24px" data-weight="regular">
+<span class="material-symbols-outlined">list</span>
+</div>
+<h2 class="text-on-background text-xl font-headline font-extrabold leading-tight tracking-tight flex-1 text-center">BantuPay</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-full h-12 w-12 bg-surface-container-low text-on-background transition-colors hover:bg-surface-container-high">
+<div data-icon="Bell" data-size="24px" data-weight="regular">
+<span class="material-symbols-outlined">doorbell</span>
+</div>
+</button>
+</div>
+</header>
+<main class="flex-1 pb-24">
+<!-- Portfolio Hero -->
+<section class="px-6 pt-8 pb-10">
+<div class="flex flex-col gap-1">
+<span class="text-on-surface-variant font-body text-xs uppercase tracking-widest font-semibold">Total Portfolio</span>
+<h1 class="text-on-background font-headline text-5xl font-extrabold tracking-tighter">$2,450.00</h1>
+</div>
+<div class="mt-8 grid grid-cols-2 gap-4">
+<button class="kinetic-gradient shadow-brand text-on-primary font-headline font-bold py-4 px-6 rounded-full flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">arrow_upward</span>
+                        Send
+                    </button>
+<button class="bg-surface-container-high text-on-background font-headline font-bold py-4 px-6 rounded-full flex items-center justify-center gap-2 transition-transform active:scale-95">
+<span class="material-symbols-outlined">arrow_downward</span>
+                        Receive
+                    </button>
+</div>
+</section>
+<!-- Asset Editorial Section -->
+<section class="mt-4 px-6">
+<div class="flex justify-between items-end mb-6">
+<h3 class="text-on-background font-headline text-2xl font-bold tracking-tight">Assets</h3>
+<span class="text-primary font-headline text-sm font-bold">View Gallery</span>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Asset Card 1 -->
+<div class="bg-surface p-5 rounded-2xl flex items-center justify-between group cursor-pointer hover:bg-surface-container-low transition-all">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">token</span>
+</div>
+<div>
+<h4 class="text-on-background font-headline font-bold text-lg">Kinetic</h4>
+<p class="text-on-surface-variant text-xs font-medium">Native Token</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-on-background font-mono font-medium text-lg">1,240.50</p>
+<p class="text-primary text-xs font-bold">+$42.20</p>
+</div>
+</div>
+<!-- Asset Card 2 -->
+<div class="bg-surface p-5 rounded-2xl flex items-center justify-between group cursor-pointer hover:bg-surface-container-low transition-all">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-400">currency_bitcoin</span>
+</div>
+<div>
+<h4 class="text-on-background font-headline font-bold text-lg">Bitcoin</h4>
+<p class="text-on-surface-variant text-xs font-medium">BTC Core</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-on-background font-mono font-medium text-lg">0.0245</p>
+<p class="text-on-surface-variant text-xs font-bold">-$12.40</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Moment: Card Carousel -->
+<section class="mt-12 px-6">
+<div class="relative w-full aspect-[16/9] rounded-3xl overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Abstract 3D digital landscape with glowing orange nodes and fluid connections on a deep dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWogfLdLXcD2z2XoWM8i_lyPG0DDJoW9yeoBenTk8t3EsOMaLSCU6QEgdHShnkJ4rxkaq7f8p7Y0Dhxvs7o8tQ1Ujgw4EAZMD9oznLKsU2A0f4BkuSvQoea8UEZ2OvHw2Od5bi7j0KEJEYEcRn6E2zqtqG27KHM_aGe32jFoYa1fnWgd-rEdkRinYqEfOf2t-tp5G_-OUghrQ7Q_FkPno-04fgQCLqJW37MMxkSK_orSbZKQjkAmyj7oNuckcJKmy59rUVaCgCsA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<div class="bg-surface/30 backdrop-blur-xl border border-white/10 p-4 rounded-2xl">
+<p class="text-on-primary text-xs font-bold uppercase tracking-widest opacity-80">Bantu Executive</p>
+<h5 class="text-on-primary font-headline text-xl font-extrabold mt-1">Virtual Card</h5>
+<p class="text-on-primary font-mono mt-4 tracking-widest">**** **** **** 8820</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Activity Feed -->
+<section class="mt-12 px-6">
+<h3 class="text-on-background font-headline text-2xl font-bold tracking-tight mb-6">Recent Activity</h3>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">shopping_cart</span>
+</div>
+<div class="flex-1">
+<p class="text-on-background font-bold text-sm">Payment to Merchant</p>
+<p class="text-on-surface-variant text-xs font-mono">0x71...f92a</p>
+</div>
+<p class="text-on-background font-bold text-sm">-$89.00</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-on-background font-bold text-sm">Staking Rewards</p>
+<p class="text-on-surface-variant text-xs font-mono">0x44...11b2</p>
+</div>
+<p class="text-primary font-bold text-sm">+$12.45</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation - Integrated with Shared Component Logic -->
+<nav class="fixed bottom-0 left-0 right-0 glass-nav border-t border-white/5 px-4 pb-6 pt-3 z-50">
+<div class="flex gap-2 justify-around">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<div class="flex h-8 items-center justify-center" data-icon="Wallet" data-size="24px" data-weight="fill">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<p class="text-xs font-headline font-bold tracking-tight">Wallet</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-on-surface" href="#">
+<div class="flex h-8 items-center justify-center" data-icon="ChartLineUp" data-size="24px" data-weight="regular">
+<span class="material-symbols-outlined">monitoring</span>
+</div>
+<p class="text-xs font-headline font-medium tracking-tight">Market</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-on-surface" href="#">
+<div class="flex h-8 items-center justify-center" data-icon="ClockCounterClockwise" data-size="24px" data-weight="regular">
+<span class="material-symbols-outlined">history</span>
+</div>
+<p class="text-xs font-headline font-medium tracking-tight">History</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-on-surface" href="#">
+<div class="flex h-8 items-center justify-center" data-icon="Gear" data-size="24px" data-weight="regular">
+<span class="material-symbols-outlined">settings</span>
+</div>
+<p class="text-xs font-headline font-medium tracking-tight">Settings</p>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

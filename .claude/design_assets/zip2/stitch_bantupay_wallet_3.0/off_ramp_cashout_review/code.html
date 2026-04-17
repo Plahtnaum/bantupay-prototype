@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BantuPay - Review Cashout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#d9dade",
+                    "on-secondary-fixed": "#351000",
+                    "on-error-container": "#93000a",
+                    "surface-container-low": "#f2f3f7",
+                    "surface-bright": "#f8f9fd",
+                    "background": "#f8f9fd",
+                    "surface-variant": "#e1e2e6",
+                    "surface": "#f8f9fd",
+                    "on-tertiary-fixed": "#001d35",
+                    "surface-container-highest": "#e1e2e6",
+                    "on-secondary-container": "#753009",
+                    "secondary-fixed-dim": "#ffb695",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#9ccaff",
+                    "outline-variant": "#e2bfb1",
+                    "on-tertiary-fixed-variant": "#00497b",
+                    "on-primary-fixed-variant": "#7b2f00",
+                    "tertiary-fixed": "#d0e4ff",
+                    "error": "#ba1a1a",
+                    "on-background": "#191c1f",
+                    "inverse-primary": "#ffb695",
+                    "surface-tint": "#a23f00",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#551e00",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#009cfc",
+                    "surface-container": "#edeef2",
+                    "on-surface-variant": "#5a4137",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#351000",
+                    "tertiary": "#0062a1",
+                    "outline": "#8e7165",
+                    "secondary-fixed": "#ffdbcc",
+                    "primary-fixed": "#ffdbcc",
+                    "on-surface": "#191c1f",
+                    "secondary-container": "#fd9a6c",
+                    "primary-fixed-dim": "#ffb695",
+                    "primary": "#a23f00",
+                    "on-tertiary-container": "#003155",
+                    "inverse-on-surface": "#eff1f5",
+                    "surface-container-high": "#e7e8ec",
+                    "primary-container": "#fc690a",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#77320b",
+                    "secondary": "#964921",
+                    "inverse-surface": "#2e3134"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "mono": ["JetBrains Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fd;
+        }
+        .glass-panel {
+            background: rgba(245, 246, 250, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- Top Navigation Header -->
+<header class="fixed top-0 w-full z-50 bg-[#F5F6FA]/80 backdrop-blur-xl flex justify-between items-center px-6 h-16">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<h1 class="text-xl font-headline font-bold tracking-tight text-on-surface">Review Cashout</h1>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of a smiling young professional man with a clean beard in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZLiJp10bmJ9242yPzk1OQBgXSIQKvHs2ITAWnAnN-iqCeDkzEOrsQEABwFbQSh6w6l3RKHOb3UAQdCrxqKI6snFLq_M9tzRSHNTy5mNZPJq1leAzcjEZOIHYnfd8s6Nb-q1leP-y4yE4mjNcb45utYyChVH39X56gQi3LNW257YL0DNBQ3Jxu2URnVVU0E-6IsIPOWVnsDfS4rTbMg8LOeSR9Kef08p2NuPxtYcUdBVe5pIHnHHJdryeLPSk1YAHkXejoph0_lQ"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-6 max-w-md mx-auto">
+<!-- Summary Card: Kinetic Layering -->
+<div class="relative overflow-hidden rounded-lg bg-surface-container-lowest p-8 mb-8 border border-white/40 shadow-sm">
+<!-- Decorative Brand Blur -->
+<div class="absolute -top-24 -right-24 w-48 h-48 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<span class="text-label-sm font-medium text-secondary mb-2">Total to receive</span>
+<div class="flex items-baseline gap-1 mb-8">
+<span class="text-headline-md font-headline font-extrabold text-on-surface">₦</span>
+<span class="text-5xl font-headline font-extrabold tracking-tighter text-on-surface">4,950.00</span>
+</div>
+<!-- Transaction Details Grid -->
+<div class="w-full space-y-6">
+<div class="flex justify-between items-center group">
+<span class="text-on-surface-variant text-sm">Cashing out</span>
+<span class="font-mono text-on-surface font-medium">5,000 cNGN</span>
+</div>
+<!-- Asymmetric Visual Break -->
+<div class="h-[1px] w-full bg-surface-container"></div>
+<div class="space-y-4">
+<div class="flex justify-between items-start">
+<span class="text-on-surface-variant text-sm">To Bank Account</span>
+<div class="text-right">
+<p class="font-headline font-bold text-on-surface">Kuda Bank</p>
+<p class="font-mono text-sm text-on-surface-variant">2014995832</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant text-sm">Fee</span>
+<span class="font-mono text-on-surface">₦50.00</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Security Notice -->
+<div class="flex gap-4 p-4 rounded-lg bg-surface-container-low mb-12">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                Funds will be deposited into your bank account within minutes. Please ensure the account details above are correct.
+            </p>
+</div>
+<!-- Biometric Prompt Section -->
+<div class="flex flex-col items-center gap-6">
+<button class="group relative w-20 h-20 rounded-full bg-surface-container-highest flex items-center justify-center transition-all active:scale-90 hover:shadow-brand">
+<!-- Glowing Aura -->
+<div class="absolute inset-0 rounded-full bg-primary/20 scale-110 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'opsz' 48;">face</span>
+</button>
+<p class="font-headline font-bold text-on-surface">Confirm with Face ID</p>
+</div>
+</main>
+<!-- Contextual Action Button (Only for primary intent) -->
+<div class="fixed bottom-32 left-0 right-0 px-6 max-w-md mx-auto md:hidden">
+<button class="w-full py-4 rounded-full bg-gradient-to-br from-[#FC690A] to-[#D4560A] text-white font-headline font-bold shadow-brand active:scale-95 transition-transform">
+            Confirm Cashout
+        </button>
+</div>
+<!-- Navigation Shell (BottomNavBar) -->
+<nav class="fixed bottom-0 w-full z-50 bg-[#F5F6FA]/80 backdrop-blur-xl rounded-t-[32px] border-t border-white/10 shadow-[0_-4px_24px_rgba(252,105,10,0.08)] flex justify-around items-center pt-3 pb-8 px-4">
+<div class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined">home_app_logo</span>
+<span class="font-['Inter'] text-[11px] font-medium mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-['Inter'] text-[11px] font-medium mt-1">Assets</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#FC690A] relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-[#FC690A] after:rounded-full">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="font-['Inter'] text-[11px] font-medium mt-1">Swap</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined">history</span>
+<span class="font-['Inter'] text-[11px] font-medium mt-1">History</span>
+</div>
+</nav>
+<!-- Success Overlay State (Hidden by default, used for Success pattern ref) -->
+<div class="hidden fixed inset-0 z-[100] bg-surface flex flex-col items-center justify-center p-8 text-center">
+<div class="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mb-8 relative">
+<div class="absolute inset-0 rounded-full border-4 border-primary border-t-transparent animate-spin opacity-20"></div>
+<span class="material-symbols-outlined text-5xl text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h2 class="text-3xl font-headline font-extrabold text-on-surface mb-2">Cashout Successful</h2>
+<p class="text-on-surface-variant mb-12">Your funds are on their way to your bank account.</p>
+<div class="w-full bg-surface-container-low rounded-lg p-6 mb-12">
+<div class="flex justify-between mb-4">
+<span class="text-sm text-on-surface-variant">Reference</span>
+<span class="font-mono text-sm text-on-surface">BP-849201-OFF</span>
+</div>
+<div class="flex justify-between">
+<span class="text-sm text-on-surface-variant">Status</span>
+<span class="px-3 py-1 rounded-full bg-tertiary-container/20 text-tertiary text-xs font-bold">Processing</span>
+</div>
+</div>
+<button class="w-full py-4 rounded-full bg-surface-container-highest text-on-surface font-headline font-bold">
+            Done
+        </button>
+</div>
+</body></html>

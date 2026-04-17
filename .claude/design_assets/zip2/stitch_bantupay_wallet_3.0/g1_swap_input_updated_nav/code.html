@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BantuPay - Swap Assets</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary": "#964921",
+            "surface-container-high": "#e7e8ec",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#ffdbcc",
+            "inverse-primary": "#ffb695",
+            "on-error-container": "#93000a",
+            "on-primary-fixed-variant": "#7b2f00",
+            "inverse-surface": "#2e3134",
+            "inverse-on-surface": "#eff1f5",
+            "tertiary-fixed": "#d0e4ff",
+            "tertiary-fixed-dim": "#9ccaff",
+            "surface-tint": "#a23f00",
+            "surface-variant": "#e1e2e6",
+            "surface-container-highest": "#e1e2e6",
+            "on-primary-fixed": "#351000",
+            "surface-bright": "#f8f9fd",
+            "outline-variant": "#e2bfb1",
+            "on-surface-variant": "#5a4137",
+            "on-primary": "#ffffff",
+            "surface-container": "#edeef2",
+            "on-background": "#191c1f",
+            "tertiary": "#0062a1",
+            "on-tertiary": "#ffffff",
+            "surface-container-low": "#f2f3f7",
+            "primary-fixed": "#ffdbcc",
+            "secondary-container": "#fd9a6c",
+            "surface": "#f8f9fd",
+            "on-primary-container": "#551e00",
+            "background": "#f8f9fd",
+            "secondary-fixed-dim": "#ffb695",
+            "on-tertiary-container": "#003155",
+            "on-surface": "#191c1f",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#753009",
+            "error-container": "#ffdad6",
+            "primary-container": "#fc690a",
+            "on-tertiary-fixed": "#001d35",
+            "on-secondary-fixed-variant": "#77320b",
+            "primary": "#a23f00",
+            "surface-dim": "#d9dade",
+            "outline": "#8e7165",
+            "on-secondary-fixed": "#351000",
+            "on-error": "#ffffff",
+            "tertiary-container": "#009cfc",
+            "on-tertiary-fixed-variant": "#00497b",
+            "primary-fixed-dim": "#ffb695"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-effect {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+    .shadow-brand {
+      box-shadow: 0 10px 30px -5px rgba(252, 105, 10, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-[#F5F6FA] text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#F5F6FA]/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="Close up portrait of a smiling young professional man with a clean beard against a soft studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUqwit_yyHudJpED_gELyJZ7x51UH12dR-hR_XFVesaQqhUtPFU7j3VHB4ZwVnH2olU5ekcrCEYB8KNGmT8VjTYDMpgEzP7GrWnf6k9-TiYK6tJE_NwUXrn9pxcKu3GiVcCmyq1qtGCzIKiw2cpPr-Fb9AVwaQf00JKLAKpymdKGna3s-M0RJDjrX4pqmxkEQJO63UQDntMph63G05Jb8lRJ7yegjPSsucxj7tHQWv6XSJ1gLF5hfb1iA7Lt4heQUSGDla6fsfWQ"/>
+</div>
+<span class="font-['Plus_Jakarta_Sans'] font-bold tracking-tight text-xl font-black text-[#FC690A] tracking-tighter">BantuPay</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform text-slate-500">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform text-slate-500">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-lg mx-auto">
+<!-- Section Title (Editorial Style) -->
+<div class="mb-8">
+<h1 class="text-4xl font-extrabold tracking-tighter text-on-surface">Swap</h1>
+<p class="text-on-surface-variant text-sm mt-1">Exchange assets instantly with zero slippage</p>
+</div>
+<!-- Main Swap Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
+<!-- You Pay Section -->
+<div class="p-6 bg-surface-container-low/30">
+<div class="flex justify-between items-center mb-4">
+<span class="text-xs font-bold uppercase tracking-widest text-slate-400">You pay</span>
+<span class="text-xs font-medium text-[#FC690A] bg-[#FC690A]/10 px-2 py-1 rounded-full">Balance: 1,240.50</span>
+</div>
+<div class="flex items-center justify-between gap-4">
+<input class="bg-transparent border-none p-0 focus:ring-0 text-4xl font-['Plus_Jakarta_Sans'] font-bold text-on-surface w-full" placeholder="0.00" type="text" value="450.00"/>
+<button class="flex items-center gap-2 bg-white shadow-sm border border-outline-variant/20 px-3 py-2 rounded-full hover:bg-surface-container-low transition-colors">
+<div class="w-6 h-6 rounded-full bg-[#FC690A] flex items-center justify-center text-[10px] font-bold text-white">XBN</div>
+<span class="font-bold text-sm">XBN</span>
+<span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<div class="mt-2">
+<span class="text-sm text-on-surface-variant mono">≈ $42.15 USD</span>
+</div>
+</div>
+<!-- Flip Button (Kinetic Overlap) -->
+<div class="relative h-2 flex justify-center items-center z-10">
+<button class="w-12 h-12 bg-[#FC690A] rounded-full flex items-center justify-center text-white shadow-lg shadow-[#FC690A]/20 active:scale-90 transition-transform hover:rotate-180 duration-500">
+<span class="material-symbols-outlined" data-icon="swap_vert">swap_vert</span>
+</button>
+</div>
+<!-- You Receive Section -->
+<div class="p-6 pt-10">
+<div class="flex justify-between items-center mb-4">
+<span class="text-xs font-bold uppercase tracking-widest text-slate-400">You receive</span>
+</div>
+<div class="flex items-center justify-between gap-4">
+<div class="text-4xl font-['Plus_Jakarta_Sans'] font-bold text-on-surface w-full">64,250.00</div>
+<button class="flex items-center gap-2 bg-surface-container-low px-3 py-2 rounded-full hover:bg-surface-container-high transition-colors">
+<div class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-[10px] font-bold text-white">₦</div>
+<span class="font-bold text-sm">cNGN</span>
+<span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<div class="mt-2">
+<span class="text-sm text-on-surface-variant mono">1 XBN = 142.77 cNGN</span>
+</div>
+</div>
+<!-- Info Strip -->
+<div class="px-6 py-4 border-t border-surface-container-low">
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-1 text-slate-500">
+<span class="text-xs font-medium">Network fee</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="info">info</span>
+</div>
+<span class="text-xs font-bold mono text-on-surface">&lt; ₦0.01</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-1 text-slate-500">
+<span class="text-xs font-medium">Slippage Tolerance</span>
+</div>
+<span class="text-xs font-bold mono text-on-surface">0.5%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Swap Action Button -->
+<div class="mt-8">
+<button class="w-full py-5 rounded-full bg-gradient-to-br from-[#FC690A] to-[#D4560A] text-white font-bold text-lg shadow-lg shadow-[#FC690A]/20 active:scale-95 transition-transform">
+        Swap Now
+      </button>
+<p class="text-center text-xs text-on-surface-variant mt-4 px-8">
+        By swapping, you agree to BantuPay's <span class="text-[#FC690A] font-semibold">Terms of Service</span> and decentralized liquidity protocols.
+      </p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 rounded-t-[32px] bg-[#F5F6FA]/80 backdrop-blur-xl border-t border-white/10 shadow-brand opacity-100">
+<a class="flex flex-col items-center text-slate-400 dark:text-slate-500 hover:text-[#FC690A] transition-colors py-2 px-2" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center text-slate-400 dark:text-slate-500 hover:text-[#FC690A] transition-colors py-2 px-2" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Assets</span>
+</a>
+<div class="relative -top-8">
+<button class="w-16 h-16 bg-[#FC690A] rounded-full flex items-center justify-center text-white shadow-lg shadow-[#FC690A]/40 active:scale-90 transition-transform">
+<span class="material-symbols-outlined !text-3xl" data-icon="qr_code_scanner">qr_code_scanner</span>
+</button>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-['Inter'] text-[10px] font-medium tracking-wide uppercase text-slate-400">Scan</span>
+</div>
+<a class="flex flex-col items-center text-slate-400 dark:text-slate-500 hover:text-[#FC690A] transition-colors py-2 px-2" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">History</span>
+</a>
+<a class="flex flex-col items-center text-slate-400 dark:text-slate-500 hover:text-[#FC690A] transition-colors py-2 px-2" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

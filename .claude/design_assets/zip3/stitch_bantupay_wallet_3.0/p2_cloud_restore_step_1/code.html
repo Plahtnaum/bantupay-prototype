@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-surface": "#191c1f",
+                  "on-secondary-fixed-variant": "#77320b",
+                  "error": "#ba1a1a",
+                  "secondary-fixed": "#ffdbcc",
+                  "primary": "#a23f00",
+                  "secondary-container": "#fd9a6c",
+                  "on-secondary": "#ffffff",
+                  "inverse-on-surface": "#eff1f5",
+                  "tertiary-fixed": "#d0e4ff",
+                  "primary-fixed": "#ffdbcc",
+                  "inverse-surface": "#2e3134",
+                  "surface-tint": "#a23f00",
+                  "on-error-container": "#93000a",
+                  "surface-container-high": "#e7e8ec",
+                  "on-secondary-container": "#753009",
+                  "on-primary": "#ffffff",
+                  "outline": "#8e7165",
+                  "on-tertiary-fixed": "#001d35",
+                  "on-secondary-fixed": "#351000",
+                  "error-container": "#ffdad6",
+                  "surface-container": "#edeef2",
+                  "secondary-fixed-dim": "#ffb695",
+                  "surface-variant": "#e1e2e6",
+                  "on-tertiary": "#ffffff",
+                  "on-primary-fixed-variant": "#7b2f00",
+                  "surface-dim": "#d9dade",
+                  "surface-bright": "#f8f9fd",
+                  "secondary": "#964921",
+                  "on-error": "#ffffff",
+                  "inverse-primary": "#ffb695",
+                  "surface-container-low": "#f2f3f7",
+                  "tertiary": "#0062a1",
+                  "on-background": "#191c1f",
+                  "on-primary-container": "#551e00",
+                  "on-tertiary-fixed-variant": "#00497b",
+                  "primary-fixed-dim": "#ffb695",
+                  "outline-variant": "#e2bfb1",
+                  "tertiary-container": "#009cfc",
+                  "surface-container-lowest": "#ffffff",
+                  "surface": "#0F0F12",
+                  "on-primary-fixed": "#351000",
+                  "background": "#0F0F12",
+                  "tertiary-fixed-dim": "#9ccaff",
+                  "primary-container": "#fc690a",
+                  "surface-container-highest": "#e1e2e6",
+                  "on-tertiary-container": "#003155",
+                  "on-surface-variant": "#5a4137"
+          },
+          "borderRadius": {
+                  "DEFAULT": "1rem",
+                  "lg": "2rem",
+                  "xl": "3rem",
+                  "full": "9999px"
+          },
+          "fontFamily": {
+                  "headline": ["Plus Jakarta Sans"],
+                  "body": ["Inter"],
+                  "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #0F0F12;
+      color: #F5F6FA;
+      font-family: 'Inter', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-effect {
+      background: rgba(15, 15, 18, 0.8);
+      backdrop-filter: blur(20px);
+    }
+    .glow-primary {
+      box-shadow: 0 0 40px rgba(252, 105, 10, 0.15);
+    }
+    .kinetic-pill {
+      background: linear-gradient(135deg, #FC690A 0%, #D4560A 100%);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col items-center justify-center selection:bg-primary-container selection:text-white overflow-hidden">
+<!-- TopAppBar Suppression Logic Applied: Transactional Flow -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-6 bg-[#0F0F12]/80 backdrop-blur-xl">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full surface-container-highest active:scale-90 transition-all">
+<span class="material-symbols-outlined text-white">arrow_back</span>
+</button>
+<span class="font-headline font-bold text-lg tracking-tight">Restore from cloud</span>
+</div>
+<div>
+<!-- Progress Pill -->
+<div class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full kinetic-pill"></div>
+<span class="text-xs font-medium text-gray-400">Step 1 of 3</span>
+</div>
+</div>
+</nav>
+<main class="w-full max-w-md px-8 flex flex-col items-center text-center">
+<!-- Hero Composition: Kinetic Curator Style -->
+<div class="relative mb-12">
+<!-- Background Glow -->
+<div class="absolute inset-0 bg-primary-container/20 blur-[100px] -z-10 rounded-full"></div>
+<!-- Platform Icon Container -->
+<div class="w-24 h-24 rounded-[32px] bg-white flex items-center justify-center shadow-[0_20px_50px_rgba(0,0,0,0.3)] rotate-3">
+<div class="w-20 h-20 rounded-[24px] bg-[#F5F6FA] flex items-center justify-center -rotate-3 overflow-hidden">
+<!-- Multi-platform representation as requested (centered logo) -->
+<div class="flex items-center justify-center gap-4">
+<img alt="Google Logo" class="w-10 h-10" data-alt="Vectorized Google 'G' icon with its signature four colors on a clean white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFcwgKl9uzYZ27DAvlXLftb9zgzNrvOnGIz8gJsNW7bY1clX7ULou-hosXE4xIQLDMNzWqeJYAEUbtYMxlxd1mGBi1MHS3aEK94e9frVN7JZI3RwlU_87xUoHOrQbLcwr4kYHdtvaY0l8RiD47hqUxZIoF2SMnryelpHsC2DkVioZZPp_h-uX7fBaYBHbx9BD3Fon8nlpVrw6BwhybnpxR-UaAsJdWnw0zTMi92UD4ErND2gK6GrOC_D4j-B9SaqOfha2ibwr18A"/>
+</div>
+</div>
+</div>
+<!-- Overlapping Floating Element for Asymmetry -->
+<div class="absolute -bottom-4 -right-4 w-12 h-12 rounded-2xl glass-effect border border-white/10 flex items-center justify-center shadow-2xl">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">cloud_done</span>
+</div>
+</div>
+<!-- Editorial Typography Stack -->
+<h1 class="font-headline text-3xl font-extrabold tracking-tight mb-4 text-white">
+      Sign in to find <br/> your backup
+    </h1>
+<p class="text-gray-400 text-lg leading-relaxed mb-12">
+      We'll look for a BantuPay backup in your cloud storage.
+    </p>
+<!-- Interactive Layer -->
+<div class="w-full space-y-4">
+<!-- Primary Platform Button -->
+<button class="w-full py-4 px-6 bg-white text-black font-bold rounded-full flex items-center justify-center gap-3 active:scale-[0.98] transition-all shadow-xl">
+<img alt="G" class="w-5 h-5" data-alt="Small colorful Google G icon for button" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBe7-QhOBVBAe7r8zcrM4O-8woPAW8_4ldDUpy6uDLqxRAd26KSe7hn1to9L6kZz25eOvg7v2YMMV0bJyAKxRfIbQ7wrfzi2YGp5aGNPbSWys0SnjWbUVh9253ue27zad6g_k24-JqomOxbXaqTfaZh0p_a2mGA6-uEhXSvLW0gzOl01lPXtyCC6kRkoTuspwsCwJkGSrlod97WPShQ4o4TGzuu_-qOlfCYYcKyFLIbvaDGfaiRTneq7Ncxq4qYWRswzoDWk91Cw"/>
+<span>Continue with Google</span>
+</button>
+<!-- Secondary Platform Button -->
+<button class="w-full py-4 px-6 bg-[#1C1C1E] text-white font-bold rounded-full border border-white/5 flex items-center justify-center gap-3 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">ios</span>
+<span>Continue with iCloud</span>
+</button>
+</div>
+<!-- Security Anchor -->
+<div class="mt-12 p-5 rounded-2xl bg-white/5 border border-white/5 flex items-start gap-4 text-left max-w-[340px]">
+<span class="material-symbols-outlined text-gray-500 text-xl mt-0.5">lock</span>
+<p class="text-xs text-gray-500 font-medium leading-relaxed">
+        Your keys are encrypted with your PIN. We never see them. All cloud backups are end-to-end encrypted.
+      </p>
+</div>
+</main>
+<!-- Navigation Shell Suppressed as per Task-Focused Flow Rule -->
+<!-- Subtle Background Textures -->
+<div class="fixed bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-primary-container/5 to-transparent -z-20 pointer-events-none"></div>
+<div class="fixed top-0 right-0 w-64 h-64 bg-primary-container/10 blur-[120px] rounded-full -z-20 -translate-y-1/2 translate-x-1/2"></div>
+</body></html>
