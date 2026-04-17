@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "date-fns": "^4.1.0",
     "framer-motion": "^12.38.0",
     "html5-qrcode": "^2.3.8",
     "next": "16.2.4",
