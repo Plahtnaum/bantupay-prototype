@@ -82,7 +82,7 @@ export default function HomePage() {
           <section className="space-y-4">
             <div className="flex justify-between items-center">
               <h2 className="text-secondary font-headline font-extrabold tracking-widest text-xs uppercase">RECENT</h2>
-              <button className="text-primary font-bold text-xs hover:translate-x-1 transition-transform" onClick={() => haptics.light()}>See all →</button>
+              <button className="text-primary font-bold text-xs hover:translate-x-1 transition-transform" onClick={() => { haptics.light(); router.push('/activity') }}>See all →</button>
             </div>
             <div className="bg-surface-container-low/50 rounded-2xl p-2 space-y-1">
               {recent.map((tx, i) => (
