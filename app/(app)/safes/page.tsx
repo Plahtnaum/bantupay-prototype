@@ -24,8 +24,11 @@ export default function SafesPage() {
         {step === 'list' && (
           <motion.div key="list" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="px-6 pt-16">
             <header className="flex justify-between items-center mb-8">
+              <button onClick={() => { haptics.light(); router.back() }} className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+                <span className="material-symbols-outlined text-[20px]">arrow_back</span>
+              </button>
               <h1 className="font-headline font-bold text-[28px] text-on-surface tracking-tight">Safes</h1>
-              <button 
+              <button
                 onClick={() => { haptics.medium(); setStep('create') }}
                 className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-lg shadow-primary/20 active:scale-95 transition-transform"
               >

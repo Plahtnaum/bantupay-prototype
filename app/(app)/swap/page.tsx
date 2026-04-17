@@ -47,6 +47,9 @@ export default function SwapPage() {
         {state === 'input' && (
           <motion.div key="input" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="px-6 pt-16">
             <header className="flex justify-between items-center mb-10">
+              <button onClick={() => { haptics.light(); router.back() }} className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+                <span className="material-symbols-outlined text-[20px]">arrow_back</span>
+              </button>
               <h1 className="font-headline font-bold text-[28px] text-on-surface tracking-tight">Swap</h1>
               <button onClick={() => haptics.light()} className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
                 <span className="material-symbols-outlined text-[20px]">settings</span>

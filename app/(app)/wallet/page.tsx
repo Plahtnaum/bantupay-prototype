@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { useWalletStore } from '@/store/wallet.store'
 import { CURATED_ASSETS } from '@/mock/assets'
@@ -47,8 +46,12 @@ export default function WalletPage() {
               <span className="font-label font-bold text-[10px]">Swap</span>
             </button>
             <button onClick={() => { haptics.light(); router.push('/buy') }} className="flex-1 bg-white/10 hover:bg-white/20 rounded-xl py-2 flex flex-col items-center justify-center gap-1 transition-colors active:scale-95 text-white">
-              <span className="material-symbols-outlined text-[20px]">payments</span>
+              <span className="material-symbols-outlined text-[20px]">add_card</span>
               <span className="font-label font-bold text-[10px]">Buy</span>
+            </button>
+            <button onClick={() => { haptics.light(); router.push('/sell') }} className="flex-1 bg-white/10 hover:bg-white/20 rounded-xl py-2 flex flex-col items-center justify-center gap-1 transition-colors active:scale-95 text-white">
+              <span className="material-symbols-outlined text-[20px]">payments</span>
+              <span className="font-label font-bold text-[10px]">Sell</span>
             </button>
           </div>
         </div>
