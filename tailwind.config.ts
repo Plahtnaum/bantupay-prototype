@@ -6,16 +6,42 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Exact tokens from Stitch design files
-        'primary':                    '#a23f00',
-        'primary-container':          '#fc690a',
-        'on-primary':                 '#ffffff',
-        'on-primary-container':       '#551e00',
+        'bg-base':                    'var(--color-bg-base)',
+        'background':                 'var(--color-background)',
+        'on-background':              'var(--color-on-background)',
+        'surface':                    'var(--color-surface)',
+        'on-surface':                 'var(--color-on-surface)',
+        'surface-dim':                'var(--color-surface-dim)',
+        'surface-bright':             'var(--color-surface-bright)',
+        'surface-container-lowest':   'var(--color-surface-container-lowest)',
+        'surface-container-low':      'var(--color-surface-container-low)',
+        'surface-container':          'var(--color-surface-container)',
+        'surface-container-high':     'var(--color-surface-container-high)',
+        'surface-container-highest':  'var(--color-surface-container-highest)',
+        'surface-variant':            'var(--color-surface-variant)',
+        'on-surface-variant':         'var(--color-on-surface-variant)',
+        'outline':                    'var(--color-outline)',
+        'outline-variant':            'var(--color-outline-variant)',
+        
+        'primary':                    'var(--color-primary)',
+        'on-primary':                 'var(--color-on-primary)',
+        'primary-container':          'var(--color-primary-container)',
+        'on-primary-container':       'var(--color-on-primary-container)',
+        
+        'tertiary':                   'var(--color-tertiary)',
+        'on-tertiary':                'var(--color-on-tertiary)',
+        'tertiary-container':         'var(--color-tertiary-container)',
+        'on-tertiary-container':      'var(--color-on-tertiary-container)',
+
+        'error':                      'var(--color-error)',
+        'on-error':                   'var(--color-on-error)',
+        'error-container':            'var(--color-error-container)',
+        'on-error-container':         'var(--color-on-error-container)',
+
         'primary-fixed':              '#ffdbcc',
         'primary-fixed-dim':          '#ffb695',
         'on-primary-fixed':           '#351000',
         'on-primary-fixed-variant':   '#7b2f00',
-
         'secondary':                  '#964921',
         'secondary-container':        '#fd9a6c',
         'on-secondary':               '#ffffff',
@@ -24,47 +50,13 @@ const config: Config = {
         'secondary-fixed-dim':        '#ffb695',
         'on-secondary-fixed':         '#351000',
         'on-secondary-fixed-variant': '#77320b',
-
-        'tertiary':                   '#0062a1',
-        'tertiary-container':         '#009cfc',
-        'on-tertiary':                '#ffffff',
-        'on-tertiary-container':      '#003155',
         'tertiary-fixed':             '#d0e4ff',
         'tertiary-fixed-dim':         '#9ccaff',
         'on-tertiary-fixed':          '#001d35',
         'on-tertiary-fixed-variant':  '#00497b',
-
-        'surface':                    '#f8f9fd',
-        'surface-dim':                '#d9dade',
-        'surface-bright':             '#f8f9fd',
-        'surface-container-lowest':   '#ffffff',
-        'surface-container-low':      '#f2f3f7',
-        'surface-container':          '#edeef2',
-        'surface-container-high':     '#e7e8ec',
-        'surface-container-highest':  '#e1e2e6',
-        'surface-variant':            '#e1e2e6',
-        'surface-tint':               '#a23f00',
-
-        'on-surface':                 '#191c1f',
-        'on-surface-variant':         '#5a4137',
-
-        'background':                 '#f8f9fd',
-        'on-background':              '#191c1f',
-
-        'outline':                    '#8e7165',
-        'outline-variant':            '#e2bfb1',
-
-        'error':                      '#ba1a1a',
-        'error-container':            '#ffdad6',
-        'on-error':                   '#ffffff',
-        'on-error-container':         '#93000a',
-
         'inverse-surface':            '#2e3134',
         'inverse-on-surface':         '#eff1f5',
         'inverse-primary':            '#ffb695',
-
-        // Brand alias
-        'brand': '#fc690a',
       },
       fontFamily: {
         headline: ['var(--font-jakarta)', 'Plus Jakarta Sans', 'sans-serif'],
