@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { Eye, EyeSlash, ArrowUp, ArrowDown, ArrowsLeftRight, ShoppingBag, TrendingUp } from 'phosphor-react'
+import { Eye, EyeSlash, ArrowUp, ArrowDown, ArrowsLeftRight, ShoppingBag, TrendUp } from 'phosphor-react'
 import { useWalletStore } from '@/store/wallet.store'
 import { formatFiat } from '@/lib/formatting'
 import { haptics } from '@/lib/haptics'
@@ -41,7 +41,7 @@ export function BalanceCard() {
           </div>
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/20 rounded-full backdrop-blur-md border border-white/10">
-            <TrendingUp size={14} weight="bold" />
+            <TrendUp size={14} weight="bold" />
             <span className="text-[11px] font-bold tracking-tight">+₦500 today</span>
           </div>
         </div>

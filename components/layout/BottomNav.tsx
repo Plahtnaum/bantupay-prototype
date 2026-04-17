@@ -2,14 +2,14 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { House, Wallet, History, Gear, QrCode } from 'phosphor-react'
+import { House, Wallet, ClockCounterClockwise, Gear, QrCode } from 'phosphor-react'
 import { haptics } from '@/lib/haptics'
 
 const tabs = [
   { href: '/home',     icon: House,   label: 'Home'    },
   { href: '/assets',   icon: Wallet,  label: 'Assets'  },
   { href: '/scan',     icon: QrCode,  label: 'SCAN',   isFAB: true },
-  { href: '/history',  icon: History, label: 'History' },
+  { href: '/history',  icon: ClockCounterClockwise, label: 'History' },
   { href: '/profile',  icon: Gear,    label: 'Settings'},
 ]
 

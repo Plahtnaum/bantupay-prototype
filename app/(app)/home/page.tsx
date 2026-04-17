@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { Bell, QrCodeScanner } from 'phosphor-react'
+import { Bell, QrCode } from 'phosphor-react'
 import { BalanceCard } from '@/components/wallet/BalanceCard'
 import { AssetListItem } from '@/components/wallet/AssetListItem'
 import { TransactionListItem } from '@/components/wallet/TransactionListItem'
@@ -35,7 +35,7 @@ export default function HomePage() {
         </div>
         <div className="flex items-center gap-2">
           <HeaderAction icon={<Bell size={20} />} hasBadge onClick={() => haptics.light()} />
-          <HeaderAction icon={<QrCodeScanner size={20} />} onClick={() => haptics.medium()} />
+          <HeaderAction icon={<QrCode size={20} />} onClick={() => haptics.medium()} />
         </div>
       </header>
 
