@@ -585,7 +585,7 @@ function CreatedScreen({ name }: { name: string }) {
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
           className="text-[40px] font-headline font-extrabold text-on-surface tracking-tighter leading-none mb-5"
         >
-          Your wallet is ready{name ? `, \n\${name.split(' ')[0]}` : ''}!
+          Your wallet is ready{name ? `, \n${name.split(' ')[0]}` : ''}!
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}

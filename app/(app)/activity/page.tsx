@@ -19,16 +19,16 @@ function isYesterday(d: Date) {
 
 function formatMonthDay(d: Date) {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-  return \`\${months[d.getMonth()]} \${d.getDate()}\`
+  return `${months[d.getMonth()]} ${d.getDate()}`
 }
 
 function formatRelative(d: Date) {
   const ms = Date.now() - d.getTime();
   const min = Math.floor(ms / 60000);
-  if (min < 60) return \`\${min || 1} min ago\`;
+  if (min < 60) return `${min || 1} min ago`;
   const hr = Math.floor(min / 60);
-  if (hr < 24) return \`\${hr} hr ago\`;
-  return \`\${Math.floor(hr / 24)} days ago\`;
+  if (hr < 24) return `${hr} hr ago`;
+  return `${Math.floor(hr / 24)} days ago`;
 }
 
 function groupTransactionsByDate(txs: Transaction[]) {
@@ -150,18 +150,18 @@ function TransactionItemRow({ tx, onClick }: { tx: Transaction, onClick: () => v
   const amountColor = isReceive ? 'text-[#16A34A]' : isSend && tx.status !== 'failed' ? 'text-on-surface' : 'text-on-surface-variant'
 
   let title = ''
-  if (isSend) title = \`Sent to \${tx.counterparty}\`
-  if (isReceive) title = \`Received from \${tx.counterparty}\`
-  if (isSwap) title = \`Swapped to \${tx.toAsset || 'Swap'}\`
-  if (tx.type === 'onramp') title = \`Funded via \${tx.counterparty}\`
-  if (tx.type === 'offramp') title = \`Cashout to \${tx.counterparty}\`
+  if (isSend) title = `Sent to ${tx.counterparty}`
+  if (isReceive) title = `Received from ${tx.counterparty}`
+  if (isSwap) title = `Swapped to ${tx.toAsset || 'Swap'}`
+  if (tx.type === 'onramp') title = `Funded via ${tx.counterparty}`
+  if (tx.type === 'offramp') title = `Cashout to ${tx.counterparty}`
 
   // Adjust display amounts for swap vs send vs receive
   const displayAmount = isSwap && tx.type === 'swap' ? Math.max(tx.amount || 0, tx.toAmount || 0) : tx.amount
 
   return (
     <div onClick={onClick} className="h-[76px] bg-surface rounded-[16px] px-4 flex items-center shadow-[0_2px_8px_rgba(0,0,0,0.06)] active:bg-surface-container-lowest transition-colors border border-outline-variant/10 cursor-pointer">
-      <div className={\`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 mr-3 \${iconBg}\`}>
+      <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 mr-3 ${iconBg}`}>
         <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'wght' 600" }}>{iconName}</span>
       </div>
       
@@ -177,11 +177,11 @@ function TransactionItemRow({ tx, onClick }: { tx: Transaction, onClick: () => v
       </div>
 
       <div className="flex flex-col items-end flex-shrink-0">
-        <span className={\`font-headline font-bold text-[15px] \${amountColor} \${tx.status === 'failed' ? 'line-through opacity-60' : ''}\`}>
+        <span className={`font-headline font-bold text-[15px] ${amountColor} ${tx.status === 'failed' ? 'line-through opacity-60' : ''}`}>
           {sign}{Number(displayAmount).toLocaleString()} {isSwap ? '' : tx.asset}
         </span>
         <span className="font-body text-[12px] text-on-surface-variant font-medium mt-1">
-          {tx.status === 'failed' ? 'Failed' : \`≈ ₦\${tx.fiatValue.toLocaleString()}\`}
+          {tx.status === 'failed' ? 'Failed' : `≈ ₦${tx.fiatValue.toLocaleString()}`}
         </span>
       </div>
     </div>
@@ -224,13 +224,13 @@ function TransactionDetailSheet({ tx, onClose }: { tx: Transaction | null, onClo
             <button onClick={onClose} className="absolute -top-2 right-0 w-8 h-8 flex items-center justify-center bg-surface-container-low rounded-full text-on-surface-variant hover:bg-surface-container transition-colors">
               <span className="material-symbols-outlined text-[20px]">close</span>
             </button>
-            <div className={\`w-16 h-16 rounded-full flex items-center justify-center mb-4 \${iconCircleClass} \${isPending ? 'animate-pulse' : ''}\`}>
-              <span className={\`material-symbols-outlined text-[32px] \${isPending ? 'animate-spin' : ''}\`} style={{ fontVariationSettings: "'wght' 600" }}>{iconName}</span>
+            <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 ${iconCircleClass} ${isPending ? 'animate-pulse' : ''}`}>
+              <span className={`material-symbols-outlined text-[32px] ${isPending ? 'animate-spin' : ''}`} style={{ fontVariationSettings: "'wght' 600" }}>{iconName}</span>
             </div>
-            <span className={\`font-label font-bold text-sm tracking-widest uppercase mb-2 \${isFailed ? 'text-[#DC2626]' : isPending ? 'text-[#FC690A]' : 'text-[#16A34A]'}\`}>
+            <span className={`font-label font-bold text-sm tracking-widest uppercase mb-2 ${isFailed ? 'text-[#DC2626]' : isPending ? 'text-[#FC690A]' : 'text-[#16A34A]'}`}>
               {tx.status}
             </span>
-            <div className={\`font-headline font-extrabold text-[36px] \${color}\`}>
+            <div className={`font-headline font-extrabold text-[36px] ${color}`}>
               {sign}{Number(tx.amount).toLocaleString()} {tx.asset}
             </div>
             <div className="font-body text-base text-on-surface-variant font-medium">
@@ -256,7 +256,7 @@ function TransactionDetailSheet({ tx, onClose }: { tx: Transaction | null, onClo
             <div className="w-full h-px bg-outline-variant/10" />
             <div className="flex justify-between items-center">
               <span className="font-body text-sm text-on-surface-variant">Fee</span>
-              <span className="font-headline font-bold text-sm text-[#16A34A]">{tx.fee === 0 ? 'Free' : \`< ₦0.01\`}</span>
+              <span className="font-headline font-bold text-sm text-[#16A34A]">{tx.fee === 0 ? 'Free' : `< ₦0.01`}</span>
             </div>
             <div className="w-full h-px bg-outline-variant/10" />
             <div className="flex flex-col gap-1">
@@ -277,7 +277,7 @@ function TransactionDetailSheet({ tx, onClose }: { tx: Transaction | null, onClo
               <span className="font-body text-sm text-on-surface-variant">Network Hash</span>
               <div className="flex items-center gap-2">
                 <span className="font-mono text-[11px] text-on-surface font-semibold bg-surface-container py-1 px-2 rounded-md tracking-wider">
-                  {tx.txHash.length > 20 ? \`\${tx.txHash.slice(0,6)}...\${tx.txHash.slice(-4)}\` : tx.txHash}
+                  {tx.txHash.length > 20 ? `${tx.txHash.slice(0,6)}...${tx.txHash.slice(-4)}` : tx.txHash}
                 </span>
                 <button onClick={() => haptics.light()} className="text-[#FC690A] hover:bg-primary-container p-1.5 rounded-full transition-colors active:scale-95">
                   <span className="material-symbols-outlined text-[16px]">content_copy</span>

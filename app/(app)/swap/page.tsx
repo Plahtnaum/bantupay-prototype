@@ -180,7 +180,7 @@ export default function SwapPage() {
                     <div className="pt-8 flex flex-col items-center gap-4">
                         <button 
                             onClick={handleSwap}
-                            className={\`w-20 h-20 rounded-full flex items-center justify-center shadow-xl transition-all active:scale-95 \${isProcessing ? 'bg-surface-container animate-pulse' : 'bg-primary shadow-primary/25'}\`}
+                            className={`w-20 h-20 rounded-full flex items-center justify-center shadow-xl transition-all active:scale-95 ${isProcessing ? 'bg-surface-container animate-pulse' : 'bg-primary shadow-primary/25'}`}
                         >
                             {isProcessing ? (
                                 <div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />

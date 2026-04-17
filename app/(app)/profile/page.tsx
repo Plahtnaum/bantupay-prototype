@@ -30,7 +30,7 @@ export default function ProfilePage() {
       title: 'Security',
       items: [
         { icon: 'shield_person', label: 'Security Center', sub: 'PIN, Biometrics and Recovery' },
-        { icon: 'verified_user', label: 'KYC Verification', sub: \`Level \${persona?.kycLevel || 1} Verified\`, badge: 'Verified' },
+        { icon: 'verified_user', label: 'KYC Verification', sub: `Level ${persona?.kycLevel || 1} Verified`, badge: 'Verified' },
       ]
     },
     {
@@ -73,7 +73,7 @@ export default function ProfilePage() {
                 <button
                   key={iIdx}
                   onClick={() => { haptics.light(); item.action?.() }}
-                  className={\`w-full flex items-center gap-4 px-4 py-4 hover:bg-surface-container-low transition-colors text-left \${iIdx < group.items.length - 1 ? 'border-b border-outline-variant/5' : ''}\`}
+                  className={`w-full flex items-center gap-4 px-4 py-4 hover:bg-surface-container-low transition-colors text-left ${iIdx < group.items.length - 1 ? 'border-b border-outline-variant/5' : ''}`}
                 >
                   <div className="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant">
                     <span className="material-symbols-outlined text-[22px]">{item.icon}</span>
@@ -83,7 +83,7 @@ export default function ProfilePage() {
                     <p className="font-body text-[12px] text-on-surface-variant font-medium">{item.sub}</p>
                   </div>
                   {item.toggle ? (
-                    <div className={\`w-12 h-6 rounded-full relative transition-colors \${item.value ? 'bg-primary' : 'bg-surface-container-high'}\`}>
+                    <div className={`w-12 h-6 rounded-full relative transition-colors ${item.value ? 'bg-primary' : 'bg-surface-container-high'}`}>
                       <motion.div 
                         animate={{ x: item.value ? 24 : 2 }}
                         className="absolute top-1 left-0 w-4 h-4 bg-white rounded-full shadow-sm"

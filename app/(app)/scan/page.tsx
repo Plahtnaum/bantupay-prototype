@@ -18,7 +18,7 @@ export default function ScanPage() {
             <span className="material-symbols-outlined text-[24px]">close</span>
           </button>
           <div className="flex items-center gap-4">
-             <button onClick={() => { haptics.light(); setFlashlight(!flashlight) }} className={\`w-10 h-10 rounded-full backdrop-blur-md flex items-center justify-center transition-all \${flashlight ? 'bg-[#FC690A] text-white shadow-[0_0_20px_rgba(252,105,10,0.4)]' : 'bg-white/10 text-white'}\`}>
+             <button onClick={() => { haptics.light(); setFlashlight(!flashlight) }} className={`w-10 h-10 rounded-full backdrop-blur-md flex items-center justify-center transition-all ${flashlight ? 'bg-[#FC690A] text-white shadow-[0_0_20px_rgba(252,105,10,0.4)]' : 'bg-white/10 text-white'}`}>
                <span className="material-symbols-outlined text-[22px]">{flashlight ? 'flashlight_on' : 'flashlight_off'}</span>
              </button>
              <button onClick={() => haptics.light()} className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white">

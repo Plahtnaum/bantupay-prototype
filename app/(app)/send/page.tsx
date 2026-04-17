@@ -59,7 +59,7 @@ export default function SendPage() {
       }
 
       const tx = {
-        id: \`tx_\${Date.now()}\`,
+        id: `tx_${Date.now()}`,
         type: 'send' as const,
         asset: currentAsset.symbol,
         amount: amountNum,
@@ -68,7 +68,7 @@ export default function SendPage() {
         memo,
         status: 'confirmed' as const,
         timestamp: new Date(),
-        txHash: \`BANTU\${Math.floor(Math.random()*1000000)}...\`,
+        txHash: `BANTU${Math.floor(Math.random()*1000000)}...`,
         fee: 0.001
       }
       
@@ -99,7 +99,7 @@ export default function SendPage() {
                 <button
                   key={asset.id}
                   onClick={() => { haptics.light(); setAssetIdx(idx) }}
-                  className={\`flex items-center gap-2 px-3 py-1.5 rounded-full transition-all flex-shrink-0 border \${assetIdx === idx ? 'bg-primary-container text-primary border-primary shadow-sm' : 'bg-surface text-on-surface-variant border-outline-variant/30 hover:bg-surface-container-low'}\`}
+                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full transition-all flex-shrink-0 border ${assetIdx === idx ? 'bg-primary-container text-primary border-primary shadow-sm' : 'bg-surface text-on-surface-variant border-outline-variant/30 hover:bg-surface-container-low'}`}
                 >
                   <div className="w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px]" style={{ backgroundColor: asset.iconBg, color: asset.color }}>
                     {asset.iconText}
@@ -117,7 +117,7 @@ export default function SendPage() {
               </div>
               
               <div className="relative">
-                <h2 className={\`font-headline font-bold text-[56px] tracking-tighter text-center max-w-[300px] overflow-hidden whitespace-nowrap \${isInsufficient ? 'text-error' : 'text-on-surface'}\`}>
+                <h2 className={`font-headline font-bold text-[56px] tracking-tighter text-center max-w-[300px] overflow-hidden whitespace-nowrap ${isInsufficient ? 'text-error' : 'text-on-surface'}`}>
                   {amount || '0'}
                 </h2>
                 <button onClick={() => { haptics.medium(); setAmount(currentAsset.balance.toString()) }} className="absolute -right-16 top-4 bg-primary-container text-primary font-label font-bold text-[10px] px-2 py-1 rounded-full uppercase tracking-wider hover:opacity-80">
@@ -321,7 +321,7 @@ export default function SendPage() {
                 <button 
                   onClick={executeSend}
                   disabled={isProcessing}
-                  className={\`w-[80px] h-[80px] rounded-full flex items-center justify-center transition-all bg-primary-container text-primary shadow-lg \${isProcessing ? 'animate-pulse scale-95' : 'hover:scale-105 active:scale-95'}\`}
+                  className={`w-[80px] h-[80px] rounded-full flex items-center justify-center transition-all bg-primary-container text-primary shadow-lg ${isProcessing ? 'animate-pulse scale-95' : 'hover:scale-105 active:scale-95'}`}
                 >
                   <span className="material-symbols-outlined text-[40px]" style={{ fontVariationSettings: "'wght' 200" }}>{isProcessing ? 'hourglass_empty' : 'fingerprint'}</span>
                 </button>

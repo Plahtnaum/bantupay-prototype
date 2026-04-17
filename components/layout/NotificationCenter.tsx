@@ -6,10 +6,10 @@ import { formatDistanceToNow } from 'date-fns' // Note: I used my custom one in 
 function formatRelative(d: Date) {
   const ms = Date.now() - d.getTime();
   const min = Math.floor(ms / 60000);
-  if (min < 60) return \`\${min || 1} min ago\`;
+  if (min < 60) return `${min || 1} min ago`;
   const hr = Math.floor(min / 60);
-  if (hr < 24) return \`\${hr} hr ago\`;
-  return \`\${Math.floor(hr / 24)} days ago\`;
+  if (hr < 24) return `${hr} hr ago`;
+  return `${Math.floor(hr / 24)} days ago`;
 }
 
 interface Notification {
@@ -62,12 +62,12 @@ export function NotificationCenter({ isOpen, onClose }: { isOpen: boolean; onClo
               {MOCK_NOTIFICATIONS.map((notif) => (
                 <div 
                   key={notif.id} 
-                  className={\`px-6 py-5 flex gap-4 transition-colors \${notif.unread ? 'bg-primary/5' : 'hover:bg-surface-container-lowest'}\`}
+                  className={`px-6 py-5 flex gap-4 transition-colors ${notif.unread ? 'bg-primary/5' : 'hover:bg-surface-container-lowest'}`}
                 >
                   <NotificationIcon type={notif.type} />
                   <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-start mb-1">
-                      <h4 className={\`font-headline text-[14px] truncate \${notif.unread ? 'font-bold text-on-surface' : 'font-semibold text-on-surface-variant'}\`}>
+                      <h4 className={`font-headline text-[14px] truncate ${notif.unread ? 'font-bold text-on-surface' : 'font-semibold text-on-surface-variant'}`}>
                         {notif.title}
                       </h4>
                       {notif.unread && <div className="w-2.5 h-2.5 rounded-full bg-primary mt-1 flex-shrink-0 shadow-[0_0_8px_rgba(252,105,10,0.4)]" />}
@@ -112,7 +112,7 @@ function NotificationIcon({ type }: { type: Notification['type'] }) {
     }
 
     return (
-        <div className={\`w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center \${bg} \${color}\`}>
+        <div className={`w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center ${bg} ${color}`}>
             <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'wght' 600" }}>{icon}</span>
         </div>
     )

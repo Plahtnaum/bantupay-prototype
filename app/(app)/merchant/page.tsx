@@ -10,10 +10,10 @@ import { QRCodeSVG } from 'qrcode.react'
 function formatRelative(d: Date) {
   const ms = Date.now() - d.getTime();
   const min = Math.floor(ms / 60000);
-  if (min < 60) return \`\${min || 1} min ago\`;
+  if (min < 60) return `${min || 1} min ago`;
   const hr = Math.floor(min / 60);
-  if (hr < 24) return \`\${hr} hr ago\`;
-  return \`\${Math.floor(hr / 24)} days ago\`;
+  if (hr < 24) return `${hr} hr ago`;
+  return `${Math.floor(hr / 24)} days ago`;
 }
 
 export default function MerchantPage() {
@@ -38,7 +38,7 @@ export default function MerchantPage() {
         <p className="font-body text-[12px] text-on-surface-variant text-center mt-1">Powered by BantuPay</p>
 
         <div className="mt-12 mb-8 bg-white p-4 rounded-3xl shadow-[0_4px_32px_rgba(0,0,0,0.08)] border border-outline-variant/10">
-          <QRCodeSVG value={\`bantupay:\${persona?.walletAddress}\`} size={280} fgColor="#0F0F0F" className="rounded-2xl overflow-hidden" />
+          <QRCodeSVG value={`bantupay:${persona?.walletAddress}`} size={280} fgColor="#0F0F0F" className="rounded-2xl overflow-hidden" />
         </div>
 
         <p className="font-mono font-bold text-[20px] text-on-surface text-center mb-8 tracking-tight">
@@ -149,7 +149,7 @@ export default function MerchantPage() {
             {/* Mock Weekly Chart */}
             {[40, 70, 30, 90, 60, 50, 100].map((h, i) => (
               <div key={i} className="w-8 flex flex-col items-center justify-end gap-2 h-full">
-                <motion.div initial={{ height: 0 }} animate={{ height: \`\${h}%\` }} transition={{ delay: i * 0.1 }} className="w-full bg-[#FC690A] rounded-t-sm opacity-80 hover:opacity-100 transition-opacity" />
+                <motion.div initial={{ height: 0 }} animate={{ height: `${h}%` }} transition={{ delay: i * 0.1 }} className="w-full bg-[#FC690A] rounded-t-sm opacity-80 hover:opacity-100 transition-opacity" />
               </div>
             ))}
           </div>

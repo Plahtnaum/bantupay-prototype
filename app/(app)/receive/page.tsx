@@ -17,7 +17,7 @@ export default function ReceivePage() {
   const [requestAmount, setRequestAmount] = useState('')
   
   const currentAsset = assets[assetIdx] || assets[0]
-  const linkUrl = \`bantupay.link/\${persona?.handle?.replace('@', '') || 'wallet'}\`
+  const linkUrl = `bantupay.link/${persona?.handle?.replace('@', '') || 'wallet'}`
 
   const handleCopy = (text: string) => {
     haptics.medium()
@@ -41,7 +41,7 @@ export default function ReceivePage() {
                 <button
                   key={asset.id}
                   onClick={() => { haptics.light(); setAssetIdx(idx) }}
-                  className={\`flex items-center gap-2 px-3 py-1.5 rounded-full transition-all flex-shrink-0 border \${assetIdx === idx ? 'bg-primary-container text-primary border-primary shadow-sm' : 'bg-surface text-on-surface-variant border-outline-variant/30 hover:bg-surface-container-low'}\`}
+                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full transition-all flex-shrink-0 border ${assetIdx === idx ? 'bg-primary-container text-primary border-primary shadow-sm' : 'bg-surface text-on-surface-variant border-outline-variant/30 hover:bg-surface-container-low'}`}
                 >
                   <div className="w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px]" style={{ backgroundColor: asset.iconBg, color: asset.color }}>
                     {asset.iconText}
@@ -54,7 +54,7 @@ export default function ReceivePage() {
             <main className="px-6 flex flex-col items-center flex-1">
               {/* QR Container */}
               <div className="bg-white p-4 rounded-[24px] shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-outline-variant/10 w-[240px] flex flex-col items-center">
-                <QRCodeSVG value={\`bantupay:\${persona?.walletAddress}\`} size={208} fgColor="#0F0F0F" className="rounded-xl overflow-hidden" />
+                <QRCodeSVG value={`bantupay:${persona?.walletAddress}`} size={208} fgColor="#0F0F0F" className="rounded-xl overflow-hidden" />
                 <span className="font-label font-bold text-[13px] text-on-surface-variant mt-4 mb-1 tracking-wide uppercase">Receiving {currentAsset.symbol}</span>
               </div>
 
@@ -78,7 +78,7 @@ export default function ReceivePage() {
                 <span className="font-label font-bold text-[12px] text-on-surface-variant uppercase tracking-widest">Or share your link</span>
                 <span className="font-mono text-[16px] font-extrabold tracking-tight text-on-surface border-b-2 border-primary/30 pb-0.5">{linkUrl}</span>
                 <div className="flex gap-2 w-full max-w-[280px] mt-2">
-                   <button onClick={() => handleCopy(\`https://\${linkUrl}\`)} className="h-10 flex-1 bg-surface border border-outline-variant/30 rounded-full flex items-center justify-center gap-2 font-label font-bold text-[12px] text-on-surface hover:bg-surface-container-low transition-colors active:scale-95 shadow-sm">
+                   <button onClick={() => handleCopy(`https://${linkUrl}`)} className="h-10 flex-1 bg-surface border border-outline-variant/30 rounded-full flex items-center justify-center gap-2 font-label font-bold text-[12px] text-on-surface hover:bg-surface-container-low transition-colors active:scale-95 shadow-sm">
                     Copy Link
                   </button>
                 </div>

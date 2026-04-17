@@ -26,7 +26,7 @@ export default function WalletPage() {
             <span className="font-label font-bold text-[11px] text-white/80 uppercase tracking-widest">Portfolio Value</span>
             <div className="flex items-center justify-between mt-1 mb-2">
               <h2 className="font-headline font-extrabold text-[32px] tracking-tight text-white m-0 leading-none">
-                {isBalanceHidden ? '• • • • • •' : \`₦\${portfolioValue.toLocaleString()}\`}
+                {isBalanceHidden ? '• • • • • •' : `₦${portfolioValue.toLocaleString()}`}
               </h2>
               <button onClick={() => haptics.light()} className="w-8 h-8 rounded-full flex items-center justify-center bg-white/10 text-white/80 transition-colors hover:bg-white/20 active:scale-95">
                 <span className="material-symbols-outlined text-[20px]">{isBalanceHidden ? 'visibility_off' : 'visibility'}</span>
@@ -107,7 +107,7 @@ export default function WalletPage() {
                </div>
             ) : (
               assets.map((asset) => (
-                <div key={asset.id} onClick={() => !isManageMode && haptics.light()} className={\`h-[72px] bg-surface rounded-[16px] px-4 flex items-center shadow-[0_2px_8px_rgba(0,0,0,0.06)] \${!isManageMode ? 'active:bg-surface-container-lowest cursor-pointer' : ''} transition-colors border border-outline-variant/10\`}>
+                <div key={asset.id} onClick={() => !isManageMode && haptics.light()} className={`h-[72px] bg-surface rounded-[16px] px-4 flex items-center shadow-[0_2px_8px_rgba(0,0,0,0.06)] ${!isManageMode ? 'active:bg-surface-container-lowest cursor-pointer' : ''} transition-colors border border-outline-variant/10`}>
                   {isManageMode && (
                     <button className="mr-3 text-error active:scale-90 transition-transform">
                       <span className="material-symbols-outlined">remove_circle</span>
@@ -119,7 +119,7 @@ export default function WalletPage() {
                   <div className="flex-1 min-w-0 pr-2">
                     <h3 className="font-headline font-bold text-[15px] text-on-surface leading-snug truncate">{asset.symbol}</h3>
                     <p className="font-body text-[13px] text-on-surface-variant truncate">
-                      {asset.issuer === 'native' ? 'Bantu Network' : \`\${asset.fiatSymbol}\${1.0.toFixed(2)}\`}
+                      {asset.issuer === 'native' ? 'Bantu Network' : `${asset.fiatSymbol}${1.0.toFixed(2)}`}
                     </p>
                   </div>
                   {!isManageMode ? (
@@ -128,7 +128,7 @@ export default function WalletPage() {
                         {isBalanceHidden ? '•••' : asset.balance.toLocaleString()}
                       </span>
                       <span className="font-body text-[12px] text-on-surface-variant font-medium">
-                        {isBalanceHidden ? '•••' : \`≈ ₦\${asset.fiatValue.toLocaleString()}\`}
+                        {isBalanceHidden ? '•••' : `≈ ₦${asset.fiatValue.toLocaleString()}`}
                       </span>
                     </div>
                   ) : (
