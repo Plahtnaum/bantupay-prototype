@@ -52,7 +52,7 @@ export default function HomePage() {
         </div>
       </header>
 
-      <main className="pt-24 pb-32 px-6 max-w-2xl mx-auto space-y-8">
+      <main className="pt-20 pb-32 px-6 max-w-[430px] mx-auto space-y-8">
         {/* Balance Card */}
         <BalanceCard />
 
@@ -68,8 +68,8 @@ export default function HomePage() {
             ))}
             {/* Add Assets Dashed Button */}
             <button
-              onClick={() => haptics.medium()}
-              className="w-full h-[60px] border-2 border-dashed border-outline-variant/30 rounded-xl flex items-center justify-center gap-2 text-outline hover:bg-surface-container-low transition-colors"
+              onClick={() => { haptics.medium(); router.push('/add-token') }}
+              className="w-full h-[60px] border-2 border-dashed border-outline-variant/30 rounded-xl flex items-center justify-center gap-2 text-primary hover:bg-primary/5 transition-colors"
             >
               <span className="material-symbols-outlined text-lg">add_circle</span>
               <span className="font-headline font-bold text-sm tracking-tight">Add assets</span>

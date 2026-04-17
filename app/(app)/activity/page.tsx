@@ -1,6 +1,7 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import { useWalletStore } from '@/store/wallet.store'
 import { Transaction } from '@/mock/transactions'
 import { haptics } from '@/lib/haptics'
@@ -45,6 +46,7 @@ function groupTransactionsByDate(txs: Transaction[]) {
 }
 
 export default function ActivityPage() {
+  const router = useRouter()
   const { transactions } = useWalletStore()
   const [filter, setFilter] = useState('All')
   const [selectedTx, setSelectedTx] = useState<Transaction | null>(null)
@@ -79,7 +81,12 @@ export default function ActivityPage() {
     <div className="bg-background min-h-screen text-on-background pb-24">
       <header className="sticky top-0 w-full max-w-[430px] z-30 bg-surface/80 backdrop-blur-xl px-6 pt-12 pb-4">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-[24px] font-headline font-semibold tracking-tight text-on-surface">Activity</h1>
+          <div className="flex items-center gap-3">
+            <button onClick={() => { haptics.light(); router.back() }} className="w-9 h-9 flex items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-colors active:scale-95">
+              <span className="material-symbols-outlined text-[20px]">arrow_back</span>
+            </button>
+            <h1 className="text-[24px] font-headline font-semibold tracking-tight text-on-surface">Activity</h1>
+          </div>
           <button onClick={() => haptics.light()} className="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-colors active:scale-95">
             <span className="material-symbols-outlined text-[22px]">tune</span>
           </button>
@@ -93,7 +100,7 @@ export default function ActivityPage() {
               onClick={() => { haptics.light(); setFilter(f); setDropdownOpen(false) }}
               className={`px-4 py-2 rounded-full text-[13px] font-label font-bold whitespace-nowrap transition-colors border ${
                 filter === f
-                  ? 'bg-primary-container text-primary border-primary'
+                  ? 'bg-primary text-white border-primary'
                   : 'bg-surface border-outline-variant/30 text-on-surface-variant hover:bg-surface-container-low'
               }`}
             >
@@ -106,7 +113,7 @@ export default function ActivityPage() {
               onClick={() => { haptics.light(); setDropdownOpen(o => !o) }}
               className={`flex items-center gap-1 px-3 py-2 rounded-full text-[13px] font-label font-bold transition-colors border ${
                 ['Swapped','On-ramp','Off-ramp'].includes(filter)
-                  ? 'bg-primary-container text-primary border-primary'
+                  ? 'bg-primary text-white border-primary'
                   : 'bg-surface border-outline-variant/30 text-on-surface-variant hover:bg-surface-container-low'
               }`}
             >
@@ -271,7 +278,7 @@ function TransactionDetailSheet({ tx, onClose }: { tx: Transaction | null, onClo
           <div className="w-12 h-1.5 bg-outline-variant/30 rounded-full" />
         </div>
 
-        <div className="p-6 overflow-y-auto">
+        <div className="p-6 pb-36 overflow-y-auto">
           <div className="flex flex-col items-center mb-8 relative">
             <button onClick={onClose} className="absolute -top-2 right-0 w-8 h-8 flex items-center justify-center bg-surface-container-low rounded-full text-on-surface-variant hover:bg-surface-container transition-colors">
               <span className="material-symbols-outlined text-[20px]">close</span>

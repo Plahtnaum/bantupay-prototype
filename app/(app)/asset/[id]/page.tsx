@@ -1,10 +1,8 @@
 'use client'
 import { motion } from 'framer-motion'
 import { useRouter, useParams } from 'next/navigation'
-import Link from 'next/link'
 import { haptics } from '@/lib/haptics'
 import { useWalletStore } from '@/store/wallet.store'
-import { format } from 'date-fns'
 
 function formatRelative(d: Date) {
   const ms = Date.now() - d.getTime();
@@ -69,19 +67,21 @@ export default function AssetDetailsPage() {
           <div className="absolute -left-8 -bottom-8 w-40 h-40 bg-black/10 rounded-full blur-2xl" />
         </motion.section>
 
-        {/* Action Strip matches Home/Wallet */}
-        <section className="grid grid-cols-4 gap-2">
+        {/* Action Strip */}
+        <section className="grid grid-cols-3 gap-3">
             {[
-              { label: 'Send', icon: 'arrow_upward', bg: 'bg-primary/10', color: 'text-primary', onClick: () => router.push(`/send?asset=${asset.symbol}`) },
-              { label: 'Receive', icon: 'arrow_downward', bg: 'bg-[#16A34A]/10', color: 'text-[#16A34A]', onClick: () => router.push(`/receive?asset=${asset.symbol}`) },
-              { label: 'Swap', icon: 'swap_horiz', bg: 'bg-[#2563EB]/10', color: 'text-[#2563EB]', onClick: () => router.push(`/swap?asset=${asset.symbol}`) },
-              { label: 'History', icon: 'history', bg: 'bg-surface-container', color: 'text-on-surface-variant', onClick: () => router.push('/activity') },
+              { label: 'Send',    icon: 'arrow_upward',  bg: 'bg-primary/10',            color: 'text-primary',             onClick: () => router.push(`/send?asset=${asset.symbol}`) },
+              { label: 'Receive', icon: 'arrow_downward',bg: 'bg-[#16A34A]/10',          color: 'text-[#16A34A]',           onClick: () => router.push(`/receive?asset=${asset.symbol}`) },
+              { label: 'Swap',    icon: 'swap_horiz',    bg: 'bg-secondary/10',          color: 'text-secondary',           onClick: () => router.push(`/swap?asset=${asset.symbol}`) },
+              { label: 'Buy',     icon: 'add_card',      bg: 'bg-primary/10',            color: 'text-primary',             onClick: () => router.push(`/buy?asset=${asset.symbol}`) },
+              { label: 'Sell',    icon: 'payments',      bg: 'bg-surface-container-high',color: 'text-on-surface-variant',  onClick: () => router.push(`/sell?asset=${asset.symbol}`) },
+              { label: 'History', icon: 'history',       bg: 'bg-surface-container',     color: 'text-on-surface-variant',  onClick: () => router.push('/activity') },
             ].map(action => (
-              <button key={action.label} onClick={() => { haptics.light(); action.onClick() }} className="flex flex-col items-center gap-2 group">
-                <div className={`w-14 h-14 rounded-full flex items-center justify-center transition-transform active:scale-90 ${action.bg} ${action.color}`}>
-                  <span className="material-symbols-outlined text-[24px]" style={{ fontVariationSettings: "'wght' 600" }}>{action.icon}</span>
+              <button key={action.label} onClick={() => { haptics.light(); action.onClick() }} className="flex flex-col items-center gap-2 bg-surface rounded-[16px] py-4 border border-outline-variant/10 shadow-sm active:scale-95 transition-transform">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center ${action.bg} ${action.color}`}>
+                  <span className="material-symbols-outlined text-[22px]">{action.icon}</span>
                 </div>
-                <span className="font-label font-bold text-[10px] text-on-surface-variant uppercase tracking-widest">{action.label}</span>
+                <span className="font-label font-bold text-[11px] text-on-surface-variant uppercase tracking-widest">{action.label}</span>
               </button>
             ))}
         </section>

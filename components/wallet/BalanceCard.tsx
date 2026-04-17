@@ -20,8 +20,8 @@ export function BalanceCard() {
   const totalUSD = totalNGN / 1488.50
 
   return (
-    <section className="relative px-6 pt-4">
-      <div className="w-full bg-gradient-to-br from-[#FC690A] to-[#D4560A] rounded-[20px] shadow-brand p-8 flex flex-col justify-between text-white overflow-hidden" style={{ aspectRatio: '16/10' }}>
+    <section className="relative -mx-6 pt-0">
+      <div className="w-full bg-gradient-to-br from-[#FC690A] to-[#D4560A] rounded-b-[28px] px-8 pt-7 pb-6 flex flex-col justify-between text-white overflow-hidden shadow-[0_8px_32px_rgba(252,105,10,0.25)]">
         {/* Decorative Layer */}
         <div className="absolute -top-12 -right-12 w-48 h-48 bg-white/10 rounded-full blur-3xl pointer-events-none" />
 

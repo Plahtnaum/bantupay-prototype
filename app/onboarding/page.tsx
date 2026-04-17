@@ -55,7 +55,7 @@ export default function OnboardingPage() {
     <div className="min-h-screen bg-bg-base flex flex-col overflow-hidden">
       <AnimatePresence mode="wait">
         {step === 'splash' && <SplashScreen key="splash" />}
-        {step === 'welcome' && <WelcomeScreen key="welcome" onNext={() => setStep('mode')} />}
+        {step === 'welcome' && <WelcomeScreen key="welcome" onNext={() => setStep('mode')} onSignIn={() => router.push('/sign-in')} />}
         {step === 'mode' && <ModeScreen key="mode" selected={mode} onSelect={setMode} onNext={() => setStep('phone')} />}
         
         {step === 'phone' && <PhoneScreen key="phone" value={phone} onChange={setPhone} onBack={() => setStep('mode')} onNext={() => setStep('otp')} />}
@@ -108,7 +108,7 @@ function SplashScreen() {
   )
 }
 
-function WelcomeScreen({ onNext }: { onNext: () => void }) {
+function WelcomeScreen({ onNext, onSignIn }: { onNext: () => void; onSignIn: () => void }) {
   return (
     <motion.div
       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
@@ -161,7 +161,7 @@ function WelcomeScreen({ onNext }: { onNext: () => void }) {
           <button onClick={onNext} className="w-full h-[56px] bg-gradient-to-br from-[#FC690A] to-[#D4560A] text-white rounded-full font-headline font-bold text-base shadow-lg shadow-[#FC690A]/20 active:scale-[0.98] transition-all">
             Get Started
           </button>
-          <button onClick={() => haptics.light()} className="w-full h-[56px] flex items-center justify-center gap-2 text-on-surface font-semibold text-[15px] hover:bg-surface-container-high rounded-full transition-colors active:scale-[0.98]">
+          <button onClick={() => { haptics.light(); onSignIn() }} className="w-full h-[56px] flex items-center justify-center gap-2 text-on-surface font-semibold text-[15px] hover:bg-surface-container-high rounded-full transition-colors active:scale-[0.98]">
             I already have a wallet
             <span className="material-symbols-outlined text-primary text-[20px]">arrow_forward</span>
           </button>

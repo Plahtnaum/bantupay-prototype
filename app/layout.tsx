@@ -2,6 +2,9 @@ import type { Metadata, Viewport } from 'next'
 import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import { ServiceWorkerRegistrar } from '@/components/pwa/ServiceWorkerRegistrar'
+import { InstallPrompt } from '@/components/pwa/InstallPrompt'
+import { UpdateBanner } from '@/components/pwa/UpdateBanner'
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -61,13 +64,11 @@ export default function RootLayout({
       */}
       <body className={`${jakarta.variable} ${inter.variable} ${jetbrains.variable} font-body antialiased bg-zinc-100 dark:bg-[#0F0F12] flex justify-center min-h-screen text-on-surface`}>
         <ThemeProvider>
-          {/* 
-            This div is the actual "App Frame". On mobile it's 100%, 
-            on desktop it is constrained to max 430px with shadows, mimicking a device.
-            It provides the real 'surface' background for the app internals.
-          */}
+          <ServiceWorkerRegistrar />
+          <UpdateBanner />
           <div className="w-full max-w-[430px] min-h-[100dvh] bg-surface relative shadow-2xl overflow-x-hidden flex flex-col items-stretch">
             {children}
+            <InstallPrompt />
           </div>
         </ThemeProvider>
       </body>

@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { useUserStore } from '@/store/user.store'
 import { useWalletStore } from '@/store/wallet.store'
@@ -27,10 +27,9 @@ const KYC_LABELS: Record<number, { label: string; color: string }> = {
   3: { label: 'Full KYC (Tier 3)', color: '#16A34A' },
 }
 
-const MODES: { id: UserMode; icon: string; label: string; sub: string }[] = [
-  { id: 'personal', icon: 'person', label: 'Personal', sub: 'P2P, savings & daily use' },
-  { id: 'merchant', icon: 'storefront', label: 'Merchant', sub: 'Accept payments & analytics' },
-  { id: 'crypto',   icon: 'currency_bitcoin', label: 'Crypto', sub: 'DeFi, swaps & advanced' },
+const MODES: { id: UserMode; icon: string; label: string }[] = [
+  { id: 'personal', icon: 'person',     label: 'Personal' },
+  { id: 'merchant', icon: 'storefront', label: 'Merchant' },
 ]
 
 export default function ProfilePage() {
@@ -39,6 +38,8 @@ export default function ProfilePage() {
   const { resetToDefaults } = useWalletStore()
   const { setTheme } = useTheme()
   const [appMode, setAppMode] = useState<UserMode>(persona?.mode ?? 'personal')
+  const [showEdit, setShowEdit] = useState(false)
+  const [editName, setEditName] = useState(persona?.name ?? '')
 
   const kyc = KYC_LABELS[persona?.kycLevel ?? 0]
 
@@ -60,7 +61,7 @@ export default function ProfilePage() {
         { icon: 'shield', label: 'Safes (Multi-sig)', sub: 'Shared treasury and co-signed accounts', action: () => router.push('/safes') },
         { icon: 'history', label: 'Activity History', sub: 'All transactions and on-ramp records', action: () => router.push('/activity') },
         { icon: 'share', label: 'Share Profile', sub: 'Your payment link and QR code', action: () => router.push('/receive') },
-        { icon: 'storefront', label: 'Merchant Dashboard', sub: 'Sales, QR payments and analytics', action: () => router.push('/merchant') },
+        ...(appMode === 'merchant' ? [{ icon: 'storefront', label: 'Merchant Dashboard', sub: 'Sales, QR payments and analytics', action: () => router.push('/merchant') }] : []),
       ],
     },
     {
@@ -126,7 +127,7 @@ export default function ProfilePage() {
             <p className="font-body text-[13px] text-on-surface-variant font-medium">{persona?.handle || '@bantu_user'}</p>
             <p className="font-mono text-[11px] text-on-surface-variant/50 mt-0.5 truncate">{persona?.walletAddress || '—'}</p>
           </div>
-          <button onClick={() => haptics.light()} className="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors flex-shrink-0">
+          <button onClick={() => { haptics.light(); setShowEdit(true) }} className="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors flex-shrink-0">
             <span className="material-symbols-outlined">edit</span>
           </button>
         </div>
@@ -248,6 +249,52 @@ export default function ProfilePage() {
         </div>
 
       </main>
+      {/* Name Edit Sheet */}
+      <AnimatePresence>
+        {showEdit && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/40 z-40"
+              onClick={() => setShowEdit(false)}
+            />
+            <motion.div
+              initial={{ y: '100%' }} animate={{ y: 0 }} exit={{ y: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto bg-surface rounded-t-[32px] z-50 p-6 pb-10"
+            >
+              <div className="w-12 h-1.5 bg-outline-variant/30 rounded-full mx-auto mb-6" />
+              <h2 className="font-headline font-bold text-[20px] text-on-surface mb-6">Edit Profile</h2>
+              <div className="space-y-4">
+                <div>
+                  <label className="font-label font-bold text-[11px] text-on-surface-variant uppercase tracking-widest mb-2 block">Display Name</label>
+                  <input
+                    type="text"
+                    value={editName}
+                    onChange={e => setEditName(e.target.value)}
+                    className="w-full h-14 bg-surface-container-low rounded-2xl border border-outline-variant/30 px-5 outline-none focus:border-primary font-headline font-semibold text-[16px] text-on-surface focus:ring-1 focus:ring-primary transition-all"
+                    placeholder="Your name"
+                    autoFocus
+                  />
+                </div>
+                <button
+                  onClick={() => {
+                    if (editName.trim() && persona) {
+                      haptics.success()
+                      setPersona({ ...persona, name: editName.trim() })
+                    }
+                    setShowEdit(false)
+                  }}
+                  className="w-full h-14 bg-gradient-to-br from-[#FC690A] to-[#D4560A] text-white font-headline font-bold text-[16px] rounded-full shadow-[0_4px_16px_rgba(252,105,10,0.25)] active:scale-95 transition-transform"
+                >
+                  Save Changes
+                </button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
     </div>
   )
 }

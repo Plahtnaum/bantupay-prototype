@@ -9,7 +9,7 @@ export default function RootPage() {
 
   useEffect(() => {
     if (onboardingComplete) {
-      router.replace('/home')
+      router.replace('/sign-in')
     } else {
       router.replace('/onboarding')
     }
