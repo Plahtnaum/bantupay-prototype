@@ -565,6 +565,7 @@ function BiometricScreen({ loading, onEnable, onSkip }: { loading: boolean; onEn
 }
 
 function CreatedScreen({ name }: { name: string }) {
+  const router = useRouter()
   return (
     <motion.div
       initial={{ opacity: 0 }} animate={{ opacity: 1 }}

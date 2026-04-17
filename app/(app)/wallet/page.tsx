@@ -8,7 +8,7 @@ import { haptics } from '@/lib/haptics'
 
 export default function WalletPage() {
   const router = useRouter()
-  const { assets, persona } = useWalletStore()
+  const { assets } = useWalletStore()
   const [isManageMode, setIsManageMode] = useState(false)
   const portfolioValue = assets.reduce((acc, curr) => acc + curr.fiatValue, 0)
   const isBalanceHidden = false // Mock toggle

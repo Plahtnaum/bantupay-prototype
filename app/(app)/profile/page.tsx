@@ -4,11 +4,21 @@ import { useRouter } from 'next/navigation'
 import { useUserStore } from '@/store/user.store'
 import { haptics } from '@/lib/haptics'
 
+type MenuItem = {
+  icon: string
+  label: string
+  sub: string
+  action?: () => void
+  toggle?: boolean
+  value?: boolean
+  badge?: string
+}
+
 export default function ProfilePage() {
   const router = useRouter()
-  const { persona, isDarkMode, toggleDarkMode } = useUserStore()
+  const { persona, darkMode, toggleDarkMode } = useUserStore()
 
-  const menuGroups = [
+  const menuGroups: { title: string; items: MenuItem[] }[] = [
     {
       title: 'Wallet',
       items: [
@@ -21,7 +31,7 @@ export default function ProfilePage() {
     {
       title: 'Preferences',
       items: [
-        { icon: 'dark_mode', label: 'Dark Mode', sub: 'Switch high-contrast appearance', toggle: true, value: isDarkMode, action: toggleDarkMode },
+        { icon: 'dark_mode', label: 'Dark Mode', sub: 'Switch high-contrast appearance', toggle: true, value: darkMode, action: toggleDarkMode },
         { icon: 'notifications', label: 'Notifications', sub: 'Manage your alerts and updates' },
         { icon: 'language', label: 'Currency', sub: 'Nigerian Naira (NGN)' },
       ]

@@ -133,7 +133,7 @@ export default function MerchantPage() {
                       <p className="font-body text-[12px] text-on-surface-variant truncate">{formatRelative(new Date(tx.timestamp))}</p>
                     </div>
                     <div className="text-right flex items-center gap-2">
-                       <span className="font-headline font-bold text-[14px] text-[#FC690A]">+{tx.fiatValue.toLocaleString()} {currentAsset?.fiatSymbol || '₦'}</span>
+                       <span className="font-headline font-bold text-[14px] text-[#FC690A]">+{tx.fiatValue.toLocaleString()} ₦</span>
                        <span className="material-symbols-outlined text-[16px] text-[#16A34A] font-bold">check</span>
                     </div>
                   </motion.div>
