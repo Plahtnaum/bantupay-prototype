@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
-import { formatFiat, formatCrypto, formatRelativeTime } from '@/lib/formatting'
+import { useRouter } from 'next/navigation'
+import { formatFiat, formatRelativeTime } from '@/lib/formatting'
 import { haptics } from '@/lib/haptics'
 import type { Transaction } from '@/mock/transactions'
 
@@ -20,6 +20,7 @@ const txConfig: Record<string, { icon: string; iconColor: string; iconBg: string
 }
 
 export function TransactionListItem({ tx, index = 0 }: TransactionListItemProps) {
+  const router = useRouter()
   const cfg = txConfig[tx.type] ?? txConfig.swap
   const isSend = tx.type === 'send' || tx.type === 'offramp'
   const isReceive = tx.type === 'receive' || tx.type === 'onramp' || tx.type === 'claim'
@@ -40,10 +41,9 @@ export function TransactionListItem({ tx, index = 0 }: TransactionListItemProps)
       viewport={{ once: true }}
       transition={{ delay: index * 0.04 }}
     >
-      <Link
-        href={`/activity/${tx.id}`}
-        onClick={() => haptics.light()}
-        className="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest transition-colors hover:bg-surface-container-low active:scale-[0.99]"
+      <button
+        onClick={() => { haptics.light(); router.push('/activity') }}
+        className="w-full flex items-center justify-between p-3 rounded-[16px] bg-surface-container-lowest transition-colors hover:bg-surface-container-low active:scale-[0.99] text-left"
       >
         <div className="flex items-center gap-3">
           <div className={`w-10 h-10 rounded-full ${cfg.iconBg} flex items-center justify-center ${cfg.iconColor}`}>
@@ -69,7 +69,7 @@ export function TransactionListItem({ tx, index = 0 }: TransactionListItemProps)
             <span className="text-[10px] text-on-surface-variant">{subAmount}</span>
           )}
         </div>
-      </Link>
+      </button>
     </motion.div>
   )
 }
