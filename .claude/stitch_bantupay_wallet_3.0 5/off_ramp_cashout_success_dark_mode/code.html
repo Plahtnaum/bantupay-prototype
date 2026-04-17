@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cashout Success - BantuPay</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .particle-bg {
+            background-image: radial-gradient(circle at 20% 30%, rgba(252, 105, 10, 0.08) 0%, transparent 20%),
+                              radial-gradient(circle at 80% 70%, rgba(252, 105, 10, 0.1) 0%, transparent 25%),
+                              radial-gradient(circle at 50% 50%, rgba(252, 105, 10, 0.05) 0%, transparent 50%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "base-dark": "#0F0F12",
+                        "surface-dark": "#1A1A20",
+                        "text-primary-dark": "#F5F5F5",
+                        "text-secondary-dark": "#9BA3B4",
+                        "outline-variant": "#2D2D35",
+                        "tertiary-container": "#009cfc",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#2D2D35",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#d0e4ff",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "on-background": "#F5F5F5",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#0F0F12",
+                        "secondary-fixed-dim": "#ffb695",
+                        "surface": "#1A1A20",
+                        "on-surface": "#F5F5F5",
+                        "on-primary-fixed-variant": "#7b2f00",
+                        "primary": "#FC690A",
+                        "secondary": "#964921",
+                        "primary-container": "#FC690A",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#fd9a6c",
+                        "on-tertiary-fixed-variant": "#00497b",
+                        "secondary-fixed": "#ffdbcc",
+                        "primary-fixed": "#ffdbcc",
+                        "background": "#0F0F12",
+                        "surface-dim": "#0F0F12",
+                        "primary-fixed-dim": "#ffb695",
+                        "on-tertiary-fixed": "#001d35",
+                        "surface-container-lowest": "#1A1A20",
+                        "on-secondary-fixed": "#351000",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#003155",
+                        "on-surface-variant": "#9BA3B4",
+                        "surface-container-low": "#1A1A20",
+                        "outline": "#44444F",
+                        "on-primary-container": "#ffffff",
+                        "inverse-surface": "#F5F5F5",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#009cfc",
+                        "surface-tint": "#FC690A",
+                        "surface-bright": "#2D2D35",
+                        "on-secondary-container": "#753009",
+                        "on-secondary-fixed-variant": "#77320b",
+                        "inverse-primary": "#ffb695",
+                        "on-primary-fixed": "#351000"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "data": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-text-primary-dark antialiased">
+<!-- Shell: TopAppBar -->
+<header class="bg-base-dark/80 backdrop-blur-md sticky top-0 z-50 flex items-center justify-between px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#FC690A] active:scale-95 duration-200 cursor-pointer">arrow_back</span>
+<h1 class="font-headline text-lg font-bold tracking-tight text-text-primary-dark">Cashout Status</h1>
+</div>
+<div class="font-headline font-black text-[#FC690A] text-xl">BantuPay</div>
+</header>
+<main class="relative min-h-[calc(100vh-140px)] flex flex-col items-center justify-center px-6 pt-8 pb-24 overflow-hidden particle-bg">
+<!-- Celebration Hero -->
+<div class="relative z-10 flex flex-col items-center text-center max-w-md w-full">
+<!-- Animated Green Checkmark in Orange Circle -->
+<div class="relative mb-8">
+<!-- Background Glow -->
+<div class="absolute inset-0 bg-[#FC690A] opacity-30 blur-3xl rounded-full scale-150"></div>
+<!-- Main Container -->
+<div class="relative h-32 w-32 bg-surface-dark rounded-full flex items-center justify-center shadow-[0_12px_40px_rgba(252,105,10,0.3)] ring-4 ring-[#FC690A]/20">
+<div class="h-24 w-24 bg-[#FC690A] rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-6xl font-bold" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+</div>
+</div>
+<!-- Headlines -->
+<h2 class="font-headline text-3xl font-extrabold tracking-tight text-text-primary-dark mb-3">Cashout Successful!</h2>
+<p class="font-body text-text-secondary-dark text-base px-4 leading-relaxed">
+                Your <span class="font-semibold text-text-primary-dark">₦4,950.00</span> has been sent to your bank account.
+            </p>
+</div>
+<!-- Summary Card -->
+<div class="mt-12 w-full max-w-md relative z-10">
+<div class="bg-surface-dark rounded-lg p-6 shadow-[0_8px_32px_rgba(0,0,0,0.2)] border border-white/5">
+<div class="flex items-center justify-between mb-8">
+<div>
+<p class="text-[10px] uppercase tracking-widest font-bold text-text-secondary-dark mb-1">Transaction Amount</p>
+<p class="font-headline text-2xl font-black text-[#FC690A]">₦4,950.00</p>
+</div>
+<div class="h-12 w-12 rounded-full overflow-hidden bg-white/5 p-2 border border-white/10">
+<img alt="Bank Logo" class="w-full h-full object-contain brightness-0 invert" data-alt="minimalist modern bank icon logo in a circle on a white background with clean geometric lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ0X3X5lncDxjYLtTwCCj9PyQJOMLg2HrZwzwClefLM2sULVB5SpHD42v-0tQ3fkoyzVLNa8oGF0ryg5fAzb1_E1QJT2RS2apLAUzI4kKSf7my_dU5844v201zGbEdiqRAPtE4YhNryMHVZkz0JzHlWjwvgORgW9VoKIz2M9BryfMBTrBK6lcRo6-fhajGoTCnJV9PNKnlbxP-Zi8agkp3JzbKS_03_iSnlcr9X-LICyH6p6AALyLq0PHIY7rlfATmiWraNVHm6Q"/>
+</div>
+</div>
+<!-- Transaction Details -->
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<span class="text-xs font-medium text-text-secondary-dark">Transaction ID</span>
+<p class="font-data text-sm font-medium tracking-tight text-text-primary-dark">BP-882-991-0023-X</p>
+</div>
+<span class="material-symbols-outlined text-text-secondary-dark text-lg cursor-pointer hover:text-[#FC690A] transition-colors">content_copy</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<span class="text-xs font-medium text-text-secondary-dark">Bank Name</span>
+<p class="text-sm font-semibold text-text-primary-dark">Kuda Bank Microfinance</p>
+</div>
+<div class="space-y-1 text-right">
+<span class="text-xs font-medium text-text-secondary-dark">Date &amp; Time</span>
+<p class="text-sm font-semibold text-text-primary-dark">Oct 24, 2023 • 14:02</p>
+</div>
+</div>
+<!-- Status Pill -->
+<div class="pt-4 flex justify-center">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#009cfc]/10 text-[#009cfc] font-bold text-[10px] uppercase tracking-widest rounded-full border border-[#009cfc]/20">
+<span class="w-1.5 h-1.5 rounded-full bg-[#009cfc] animate-pulse"></span>
+                            Settled Successfully
+                        </div>
+</div>
+</div>
+</div>
+<!-- Decorative Asset Element -->
+<div class="absolute -bottom-4 -right-4 w-24 h-24 bg-[#FC690A]/10 rounded-full -z-10 blur-xl"></div>
+<div class="absolute -top-4 -left-4 w-32 h-32 bg-[#009cfc]/10 rounded-full -z-10 blur-2xl"></div>
+</div>
+<!-- Confetti Decoration -->
+<div class="absolute inset-0 pointer-events-none opacity-20">
+<div class="absolute top-1/4 left-10 w-2 h-2 bg-[#FC690A] rounded-sm rotate-45"></div>
+<div class="absolute top-1/3 right-12 w-3 h-3 border-2 border-[#FC690A] rounded-full"></div>
+<div class="absolute bottom-1/4 left-20 w-2 h-4 bg-[#009cfc]/40 rounded-full -rotate-12"></div>
+<div class="absolute top-2/3 right-20 w-4 h-1 bg-[#FC690A]/60 rounded-full rotate-45"></div>
+</div>
+</main>
+<!-- Bottom Action Area -->
+<div class="fixed bottom-0 left-0 w-full px-6 pb-10 pt-4 bg-base-dark/80 backdrop-blur-xl z-50 border-t border-white/5">
+<div class="max-w-md mx-auto space-y-4">
+<button class="w-full bg-gradient-to-br from-[#FC690A] to-[#D4560A] text-white font-headline font-bold py-4 rounded-full shadow-lg shadow-[#FC690A]/30 active:scale-95 transition-transform duration-200 flex items-center justify-center gap-2">
+                Back to Home
+                <span class="material-symbols-outlined text-xl">home</span>
+</button>
+<button class="w-full bg-surface-dark text-text-primary-dark font-headline font-semibold py-4 rounded-full border border-white/5 active:scale-95 transition-transform duration-200 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl">share</span>
+                Share Receipt
+            </button>
+</div>
+</div>
+</body></html>

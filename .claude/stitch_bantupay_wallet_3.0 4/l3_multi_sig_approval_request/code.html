@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Approval Needed - BantuPay</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#191c1f",
+                        "on-secondary-fixed-variant": "#77320b",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#ffdbcc",
+                        "primary": "#a23f00",
+                        "secondary-container": "#fd9a6c",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#eff1f5",
+                        "tertiary-fixed": "#d0e4ff",
+                        "primary-fixed": "#ffdbcc",
+                        "inverse-surface": "#2e3134",
+                        "surface-tint": "#a23f00",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e7e8ec",
+                        "on-secondary-container": "#753009",
+                        "on-primary": "#ffffff",
+                        "outline": "#8e7165",
+                        "on-tertiary-fixed": "#001d35",
+                        "on-secondary-fixed": "#351000",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#edeef2",
+                        "secondary-fixed-dim": "#ffb695",
+                        "surface-variant": "#e1e2e6",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#7b2f00",
+                        "surface-dim": "#d9dade",
+                        "surface-bright": "#f8f9fd",
+                        "secondary": "#964921",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#ffb695",
+                        "surface-container-low": "#f2f3f7",
+                        "tertiary": "#0062a1",
+                        "on-background": "#191c1f",
+                        "on-primary-container": "#551e00",
+                        "on-tertiary-fixed-variant": "#00497b",
+                        "primary-fixed-dim": "#ffb695",
+                        "outline-variant": "#e2bfb1",
+                        "tertiary-container": "#009cfc",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fd",
+                        "on-primary-fixed": "#351000",
+                        "background": "#f8f9fd",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "primary-container": "#fc690a",
+                        "surface-container-highest": "#e1e2e6",
+                        "on-tertiary-container": "#003155",
+                        "on-surface-variant": "#5a4137"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(248, 249, 253, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body text-on-background min-h-screen flex flex-col overflow-hidden">
+<!-- Background Content (Simulated Home Screen) -->
+<main class="flex-grow p-6 pt-24 opacity-40">
+<header class="mb-8">
+<h1 class="font-headline text-4xl font-extrabold tracking-tight text-on-surface">Hello, Chidi</h1>
+<p class="text-on-surface-variant">Your multi-sig vault is active.</p>
+</header>
+<!-- Bento Grid Preview -->
+<div class="grid grid-cols-2 gap-4">
+<div class="col-span-2 bg-primary-container p-6 rounded-lg text-on-primary">
+<span class="text-sm font-medium opacity-80">Total Balance</span>
+<div class="text-3xl font-headline font-bold mt-1">₦ 1,240,000.00</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg">
+<div class="material-symbols-outlined text-primary mb-2">trending_up</div>
+<div class="text-xs text-on-surface-variant">Income</div>
+<div class="font-headline font-bold">₦85k</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg">
+<div class="material-symbols-outlined text-tertiary mb-2">account_balance_wallet</div>
+<div class="text-xs text-on-surface-variant">Assets</div>
+<div class="font-headline font-bold">12</div>
+</div>
+</div>
+</main>
+<!-- TopAppBar - Fixed Anchor -->
+<div class="fixed top-0 w-full z-50 bg-[#F5F6FA]/80 dark:bg-[#0F0F12]/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="text-xl font-black text-[#FC690A] font-['Plus_Jakarta_Sans'] font-bold tracking-tight">BantuPay</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a smiling young African man in a professional setting with soft natural window lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnck3HoQ9Qaiidy78wn_nhk5Ul-Hy3cfzSbac9rvCMPA5-H90HUAaxRAdBlbEqChVq8ZcCHcIoR8BfLAc--LpqgP22wV0ttmOaB5MR9AX6DHM03DAvRH1o7SwjMMcaXA70XaEKatVbjFfD7lCI1Er2NQlk_qpb-hN3Qnp011TV_6amRR1-LyyYC9xR9GSKTibOfxFJGm-_i3FbwJ_6n5EG3z3K3a-lblLO0SjAnedt9u-wWTJxfebchB1y6JBHUlc2o4tJuCPlpg"/>
+</div>
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400 hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">settings</span>
+</div>
+</div>
+<!-- BottomNavBar - Suppressed/Dimmed for focused task but present per instructions -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-[28px] bg-[#F5F6FA]/90 dark:bg-[#0F0F12]/90 backdrop-blur-2xl shadow-[0_-4px_24px_rgba(252,105,10,0.08)] flex justify-around items-center h-20 px-4 pb-safe opacity-20">
+<div class="flex flex-col items-center justify-center text-[#FC690A] scale-110 font-bold font-['Inter'] text-[10px] font-medium">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span>Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-600 font-['Inter'] text-[10px] font-medium">
+<span class="material-symbols-outlined">storefront</span>
+<span>Merchant</span>
+</div>
+<div class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-600 font-['Inter'] text-[10px] font-medium">
+<span class="material-symbols-outlined">group_work</span>
+<span>Multi-sig</span>
+</div>
+<div class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-600 font-['Inter'] text-[10px] font-medium">
+<span class="material-symbols-outlined">receipt_long</span>
+<span>History</span>
+</div>
+<div class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-600 font-['Inter'] text-[10px] font-medium">
+<span class="material-symbols-outlined">security</span>
+<span>Recovery</span>
+</div>
+</nav>
+<!-- FULL SCREEN BOTTOM SHEET: Approval Request -->
+<div class="fixed inset-0 z-[100] flex flex-col justify-end">
+<!-- Backdrop -->
+<div class="absolute inset-0 bg-on-surface/40 backdrop-blur-sm"></div>
+<!-- Sheet Content -->
+<div class="relative w-full bg-surface max-h-[92%] rounded-t-lg shadow-2xl flex flex-col animate-slide-up">
+<!-- Handle -->
+<div class="w-full flex justify-center pt-4 pb-2">
+<div class="w-12 h-1.5 bg-surface-container-highest rounded-full"></div>
+</div>
+<!-- Header -->
+<div class="px-8 pb-4 text-center">
+<h2 class="font-headline text-2xl font-bold text-on-surface">Approval Needed</h2>
+</div>
+<!-- Content Canvas -->
+<div class="flex-grow overflow-y-auto px-8 pb-8">
+<!-- Request Summary Card -->
+<div class="bg-primary-container p-6 rounded-lg text-on-primary mb-8 text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
+<div class="relative z-10">
+<div class="w-16 h-16 bg-white/20 rounded-full mx-auto flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl">payments</span>
+</div>
+<p class="text-lg font-medium opacity-90">Chidi wants to send</p>
+<div class="text-4xl font-headline font-black mt-2">₦50,000.00</div>
+<p class="text-sm mt-2 opacity-80">to <span class="font-bold underline decoration-white/30 underline-offset-4">Adekunle Gold</span></p>
+</div>
+</div>
+<!-- Transaction Details Editorial Table -->
+<div class="bg-surface-container-low rounded-lg p-6 space-y-6">
+<div class="flex justify-between items-end">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Type</span>
+<span class="text-sm font-headline font-semibold text-on-surface">External Transfer</span>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Asset</span>
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-full bg-secondary text-[10px] flex items-center justify-center text-white">₦</div>
+<span class="text-sm font-headline font-semibold text-on-surface">NGN Fiat</span>
+</div>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Fee</span>
+<span class="text-sm font-mono text-on-surface">₦50.00</span>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Date</span>
+<span class="text-sm font-headline font-semibold text-on-surface">Oct 24, 2023</span>
+</div>
+<div class="pt-4 border-t border-outline-variant/10">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant block mb-2">Memo</span>
+<p class="text-sm italic text-on-surface bg-surface p-3 rounded">"Payment for the premium design assets - Project Kinetic Curator"</p>
+</div>
+</div>
+<!-- Recipient Address / Hash -->
+<div class="mt-6 px-2">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-2">Vault Address</span>
+<code class="font-mono text-xs text-on-surface-variant break-all bg-surface-container-high/50 p-2 rounded">
+                        0x4B20...F26189Aa72A9C12
+                    </code>
+</div>
+</div>
+<!-- Action Area -->
+<div class="px-8 pb-12 pt-4 bg-surface border-t border-outline-variant/5">
+<div class="flex flex-col gap-4">
+<!-- Biometric Trigger -->
+<button class="w-full h-16 bg-gradient-to-br from-[#FC690A] to-[#D4560A] rounded-full flex items-center justify-center gap-3 text-white font-headline font-bold shadow-brand shadow-[0_12px_24px_rgba(252,105,10,0.25)] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">fingerprint</span>
+<span>Approve Request</span>
+</button>
+<button class="w-full py-4 text-error font-headline font-bold rounded-full hover:bg-error-container/20 transition-colors active:scale-95">
+                        Reject Request
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

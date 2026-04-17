@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "kinetic-base": "#0F0F12",
+            "kinetic-surface": "#1A1A20",
+            "kinetic-text-primary": "#F5F5F5",
+            "kinetic-text-secondary": "#9BA3B4",
+            "secondary": "#964921",
+            "on-surface": "#F5F5F5",
+            "background": "#0F0F12",
+            "secondary-fixed-dim": "#ffb695",
+            "on-error-container": "#93000a",
+            "on-primary-container": "#551e00",
+            "surface-bright": "#1A1A20",
+            "error": "#ba1a1a",
+            "surface-tint": "#a23f00",
+            "secondary-container": "#753009",
+            "primary-fixed": "#ffdbcc",
+            "on-tertiary-fixed": "#001d35",
+            "surface-variant": "#2e3134",
+            "outline": "#8e7165",
+            "surface-dim": "#0F0F12",
+            "on-secondary": "#ffffff",
+            "secondary-fixed": "#ffdbcc",
+            "inverse-surface": "#eff1f5",
+            "on-secondary-container": "#ffb695",
+            "inverse-primary": "#a23f00",
+            "primary-container": "#FC690A",
+            "on-background": "#F5F5F5",
+            "outline-variant": "#5a4137",
+            "primary-fixed-dim": "#ffb695",
+            "on-secondary-fixed-variant": "#77320b",
+            "on-primary-fixed-variant": "#7b2f00",
+            "surface-container": "#1A1A20",
+            "surface-container-low": "#15151a",
+            "tertiary-fixed": "#d0e4ff",
+            "on-tertiary": "#ffffff",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#009cfc",
+            "on-tertiary-container": "#003155",
+            "primary": "#FC690A",
+            "on-surface-variant": "#9BA3B4",
+            "surface-container-lowest": "#0F0F12",
+            "on-primary": "#ffffff",
+            "surface-container-highest": "#2e3134",
+            "on-tertiary-fixed-variant": "#00497b",
+            "inverse-on-surface": "#191c1f",
+            "tertiary-fixed-dim": "#9ccaff",
+            "surface-container-high": "#24242b",
+            "on-error": "#ffffff",
+            "on-secondary-fixed": "#351000",
+            "on-primary-fixed": "#351000",
+            "surface": "#0F0F12",
+            "tertiary": "#0062a1"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-effect {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-kinetic-base font-body text-kinetic-text-primary min-h-screen overflow-hidden">
+<!-- Underlying Receive Screen Content -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F12]/80 backdrop-blur-xl border-b border-white/5">
+<div class="flex items-center justify-between px-6 h-16 w-full max-w-screen-xl mx-auto">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[#FC690A]">arrow_back</span>
+</button>
+<h1 class="text-[#FC690A] font-['Plus_Jakarta_Sans'] font-bold tracking-tight text-lg">Receive Funds</h1>
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[#FC690A]">more_vert</span>
+</button>
+</div>
+</header>
+<main class="pt-24 pb-20 px-6 max-w-md mx-auto space-y-8">
+<!-- Static background elements to simulate the screen beneath -->
+<div class="bg-kinetic-surface p-6 rounded-xl space-y-4">
+<div class="h-4 w-24 bg-white/10 rounded"></div>
+<div class="h-12 w-full bg-white/5 rounded-lg"></div>
+<div class="h-4 w-32 bg-white/10 rounded"></div>
+<div class="h-12 w-full bg-white/5 rounded-lg"></div>
+</div>
+</main>
+<!-- Bottom Nav Bar (Background) -->
+<nav class="fixed bottom-0 w-full z-40 bg-[#1A1A20]/90 backdrop-blur-2xl rounded-t-[32px] shadow-[0_-4px_24px_rgba(0,0,0,0.2)] border-t border-white/5">
+<div class="flex justify-around items-center h-20 px-4 pb-safe w-full">
+<div class="flex flex-col items-center justify-center text-kinetic-text-secondary">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-['Inter'] text-[11px] font-medium mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#FC690A] font-bold scale-110">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-['Inter'] text-[11px] font-medium mt-1">Assets</span>
+</div>
+<div class="flex flex-col items-center justify-center text-kinetic-text-secondary">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-['Inter'] text-[11px] font-medium mt-1">Activity</span>
+</div>
+<div class="flex flex-col items-center justify-center text-kinetic-text-secondary">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Inter'] text-[11px] font-medium mt-1">Settings</span>
+</div>
+</div>
+</nav>
+<!-- Overlay Scrim -->
+<div class="fixed inset-0 bg-black/60 backdrop-blur-[2px] z-[60]"></div>
+<!-- Slide-up Bottom Sheet -->
+<div class="fixed bottom-0 left-0 right-0 z-[70] bg-kinetic-surface rounded-t-xl max-w-screen-md mx-auto shadow-2xl transition-transform transform translate-y-0 border-t border-white/10">
+<!-- Drag Handle -->
+<div class="flex justify-center pt-3 pb-2">
+<div class="w-10 h-1.5 bg-white/10 rounded-full"></div>
+</div>
+<div class="px-8 pb-12 pt-4 flex flex-col items-center text-center">
+<!-- Title/Amount Label -->
+<div class="mb-8">
+<p class="text-kinetic-text-secondary font-label text-sm font-medium mb-1">Requesting</p>
+<div class="flex items-baseline justify-center gap-2">
+<span class="text-3xl font-headline font-extrabold tracking-tight text-kinetic-text-primary">1,250.00</span>
+<span class="text-xl font-headline font-bold text-[#FC690A]">BNT</span>
+</div>
+</div>
+<!-- QR Code Section -->
+<div class="relative p-6 bg-white/5 rounded-xl mb-8 group">
+<div class="absolute inset-0 bg-gradient-to-br from-[#FC690A]/10 to-transparent rounded-xl"></div>
+<img alt="Payment QR Code" class="w-48 h-48 relative z-10 brightness-95 contrast-110" data-alt="A clean minimalist QR code generated on a white background with rounded corners for a digital wallet payment request" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCplyCge5G8ogmJHPD2pTfxHYVAbfq7ymPo8qXwd3JrZkhrj0bffKhGSja9LBc3-6nhB35wGEp4GVoiUpMb37__UdZ7eqrPn_53KQkWhn8NgRPJIVrQO-M4ctKWuIjAvbTD52RCjpDFTKmIkp-AU3p3E689k-oqksHvuXBngrRhrwckqvddsz_yJ8o7VPROrEiEz6Tg_wY_xwOniJrOwnEkyRJn9HvO8IPKepwGYUtJRnq__VeQTiSIGMBH-ks_voMCYpbh-8qfJA"/>
+<!-- Brand Watermark on QR -->
+<div class="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+<div class="bg-kinetic-surface p-2 rounded-lg shadow-lg border border-white/10">
+<span class="material-symbols-outlined text-[#FC690A] text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+</div>
+</div>
+<!-- Link Box -->
+<div class="w-full bg-kinetic-base rounded-lg p-4 mb-8 flex items-center justify-between gap-4 border border-white/5">
+<div class="flex-1 overflow-hidden text-left">
+<p class="text-xs text-kinetic-text-secondary font-label mb-0.5">BantuPay Link</p>
+<p class="font-['JetBrains_Mono'] text-sm text-kinetic-text-primary truncate">bantupay.link/pay/rq-827k-99x</p>
+</div>
+<button class="bg-white/10 text-kinetic-text-primary p-2.5 rounded-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-xl">content_copy</span>
+</button>
+</div>
+<!-- Action Row -->
+<div class="grid grid-cols-3 gap-4 w-full mb-10">
+<button class="flex flex-col items-center gap-2 group">
+<div class="w-14 h-14 rounded-full bg-kinetic-base flex items-center justify-center group-active:scale-90 transition-all text-kinetic-text-secondary group-hover:bg-[#FC690A]/10 group-hover:text-[#FC690A] border border-white/5">
+<span class="material-symbols-outlined text-2xl">link</span>
+</div>
+<span class="text-xs font-medium font-label text-kinetic-text-secondary">Copy Link</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="w-14 h-14 rounded-full bg-kinetic-base flex items-center justify-center group-active:scale-90 transition-all text-[#25D366] border border-white/5">
+<span class="material-symbols-outlined text-2xl">chat</span>
+</div>
+<span class="text-xs font-medium font-label text-kinetic-text-secondary">WhatsApp</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="w-14 h-14 rounded-full bg-kinetic-base flex items-center justify-center group-active:scale-90 transition-all text-kinetic-text-secondary group-hover:bg-[#FC690A]/10 group-hover:text-[#FC690A] border border-white/5">
+<span class="material-symbols-outlined text-2xl">share</span>
+</div>
+<span class="text-xs font-medium font-label text-kinetic-text-secondary">Share</span>
+</button>
+</div>
+<!-- Primary Action -->
+<button class="w-full h-14 rounded-full bg-[#FC690A] text-white font-headline font-bold text-lg shadow-[0_8px_24px_rgba(252,105,10,0.3)] active:scale-[0.98] transition-transform">
+        Done
+      </button>
+</div>
+</div>
+</body></html>

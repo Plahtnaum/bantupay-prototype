@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Asset Details - cNGN</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#0F0F12",
+                        "surface": "#1A1A20",
+                        "on-surface": "#F5F5F5",
+                        "on-surface-variant": "#9BA3B4",
+                        "primary": "#FC690A",
+                        "bantu-orange": "#FC690A",
+                        "surface-container-lowest": "#1A1A20",
+                        "surface-container-low": "#1A1A20",
+                        "surface-container-high": "#2A2A32",
+                        "outline-variant": "#3F3F46"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(15, 15, 18, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #FC690A 0%, #D4560A 100%);
+        }
+        .ghost-border {
+            border: 1px solid rgba(155, 163, 180, 0.15);
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body min-h-screen pb-32">
+<header class="fixed top-0 w-full z-50 bg-[#0F0F12]/80 backdrop-blur-xl flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 duration-200 text-[#FC690A] hover:bg-[#FC690A]/10 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline font-bold tracking-tight text-xl text-on-surface">Asset Details</h1>
+</div>
+<button class="active:scale-95 duration-200 text-[#9BA3B4] hover:bg-[#FC690A]/10 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto space-y-8">
+<!-- Card Section -->
+<section class="relative overflow-hidden rounded-lg p-8 kinetic-gradient text-white shadow-[0_24px_48px_rgba(252,105,10,0.2)]">
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center">
+<img alt="cNGN Logo" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr4jShpeqsZqcCEwFbfL3cYyAGLF8oikHmRhGf80Oq9mfyqZd7e7tAUzobHMbAE6wT1s4Kfz3yV6hbjNmZMSydqsvXZmYH-9zemu-GcXSzhBn4yamka6OUoXVzG69pKBbRVaxt7pWAX-LZ88LROZSvsmruI-fqqdrp5Ta0zODDo9n0jgHgdMkwUuIJMuqZFH1gBFMtdsS5ekB8ozVxp-PXgHWspiw9lSPTAG6C_B6eEBM27luInn-50jC3IzQ3cFeD4dekG2E-Xg"/>
+</div>
+<span class="font-headline font-bold text-lg tracking-wide">cNGN Stablecoin</span>
+</div>
+<div class="space-y-1">
+<p class="text-white/70 font-label text-xs font-bold tracking-widest uppercase">TOTAL BALANCE</p>
+<div class="flex items-baseline gap-2">
+<h2 class="font-headline font-extrabold text-5xl tracking-tighter">149,850.00</h2>
+<span class="font-headline font-bold text-xl opacity-80">cNGN</span>
+</div>
+<p class="font-mono text-white/90 text-lg">≈ ₦149,850.00</p>
+</div>
+</div>
+<div class="absolute -right-16 -top-16 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute -left-8 -bottom-8 w-40 h-40 bg-black/10 rounded-full blur-2xl"></div>
+</section>
+<!-- Actions -->
+<section class="space-y-4">
+<div class="grid grid-cols-3 gap-3">
+<button class="flex flex-col items-center justify-center p-4 bg-surface-container-lowest ghost-border rounded-lg active:scale-95 transition-transform group">
+<div class="w-12 h-12 rounded-full bg-[#FC690A]/10 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-[#FC690A] text-2xl font-bold">arrow_outward</span>
+</div>
+<span class="font-headline font-bold text-sm text-[#FC690A]">Send</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 bg-surface-container-lowest ghost-border rounded-lg active:scale-95 transition-transform group">
+<div class="w-12 h-12 rounded-full bg-[#FC690A]/10 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-[#FC690A] text-2xl font-bold">arrow_downward</span>
+</div>
+<span class="font-headline font-bold text-sm text-[#FC690A]">Receive</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 bg-surface-container-lowest ghost-border rounded-lg active:scale-95 transition-transform group">
+<div class="w-12 h-12 rounded-full bg-[#FC690A]/10 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-[#FC690A] text-2xl font-bold">swap_horiz</span>
+</div>
+<span class="font-headline font-bold text-sm text-[#FC690A]">Swap</span>
+</button>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 flex items-center justify-center gap-2 p-4 kinetic-gradient rounded-lg active:scale-95 transition-transform shadow-lg shadow-[#FC690A]/20">
+<span class="material-symbols-outlined text-white text-xl">add_circle</span>
+<span class="font-headline font-bold text-white uppercase tracking-tight text-sm">Get cNGN</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 p-4 bg-surface-container-high rounded-lg active:scale-95 transition-transform border border-white/5">
+<span class="material-symbols-outlined text-on-surface text-xl">account_balance_wallet</span>
+<span class="font-headline font-bold text-on-surface uppercase tracking-tight text-sm">Cashout</span>
+</button>
+</div>
+</section>
+<!-- Info Box -->
+<section class="bg-surface-container-low rounded-lg p-6 space-y-4 border border-white/5">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined">info</span>
+<h3 class="font-headline font-bold">About cNGN</h3>
+</div>
+<p class="text-on-surface-variant leading-relaxed font-body">
+            cNGN is a 1:1 naira-backed stablecoin issued by the <span class="font-semibold text-on-surface">WrappedCBDC consortium</span> on the Bantu Network.
+        </p>
+<div class="pt-4 flex items-center justify-between border-t border-white/5">
+<span class="text-sm font-semibold text-on-surface-variant">Official Website</span>
+<a class="text-primary font-headline font-bold flex items-center gap-1 hover:underline text-sm" href="https://wrappedcbdc.com">
+                wrappedcbdc.com
+                <span class="material-symbols-outlined text-xs">open_in_new</span>
+</a>
+</div>
+</section>
+<!-- Activity -->
+<section class="space-y-6 pb-4">
+<div class="flex justify-between items-end">
+<h3 class="font-headline font-extrabold text-2xl tracking-tight text-on-surface">Recent Activity</h3>
+<button class="text-primary font-headline font-bold text-sm">View All</button>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg ghost-border group hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">call_received</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface text-sm">Received cNGN</h4>
+<p class="text-xs text-on-surface-variant font-mono">From: BNT...9z4x</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline font-extrabold text-on-surface">+50,000.00</p>
+<p class="text-[10px] uppercase tracking-widest text-emerald-500 font-bold">SUCCESS</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg ghost-border hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">sync_alt</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface text-sm">Swap: cNGN to XBN</h4>
+<p class="text-xs text-on-surface-variant font-mono">Bantu DEX</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline font-extrabold text-on-surface">-1,200.00</p>
+<p class="text-[10px] uppercase tracking-widest text-emerald-500 font-bold">SUCCESS</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg border-l-4 border-[#009cfc]">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-[#009cfc]/10 text-[#009cfc] rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface text-sm">Cashout Pending</h4>
+<p class="text-xs text-on-surface-variant font-mono">To: Bank Transfer</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline font-extrabold text-on-surface">-15,000.00</p>
+<p class="text-[10px] uppercase tracking-widest text-[#009cfc] font-bold">PENDING</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-[32px] bg-[#0F0F12]/90 backdrop-blur-lg shadow-[0_-4px_24px_rgba(0,0,0,0.5)] flex justify-around items-end pb-6 pt-3 px-4">
+<button class="flex flex-col items-center justify-center text-[#9BA3B4] gap-1 active:scale-90 transition-transform duration-200 hover:text-[#FC690A]">
+<span class="material-symbols-outlined">home</span>
+<span class="font-headline text-[10px] font-semibold tracking-wide">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#FC690A] gap-1 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-headline text-[10px] font-semibold tracking-wide">Assets</span>
+</button>
+<div class="relative -top-6">
+<button class="w-14 h-14 kinetic-gradient rounded-full flex items-center justify-center shadow-lg shadow-[#FC690A]/40 active:scale-90 transition-transform duration-200 border-4 border-background">
+<span class="material-symbols-outlined text-white text-2xl font-bold">qr_code_scanner</span>
+</button>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-headline text-[10px] font-semibold tracking-wide text-[#9BA3B4]">Scan</span>
+</div>
+<button class="flex flex-col items-center justify-center text-[#9BA3B4] gap-1 active:scale-90 transition-transform duration-200 hover:text-[#FC690A]">
+<span class="material-symbols-outlined">history</span>
+<span class="font-headline text-[10px] font-semibold tracking-wide">History</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#9BA3B4] gap-1 active:scale-90 transition-transform duration-200 hover:text-[#FC690A]">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-headline text-[10px] font-semibold tracking-wide">Settings</span>
+</button>
+</nav>
+</body></html>

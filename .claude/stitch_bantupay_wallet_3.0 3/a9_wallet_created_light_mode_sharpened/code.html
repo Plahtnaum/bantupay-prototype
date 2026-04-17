@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e7e8ec",
+                        "surface-bright": "#f8f9fd",
+                        "tertiary-fixed": "#d0e4ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#5a4137",
+                        "outline": "#8e7165",
+                        "on-background": "#0F0F0F",
+                        "background": "#F5F6FA",
+                        "on-primary-fixed-variant": "#7b2f00",
+                        "on-secondary-fixed-variant": "#77320b",
+                        "surface-dim": "#d9dade",
+                        "secondary-fixed-dim": "#ffb695",
+                        "primary-fixed": "#ffdbcc",
+                        "on-secondary-container": "#753009",
+                        "tertiary-container": "#009cfc",
+                        "inverse-surface": "#2e3134",
+                        "on-surface": "#0F0F0F",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#551e00",
+                        "outline-variant": "rgba(0, 0, 0, 0.08)",
+                        "on-tertiary-fixed-variant": "#00497b",
+                        "secondary-container": "#fd9a6c",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#001d35",
+                        "error": "#ba1a1a",
+                        "surface": "#F5F6FA",
+                        "inverse-on-surface": "#eff1f5",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#0062a1",
+                        "primary-fixed-dim": "#ffb695",
+                        "on-secondary-fixed": "#351000",
+                        "on-tertiary-container": "#003155",
+                        "surface-tint": "#a23f00",
+                        "inverse-primary": "#ffb695",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#FFFFFF",
+                        "primary": "#FC690A",
+                        "surface-container-low": "#FBFBFC",
+                        "secondary-fixed": "#ffdbcc",
+                        "secondary": "#964921",
+                        "surface-variant": "#e1e2e6",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#F0F0F5",
+                        "on-primary-fixed": "#351000",
+                        "primary-container": "#FC690A"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    "boxShadow": {
+                        "brand": "0 10px 25px -5px rgba(252, 105, 10, 0.3)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #F5F6FA; 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .confetti-overlay {
+            background-image: radial-gradient(circle at 20% 30%, rgba(252, 105, 10, 0.1) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 70%, rgba(252, 105, 10, 0.05) 0%, transparent 50%);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="text-on-surface overflow-hidden">
+<!-- Celebration Canvas -->
+<main class="relative min-h-screen w-full flex flex-col items-center justify-center px-6 confetti-overlay">
+<!-- Animated Confetti Placeholder (Visual Representation) -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
+<div class="absolute top-10 left-[10%] w-3 h-3 bg-primary rounded-sm rotate-12"></div>
+<div class="absolute top-20 right-[20%] w-2 h-4 bg-primary/40 rounded-full -rotate-45"></div>
+<div class="absolute bottom-40 left-[15%] w-4 h-2 bg-primary rounded-full rotate-90"></div>
+<div class="absolute top-[40%] right-[10%] w-3 h-3 bg-primary/60 rotate-45"></div>
+<div class="absolute bottom-20 right-[30%] w-2 h-2 bg-primary rounded-full"></div>
+<div class="absolute top-[60%] left-[5%] w-4 h-4 bg-primary/20 rounded-lg -rotate-12"></div>
+</div>
+<!-- Success Anchor -->
+<div class="z-10 flex flex-col items-center text-center space-y-8 max-w-md">
+<!-- Icon Moment -->
+<div class="relative">
+<div class="absolute inset-0 bg-primary/10 blur-3xl rounded-full scale-150"></div>
+<div class="relative w-24 h-24 bg-primary rounded-full flex items-center justify-center shadow-brand">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<!-- Content Hierarchy -->
+<div class="space-y-4">
+<h1 class="font-headline font-bold text-4xl tracking-tight text-[#0F0F0F] leading-tight">
+            Your wallet is ready, Amara!
+        </h1>
+<p class="text-[#0F0F0F]/70 font-body text-lg leading-relaxed px-4">
+            You're in... Your gateway to the Bantu ecosystem is now live.
+        </p>
+</div>
+<!-- Address Card (Refined Sharpness) -->
+<div class="w-full bg-white border border-outline-variant p-6 rounded-lg text-left relative overflow-hidden group shadow-sm">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full blur-2xl"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="flex-1 mr-4">
+<span class="text-[10px] font-bold uppercase tracking-widest text-[#0F0F0F]/50 font-label">Your BantuPay address</span>
+<div class="mt-2 font-mono text-primary text-base font-bold break-all leading-tight">
+                    GBPTV...XXXQ
+                </div>
+</div>
+<button class="flex items-center space-x-1.5 text-primary hover:opacity-80 transition-all active:scale-95 group/btn">
+<span class="material-symbols-outlined text-base">content_copy</span>
+<span class="font-label text-xs font-bold">Copy</span>
+</button>
+</div>
+<!-- Asset Badges (Kinetic Design) -->
+<div class="flex gap-2">
+<div class="flex items-center space-x-2 bg-emerald-500/5 border border-emerald-500/15 px-3 py-1.5 rounded-full">
+<div class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+<span class="text-[11px] font-bold text-emerald-700 font-headline">XBN</span>
+</div>
+<div class="flex items-center space-x-2 bg-emerald-500/5 border border-emerald-500/15 px-3 py-1.5 rounded-full">
+<div class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+<span class="text-[11px] font-bold text-emerald-700 font-headline">cNGN</span>
+</div>
+</div>
+</div>
+<!-- Action Cluster -->
+<div class="w-full flex flex-col space-y-4 pt-4">
+<button class="w-full bg-[#FC690A] text-white font-headline font-bold py-4 rounded-full shadow-brand transition-all hover:brightness-105 active:scale-[0.98] flex items-center justify-center space-x-2">
+<span>Fund my wallet</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-full bg-white border border-outline-variant text-[#0F0F0F] font-headline font-bold py-4 rounded-full transition-all hover:bg-gray-50 active:scale-[0.98] shadow-sm">
+            Explore first
+        </button>
+</div>
+</div>
+<!-- Semantic Identity (Footer Badge) -->
+<div class="absolute bottom-12 flex items-center space-x-2 opacity-40">
+<span class="font-headline font-bold text-xs tracking-tighter text-[#0F0F0F]">BANTUPAY</span>
+<div class="w-1 h-1 bg-on-surface rounded-full"></div>
+<span class="font-body text-[10px] font-bold uppercase tracking-widest text-[#0F0F0F]">Protocol 3.0</span>
+</div>
+</main>
+<!-- Glass Overlay - Adjusted for clarity -->
+<div class="fixed inset-0 pointer-events-none border-[1rem] border-white/5 z-50 rounded-xl"></div>
+</body></html>

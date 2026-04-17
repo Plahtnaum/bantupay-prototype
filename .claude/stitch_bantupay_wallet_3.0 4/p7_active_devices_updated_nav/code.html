@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#964921",
+                        "surface-container-high": "#e7e8ec",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#ffdbcc",
+                        "inverse-primary": "#ffb695",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#7b2f00",
+                        "inverse-surface": "#2e3134",
+                        "inverse-on-surface": "#eff1f5",
+                        "tertiary-fixed": "#d0e4ff",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "surface-tint": "#a23f00",
+                        "surface-variant": "#e1e2e6",
+                        "surface-container-highest": "#e1e2e6",
+                        "on-primary-fixed": "#351000",
+                        "surface-bright": "#f8f9fd",
+                        "outline-variant": "#e2bfb1",
+                        "on-surface-variant": "#5a4137",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#edeef2",
+                        "on-background": "#191c1f",
+                        "tertiary": "#0062a1",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f2f3f7",
+                        "primary-fixed": "#ffdbcc",
+                        "secondary-container": "#fd9a6c",
+                        "surface": "#f8f9fd",
+                        "on-primary-container": "#551e00",
+                        "background": "#f8f9fd",
+                        "secondary-fixed-dim": "#ffb695",
+                        "on-tertiary-container": "#003155",
+                        "on-surface": "#191c1f",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#753009",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#fc690a",
+                        "on-tertiary-fixed": "#001d35",
+                        "on-secondary-fixed-variant": "#77320b",
+                        "primary": "#a23f00",
+                        "surface-dim": "#d9dade",
+                        "outline": "#8e7165",
+                        "on-secondary-fixed": "#351000",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#009cfc",
+                        "on-tertiary-fixed-variant": "#00497b",
+                        "primary-fixed-dim": "#ffb695"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .shadow-brand {
+            box-shadow: 0 24px 48px -12px rgba(252, 105, 10, 0.15);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F6FA;
+        }
+        h1, h2, h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .mono-text {
+            font-family: 'JetBrains Mono', monospace;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-[#F5F6FA]/80 backdrop-blur-xl flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform text-slate-700">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="text-xl font-bold tracking-tight font-headline">Active Devices</h1>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a professional man with a kind smile, soft studio lighting, clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHTDh9l4YkFBHctrP5AvU0Z0e8Mp4smCZuixEj6_pelF1xdp1lluVTywzZUedUY7YXBl1UYIMRDV-4kN9vI9aAMDPTiGgWhYt3xaolob4G6mEFvpYxSbMt9qWMD7pnlgVw9zNBu-aPNfEQ1BitucTuBBYT4oiQcbvilW4ymzKhXcI-pGO9M9aDQKnCZeHXdhmf21cN9M4H3CJZ8seGWYvA9D6ZThHzaNlfw9F6MMyL2FxtZpsF1PkCD_GL8uz0pes94CR99AaeMw"/>
+</span>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto space-y-8">
+<!-- Hero Context Section -->
+<section class="space-y-2">
+<p class="text-secondary font-semibold text-sm tracking-wider uppercase">Security Overview</p>
+<h2 class="text-3xl font-extrabold font-headline leading-tight">Manage your <br/>connected ecosystem.</h2>
+<p class="text-on-surface-variant text-sm max-w-xs">Review and manage the devices where your BantuPay account is currently active.</p>
+</section>
+<!-- Device List -->
+<div class="space-y-4">
+<!-- Current Device Card -->
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-brand relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-green-100 text-green-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                        Current
+                    </span>
+</div>
+<div class="flex items-start gap-5">
+<div class="w-14 h-14 rounded-2xl bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">smartphone</span>
+</div>
+<div class="space-y-3 flex-1">
+<div>
+<h3 class="text-lg font-bold">iPhone 15 Pro</h3>
+<p class="text-xs text-on-surface-variant mono-text">ID: BANTU-8829-XQ12</p>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Last Active</p>
+<p class="text-xs font-semibold">Just now</p>
+</div>
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Added</p>
+<p class="text-xs font-semibold">Oct 12, 2023 • Lagos</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Other Device Card -->
+<div class="bg-surface-container-low rounded-lg p-6 group hover:bg-surface-container transition-colors">
+<div class="flex items-start gap-5">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-highest flex items-center justify-center text-slate-400">
+<span class="material-symbols-outlined text-3xl">laptop_mac</span>
+</div>
+<div class="space-y-3 flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold">MacBook Pro 16"</h3>
+<p class="text-xs text-on-surface-variant mono-text">ID: BANTU-4410-WK99</p>
+</div>
+<button class="text-error text-[11px] font-bold uppercase tracking-widest py-2 px-4 rounded-full border border-error/20 hover:bg-error/5 transition-all active:scale-95">
+                                Remove
+                            </button>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Last Active</p>
+<p class="text-xs font-semibold">2 hours ago</p>
+</div>
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Added</p>
+<p class="text-xs font-semibold">Sep 04, 2023 • London</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Other Device Card -->
+<div class="bg-surface-container-low rounded-lg p-6 group hover:bg-surface-container transition-colors">
+<div class="flex items-start gap-5">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-highest flex items-center justify-center text-slate-400">
+<span class="material-symbols-outlined text-3xl">tablet_android</span>
+</div>
+<div class="space-y-3 flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-lg font-bold">iPad Air (5th Gen)</h3>
+<p class="text-xs text-on-surface-variant mono-text">ID: BANTU-1205-PX05</p>
+</div>
+<button class="text-error text-[11px] font-bold uppercase tracking-widest py-2 px-4 rounded-full border border-error/20 hover:bg-error/5 transition-all active:scale-95">
+                                Remove
+                            </button>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Last Active</p>
+<p class="text-xs font-semibold">Nov 28, 2023</p>
+</div>
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Added</p>
+<p class="text-xs font-semibold">Aug 15, 2023 • Accra</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Add Device Action -->
+<button class="w-full py-8 border-2 border-dashed border-slate-200 rounded-lg flex flex-col items-center justify-center gap-3 text-slate-500 hover:border-primary-container/40 hover:text-primary-container transition-all group">
+<div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-primary-container/10 transition-colors">
+<span class="material-symbols-outlined">add</span>
+</div>
+<span class="text-sm font-bold uppercase tracking-widest">Add another device</span>
+</button>
+</div>
+<!-- Security Tip -->
+<div class="bg-primary-container/5 p-6 rounded-xl border border-primary-container/10 flex gap-4">
+<span class="material-symbols-outlined text-primary-container">verified_user</span>
+<div class="space-y-1">
+<p class="font-bold text-sm">Security Tip</p>
+<p class="text-xs text-on-surface-variant leading-relaxed">Always remove devices you no longer recognize or use. We recommend enabling 2FA for all new device logins.</p>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Anchor -->
+<nav class="fixed bottom-0 w-full flex justify-around items-end px-4 pb-6 pt-3 bg-[#F5F6FA]/90 backdrop-blur-lg rounded-t-[32px] shadow-[0_-4px_24px_rgba(252,105,10,0.1)] z-50">
+<a class="flex flex-col items-center justify-center text-slate-400 gap-1 hover:text-[#FC690A] transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 gap-1 hover:text-[#FC690A] transition-colors" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide uppercase">Assets</span>
+</a>
+<!-- Scan Floating FAB -->
+<div class="relative -top-6">
+<button class="w-16 h-16 bg-[#FC690A] rounded-full shadow-lg shadow-[#FC690A]/40 flex items-center justify-center text-white active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined text-3xl">qr_code_scanner</span>
+</button>
+</div>
+<a class="flex flex-col items-center justify-center text-slate-400 gap-1 hover:text-[#FC690A] transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide uppercase">History</span>
+</a>
+<!-- Active Tab: Settings -->
+<a class="flex flex-col items-center justify-center text-[#FC690A] gap-1 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide uppercase">Settings</span>
+</a>
+</nav>
+</body></html>

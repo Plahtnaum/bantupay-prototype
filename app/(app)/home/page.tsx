@@ -1,6 +1,5 @@
 'use client'
 import { motion } from 'framer-motion'
-import { Bell, QrCode } from 'phosphor-react'
 import { BalanceCard } from '@/components/wallet/BalanceCard'
 import { AssetListItem } from '@/components/wallet/AssetListItem'
 import { TransactionListItem } from '@/components/wallet/TransactionListItem'
@@ -14,89 +13,81 @@ export default function HomePage() {
   const recent = transactions.slice(0, 3)
 
   return (
-    <div className="min-h-screen bg-bg-base">
-      {/* Editorial Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-border/10 dark:border-white/5 px-6 py-4 flex justify-between items-center">
+    <div className="min-h-screen bg-surface">
+      {/* Top App Bar */}
+      <header className="fixed top-0 w-full z-50 bg-slate-50/80 backdrop-blur-xl flex justify-between items-center px-6 py-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-brand relative group cursor-pointer" onClick={() => haptics.reveal()}>
-             <div className="absolute inset-0 bg-brand/10 group-hover:bg-transparent transition-colors" />
-             <img 
-               src="https://plus.unsplash.com/premium_photo-1683121366070-5ceb7e24b77f?q=80&w=100&h=100&auto=format&fit=crop" 
-               alt="Profile" 
-               className="w-full h-full object-cover"
-             />
+          <div className="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary-container">
+            <img
+              alt="User Profile"
+              className="w-full h-full object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcHLKDoV1Y2nQ-WxGcNE94-EaniUcKzIgAfCKjgu819YhLthGFeITl_cjBBN88bb9ExdbAxblhCvlG1VnKmRDExo1GGqyx9HVHxdq-1xpA9yM9MopfiCniUA7Ww2xQtHG6YaxkWrlxZPyiKgB_LeYu15Z0_-ygs8oDB1-kEk6J4qHKV-qwuku5tKbQv_IUvjgY8As85ccg1y48SHAjsdLtC-6Fdjt3vl1aGKbai0a_er1eNdxLSVRoPRZ2OrAkx_Hodhe-3b2p2Q"
+            />
           </div>
           <div className="flex flex-col">
-            <span className="text-[10px] text-text-secondary font-extrabold uppercase tracking-widest leading-none mb-1">Personal Mode</span>
-            <h1 className="text-text-primary font-display font-bold text-lg tracking-tight leading-none">
+            <span className="text-xs text-secondary font-medium uppercase tracking-widest">Personal Mode</span>
+            <h1 className="text-on-surface font-headline font-bold text-lg tracking-tight">
               Hi, {persona?.name.split(' ')[0] ?? 'Amara'}
             </h1>
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <HeaderAction icon={<Bell size={20} />} hasBadge onClick={() => haptics.light()} />
-          <HeaderAction icon={<QrCode size={20} />} onClick={() => haptics.medium()} />
+          <button
+            onClick={() => haptics.light()}
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:opacity-80 transition-opacity relative"
+          >
+            <span className="material-symbols-outlined text-on-surface">notifications</span>
+            <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-primary rounded-full border-2 border-surface" />
+          </button>
+          <button
+            onClick={() => haptics.light()}
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:opacity-80 transition-opacity"
+          >
+            <span className="material-symbols-outlined text-on-surface">qr_code_scanner</span>
+          </button>
         </div>
       </header>
 
-      <main className="pt-24 pb-12 space-y-10">
-        {/* Hero Area */}
-        <section>
-          <BalanceCard />
-        </section>
+      <main className="pt-24 pb-32 px-6 max-w-2xl mx-auto space-y-8">
+        {/* Balance Card */}
+        <BalanceCard />
 
         {/* ASSETS Section */}
-        <section className="px-6 space-y-4">
+        <section className="space-y-4">
           <div className="flex justify-between items-end">
-            <h2 className="text-text-secondary font-display font-extrabold tracking-widest text-[11px] uppercase">ASSETS</h2>
-            <button className="text-brand font-bold text-xs hover:underline decoration-2 underline-offset-4 transition-all" onClick={() => haptics.light()}>Manage</button>
+            <h2 className="text-secondary font-headline font-extrabold tracking-widest text-xs uppercase">ASSETS</h2>
+            <button className="text-primary font-bold text-xs hover:underline transition-all" onClick={() => haptics.light()}>Manage</button>
           </div>
           <div className="space-y-3">
             {assets.map((asset, i) => (
               <AssetListItem key={asset.id} asset={asset} index={i} />
             ))}
-            
             {/* Add Assets Dashed Button */}
-            <motion.button 
-              whileTap={{ scale: 0.98 }}
+            <button
               onClick={() => haptics.medium()}
-              className="w-full h-[60px] border-2 border-dashed border-border/20 rounded-xl flex items-center justify-center gap-2 text-text-secondary hover:bg-surface-container-low hover:border-brand/40 transition-all duration-300 group"
+              className="w-full h-[60px] border-2 border-dashed border-outline-variant/30 rounded-xl flex items-center justify-center gap-2 text-outline hover:bg-surface-container-low transition-colors"
             >
-              <span className="material-symbols-outlined text-lg group-hover:scale-110 transition-transform">add_circle</span>
-              <span className="font-display font-bold text-sm tracking-tight">Add assets</span>
-            </motion.button>
-          </div>
-        </section>
-
-        {/* RECENT Activity */}
-        <section className="px-6 space-y-4">
-          <div className="flex justify-between items-center">
-            <h2 className="text-text-secondary font-display font-extrabold tracking-widest text-[11px] uppercase">RECENT</h2>
-            <button className="text-brand font-bold text-xs flex items-center gap-1 group" onClick={() => haptics.transition()}>
-              See all <span className="group-hover:translate-x-1 transition-transform">→</span>
+              <span className="material-symbols-outlined text-lg">add_circle</span>
+              <span className="font-headline font-bold text-sm tracking-tight">Add assets</span>
             </button>
           </div>
-          <div className="bg-surface-container-low/50 rounded-2xl p-2 space-y-2">
-            {recent.map((tx, i) => (
-              <TransactionListItem key={tx.id} tx={tx} index={i} />
-            ))}
-          </div>
         </section>
+
+        {/* RECENT Transactions */}
+        {recent.length > 0 && (
+          <section className="space-y-4">
+            <div className="flex justify-between items-center">
+              <h2 className="text-secondary font-headline font-extrabold tracking-widest text-xs uppercase">RECENT</h2>
+              <button className="text-primary font-bold text-xs hover:translate-x-1 transition-transform" onClick={() => haptics.light()}>See all →</button>
+            </div>
+            <div className="bg-surface-container-low/50 rounded-2xl p-2 space-y-1">
+              {recent.map((tx, i) => (
+                <TransactionListItem key={tx.id} tx={tx} index={i} />
+              ))}
+            </div>
+          </section>
+        )}
       </main>
     </div>
-  )
-}
-
-function HeaderAction({ icon, hasBadge, onClick }: { icon: React.ReactNode; hasBadge?: boolean; onClick?: () => void }) {
-  return (
-    <button 
-      onClick={onClick}
-      className="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-high text-text-primary hover:scale-105 transition-transform active:scale-90 relative"
-    >
-      {icon}
-      {hasBadge && (
-        <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-brand rounded-full border-2 border-surface"></span>
-      )}
-    </button>
   )
 }

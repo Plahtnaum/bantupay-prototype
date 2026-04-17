@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BantuPay - Enable Biometrics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "base-dark": "#0F0F12",
+                        "surface-dark": "#1A1A20",
+                        "text-primary-dark": "#F5F5F5",
+                        "text-secondary-dark": "#9BA3B4",
+                        "surface-container-high": "#2A2A32",
+                        "surface-bright": "#1F1F27",
+                        "tertiary-fixed": "#d0e4ff",
+                        "surface-container-lowest": "#0A0A0C",
+                        "on-surface-variant": "#9BA3B4",
+                        "outline": "#44444F",
+                        "on-background": "#F5F5F5",
+                        "background": "#0F0F12",
+                        "on-primary-fixed-variant": "#7b2f00",
+                        "on-secondary-fixed-variant": "#77320b",
+                        "surface-dim": "#141419",
+                        "secondary-fixed-dim": "#ffb695",
+                        "primary-fixed": "#ffdbcc",
+                        "on-secondary-container": "#753009",
+                        "tertiary-container": "#009cfc",
+                        "inverse-surface": "#eff1f5",
+                        "on-surface": "#F5F5F5",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#551e00",
+                        "outline-variant": "#44444F",
+                        "on-tertiary-fixed-variant": "#00497b",
+                        "secondary-container": "#fd9a6c",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#001d35",
+                        "error": "#ffb4ab",
+                        "surface": "#0F0F12",
+                        "inverse-on-surface": "#191c1f",
+                        "on-error-container": "#ffdad6",
+                        "tertiary": "#0062a1",
+                        "primary-fixed-dim": "#ffb695",
+                        "on-secondary-fixed": "#351000",
+                        "on-tertiary-container": "#003155",
+                        "surface-tint": "#FC690A",
+                        "inverse-primary": "#a23f00",
+                        "error-container": "#93000a",
+                        "surface-container": "#1A1A20",
+                        "primary": "#FC690A",
+                        "surface-container-low": "#15151B",
+                        "secondary-fixed": "#ffdbcc",
+                        "secondary": "#964921",
+                        "surface-variant": "#44444F",
+                        "on-error": "#690005",
+                        "surface-container-highest": "#33333D",
+                        "on-primary-fixed": "#351000",
+                        "primary-container": "#FC690A"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .brand-gradient {
+            background: linear-gradient(135deg, #FC690A 0%, #D4560A 100%);
+        }
+        .orange-glow {
+            box-shadow: 0 0 60px 10px rgba(252, 105, 10, 0.1);
+        }
+        .editorial-mask {
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-base-dark font-body text-text-primary-dark selection:bg-primary-container selection:text-white">
+<!-- TopAppBar - Suppressed Content per Transactional Rule -->
+<main class="min-h-screen flex flex-col items-center justify-between px-8 py-12 lg:py-20 max-w-lg mx-auto overflow-hidden">
+<!-- Header Branding (Editorial Accent) -->
+<div class="w-full text-center mb-8">
+<h1 class="font-headline font-black tracking-tighter text-2xl text-primary">BANTUPAY</h1>
+</div>
+<!-- Kinetic Centerpiece: Phone Illustration & Glow -->
+<div class="relative w-full flex justify-center items-center py-12">
+<!-- Decorative Background Aura -->
+<div class="absolute inset-0 flex justify-center items-center pointer-events-none">
+<div class="w-72 h-72 rounded-full bg-primary-container opacity-5 blur-[80px]"></div>
+</div>
+<!-- Phone Outline Vessel -->
+<div class="relative w-[240px] h-[480px] rounded-[48px] border-[6px] border-surface-container-highest bg-surface-container-low flex items-center justify-center overflow-hidden orange-glow">
+<!-- Inner Screen Content -->
+<div class="absolute inset-2 rounded-[40px] bg-surface-dark flex flex-col items-center justify-center">
+<!-- Pulsing Biometric Icon -->
+<div class="relative flex items-center justify-center">
+<!-- Ripple Effect Layers -->
+<div class="absolute w-32 h-32 rounded-full border border-primary-container/20 scale-125"></div>
+<div class="absolute w-32 h-32 rounded-full border border-primary-container/10 scale-150"></div>
+<!-- Main Icon Circle -->
+<div class="w-24 h-24 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">face</span>
+</div>
+</div>
+<!-- Subtle Data Texture -->
+<div class="mt-8 px-6 space-y-2 opacity-10">
+<div class="h-2 w-24 bg-text-secondary-dark rounded-full"></div>
+<div class="h-2 w-16 bg-text-secondary-dark rounded-full"></div>
+<div class="h-2 w-20 bg-text-secondary-dark rounded-full"></div>
+</div>
+</div>
+<!-- Phone Hardware Accents -->
+<div class="absolute top-0 w-24 h-6 bg-surface-container-highest rounded-b-2xl"></div>
+<div class="absolute bottom-4 w-20 h-1 bg-surface-container-highest rounded-full"></div>
+</div>
+</div>
+<!-- Typography & Actions -->
+<div class="w-full flex flex-col items-center text-center space-y-12">
+<!-- Content Composition -->
+<div class="space-y-4 px-2">
+<h2 class="font-headline font-extrabold text-3xl tracking-tight text-text-primary-dark leading-tight">
+                    Use Face ID to unlock
+                </h2>
+<p class="text-text-secondary-dark font-medium leading-relaxed max-w-[280px] mx-auto">
+                    Skip the PIN every time you open the app or authorize a transaction.
+                </p>
+</div>
+<!-- Action Stack -->
+<div class="w-full space-y-4">
+<!-- Primary Action -->
+<button class="brand-gradient w-full py-4 rounded-full text-white font-headline font-bold text-lg shadow-brand flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
+                    Enable Face ID
+                    <span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+<!-- Secondary Action -->
+<button class="w-full py-3 rounded-full text-text-secondary-dark font-label font-semibold text-sm hover:text-text-primary-dark transition-colors active:scale-[0.98]">
+                    Skip for now
+                </button>
+</div>
+</div>
+<!-- Security Badge (Contextual Footer) -->
+<div class="mt-12 flex items-center gap-3 bg-surface-dark px-5 py-2.5 rounded-full border border-outline/20">
+<span class="material-symbols-outlined text-primary text-lg">verified_user</span>
+<span class="text-xs font-label font-medium text-text-secondary-dark uppercase tracking-widest">Enterprise Security</span>
+</div>
+</main>
+<!-- BottomNavBar Suppressed - Transactional screen focused on one task -->
+<!-- Decorative Corner Gradients for Atmosphere -->
+<div class="fixed top-0 left-0 -z-10 w-full h-full pointer-events-none overflow-hidden">
+<div class="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] brand-gradient opacity-5 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] brand-gradient opacity-[0.03] blur-[120px] rounded-full"></div>
+</div>
+</body></html>

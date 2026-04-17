@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#9BA3B4",
+                    "surface-container-high": "#2A2A32",
+                    "surface-container-lowest": "#1A1A20",
+                    "secondary-fixed": "#ffdbcc",
+                    "inverse-primary": "#ffb695",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed-variant": "#7b2f00",
+                    "inverse-surface": "#eff1f5",
+                    "inverse-on-surface": "#2e3134",
+                    "tertiary-fixed": "#d0e4ff",
+                    "tertiary-fixed-dim": "#9ccaff",
+                    "surface-tint": "#FC690A",
+                    "surface-variant": "#2A2A32",
+                    "surface-container-highest": "#33333D",
+                    "on-primary-fixed": "#351000",
+                    "surface-bright": "#24242B",
+                    "outline-variant": "#44444F",
+                    "on-surface-variant": "#9BA3B4",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#1A1A20",
+                    "on-background": "#F5F5F5",
+                    "tertiary": "#0062a1",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#16161C",
+                    "primary-fixed": "#ffdbcc",
+                    "secondary-container": "#fd9a6c",
+                    "surface": "#0F0F12",
+                    "on-primary-container": "#ffffff",
+                    "background": "#0F0F12",
+                    "secondary-fixed-dim": "#ffb695",
+                    "on-tertiary-container": "#003155",
+                    "on-surface": "#F5F5F5",
+                    "error": "#ffb4ab",
+                    "on-secondary": "#1A1A20",
+                    "on-secondary-container": "#753009",
+                    "error-container": "#93000a",
+                    "primary-container": "#FC690A",
+                    "on-tertiary-fixed": "#001d35",
+                    "on-secondary-fixed-variant": "#77320b",
+                    "primary": "#FC690A",
+                    "surface-dim": "#0F0F12",
+                    "outline": "#44444F",
+                    "on-secondary-fixed": "#351000",
+                    "on-error": "#690005",
+                    "tertiary-container": "#009cfc",
+                    "on-tertiary-fixed-variant": "#00497b",
+                    "primary-fixed-dim": "#ffb695"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .shadow-brand {
+            box-shadow: 0 24px 48px -12px rgba(252, 105, 10, 0.3);
+        }
+        .glass-card {
+            background: rgba(26, 26, 32, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-[#0F0F12] text-[#F5F5F5] font-body min-h-screen pb-32">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F12]/80 backdrop-blur-xl flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[#F5F5F5]">arrow_back</span>
+</button>
+<h1 class="font-headline font-bold text-lg tracking-tight">Backup Wallet</h1>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#9BA3B4]">help_outline</span>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto">
+<!-- Security Score Progress Section -->
+<section class="mb-10">
+<div class="flex justify-between items-end mb-4">
+<div class="space-y-1">
+<p class="text-sm font-label text-[#9BA3B4] font-semibold uppercase tracking-wider">Security Score</p>
+<p class="text-3xl font-headline font-extrabold">Weak</p>
+</div>
+<div class="text-right">
+<span class="font-label text-[#FC690A] font-bold">35%</span>
+</div>
+</div>
+<div class="h-3 w-full bg-[#1A1A20] rounded-full overflow-hidden">
+<div class="h-full bg-[#FC690A] w-[35%] rounded-full shadow-brand"></div>
+</div>
+<p class="mt-4 text-[#9BA3B4] text-sm leading-relaxed">Your funds are at risk. Back up your wallet now to ensure you can recover your assets if you lose access to this device.</p>
+</section>
+<!-- Dynamic Bento Grid for Options -->
+<div class="grid grid-cols-1 gap-4">
+<!-- Cloud Backup Card (High Priority) -->
+<div class="group relative overflow-hidden bg-[#1A1A20] rounded-lg border border-[#FC690A]/20 p-1 transition-all duration-300 hover:shadow-brand">
+<div class="bg-[#1A1A20] rounded-[14px] p-6">
+<div class="flex justify-between items-start mb-6">
+<div class="bg-[#FC690A]/10 p-3 rounded-xl">
+<span class="material-symbols-outlined text-[#FC690A]" style="font-variation-settings: 'FILL' 1;">cloud_upload</span>
+</div>
+<span class="bg-[#008A45]/20 text-[#00E676] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Recommended</span>
+</div>
+<h3 class="font-headline font-bold text-xl mb-2">Cloud Backup</h3>
+<p class="text-[#9BA3B4] text-sm mb-8 leading-relaxed">Fast and encrypted backup to your preferred cloud storage. Secure, easy, and hassle-free.</p>
+<button class="w-full bg-[#FC690A] text-white py-4 rounded-full font-headline font-bold flex items-center justify-center gap-2 shadow-brand active:scale-[0.98] transition-all hover:bg-[#D4560A]">
+                        Back up now
+                        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+<!-- Subtle Aesthetic Glow -->
+<div class="absolute -bottom-10 -right-10 w-32 h-32 bg-[#FC690A]/10 rounded-full blur-3xl pointer-events-none"></div>
+</div>
+<!-- Recovery Phrase Card (Standard Priority) -->
+<div class="bg-[#1A1A20] rounded-lg p-6 transition-all duration-300 hover:bg-[#2A2A32]">
+<div class="flex items-start gap-4 mb-6">
+<div class="bg-[#2A2A32] p-3 rounded-xl">
+<span class="material-symbols-outlined text-[#9BA3B4]">description</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline font-bold text-lg">Recovery Phrase</h3>
+<p class="text-[#9BA3B4] text-sm leading-relaxed">The manual way. Write down your 12-word phrase and keep it in a safe, offline place.</p>
+</div>
+</div>
+<button class="w-full bg-[#2A2A32] text-[#F5F5F5] py-4 rounded-full font-headline font-bold active:scale-[0.98] transition-all hover:bg-[#33333D]">
+                    View recovery phrase
+                </button>
+</div>
+<!-- Secondary Info Card -->
+<div class="mt-4 p-6 bg-[#1A1A20]/40 rounded-lg border-l-4 border-[#FC690A]/50">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-[#FC690A] text-xl">verified_user</span>
+<div class="space-y-1">
+<p class="text-xs font-label font-bold text-[#FC690A] uppercase tracking-widest">Security Tip</p>
+<p class="text-xs text-[#9BA3B4] leading-relaxed">Never share your recovery phrase with anyone. BantuPay will never ask for this information.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Standardized Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-[32px] bg-[#0F0F12]/95 backdrop-blur-lg shadow-[0_-4px_24px_rgba(0,0,0,0.5)] flex justify-around items-end pb-6 pt-3 px-4 border-t border-white/5">
+<div class="flex flex-col items-center justify-center text-[#9BA3B4] gap-1 hover:text-[#FC690A] transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">home</span>
+<span class="font-headline text-[10px] font-semibold tracking-wide uppercase">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#9BA3B4] gap-1 hover:text-[#FC690A] transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-headline text-[10px] font-semibold tracking-wide uppercase">Assets</span>
+</div>
+<div class="relative flex flex-col items-center justify-center mb-2">
+<button class="bg-[#FC690A] text-white p-4 rounded-full shadow-lg shadow-[#FC690A]/30 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+</button>
+<span class="font-headline text-[10px] font-semibold tracking-wide uppercase mt-1 text-[#9BA3B4]">Scan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#9BA3B4] gap-1 hover:text-[#FC690A] transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">history</span>
+<span class="font-headline text-[10px] font-semibold tracking-wide uppercase">History</span>
+</div>
+<!-- Active Tab: Settings -->
+<div class="flex flex-col items-center justify-center text-[#FC690A] gap-1 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-headline text-[10px] font-semibold tracking-wide uppercase">Settings</span>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#964921",
+                        "surface-container-high": "#e7e8ec",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#ffdbcc",
+                        "inverse-primary": "#ffb695",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#7b2f00",
+                        "inverse-surface": "#2e3134",
+                        "inverse-on-surface": "#eff1f5",
+                        "tertiary-fixed": "#d0e4ff",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "surface-tint": "#a23f00",
+                        "surface-variant": "#e1e2e6",
+                        "surface-container-highest": "#e1e2e6",
+                        "on-primary-fixed": "#351000",
+                        "surface-bright": "#f8f9fd",
+                        "outline-variant": "#e2bfb1",
+                        "on-surface-variant": "#5a4137",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#edeef2",
+                        "on-background": "#0F0F0F",
+                        "tertiary": "#0062a1",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f2f3f7",
+                        "primary-fixed": "#ffdbcc",
+                        "secondary-container": "#fd9a6c",
+                        "surface": "#F5F6FA",
+                        "on-primary-container": "#551e00",
+                        "background": "#F5F6FA",
+                        "secondary-fixed-dim": "#ffb695",
+                        "on-tertiary-container": "#003155",
+                        "on-surface": "#0F0F0F",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#753009",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#fc690a",
+                        "on-tertiary-fixed": "#001d35",
+                        "on-secondary-fixed-variant": "#77320b",
+                        "primary": "#a23f00",
+                        "surface-dim": "#d9dade",
+                        "outline": "#8e7165",
+                        "on-secondary-fixed": "#351000",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#009cfc",
+                        "on-tertiary-fixed-variant": "#00497b",
+                        "primary-fixed-dim": "#ffb695"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .confetti-orange {
+            background-color: #FC690A;
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 2px;
+        }
+        body {
+            background-color: #F5F6FA;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body text-on-surface antialiased overflow-hidden">
+<main class="relative min-h-screen flex flex-col items-center justify-center px-6 py-12">
+<!-- Confetti Background Simulation -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
+<div class="confetti-orange top-[10%] left-[15%] rotate-45"></div>
+<div class="confetti-orange top-[25%] left-[80%] -rotate-12"></div>
+<div class="confetti-orange top-[45%] left-[10%] rotate-[30deg]"></div>
+<div class="confetti-orange top-[60%] left-[90%] rotate-[110deg]"></div>
+<div class="confetti-orange top-[80%] left-[20%] rotate-12"></div>
+<div class="confetti-orange top-[15%] left-[50%] rotate-[200deg]"></div>
+<div class="confetti-orange top-[70%] left-[65%] -rotate-45"></div>
+<div class="confetti-orange top-[40%] left-[75%] rotate-[15deg]"></div>
+</div>
+<!-- Success Visual Shell -->
+<div class="relative z-10 w-full max-w-md flex flex-col items-center text-center">
+<!-- Success Circle -->
+<div class="mb-10 relative">
+<div class="w-32 h-32 rounded-full bg-primary-container flex items-center justify-center shadow-[0_12px_40px_rgba(252,105,10,0.4)] border-4 border-white">
+<span class="material-symbols-outlined text-white text-6xl" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<!-- Pulsing outer rings -->
+<div class="absolute inset-0 w-32 h-32 rounded-full border-2 border-primary-container/10 scale-125 opacity-40"></div>
+<div class="absolute inset-0 w-32 h-32 rounded-full border border-primary-container/5 scale-150 opacity-30"></div>
+</div>
+<!-- Headline -->
+<h1 class="font-headline font-extrabold text-4xl tracking-tight text-on-surface mb-4">Swap complete!</h1>
+<!-- Confirmation Pill -->
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-container/10 border border-primary-container/20 mb-8">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="text-primary-container font-label text-xs font-bold uppercase tracking-widest">Transaction confirmed</span>
+</div>
+<!-- Transaction Details Card -->
+<div class="w-full bg-white rounded-lg p-8 mb-12 shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-black/[0.03] relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-[0.03] text-on-surface">
+<span class="material-symbols-outlined text-8xl">swap_horiz</span>
+</div>
+<div class="flex flex-col gap-6 relative z-10">
+<div class="flex flex-col items-start">
+<span class="text-slate-400 font-label text-xs uppercase tracking-widest mb-1">From</span>
+<div class="flex items-baseline gap-2">
+<span class="text-on-surface font-headline text-3xl font-bold">100</span>
+<span class="text-slate-500 font-body text-xl">USDC</span>
+</div>
+</div>
+<div class="h-px w-full bg-gradient-to-r from-transparent via-black/[0.08] to-transparent"></div>
+<div class="flex flex-col items-start">
+<span class="text-slate-400 font-label text-xs uppercase tracking-widest mb-1">To</span>
+<div class="flex items-baseline gap-2">
+<span class="text-primary-container font-headline text-3xl font-bold">149,850</span>
+<span class="text-primary-container/80 font-body text-xl">cNGN</span>
+</div>
+</div>
+<div class="mt-4 pt-6 border-t border-black/[0.03] flex justify-between items-center">
+<span class="text-slate-500 font-label text-sm">Network Fee</span>
+<span class="text-slate-800 font-mono text-sm">0.00045 SOL</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-slate-500 font-label text-sm">Transaction Hash</span>
+<span class="text-primary-container font-mono text-sm truncate max-w-[120px]">8xK2...R9e1</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="w-full grid grid-cols-1 gap-4">
+<button class="w-full h-14 bg-gradient-to-br from-[#FC690A] to-[#D4560A] text-white rounded-full font-headline font-bold text-lg shadow-[0_8px_24px_rgba(252,105,10,0.25)] active:scale-95 transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl">share</span>
+                    Share Receipt
+                </button>
+<button class="w-full h-14 bg-black/[0.04] text-on-surface hover:bg-black/[0.06] rounded-full font-headline font-bold text-lg active:scale-95 transition-transform border border-black/[0.05]">
+                    Back to Home
+                </button>
+</div>
+</div>
+</main>
+</body></html>

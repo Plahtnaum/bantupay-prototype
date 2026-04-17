@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e7e8ec",
+                        "surface-bright": "#f8f9fd",
+                        "tertiary-fixed": "#d0e4ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#5a4137",
+                        "outline": "#8e7165",
+                        "on-background": "#191c1f",
+                        "background": "#f8f9fd",
+                        "on-primary-fixed-variant": "#7b2f00",
+                        "on-secondary-fixed-variant": "#77320b",
+                        "surface-dim": "#d9dade",
+                        "secondary-fixed-dim": "#ffb695",
+                        "primary-fixed": "#ffdbcc",
+                        "on-secondary-container": "#753009",
+                        "tertiary-container": "#009cfc",
+                        "inverse-surface": "#2e3134",
+                        "on-surface": "#191c1f",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#551e00",
+                        "outline-variant": "#e2bfb1",
+                        "on-tertiary-fixed-variant": "#00497b",
+                        "secondary-container": "#fd9a6c",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#001d35",
+                        "error": "#ba1a1a",
+                        "surface": "#f8f9fd",
+                        "inverse-on-surface": "#eff1f5",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#0062a1",
+                        "primary-fixed-dim": "#ffb695",
+                        "on-secondary-fixed": "#351000",
+                        "on-tertiary-container": "#003155",
+                        "surface-tint": "#a23f00",
+                        "inverse-primary": "#ffb695",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#edeef2",
+                        "primary": "#a23f00",
+                        "surface-container-low": "#f2f3f7",
+                        "secondary-fixed": "#ffdbcc",
+                        "secondary": "#964921",
+                        "surface-variant": "#e1e2e6",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e1e2e6",
+                        "on-primary-fixed": "#351000",
+                        "primary-container": "#fc690a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "data": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F6FA;
+        }
+        .numpad-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="text-on-surface min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 backdrop-blur-xl px-6 py-4 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<button class="p-2 -ml-2 rounded-full active:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<h1 class="text-xl font-bold font-headline tracking-tight text-on-surface">Send</h1>
+</div>
+<!-- Asset Selector Dropdown -->
+<button class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-full border border-outline-variant/20 hover:bg-surface-container transition-colors active:scale-95">
+<div class="w-5 h-5 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-on-primary-container" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<span class="text-sm font-bold font-headline text-on-surface">cNGN</span>
+<span class="material-symbols-outlined text-sm text-on-surface-variant">keyboard_arrow_down</span>
+</button>
+</header>
+<main class="flex-grow pt-20 pb-32 flex flex-col px-6">
+<!-- Asset Selector Bar Removed as per request -->
+<!-- Amount Area -->
+<section class="flex flex-col items-center justify-center flex-grow py-8 text-center">
+<div class="flex flex-col items-center gap-1">
+<div class="flex items-baseline gap-2">
+<span class="text-[56px] font-extrabold font-headline leading-none text-on-surface tracking-tighter">0</span>
+<span class="text-2xl font-bold font-headline text-on-surface-variant opacity-60">cNGN</span>
+</div>
+<div class="mt-4 px-4 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/10">
+<span class="text-sm font-medium font-data text-on-surface-variant">≈ ₦0.00</span>
+</div>
+</div>
+</section>
+<!-- Numeric Numpad -->
+<section class="mt-auto pt-8">
+<div class="numpad-grid">
+<button class="h-16 flex items-center justify-center rounded-2xl active:bg-surface-container-high transition-colors">
+<span class="text-2xl font-bold font-headline">1</span>
+</button>
+<button class="h-16 flex items-center justify-center rounded-2xl active:bg-surface-container-high transition-colors">
+<span class="text-2xl font-bold font-headline">2</span>
+</button>
+<button class="h-16 flex items-center justify-center rounded-2xl active:bg-surface-container-high transition-colors">
+<span class="text-2xl font-bold font-headline">3</span>
+</button>
+<button class="h-16 flex items-center justify-center rounded-2xl active:bg-surface-container-high transition-colors">
+<span class="text-2xl font-bold font-headline">4</span>
+</button>
+<button class="h-16 flex items-center justify-center rounded-2xl active:bg-surface-container-high transition-colors">
+<span class="text-2xl font-bold font-headline">5</span>
+</button>
+<button class="h-16 flex items-center justify-center rounded-2xl active:bg-surface-container-high transition-colors">
+<span class="text-2xl font-bold font-headline">6</span>
+</button>
+<button class="h-16 flex items-center justify-center rounded-2xl active:bg-surface-container-high transition-colors">
+<span class="text-2xl font-bold font-headline">7</span>
+</button>
+<button class="h-16 flex items-center justify-center rounded-2xl active:bg-surface-container-high transition-colors">
+<span class="text-2xl font-bold font-headline">8</span>
+</button>
+<button class="h-16 flex items-center justify-center rounded-2xl active:bg-surface-container-high transition-colors">
+<span class="text-2xl font-bold font-headline">9</span>
+</button>
+<button class="h-16 flex items-center justify-center rounded-2xl active:bg-surface-container-high transition-colors">
+<span class="text-2xl font-bold font-headline">.</span>
+</button>
+<button class="h-16 flex items-center justify-center rounded-2xl active:bg-surface-container-high transition-colors">
+<span class="text-2xl font-bold font-headline">0</span>
+</button>
+<button class="h-16 flex items-center justify-center rounded-2xl active:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-2xl">backspace</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Bottom Action Area -->
+<footer class="fixed bottom-0 left-0 w-full p-6 bg-slate-50/90 backdrop-blur-2xl">
+<button class="w-full h-14 bg-surface-container-high text-on-surface-variant font-bold font-headline rounded-full opacity-50 flex items-center justify-center gap-2 cursor-not-allowed" disabled="">
+            Continue
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</footer>
+</body></html>

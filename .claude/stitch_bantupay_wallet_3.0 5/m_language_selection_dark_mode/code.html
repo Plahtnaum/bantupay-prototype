@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Language Selection - BantuPay</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#FC690A",
+                    "on-primary": "#ffffff",
+                    "base-dark": "#0F0F12",
+                    "surface-dark": "#1A1A20",
+                    "text-primary-dark": "#F5F5F5",
+                    "text-secondary-dark": "#9BA3B4",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#f8f9fd",
+                    "tertiary": "#0062a1",
+                    "secondary-fixed": "#ffdbcc",
+                    "primary-fixed-dim": "#ffb695",
+                    "on-secondary-fixed": "#351000",
+                    "surface-container-high": "#e7e8ec",
+                    "on-tertiary-container": "#003155",
+                    "on-primary-fixed": "#351000",
+                    "tertiary-container": "#009cfc",
+                    "primary-container": "#fc690a",
+                    "on-secondary-container": "#753009",
+                    "on-surface": "#F5F5F5",
+                    "on-background": "#F5F5F5",
+                    "tertiary-fixed": "#d0e4ff",
+                    "background": "#0F0F12",
+                    "surface-variant": "#2e3134",
+                    "surface-dim": "#1A1A20",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#33333a",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#77320b",
+                    "on-primary-fixed-variant": "#7b2f00",
+                    "inverse-surface": "#eff1f5",
+                    "surface-tint": "#FC690A",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#9ccaff",
+                    "outline": "#4a4a55",
+                    "surface": "#1A1A20",
+                    "primary-fixed": "#ffdbcc",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#001d35",
+                    "secondary-container": "#fd9a6c",
+                    "surface-container": "#24242d",
+                    "secondary": "#964921",
+                    "inverse-primary": "#ffb695",
+                    "surface-container-lowest": "#0F0F12",
+                    "inverse-on-surface": "#191c1f",
+                    "outline-variant": "#3f3f4a",
+                    "on-surface-variant": "#9BA3B4",
+                    "on-primary-container": "#551e00",
+                    "on-tertiary-fixed-variant": "#00497b",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#1F1F26"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F0F12;
+        }
+        .header-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .mono-font { font-family: 'JetBrains Mono', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+    </style>
+</head>
+<body class="bg-base-dark text-text-primary-dark antialiased min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-base-dark flex items-center justify-between px-6 h-16">
+<div class="flex items-center gap-4">
+<button class="hover:bg-surface-dark transition-colors p-2 rounded-full active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-[#FC690A]" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-['Plus_Jakarta_Sans'] font-bold tracking-tight text-xl text-text-primary-dark">Language</h1>
+</div>
+<div class="w-10"></div>
+</header>
+<main class="px-6 py-4 max-w-2xl mx-auto">
+<!-- Hero Section / Headline -->
+<section class="mb-8">
+<h2 class="font-['Plus_Jakarta_Sans'] font-extrabold text-3xl tracking-tight text-text-primary-dark mb-2">Preferred Language</h2>
+<p class="text-text-secondary-dark text-sm font-medium">Select your primary language for the BantuPay interface.</p>
+</section>
+<!-- Search Bar -->
+<div class="relative mb-8">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-text-secondary-dark" data-icon="search">search</span>
+</div>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-dark border-none rounded-sm text-text-primary-dark placeholder:text-text-secondary-dark focus:ring-2 focus:ring-primary/40 transition-all outline-none" placeholder="Search language..." type="text"/>
+</div>
+<!-- Language List -->
+<div class="bg-surface-dark rounded-lg overflow-hidden">
+<!-- Selected Language -->
+<div class="flex items-center justify-between px-6 py-4 bg-primary/10 border-b border-primary/20 group cursor-pointer hover:bg-primary/20 transition-colors">
+<span class="font-['Inter'] font-semibold text-text-primary-dark">English</span>
+<span class="material-symbols-outlined text-[#FC690A]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- List of other languages -->
+<div class="divide-y divide-white/5">
+<div class="flex items-center justify-between px-6 py-4 hover:bg-white/5 transition-colors cursor-pointer group">
+<span class="font-['Inter'] font-medium text-text-secondary-dark group-hover:text-text-primary-dark transition-colors">Yoruba</span>
+</div>
+<div class="flex items-center justify-between px-6 py-4 hover:bg-white/5 transition-colors cursor-pointer group">
+<span class="font-['Inter'] font-medium text-text-secondary-dark group-hover:text-text-primary-dark transition-colors">Igbo</span>
+</div>
+<div class="flex items-center justify-between px-6 py-4 hover:bg-white/5 transition-colors cursor-pointer group">
+<span class="font-['Inter'] font-medium text-text-secondary-dark group-hover:text-text-primary-dark transition-colors">Hausa</span>
+</div>
+<div class="flex items-center justify-between px-6 py-4 hover:bg-white/5 transition-colors cursor-pointer group">
+<span class="font-['Inter'] font-medium text-text-secondary-dark group-hover:text-text-primary-dark transition-colors">French</span>
+</div>
+<div class="flex items-center justify-between px-6 py-4 hover:bg-white/5 transition-colors cursor-pointer group">
+<span class="font-['Inter'] font-medium text-text-secondary-dark group-hover:text-text-primary-dark transition-colors">Spanish</span>
+</div>
+<div class="flex items-center justify-between px-6 py-4 hover:bg-white/5 transition-colors cursor-pointer group">
+<span class="font-['Inter'] font-medium text-text-secondary-dark group-hover:text-text-primary-dark transition-colors">Chinese</span>
+</div>
+<div class="flex items-center justify-between px-6 py-4 hover:bg-white/5 transition-colors cursor-pointer group">
+<span class="font-['Inter'] font-medium text-text-secondary-dark group-hover:text-text-primary-dark transition-colors">Arabic</span>
+</div>
+<div class="flex items-center justify-between px-6 py-4 hover:bg-white/5 transition-colors cursor-pointer group">
+<span class="font-['Inter'] font-medium text-text-secondary-dark group-hover:text-text-primary-dark transition-colors">Swahili</span>
+</div>
+<div class="flex items-center justify-between px-6 py-4 hover:bg-white/5 transition-colors cursor-pointer group">
+<span class="font-['Inter'] font-medium text-text-secondary-dark group-hover:text-text-primary-dark transition-colors">Portuguese</span>
+</div>
+<div class="flex items-center justify-between px-6 py-4 hover:bg-white/5 transition-colors cursor-pointer group">
+<span class="font-['Inter'] font-medium text-text-secondary-dark group-hover:text-text-primary-dark transition-colors">German</span>
+</div>
+</div>
+</div>
+<!-- Editorial Content Area (Bento Hint) -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-6 bg-surface-dark rounded-lg flex flex-col justify-between aspect-square md:aspect-auto md:h-48">
+<div>
+<h3 class="header-font font-bold text-lg text-text-primary-dark">Can't find yours?</h3>
+<p class="text-sm text-text-secondary-dark mt-2 leading-relaxed">Our localization team is working around the clock to bring BantuPay to every corner of the globe.</p>
+</div>
+<div class="mt-4">
+<button class="text-[#FC690A] font-semibold flex items-center gap-2 hover:translate-x-1 transition-transform">
+                        Suggest a language <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="relative rounded-lg overflow-hidden group h-48">
+<img alt="Diverse group of people collaborating" class="w-full h-full object-cover grayscale opacity-20 group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9h00QVOfXebZd7clf7C4kaLxM1SaAZptMDtYT0ac-aZAPKvKL6dfot4TBkLD_M5Xe-NMzAmMVwrZ6pDIDKiRMgqE5R-bxOx1eDrJ7_t5mwxvSLOIq9LPzXIrB3Q6orw16-tESklEMtnDohPnIh2-JNPs814kbylz149V1UIj8SxJzjmnGyGB2lqqHyLs9aKBHGfR0aYPl73KEm146yysEeFMx9foNkMaBO2blwnV4OgIrDMgxoLiXakp-SUWlDlZ3KTo6RHfrvQ"/>
+<div class="absolute inset-0 p-6 flex flex-col justify-end bg-gradient-to-t from-surface-dark to-transparent">
+<span class="material-symbols-outlined text-[#FC690A] mb-2" data-icon="language">language</span>
+<p class="text-xs font-['JetBrains_Mono'] text-text-secondary-dark tracking-wider uppercase">Global Reach</p>
+<h4 class="header-font font-bold text-text-primary-dark">BantuPay is Multilingual</h4>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-[32px] bg-base-dark/90 backdrop-blur-lg shadow-[0_-4px_24px_rgba(0,0,0,0.4)] flex justify-around items-end pb-6 pt-3 px-4">
+<div class="flex flex-col items-center justify-center text-text-secondary-dark gap-1 hover:text-[#FC690A] transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-text-secondary-dark gap-1 hover:text-[#FC690A] transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide">Assets</span>
+</div>
+<!-- Floating FAB for Scan -->
+<div class="relative -top-6">
+<div class="bg-[#FC690A] p-4 rounded-full shadow-lg shadow-[#FC690A]/40 active:scale-90 transition-transform duration-200 cursor-pointer group">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="qr_code_scanner" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+<div class="absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap">
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide text-text-secondary-dark group-hover:text-[#FC690A] transition-colors">Scan</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center text-text-secondary-dark gap-1 hover:text-[#FC690A] transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide">History</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#FC690A] gap-1 active:scale-90 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-semibold tracking-wide">Settings</span>
+</div>
+</nav>
+</body></html>

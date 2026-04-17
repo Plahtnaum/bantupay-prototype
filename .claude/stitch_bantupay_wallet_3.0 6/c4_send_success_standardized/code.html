@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BantuPay - Send Success</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d9dade",
+                        "surface-container-high": "#e7e8ec",
+                        "outline-variant": "#e2bfb1",
+                        "on-tertiary-container": "#003155",
+                        "secondary-container": "#fd9a6c",
+                        "outline": "#8e7165",
+                        "secondary-fixed": "#ffdbcc",
+                        "on-tertiary-fixed-variant": "#00497b",
+                        "on-secondary-fixed-variant": "#77320b",
+                        "inverse-surface": "#2e3134",
+                        "surface-container-highest": "#e1e2e6",
+                        "secondary": "#964921",
+                        "on-surface-variant": "#5a4137",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "surface": "#f8f9fd",
+                        "surface-variant": "#e1e2e6",
+                        "on-primary-container": "#551e00",
+                        "primary-container": "#fc690a",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f2f3f7",
+                        "on-primary-fixed": "#351000",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#eff1f5",
+                        "on-secondary-container": "#753009",
+                        "surface-container": "#edeef2",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#001d35",
+                        "surface-tint": "#a23f00",
+                        "tertiary-fixed": "#d0e4ff",
+                        "surface-bright": "#f8f9fd",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#009cfc",
+                        "on-background": "#191c1f",
+                        "on-secondary-fixed": "#351000",
+                        "background": "#0F0F12",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#0062a1",
+                        "primary-fixed-dim": "#ffb695",
+                        "on-primary-fixed-variant": "#7b2f00",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#ffb695",
+                        "primary-fixed": "#ffdbcc",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#ffb695",
+                        "primary": "#fc690a",
+                        "on-surface": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "data": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .confetti-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg width='400' height='400' viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FC690A' fill-opacity='0.4'%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Ccircle cx='150' cy='50' r='3'/%3E%3Crect x='280' y='20' width='4' height='4' transform='rotate(45 282 22)'/%3E%3Ccircle cx='350' cy='120' r='2'/%3E%3Crect x='60' y='180' width='3' height='5' transform='rotate(15 61.5 182.5)'/%3E%3Ccircle cx='200' cy='250' r='2.5'/%3E%3Crect x='320' y='300' width='5' height='2' transform='rotate(110 322.5 301)'/%3E%3Ccircle cx='80' cy='350' r='3'/%3E%3Ccircle cx='380' cy='380' r='2'/%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(15, 15, 18, 0.6);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col overflow-hidden">
+<!-- Top AppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl">
+<div class="flex items-center justify-between px-6 py-4 w-full max-w-xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="hover:bg-white/10 transition-colors p-2 rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined text-white">arrow_back</span>
+</button>
+<h1 class="font-headline text-lg font-bold tracking-tight text-white">Send Asset</h1>
+</div>
+<button class="hover:bg-white/10 transition-colors p-2 rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary">qr_code_scanner</span>
+</button>
+</div>
+</header>
+<!-- Content Canvas -->
+<main class="flex-1 flex flex-col items-center justify-center px-6 pt-20 pb-24 relative overflow-hidden">
+<!-- Push Notification Preview Overlay -->
+<div class="fixed top-24 left-0 right-0 px-4 z-40 animate-in fade-in slide-in-from-top-4 duration-500">
+<div class="max-w-md mx-auto glass-panel border border-white/10 rounded-2xl p-4 flex items-start gap-4 shadow-2xl">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">send</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-xs font-bold text-primary tracking-wider uppercase">BantuPay</span>
+<span class="text-[10px] text-white/40">now</span>
+</div>
+<p class="text-sm font-medium text-white">Transaction Successful</p>
+<p class="text-xs text-white/60">500 cNGN sent to Chidi</p>
+</div>
+</div>
+</div>
+<!-- Confetti & Celebration Layer -->
+<div class="absolute inset-0 confetti-overlay pointer-events-none opacity-40"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 blur-[120px] rounded-full pointer-events-none"></div>
+<!-- Success Content Section -->
+<div class="relative z-10 flex flex-col items-center text-center">
+<!-- Animated Success Circle -->
+<div class="w-24 h-24 rounded-full bg-primary flex items-center justify-center mb-8 shadow-[0_0_50px_-10px_rgba(252,105,10,0.6)]">
+<span class="material-symbols-outlined text-white text-5xl font-bold" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<!-- Headlines -->
+<h2 class="font-headline text-6xl font-extrabold tracking-tighter mb-4 text-white">Sent!</h2>
+<p class="text-lg text-white/70 max-w-xs leading-relaxed font-medium">
+                500 <span class="font-data">cNGN</span> sent to <span class="text-white">Chidi</span>
+</p>
+<!-- Transaction Summary Pill -->
+<div class="mt-12 glass-panel rounded-full px-6 py-3 border border-white/10 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[11px] text-white/80 font-medium tracking-wide uppercase">Transaction confirmed in <span class="font-data">2.1s</span></span>
+<div class="w-px h-3 bg-white/10 mx-1"></div>
+<a class="text-[11px] font-bold text-primary hover:underline transition-all" href="#">[Explorer]</a>
+</div>
+</div>
+<!-- Action Grid (Editorial Layout) -->
+<div class="w-full max-w-md mt-16 space-y-4 relative z-10">
+<!-- Primary Action -->
+<button class="w-full bg-primary text-white font-bold py-4 rounded-full shadow-[0_8px_20px_-6px_rgba(252,105,10,0.4)] flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined">ios_share</span>
+                Share Receipt
+            </button>
+<div class="grid grid-cols-2 gap-4">
+<!-- Ghost Button: Send Another -->
+<button class="py-4 px-6 rounded-full border border-white/20 text-white font-semibold flex items-center justify-center gap-2 hover:bg-white/5 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-white/60">add</span>
+                    Send Another
+                </button>
+<!-- Ghost Button: Home -->
+<button class="py-4 px-6 rounded-full border border-white/20 text-white font-semibold flex items-center justify-center gap-2 hover:bg-white/5 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-white/60">home</span>
+                    Back to Home
+                </button>
+</div>
+</div>
+<!-- Visual Decorative Card -->
+<div class="absolute -bottom-10 -right-20 w-80 h-80 bg-primary/5 rounded-[4rem] rotate-12 pointer-events-none"></div>
+</main>
+<!-- Decorative Subtle Map Backdrop -->
+<div class="fixed inset-0 -z-10 opacity-[0.03] grayscale pointer-events-none">
+<img class="w-full h-full object-cover" data-alt="abstract dark world map with neon topological lines and points of connectivity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATvn9qAma0y4CpV67H9u0rCXHRDH1XSfap2kEo6LjJe3AYVVlrkT9MudSh7GERjv4M2zJt2Q39QAD7P1ed6D8-ukF26dabXKbrgLJfrd8oZW2BSgo06lSzwnkVxB4WMWoxuLI1nK4EsUWpDyz8389XyaG1LRyn-0nqNfJhcUhqUitMaTzemNyFSz_BSTdXYaZYTQP9UxgR5uEx13931FC_LJWQ4YZulNzng7ocMycKkE2CIW5TFmgXpm8nEhSOhqHdDxUCNiGfhQ"/>
+</div>
+</body></html>

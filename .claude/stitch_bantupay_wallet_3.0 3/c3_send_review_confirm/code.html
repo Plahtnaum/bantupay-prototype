@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BantuPay - Review &amp; Confirm</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#d9dade",
+                    "surface-container-high": "#e7e8ec",
+                    "outline-variant": "#e2bfb1",
+                    "on-tertiary-container": "#003155",
+                    "secondary-container": "#fd9a6c",
+                    "outline": "#8e7165",
+                    "secondary-fixed": "#ffdbcc",
+                    "on-tertiary-fixed-variant": "#00497b",
+                    "on-secondary-fixed-variant": "#77320b",
+                    "inverse-surface": "#2e3134",
+                    "surface-container-highest": "#e1e2e6",
+                    "secondary": "#964921",
+                    "on-surface-variant": "#5a4137",
+                    "tertiary-fixed-dim": "#9ccaff",
+                    "surface": "#f8f9fd",
+                    "surface-variant": "#e1e2e6",
+                    "on-primary-container": "#551e00",
+                    "primary-container": "#fc690a",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f2f3f7",
+                    "on-primary-fixed": "#351000",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#eff1f5",
+                    "on-secondary-container": "#753009",
+                    "surface-container": "#edeef2",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed": "#001d35",
+                    "surface-tint": "#a23f00",
+                    "tertiary-fixed": "#d0e4ff",
+                    "surface-bright": "#f8f9fd",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#009cfc",
+                    "on-background": "#191c1f",
+                    "on-secondary-fixed": "#351000",
+                    "background": "#f8f9fd",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#0062a1",
+                    "primary-fixed-dim": "#ffb695",
+                    "on-primary-fixed-variant": "#7b2f00",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#ffb695",
+                    "primary-fixed": "#ffdbcc",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#ffb695",
+                    "primary": "#a23f00",
+                    "on-surface": "#191c1f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "mono": ["JetBrains Mono"]
+            },
+            "boxShadow": {
+                "brand": "0 10px 30px -10px rgba(252, 105, 10, 0.15)",
+                "card": "0 4px 20px -2px rgba(0, 0, 0, 0.05)"
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #F5F6FA; }
+        .font-plus-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-jetbrains { font-family: 'JetBrains Mono', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface">
+<!-- TopAppBar Shell -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-zinc-950/80 backdrop-blur-xl">
+<div class="flex items-center justify-between px-6 py-4 w-full max-w-xl mx-auto">
+<button class="p-2 -ml-2 rounded-full hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-zinc-900">arrow_back</span>
+</button>
+<h1 class="font-plus-jakarta text-lg font-bold tracking-tight text-zinc-900">Send Asset</h1>
+<button class="p-2 -mr-2 rounded-full hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-zinc-900">qr_code_scanner</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 px-6 w-full max-w-xl mx-auto">
+<!-- Header Hero Section (Editorial) -->
+<header class="mb-8">
+<span class="text-primary font-semibold text-sm tracking-widest uppercase mb-2 block">Review Transaction</span>
+<h2 class="font-plus-jakarta text-3xl font-extrabold tracking-tight text-on-surface">Final Confirmation</h2>
+</header>
+<!-- Transaction Summary Card -->
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-card border border-outline-variant/10 mb-10">
+<div class="flex flex-col space-y-8">
+<!-- Amount Display -->
+<div class="text-center py-4">
+<p class="text-on-surface-variant text-sm font-medium mb-1">Sending Amount</p>
+<div class="flex flex-col items-center">
+<span class="font-plus-jakarta text-4xl font-extrabold text-on-surface">500 cNGN</span>
+<span class="font-jetbrains text-on-surface-variant/70 text-sm mt-1">≈ ₦500.00</span>
+</div>
+</div>
+<!-- Recipient Info -->
+<div class="flex items-center justify-between bg-surface-container-low p-4 rounded-xl">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a smiling young professional man with a friendly expression in a modern bright setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfzt3F8D1iDrSCeTfwqebIWyfeyaqrqAVLMdiMUb5R9hIo0W7ShUhrHnaJKAF1XHUA0djmtu39ZEsp9pwI8z1rHBLZS9_AnI0cGfzTZmDRBkxbkCn0X7oZ2Ogkfd0gOKslJ35r0Zygg14EaVYOH1BZOckl5-o05RD5dQgzroasNUCg_HoRA49KdSRvuC5kajTg0WRLC0BSoO-NdES8t4eisZsOIcSs2SUl7vX-f_vamDPq1VkCJM9H_lJAWi6tZQgMRmu_YPxpXA"/>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface">Chidi Okoro</p>
+<p class="font-jetbrains text-xs text-on-surface-variant">@chidi_bantu</p>
+</div>
+</div>
+<div class="bg-primary/5 px-3 py-1 rounded-full">
+<span class="text-primary text-[10px] font-bold uppercase tracking-tighter">Verified</span>
+</div>
+</div>
+<!-- Technical Details Section -->
+<div class="space-y-4">
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Network Fee</span>
+<span class="text-emerald-600 font-jetbrains font-medium">&lt; ₦0.01</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Estimated Arrival</span>
+<span class="text-on-surface font-medium">~ 3 seconds</span>
+</div>
+<!-- Divider via tonal shift as per guidelines -->
+<div class="h-px bg-surface-container-high w-full"></div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface font-semibold">Total Deducted</span>
+<span class="font-plus-jakarta text-xl font-extrabold text-primary">500 cNGN</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Biometric Authorization Prompt -->
+<div class="flex flex-col items-center justify-center space-y-6">
+<!-- Kinetic Pill Prompt -->
+<div class="w-20 h-20 rounded-full bg-gradient-to-br from-[#FC690A] to-[#D4560A] flex items-center justify-center shadow-brand active:scale-90 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined text-white text-4xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">fingerprint</span>
+</div>
+<div class="text-center space-y-1">
+<h3 class="font-headline text-lg font-bold text-on-surface">Confirm with Face ID</h3>
+<p class="text-on-surface-variant text-sm max-w-[240px] mx-auto leading-relaxed">
+                    This authorizes the transaction and initiates the transfer to <span class="font-semibold text-on-surface">@chidi_bantu</span>
+</p>
+</div>
+</div>
+<!-- Status Message -->
+<div class="mt-12 p-4 bg-tertiary-container/10 rounded-xl flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary-container text-sm mt-0.5">info</span>
+<p class="text-xs text-on-tertiary-container leading-snug">
+                Assets are typically available instantly once verified on the Bantu network. Please review the recipient details carefully before authorizing.
+            </p>
+</div>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-slate-50/80 backdrop-blur-xl rounded-t-3xl border-t border-zinc-200/10 shadow-brand opacity-15">
+<div class="flex justify-around items-center px-4 py-3 pb-safe max-w-xl mx-auto">
+<a class="flex flex-col items-center justify-center text-zinc-400 hover:text-orange-500 transition-all" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-inter text-[10px] font-medium tracking-wide">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 hover:text-orange-500 transition-all" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-inter text-[10px] font-medium tracking-wide">History</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-orange-600/10 text-orange-600 rounded-full px-4 py-1 translate-y-[-2px] duration-200" href="#">
+<span class="material-symbols-outlined">send</span>
+<span class="font-inter text-[10px] font-medium tracking-wide">Send</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 hover:text-orange-500 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-inter text-[10px] font-medium tracking-wide">Settings</span>
+</a>
+</div>
+</nav>
+</body></html>
