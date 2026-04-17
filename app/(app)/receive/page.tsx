@@ -6,6 +6,7 @@ import { useUserStore } from '@/store/user.store'
 import { useWalletStore } from '@/store/wallet.store'
 import { haptics } from '@/lib/haptics'
 import { QRCodeSVG } from 'qrcode.react'
+import { AssetDropdown } from '@/components/wallet/AssetDropdown'
 
 export default function ReceivePage() {
   const router = useRouter()
@@ -29,26 +30,15 @@ export default function ReceivePage() {
       <AnimatePresence mode="wait">
         {step === 'main' && (
           <motion.div key="main" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="flex-1 flex flex-col max-w-[430px] mx-auto w-full">
-            <header className="px-6 pt-16 pb-4 flex justify-between items-center">
+            <header className="px-6 pt-12 pb-4 flex justify-between items-center">
               <button onClick={() => { haptics.light(); router.back() }} className="flex items-center text-on-surface hover:opacity-80 transition-opacity">
                 <span className="material-symbols-outlined mr-2">arrow_back</span>
                 <span className="font-headline font-semibold text-[22px]">Receive</span>
               </button>
             </header>
 
-            <div className="px-6 py-2 overflow-x-auto scrollbar-hide flex gap-3 mb-8">
-              {assets.map((asset, idx) => (
-                <button
-                  key={asset.id}
-                  onClick={() => { haptics.light(); setAssetIdx(idx) }}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full transition-all flex-shrink-0 border ${assetIdx === idx ? 'bg-primary-container text-primary border-primary shadow-sm' : 'bg-surface text-on-surface-variant border-outline-variant/30 hover:bg-surface-container-low'}`}
-                >
-                  <div className="w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px]" style={{ backgroundColor: asset.iconBg, color: asset.color }}>
-                    {asset.iconText}
-                  </div>
-                  <span className="font-label font-bold text-[13px]">{asset.symbol}</span>
-                </button>
-              ))}
+            <div className="px-6 py-2 mb-4">
+              <AssetDropdown assets={assets} selectedIdx={assetIdx} onSelect={setAssetIdx} showBalance={false} />
             </div>
 
             <main className="px-6 flex flex-col items-center flex-1">

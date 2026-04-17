@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { haptics } from '@/lib/haptics'
@@ -45,7 +45,7 @@ export default function SwapPage() {
     <div className="bg-background min-h-screen text-on-background pb-32 w-full max-w-[430px] mx-auto">
       <AnimatePresence mode="wait">
         {state === 'input' && (
-          <motion.div key="input" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="px-6 pt-16">
+          <motion.div key="input" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="px-6 pt-12">
             <header className="flex justify-between items-center mb-10">
               <button onClick={() => { haptics.light(); router.back() }} className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
                 <span className="material-symbols-outlined text-[20px]">arrow_back</span>
