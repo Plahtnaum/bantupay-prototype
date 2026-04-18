@@ -9,13 +9,13 @@ const TABS = [
   { label: 'Explore', path: '/explore',  icon: 'explore'                },
 ]
 
-const SHOW_ON = ['/home', '/wallet', '/activity', '/explore']
+const HIDE_ON = ['/onboarding', '/sign-in']
 
 export function FloatingTabBar() {
   const pathname = usePathname()
   const router = useRouter()
 
-  if (!SHOW_ON.includes(pathname)) return null
+  if (HIDE_ON.some(p => pathname.startsWith(p))) return null
 
   return (
     <div className="fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto flex justify-center pb-6 z-40 pointer-events-none">

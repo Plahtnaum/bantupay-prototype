@@ -115,7 +115,7 @@ function SellPageInner() {
 
         {/* ── AMOUNT ──────────────────────────────────────────────── */}
         {step === 'amount' && (
-          <motion.div key="amount" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} className="flex flex-col min-h-screen pb-12">
+          <motion.div key="amount" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} className="flex flex-col min-h-screen pb-36">
             <header className="flex items-center gap-3 px-6 pt-12 pb-5">
               <button onClick={() => { haptics.light(); router.back() }} className="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors active:scale-95">
                 <span className="material-symbols-outlined text-[20px]">arrow_back</span>
@@ -183,7 +183,7 @@ function SellPageInner() {
                 <div className="flex items-center gap-2 bg-surface-container px-4 py-2 rounded-full mb-5">
                   <span className="font-label font-bold text-[11px] text-on-surface-variant">Rate</span>
                   <span className="font-headline font-bold text-[13px] text-on-surface">₦{market.sellRate.toLocaleString()}/{selectedAsset}</span>
-                  <span className={`font-label font-bold text-[11px] ${market.change24h >= 0 ? 'text-[#16A34A]' : 'text-error'}`}>
+                  <span className={`font-label font-bold text-[11px] ${market.change24h >= 0 ? 'text-primary' : 'text-error'}`}>
                     {market.change24h >= 0 ? '+' : ''}{market.change24h}% 24h
                   </span>
                 </div>
@@ -207,7 +207,7 @@ function SellPageInner() {
 
         {/* ── MARKET (P2P) ────────────────────────────────────────── */}
         {step === 'market' && (
-          <motion.div key="market" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} className="flex flex-col min-h-screen pb-12">
+          <motion.div key="market" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} className="flex flex-col min-h-screen pb-36">
             <header className="flex items-center gap-3 px-6 pt-12 pb-5">
               <button onClick={() => { haptics.light(); setStep('amount') }} className="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors active:scale-95">
                 <span className="material-symbols-outlined text-[20px]">arrow_back</span>
@@ -216,7 +216,7 @@ function SellPageInner() {
                 <h1 className="font-headline font-bold text-[22px] text-on-surface leading-tight">Market Rate</h1>
                 <p className="font-body text-[12px] text-on-surface-variant">via Timbuktu P2P · {market?.peers} active buyers</p>
               </div>
-              <span className="font-label font-bold text-[10px] bg-[#16A34A]/10 text-[#16A34A] px-3 py-1.5 rounded-full uppercase tracking-widest animate-pulse">Live</span>
+              <span className="font-label font-bold text-[10px] bg-primary/10 text-primary px-3 py-1.5 rounded-full uppercase tracking-widest animate-pulse">Live</span>
             </header>
 
             <main className="px-6 flex-1 space-y-4">
@@ -232,7 +232,7 @@ function SellPageInner() {
                   <span className="material-symbols-outlined text-on-surface-variant/30 text-[28px]">arrow_forward</span>
                   <div className="text-right">
                     <p className="font-label font-bold text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">You receive</p>
-                    <p className="font-headline font-bold text-[24px] text-[#16A34A]">
+                    <p className="font-headline font-bold text-[24px] text-primary">
                       ₦{ngnReceive.toLocaleString(undefined, { maximumFractionDigits: 2 })}
                     </p>
                   </div>
@@ -240,7 +240,7 @@ function SellPageInner() {
                 <div className="pt-4 space-y-2">
                   <div className="flex justify-between items-center">
                     <span className="font-body text-[13px] text-on-surface-variant">Network fee</span>
-                    <span className="font-headline font-bold text-[13px] text-[#16A34A]">Free</span>
+                    <span className="font-headline font-bold text-[13px] text-primary">Free</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-body text-[13px] text-on-surface-variant">Escrow hold</span>
@@ -254,7 +254,7 @@ function SellPageInner() {
                 <div className="bg-surface rounded-[24px] p-5 border border-outline-variant/10 shadow-sm">
                   <div className="flex items-center justify-between mb-3">
                     <p className="font-label font-bold text-[10px] text-on-surface-variant uppercase tracking-widest">Best available sell rate</p>
-                    <span className={`font-label font-bold text-[11px] px-2 py-1 rounded-full ${market.change24h >= 0 ? 'bg-[#16A34A]/10 text-[#16A34A]' : 'bg-error/10 text-error'}`}>
+                    <span className={`font-label font-bold text-[11px] px-2 py-1 rounded-full ${market.change24h >= 0 ? 'bg-primary/10 text-primary' : 'bg-error/10 text-error'}`}>
                       {market.change24h >= 0 ? '▲' : '▼'} {Math.abs(market.change24h)}%
                     </span>
                   </div>
@@ -301,7 +301,7 @@ function SellPageInner() {
 
         {/* ── CONFIRM SELL (P2P) ───────────────────────────────────── */}
         {step === 'confirm' && (
-          <motion.div key="confirm" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} className="flex flex-col min-h-screen pb-12">
+          <motion.div key="confirm" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} className="flex flex-col min-h-screen pb-36">
             <header className="flex items-center gap-3 px-6 pt-12 pb-5">
               <button onClick={() => { haptics.light(); setStep('market') }} className="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors active:scale-95">
                 <span className="material-symbols-outlined text-[20px]">arrow_back</span>
@@ -314,18 +314,18 @@ function SellPageInner() {
               <div className="bg-surface rounded-[24px] p-5 border border-outline-variant/10 shadow-sm">
                 <p className="font-label font-bold text-[10px] text-on-surface-variant uppercase tracking-widest mb-3">Matched buyer</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-[#16A34A]/10 flex items-center justify-center flex-shrink-0">
-                    <span className="font-headline font-bold text-[20px] text-[#16A34A]">{MOCK_BUYER.alias.charAt(5)}</span>
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <span className="font-headline font-bold text-[20px] text-primary">{MOCK_BUYER.alias.charAt(5)}</span>
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="font-headline font-bold text-[16px] text-on-surface">{MOCK_BUYER.alias}</p>
                     <div className="flex items-center gap-1.5 mt-0.5">
-                      <span className="material-symbols-outlined text-[14px] text-[#F59E0B]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                      <span className="material-symbols-outlined text-[14px] text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
                       <span className="font-label font-bold text-[12px] text-on-surface">{MOCK_BUYER.rating}</span>
                       <span className="font-body text-[12px] text-on-surface-variant">· {MOCK_BUYER.trades} trades</span>
                     </div>
                   </div>
-                  <span className="font-label font-bold text-[10px] bg-[#16A34A]/10 text-[#16A34A] px-2.5 py-1 rounded-full">{MOCK_BUYER.badge}</span>
+                  <span className="font-label font-bold text-[10px] bg-primary/10 text-primary px-2.5 py-1 rounded-full">{MOCK_BUYER.badge}</span>
                 </div>
               </div>
 
@@ -340,7 +340,7 @@ function SellPageInner() {
                   <div key={row.label}>
                     <div className="flex justify-between items-center">
                       <span className="font-body text-[13px] text-on-surface-variant">{row.label}</span>
-                      <span className={`font-headline font-bold text-[15px] ${row.highlight ? 'text-[#16A34A]' : 'text-on-surface'}`}>{row.value}</span>
+                      <span className={`font-headline font-bold text-[15px] ${row.highlight ? 'text-primary' : 'text-on-surface'}`}>{row.value}</span>
                     </div>
                     {i < arr.length - 1 && <div className="h-px bg-outline-variant/10 mt-4" />}
                   </div>
@@ -348,8 +348,8 @@ function SellPageInner() {
               </div>
 
               {/* Escrow notice */}
-              <div className="flex items-start gap-3 bg-[#F59E0B]/5 border border-[#F59E0B]/20 rounded-2xl p-4">
-                <span className="material-symbols-outlined text-[#F59E0B] text-[20px] mt-0.5 flex-shrink-0">info</span>
+              <div className="flex items-start gap-3 bg-primary/5 border border-primary/20 rounded-2xl p-4">
+                <span className="material-symbols-outlined text-primary text-[20px] mt-0.5 flex-shrink-0">info</span>
                 <p className="font-body text-[13px] text-on-surface-variant font-medium leading-relaxed">
                   Your <strong className="text-on-surface">{numAmount.toLocaleString()} {selectedAsset}</strong> will be held in escrow once you confirm. They're released only after you confirm the buyer's NGN payment has arrived.
                 </p>
@@ -369,7 +369,7 @@ function SellPageInner() {
 
         {/* ── AWAITING PAYMENT (P2P) ───────────────────────────────── */}
         {step === 'awaiting' && (
-          <motion.div key="awaiting" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} className="flex flex-col min-h-screen pb-12">
+          <motion.div key="awaiting" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} className="flex flex-col min-h-screen pb-36">
             <header className="px-6 pt-12 pb-5">
               <div className="flex items-center justify-between">
                 <div>
@@ -388,7 +388,7 @@ function SellPageInner() {
               <div className="flex items-center gap-2 mt-4">
                 {['Tokens escrowed', 'Buyer paying', 'You confirm'].map((label, i) => (
                   <div key={label} className="flex items-center gap-2 flex-1">
-                    <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${i === 0 ? 'bg-[#16A34A]' : i === 1 ? 'bg-primary animate-pulse' : 'bg-surface-container border-2 border-outline-variant/20'}`}>
+                    <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${i === 0 ? 'bg-primary' : i === 1 ? 'bg-primary animate-pulse' : 'bg-surface-container border-2 border-outline-variant/20'}`}>
                       {i === 0 ? (
                         <span className="material-symbols-outlined text-white text-[14px]">check</span>
                       ) : i === 1 ? (
@@ -414,7 +414,7 @@ function SellPageInner() {
                 <div className="h-px bg-outline-variant/10 mb-3" />
                 <div className="flex justify-between items-center">
                   <span className="font-label font-bold text-[10px] text-on-surface-variant uppercase tracking-widest">Expecting</span>
-                  <span className="font-headline font-bold text-[24px] text-[#16A34A]">₦{ngnReceive.toLocaleString(undefined, { maximumFractionDigits: 2 })}</span>
+                  <span className="font-headline font-bold text-[24px] text-primary">₦{ngnReceive.toLocaleString(undefined, { maximumFractionDigits: 2 })}</span>
                 </div>
               </div>
 
@@ -450,7 +450,7 @@ function SellPageInner() {
 
             <div className="px-6 pt-6">
               <button onClick={handleConfirmReceived}
-                className={`w-full h-[56px] font-headline font-bold text-[16px] rounded-full active:scale-95 transition-all ${confirmed ? 'bg-[#16A34A] text-white shadow-[0_4px_24px_rgba(22,163,74,0.3)]' : 'bg-gradient-to-br from-[#FC690A] to-[#D4560A] text-white shadow-[0_4px_24px_rgba(252,105,10,0.25)]'}`}>
+                className={`w-full h-[56px] font-headline font-bold text-[16px] rounded-full active:scale-95 transition-all ${confirmed ? 'bg-primary text-white shadow-[0_4px_24px_rgba(252,105,10,0.25)]' : 'bg-gradient-to-br from-[#FC690A] to-[#D4560A] text-white shadow-[0_4px_24px_rgba(252,105,10,0.25)]'}`}>
                 {confirmed ? 'Confirmed ✓' : "I've Received the Payment"}
               </button>
               <p className="text-center font-body text-[12px] text-on-surface-variant/50 mt-3">
@@ -462,7 +462,7 @@ function SellPageInner() {
 
         {/* ── METHOD (cNGN off-ramp) ───────────────────────────────── */}
         {step === 'method' && (
-          <motion.div key="method" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} className="flex flex-col min-h-screen pb-12">
+          <motion.div key="method" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} className="flex flex-col min-h-screen pb-36">
             <header className="flex items-center gap-3 px-6 pt-12 pb-5">
               <button onClick={() => { haptics.light(); setStep('amount') }} className="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors active:scale-95">
                 <span className="material-symbols-outlined text-[20px]">arrow_back</span>
@@ -475,16 +475,16 @@ function SellPageInner() {
               <div className="bg-surface-container-lowest rounded-[24px] p-5 border border-outline-variant/10 shadow-sm flex justify-between items-center mb-2">
                 <div>
                   <p className="font-label font-bold text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">You'll receive</p>
-                  <p className="font-headline font-bold text-[28px] text-[#16A34A]">₦{ngnReceive.toLocaleString(undefined, { maximumFractionDigits: 2 })}</p>
+                  <p className="font-headline font-bold text-[28px] text-primary">₦{ngnReceive.toLocaleString(undefined, { maximumFractionDigits: 2 })}</p>
                   <p className="font-body text-[12px] text-on-surface-variant mt-0.5">for {numAmount.toLocaleString()} cNGN</p>
                 </div>
-                <div className="w-14 h-14 rounded-full bg-[#EDE9FE] flex items-center justify-center font-headline font-extrabold text-[#7C3AED] text-[22px]">₦</div>
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center font-headline font-extrabold text-primary text-[22px]">₦</div>
               </div>
 
               {[
-                { id: 'gtbank',  icon: 'account_balance', label: 'GTBank', sub: 'GTBank •••• 4521', time: '~5 min', color: '#16A34A' },
+                { id: 'gtbank',  icon: 'account_balance', label: 'GTBank', sub: 'GTBank •••• 4521', time: '~5 min', color: '#FC690A' },
                 { id: 'opay',   icon: 'wallet',           label: 'OPay Wallet', sub: 'Linked OPay account', time: 'Instant', color: '#FC690A' },
-                { id: 'access', icon: 'account_balance',  label: 'Access Bank', sub: 'Add account', time: '~10 min', color: '#2563EB' },
+                { id: 'access', icon: 'account_balance',  label: 'Access Bank', sub: 'Add account', time: '~10 min', color: '#FC690A' },
               ].map(m => (
                 <button key={m.id} onClick={() => { haptics.light(); setWithdrawMethod(m.id) }}
                   className={`w-full bg-surface rounded-[20px] p-4 flex items-center gap-4 transition-all border shadow-sm active:scale-[0.98] ${withdrawMethod === m.id ? 'border-primary bg-primary/5' : 'border-outline-variant/10 hover:border-outline-variant/30 hover:bg-surface-container-lowest'}`}>
@@ -495,7 +495,7 @@ function SellPageInner() {
                     <p className="font-headline font-semibold text-[15px] text-on-surface">{m.label}</p>
                     <div className="flex items-center gap-2 mt-1">
                       <span className="font-body text-[12px] text-on-surface-variant">{m.sub}</span>
-                      <span className="font-label font-bold text-[10px] px-2 py-0.5 rounded-full bg-[#16A34A]/10 text-[#16A34A]">{m.time}</span>
+                      <span className="font-label font-bold text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary">{m.time}</span>
                     </div>
                   </div>
                   {withdrawMethod === m.id && <span className="material-symbols-outlined text-primary text-[22px] flex-shrink-0">check_circle</span>}
@@ -535,8 +535,8 @@ function SellPageInner() {
         {step === 'success' && (
           <motion.div key="success" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="flex flex-col min-h-screen items-center justify-center px-8 text-center">
             <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', stiffness: 400, damping: 18 }}
-              className="w-24 h-24 rounded-full bg-[#16A34A]/10 flex items-center justify-center mb-6">
-              <div className="w-16 h-16 rounded-full bg-[#16A34A] flex items-center justify-center">
+              className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+              <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
                 <span className="material-symbols-outlined text-white text-[32px]" style={{ fontVariationSettings: "'wght' 700" }}>check</span>
               </div>
             </motion.div>
@@ -544,7 +544,7 @@ function SellPageInner() {
             <h1 className="font-headline font-extrabold text-[32px] text-on-surface mb-2 tracking-tight">
               {isP2P ? 'Sale complete!' : 'Withdrawal sent!'}
             </h1>
-            <p className="font-headline font-bold text-[26px] text-[#16A34A] mb-1">
+            <p className="font-headline font-bold text-[26px] text-primary mb-1">
               ₦{ngnReceive.toLocaleString(undefined, { maximumFractionDigits: 2 })}
             </p>
             <p className="font-body text-[14px] text-on-surface-variant mb-10">

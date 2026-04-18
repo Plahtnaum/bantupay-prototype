@@ -77,7 +77,7 @@ export default function ReceivePage() {
               <AssetDropdown assets={assets} selectedIdx={assetIdx} onSelect={setAssetIdx} showBalance={false} />
             </div>
 
-            <main className="px-6 flex flex-col items-center flex-1 pb-10">
+            <main className="px-6 flex flex-col items-center flex-1 pb-36">
               {/* QR Card */}
               <div className="bg-white p-4 rounded-[24px] shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-outline-variant/10 w-[240px] flex flex-col items-center mb-8">
                 <QRCodeSVG value={`bantupay:${persona?.walletAddress}`} size={208} fgColor="#0F0F0F" className="rounded-xl overflow-hidden" />
@@ -156,7 +156,7 @@ export default function ReceivePage() {
                 className="w-full h-14 bg-surface rounded-2xl border border-outline-variant/20 px-5 outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body text-[14px] shadow-sm text-on-surface transition-all" />
             </div>
 
-            <div className="px-6 pb-8 space-y-6">
+            <div className="px-6 pb-32 space-y-6">
               <Numpad onKey={handleNumKey} onDelete={() => { haptics.light(); setRequestAmount(p => p.slice(0, -1)) }} />
               <button
                 disabled={!requestAmount || parseFloat(requestAmount) <= 0}
@@ -201,7 +201,7 @@ export default function ReceivePage() {
               </div>
             </main>
 
-            <div className="px-6 pb-10 space-y-3">
+            <div className="px-6 pb-36 space-y-3">
               <button onClick={() => handleCopy(generatedLink)}
                 className="w-full h-14 bg-gradient-to-br from-[#FC690A] to-[#D4560A] text-white font-headline font-bold text-[16px] rounded-full shadow-[0_8px_16px_rgba(252,105,10,0.25)] flex items-center justify-center gap-2 active:scale-95 transition-transform">
                 <span className="material-symbols-outlined text-[20px]">{copied ? 'check' : 'content_copy'}</span>

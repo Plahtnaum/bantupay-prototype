@@ -56,7 +56,7 @@ export default function ExplorePage() {
                 <span className="font-headline font-semibold text-[15px] text-on-surface">{r.pair}</span>
                 <div className="flex flex-col items-end">
                   <span className="font-headline font-bold text-[15px] text-on-surface">{r.rate}</span>
-                  <span className={`font-label font-bold text-[12px] ${r.up ? 'text-[#16A34A]' : 'text-error'}`}>{r.change}</span>
+                  <span className={`font-label font-bold text-[12px] ${r.up ? 'text-primary' : 'text-error'}`}>{r.change}</span>
                 </div>
               </motion.div>
             ))}
@@ -83,7 +83,7 @@ export default function ExplorePage() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="font-headline font-bold text-[16px] text-on-surface">{item.title}</span>
-                    <span className={`text-[10px] font-label font-bold px-2 py-0.5 rounded-full ${item.tag === 'Live' ? 'bg-[#16A34A]/10 text-[#16A34A]' : 'bg-surface-container-high text-on-surface-variant'}`}>
+                    <span className={`text-[10px] font-label font-bold px-2 py-0.5 rounded-full ${item.tag === 'Live' ? 'bg-primary/10 text-primary' : 'bg-surface-container-high text-on-surface-variant'}`}>
                       {item.tag}
                     </span>
                   </div>

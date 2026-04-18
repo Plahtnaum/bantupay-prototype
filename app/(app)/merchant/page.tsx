@@ -59,16 +59,22 @@ export default function MerchantPage() {
 
   return (
     <div className="bg-background min-h-screen text-on-background pb-32 w-full max-w-[430px] mx-auto">
-      <header className="px-6 pt-16 pb-4 flex justify-between items-center">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-primary-container text-primary flex items-center justify-center">
-            <span className="material-symbols-outlined text-[20px]">storefront</span>
-          </div>
-          <h1 className="font-headline font-bold text-[20px] text-on-surface">{persona?.name || 'My Business'}</h1>
-        </div>
-        <button onClick={() => haptics.light()} className="text-on-surface hover:opacity-80 transition-opacity">
-          <span className="material-symbols-outlined text-[28px]">menu</span>
+      <header className="px-6 pt-12 pb-4">
+        <button onClick={() => { haptics.light(); router.back() }} className="flex items-center gap-1 text-on-surface-variant hover:text-on-surface transition-colors mb-3">
+          <span className="material-symbols-outlined text-[20px]">arrow_back</span>
+          <span className="font-label font-bold text-[13px]">Back</span>
         </button>
+        <div className="flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-primary-container text-primary flex items-center justify-center">
+              <span className="material-symbols-outlined text-[20px]">storefront</span>
+            </div>
+            <h1 className="font-headline font-bold text-[20px] text-on-surface">{persona?.name || 'My Business'}</h1>
+          </div>
+          <button onClick={() => haptics.light()} className="text-on-surface hover:opacity-80 transition-opacity">
+            <span className="material-symbols-outlined text-[28px]">menu</span>
+          </button>
+        </div>
       </header>
 
       <main className="px-6 pt-4 space-y-6">
@@ -76,7 +82,7 @@ export default function MerchantPage() {
           <span className="font-label font-bold text-[11px] text-on-surface-variant tracking-widest uppercase">Today's Revenue</span>
           <div className="flex justify-between items-baseline mt-1 mb-4">
             <h2 className="font-headline font-bold text-[36px] text-on-surface">₦{todayRevenue.toLocaleString()}</h2>
-            <span className="font-label font-bold text-[13px] text-[#16A34A] flex items-center gap-1 bg-[#16A34A]/10 px-2 py-1 rounded-full">
+            <span className="font-label font-bold text-[13px] text-primary flex items-center gap-1 bg-primary/10 px-2 py-1 rounded-full">
               <span className="material-symbols-outlined text-[14px]">arrow_upward</span>
               12% vs yesterday
             </span>
@@ -114,7 +120,7 @@ export default function MerchantPage() {
 
         <section className="bg-surface rounded-[24px] p-5 shadow-sm border border-outline-variant/10">
           <div className="flex items-center gap-2 mb-6">
-            <div className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <h3 className="font-label font-bold text-[11px] text-on-surface-variant tracking-widest uppercase">Recent Payments</h3>
           </div>
 
@@ -134,7 +140,7 @@ export default function MerchantPage() {
                     </div>
                     <div className="text-right flex items-center gap-2">
                        <span className="font-headline font-bold text-[14px] text-[#FC690A]">+{tx.fiatValue.toLocaleString()} ₦</span>
-                       <span className="material-symbols-outlined text-[16px] text-[#16A34A] font-bold">check</span>
+                       <span className="material-symbols-outlined text-[16px] text-primary font-bold">check</span>
                     </div>
                   </motion.div>
                 ))

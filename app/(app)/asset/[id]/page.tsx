@@ -71,7 +71,7 @@ export default function AssetDetailsPage() {
         <section className="grid grid-cols-3 gap-3">
             {[
               { label: 'Send',    icon: 'arrow_upward',  bg: 'bg-primary/10',            color: 'text-primary',             onClick: () => router.push(`/send?asset=${asset.symbol}`) },
-              { label: 'Receive', icon: 'arrow_downward',bg: 'bg-[#16A34A]/10',          color: 'text-[#16A34A]',           onClick: () => router.push(`/receive?asset=${asset.symbol}`) },
+              { label: 'Receive', icon: 'arrow_downward',bg: 'bg-primary/10',          color: 'text-primary',           onClick: () => router.push(`/receive?asset=${asset.symbol}`) },
               { label: 'Swap',    icon: 'swap_horiz',    bg: 'bg-secondary/10',          color: 'text-secondary',           onClick: () => router.push(`/swap?asset=${asset.symbol}`) },
               { label: 'Buy',     icon: 'add_card',      bg: 'bg-primary/10',            color: 'text-primary',             onClick: () => router.push(`/buy?asset=${asset.symbol}`) },
               { label: 'Sell',    icon: 'payments',      bg: 'bg-surface-container-high',color: 'text-on-surface-variant',  onClick: () => router.push(`/sell?asset=${asset.symbol}`) },
@@ -123,7 +123,7 @@ export default function AssetDetailsPage() {
               assetTransactions.slice(0, 5).map((tx) => (
                 <div key={tx.id} onClick={() => haptics.light()} className="flex items-center justify-between p-4 bg-surface rounded-2xl border border-outline-variant/10 group hover:bg-surface-container-lowest transition-all active:scale-[0.98] cursor-pointer shadow-sm">
                   <div className="flex items-center gap-4">
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${tx.type === 'send' || tx.type === 'offramp' ? 'bg-[#FC690A]/10 text-[#FC690A]' : 'bg-[#16A34A]/10 text-[#16A34A]'}`}>
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${tx.type === 'send' || tx.type === 'offramp' ? 'bg-[#FC690A]/10 text-[#FC690A]' : 'bg-primary/10 text-primary'}`}>
                       <span className="material-symbols-outlined text-[20px]">{tx.type === 'send' || tx.type === 'offramp' ? 'arrow_upward' : 'arrow_downward'}</span>
                     </div>
                     <div>
@@ -132,7 +132,7 @@ export default function AssetDetailsPage() {
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className={`font-headline font-extrabold text-[15px] ${tx.type === 'send' || tx.type === 'offramp' ? 'text-on-surface' : 'text-[#16A34A]'}`}>
+                    <p className={`font-headline font-extrabold text-[15px] ${tx.type === 'send' || tx.type === 'offramp' ? 'text-on-surface' : 'text-primary'}`}>
                         {tx.type === 'send' || tx.type === 'offramp' ? '-' : '+'}{tx.amount.toLocaleString()}
                     </p>
                     <p className="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mt-0.5">{tx.status}</p>
