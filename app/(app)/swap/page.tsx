@@ -118,54 +118,82 @@ export default function SwapPage() {
             </header>
 
             <main className="space-y-1 relative">
-              {/* Pay Card */}
-              <div className="bg-surface rounded-t-[24px] rounded-b-[4px] p-6 border border-outline-variant/10 shadow-sm">
+              {/* FROM card */}
+              <div className="bg-surface rounded-t-[24px] rounded-b-[4px] p-5 border border-outline-variant/10 shadow-sm">
                 <div className="flex justify-between items-center mb-4">
-                  <span className="font-label font-bold text-[11px] text-on-surface-variant tracking-widest uppercase">You pay</span>
+                  <span className="font-label font-bold text-[11px] text-on-surface-variant tracking-widest uppercase">You swap</span>
                   <button onClick={() => { haptics.light(); setAmount(payAsset.balance.toString()) }}
-                    className="font-label font-bold text-[11px] text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                    className="font-label font-bold text-[11px] text-primary bg-primary/10 px-2.5 py-1 rounded-full hover:opacity-80">
                     Balance: {payAsset.balance.toLocaleString()}
                   </button>
                 </div>
-                <div className="flex items-center gap-4">
-                  <input type="number" value={amount} onChange={e => setAmount(e.target.value)} placeholder="0"
-                    className="flex-1 bg-transparent border-none p-0 focus:ring-0 text-[40px] font-headline font-bold text-on-surface outline-none placeholder:text-on-surface/15" />
-                  <button onClick={() => { haptics.light(); setShowPayPicker(true) }}
-                    className="flex items-center gap-2 bg-surface-container-low px-3 py-2 rounded-full border border-outline-variant/10 hover:bg-surface-container transition-colors shadow-sm">
-                    <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold" style={{ backgroundColor: payAsset.iconBg, color: payAsset.color }}>{payAsset.iconText}</div>
-                    <span className="font-headline font-bold text-[14px]">{payAsset.symbol}</span>
-                    <span className="material-symbols-outlined text-[18px]">expand_more</span>
-                  </button>
-                </div>
+
+                {/* Asset selector — prominent, full row */}
+                <button
+                  onClick={() => { haptics.light(); setShowPayPicker(true) }}
+                  className="w-full flex items-center gap-3 bg-surface-container rounded-2xl px-4 py-3.5 mb-4 hover:bg-surface-container-high transition-colors active:scale-[0.98] border border-outline-variant/10"
+                >
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-[14px] flex-shrink-0"
+                    style={{ backgroundColor: payAsset.iconBg, color: payAsset.color }}>
+                    {payAsset.iconText}
+                  </div>
+                  <div className="flex-1 text-left">
+                    <p className="font-headline font-bold text-[18px] text-on-surface leading-none">{payAsset.symbol}</p>
+                    <p className="font-body text-[12px] text-on-surface-variant mt-0.5">{payAsset.name}</p>
+                  </div>
+                  <span className="material-symbols-outlined text-[22px] text-on-surface-variant">expand_more</span>
+                </button>
+
+                {/* Amount */}
+                <input
+                  type="number"
+                  value={amount}
+                  onChange={e => setAmount(e.target.value)}
+                  placeholder="0"
+                  className="w-full bg-transparent border-none p-0 focus:ring-0 text-[44px] font-headline font-bold text-on-surface outline-none placeholder:text-on-surface/15"
+                />
                 <p className="font-body text-[13px] text-on-surface-variant/60 mt-1">
                   ≈ {payAsset.fiatSymbol}{((parseFloat(amount)||0) * (payAsset.fiatValue / (payAsset.balance||1))).toLocaleString()}
                 </p>
               </div>
 
-              {/* Flip */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-[162px] -translate-y-1/2 z-10">
-                <button onClick={handleFlip} className="w-10 h-10 bg-surface rounded-full shadow-lg border border-outline-variant/10 flex items-center justify-center text-primary active:scale-90 transition-transform group">
-                  <span className="material-symbols-outlined group-hover:rotate-180 transition-transform duration-500">swap_vert</span>
+              {/* Flip button */}
+              <div className="flex justify-center py-1 relative z-10">
+                <button
+                  onClick={handleFlip}
+                  className="w-10 h-10 bg-surface rounded-full shadow-md border border-outline-variant/10 flex items-center justify-center text-primary active:scale-90 transition-transform hover:bg-surface-container"
+                >
+                  <span className="material-symbols-outlined text-[20px]">swap_vert</span>
                 </button>
               </div>
 
-              {/* Receive Card */}
-              <div className="bg-surface rounded-b-[24px] rounded-t-[4px] p-6 border border-outline-variant/10 shadow-sm pt-10">
+              {/* TO card */}
+              <div className="bg-surface rounded-t-[4px] rounded-b-[24px] p-5 border border-outline-variant/10 shadow-sm">
                 <div className="flex justify-between items-center mb-4">
-                  <span className="font-label font-bold text-[11px] text-on-surface-variant tracking-widest uppercase">You receive</span>
+                  <span className="font-label font-bold text-[11px] text-on-surface-variant tracking-widest uppercase">You get</span>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="flex-1 text-[40px] font-headline font-bold text-on-surface truncate">
-                    {amount ? estimatedReceive : '0'}
+
+                {/* Asset selector — prominent, full row */}
+                <button
+                  onClick={() => { haptics.light(); setShowReceivePicker(true) }}
+                  className="w-full flex items-center gap-3 bg-surface-container rounded-2xl px-4 py-3.5 mb-4 hover:bg-surface-container-high transition-colors active:scale-[0.98] border border-outline-variant/10"
+                >
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-[14px] flex-shrink-0"
+                    style={{ backgroundColor: receiveAsset.iconBg, color: receiveAsset.color }}>
+                    {receiveAsset.iconText}
                   </div>
-                  <button onClick={() => { haptics.light(); setShowReceivePicker(true) }}
-                    className="flex items-center gap-2 bg-surface-container-low px-3 py-2 rounded-full border border-outline-variant/10 hover:bg-surface-container transition-colors shadow-sm">
-                    <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold" style={{ backgroundColor: receiveAsset.iconBg, color: receiveAsset.color }}>{receiveAsset.iconText}</div>
-                    <span className="font-headline font-bold text-[14px]">{receiveAsset.symbol}</span>
-                    <span className="material-symbols-outlined text-[18px]">expand_more</span>
-                  </button>
-                </div>
-                <p className="font-body text-[13px] text-on-surface-variant/60 mt-1">
+                  <div className="flex-1 text-left">
+                    <p className="font-headline font-bold text-[18px] text-on-surface leading-none">{receiveAsset.symbol}</p>
+                    <p className="font-body text-[12px] text-on-surface-variant mt-0.5">{receiveAsset.name}</p>
+                  </div>
+                  <span className="material-symbols-outlined text-[22px] text-on-surface-variant">expand_more</span>
+                </button>
+
+                {/* Estimated receive */}
+                <p className="text-[44px] font-headline font-bold text-primary leading-none mb-1">
+                  {amount ? estimatedReceive : '0'}
+                </p>
+                <p className="font-body text-[13px] text-on-surface-variant/60">
                   1 {payAsset.symbol} = {rate.toLocaleString(undefined, { maximumFractionDigits: 6 })} {receiveAsset.symbol}
                 </p>
               </div>
