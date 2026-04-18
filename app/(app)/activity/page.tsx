@@ -45,12 +45,15 @@ function groupTransactionsByDate(txs: Transaction[]) {
   return groups
 }
 
+const BUCKET_LIMIT = 5
+
 export default function ActivityPage() {
   const router = useRouter()
   const { transactions } = useWalletStore()
   const [filter, setFilter] = useState('All')
   const [selectedTx, setSelectedTx] = useState<Transaction | null>(null)
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [expandedBuckets, setExpandedBuckets] = useState<Set<string>>(new Set(['Today', 'Yesterday']))
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -175,16 +178,31 @@ export default function ActivityPage() {
               )}
             </motion.div>
           ) : (
-            Object.keys(grouped).map((dateLabel) => (
-              <motion.div key={dateLabel} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="mb-6">
-                <h2 className="text-[11px] font-label font-bold text-on-surface-variant uppercase tracking-widest pl-1 mb-3">{dateLabel}</h2>
-                <div className="space-y-2">
-                  {grouped[dateLabel].map((tx) => (
-                    <TransactionItemRow key={tx.id} tx={tx} onClick={() => { haptics.light(); setSelectedTx(tx); }} />
-                  ))}
-                </div>
-              </motion.div>
-            ))
+            Object.keys(grouped).map((dateLabel) => {
+              const all = grouped[dateLabel]
+              const isExpanded = expandedBuckets.has(dateLabel)
+              const visible = isExpanded ? all : all.slice(0, BUCKET_LIMIT)
+              const hidden = all.length - visible.length
+
+              return (
+                <motion.div key={dateLabel} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="mb-6">
+                  <h2 className="text-[11px] font-label font-bold text-on-surface-variant uppercase tracking-widest pl-1 mb-3">{dateLabel}</h2>
+                  <div className="space-y-2">
+                    {visible.map((tx) => (
+                      <TransactionItemRow key={tx.id} tx={tx} onClick={() => { haptics.light(); setSelectedTx(tx); }} />
+                    ))}
+                  </div>
+                  {hidden > 0 && (
+                    <button
+                      onClick={() => { haptics.light(); setExpandedBuckets(prev => new Set([...prev, dateLabel])) }}
+                      className="mt-3 w-full py-3 text-[13px] font-label font-bold text-primary text-center hover:opacity-75 transition-opacity active:opacity-50"
+                    >
+                      Show {hidden} more in {dateLabel} ↓
+                    </button>
+                  )}
+                </motion.div>
+              )
+            })
           )}
         </AnimatePresence>
       </main>

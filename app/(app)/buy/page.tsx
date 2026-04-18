@@ -117,7 +117,16 @@ function BuyPageInner() {
               <button onClick={() => { haptics.light(); router.back() }} className="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors active:scale-95">
                 <span className="material-symbols-outlined text-[20px]">arrow_back</span>
               </button>
-              <h1 className="font-headline font-bold text-[22px] text-on-surface">Buy</h1>
+              <div className="flex-1 flex justify-center">
+                <div className="flex bg-surface-container rounded-full p-1 gap-0.5">
+                  <span className="px-6 py-2 rounded-full bg-on-surface text-surface font-headline font-bold text-[14px]">Buy</span>
+                  <button onClick={() => { haptics.light(); router.replace(`/sell?asset=${selectedAsset}`) }}
+                    className="px-6 py-2 rounded-full text-on-surface-variant font-headline font-bold text-[14px] hover:text-on-surface transition-colors">
+                    Sell
+                  </button>
+                </div>
+              </div>
+              <div className="w-10" />
             </header>
 
             {/* Asset picker */}
