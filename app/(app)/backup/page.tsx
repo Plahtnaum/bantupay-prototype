@@ -29,7 +29,6 @@ export default function BackupPage() {
 
   return (
     <div className="min-h-screen bg-surface flex flex-col">
-      {/* Header */}
       <header className="flex items-center gap-3 px-6 pt-14 pb-6">
         <button
           onClick={() => { haptics.light(); router.back() }}
@@ -43,27 +42,25 @@ export default function BackupPage() {
       <main className="flex-1 px-6 pb-12">
         <AnimatePresence mode="wait">
 
-          {/* Idle — overview + prompt */}
+          {/* Idle — overview */}
           {state === 'idle' && (
             <motion.div key="idle" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>
-              {/* Status card */}
               <div className="bg-surface-container rounded-[24px] p-6 mb-6 border border-outline-variant/10">
                 <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <span className="material-symbols-outlined text-[28px] text-primary">cloud_off</span>
                 </div>
                 <h2 className="font-headline font-bold text-[20px] text-on-surface mb-1">No backup yet</h2>
                 <p className="font-body text-[14px] text-on-surface-variant leading-relaxed">
-                  Your wallet keys exist only on this device. If you lose access, your funds may be unrecoverable.
+                  Right now, your wallet only lives on this phone. If you lose it or switch devices, you'd lose access to your money. A backup keeps you safe.
                 </p>
               </div>
 
-              {/* What's backed up */}
-              <h3 className="font-label font-bold text-[11px] text-on-surface-variant uppercase tracking-widest mb-3">What gets backed up</h3>
+              <h3 className="font-label font-bold text-[11px] text-on-surface-variant uppercase tracking-widest mb-3">What gets saved</h3>
               <div className="space-y-2 mb-8">
                 {[
-                  { icon: 'key', label: 'Encrypted seed phrase', sub: 'AES-256, only you can decrypt' },
-                  { icon: 'fingerprint', label: 'PIN & biometric settings', sub: 'Encrypted at rest' },
-                  { icon: 'manage_accounts', label: 'Profile & preferences', sub: 'Name, handle, theme' },
+                  { icon: 'key', label: 'Your wallet access key', sub: 'Locked with a password — only you can open it' },
+                  { icon: 'fingerprint', label: 'Your security settings', sub: 'PIN and biometric preferences' },
+                  { icon: 'manage_accounts', label: 'Your profile', sub: 'Name, username, and display settings' },
                 ].map(item => (
                   <div key={item.label} className="flex items-center gap-4 bg-surface-container rounded-[16px] px-4 py-4 border border-outline-variant/10">
                     <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -81,7 +78,7 @@ export default function BackupPage() {
                 onClick={() => { haptics.light(); setState('prompted') }}
                 className="w-full h-[56px] rounded-full bg-gradient-to-br from-[#FC690A] to-[#D4560A] text-white font-headline font-bold text-[16px] shadow-[0_8px_20px_rgba(252,105,10,0.25)] active:scale-[0.98] transition-transform"
               >
-                Back up now
+                Back up my wallet
               </button>
             </motion.div>
           )}
@@ -90,26 +87,26 @@ export default function BackupPage() {
           {state === 'prompted' && (
             <motion.div key="prompted" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>
               <p className="font-body text-[15px] text-on-surface-variant mb-6 leading-relaxed">
-                Choose where to store your encrypted backup. You'll need a password to restore it.
+                Pick where to save your backup. It's protected with a password — even we can't access it.
               </p>
 
               <div className="space-y-3 mb-8">
                 {[
-                  { icon: 'cloud', label: 'iCloud / Google Drive', sub: 'Sync across your devices automatically', recommended: true },
-                  { icon: 'folder', label: 'Local file', sub: 'Save to your device or external storage' },
-                  { icon: 'security', label: 'BantuPay Secure Vault', sub: 'Encrypted storage on BantuPay servers', tag: 'Coming soon' },
+                  { icon: 'cloud', label: 'iCloud / Google Drive', sub: 'Stays in sync across your devices automatically', recommended: true },
+                  { icon: 'folder', label: 'Save to this device', sub: 'Useful for exporting to external storage' },
+                  { icon: 'security', label: 'BantuPay Vault', sub: 'Secure cloud storage managed by BantuPay', tag: 'Coming soon' },
                 ].map(item => (
                   <button
                     key={item.label}
                     disabled={!!item.tag}
                     onClick={() => { if (!item.tag) startBackup() }}
-                    className="w-full flex items-center gap-4 bg-surface-container rounded-[20px] px-5 py-4 border border-outline-variant/10 text-left active:bg-surface-container-high transition-colors disabled:opacity-50"
+                    className="w-full flex items-center gap-4 bg-surface-container rounded-[20px] px-5 py-4 border border-outline-variant/10 text-left hover:bg-surface-container-high transition-colors disabled:opacity-50 active:scale-[0.98]"
                   >
                     <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <span className="material-symbols-outlined text-[22px] text-primary">{item.icon}</span>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <span className="font-headline font-bold text-[15px] text-on-surface">{item.label}</span>
                         {item.recommended && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary">Recommended</span>}
                         {item.tag && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant">{item.tag}</span>}
@@ -136,8 +133,8 @@ export default function BackupPage() {
               <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                 <span className="material-symbols-outlined text-[48px] text-primary animate-pulse">cloud_upload</span>
               </div>
-              <h2 className="font-headline font-bold text-[22px] text-on-surface mb-2">Backing up…</h2>
-              <p className="font-body text-[14px] text-on-surface-variant mb-8">Encrypting and uploading your wallet</p>
+              <h2 className="font-headline font-bold text-[22px] text-on-surface mb-2">Saving your backup…</h2>
+              <p className="font-body text-[14px] text-on-surface-variant mb-8">This only takes a moment</p>
               <div className="w-full max-w-[280px] h-2 bg-surface-container rounded-full overflow-hidden">
                 <motion.div
                   className="h-full bg-gradient-to-r from-[#FC690A] to-[#D4560A] rounded-full"
@@ -160,12 +157,12 @@ export default function BackupPage() {
               >
                 <span className="material-symbols-outlined text-[48px] text-[#16A34A]">cloud_done</span>
               </motion.div>
-              <h2 className="font-headline font-bold text-[26px] text-on-surface mb-2">Backup complete</h2>
+              <h2 className="font-headline font-bold text-[26px] text-on-surface mb-2">You're backed up</h2>
               <p className="font-body text-[15px] text-on-surface-variant mb-2">
-                Your wallet is safely backed up and encrypted.
+                Your wallet is safely saved. If you ever lose your phone, you can restore everything in seconds.
               </p>
               <p className="font-label font-bold text-[12px] text-on-surface-variant mb-10">
-                Last backup: {new Date().toLocaleString()}
+                Saved on {new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
               </p>
 
               <div className="w-full space-y-3">
