@@ -39,7 +39,7 @@ export default function BackupPage() {
         <h1 className="font-headline font-bold text-[22px] text-on-surface tracking-tight">Cloud Backup</h1>
       </header>
 
-      <main className="flex-1 px-6 pb-12">
+      <main className="flex-1 px-6 pb-36">
         <AnimatePresence mode="wait">
 
           {/* Idle — overview */}
@@ -153,9 +153,9 @@ export default function BackupPage() {
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ type: 'spring', damping: 15, stiffness: 300 }}
-                className="w-24 h-24 rounded-full bg-[#16A34A]/10 flex items-center justify-center mb-6"
+                className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mb-6"
               >
-                <span className="material-symbols-outlined text-[48px] text-[#16A34A]">cloud_done</span>
+                <span className="material-symbols-outlined text-[48px] text-primary">cloud_done</span>
               </motion.div>
               <h2 className="font-headline font-bold text-[26px] text-on-surface mb-2">You're backed up</h2>
               <p className="font-body text-[15px] text-on-surface-variant mb-2">

@@ -116,7 +116,7 @@ export default function SendPage() {
               </div>
             </div>
 
-            <div className="px-6 pb-8 space-y-6">
+            <div className="px-6 pb-32 space-y-6">
               <Numpad onKey={handleKey} onDelete={handleDelete} />
               <button
                 onClick={() => setStep('recipient')}
@@ -235,7 +235,7 @@ export default function SendPage() {
                 <div className="w-full h-px bg-outline-variant/20 my-4" />
                 <div className="flex justify-between items-center mb-4">
                   <span className="font-body text-[12px] font-medium text-on-surface-variant">Network fee</span>
-                  <span className="font-label font-bold text-[13px] text-[#16A34A]">&lt; ₦0.01</span>
+                  <span className="font-label font-bold text-[13px] text-primary">&lt; ₦0.01</span>
                 </div>
                 <div className="flex justify-between items-center mb-5">
                   <span className="font-body text-[12px] font-medium text-on-surface-variant">Est. arrival</span>

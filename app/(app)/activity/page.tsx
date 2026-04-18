@@ -218,13 +218,13 @@ function TransactionItemRow({ tx, onClick }: { tx: Transaction, onClick: () => v
   const isSwap = tx.type === 'swap'
 
   const iconBg = isSend ? 'bg-primary/10 text-primary' :
-                 isReceive ? 'bg-[#16A34A]/10 text-[#16A34A]' :
+                 isReceive ? 'bg-primary/10 text-primary' :
                  'bg-secondary/10 text-secondary'
   
   const iconName = isSend ? 'arrow_upward' : isReceive ? 'arrow_downward' : 'swap_horiz'
 
   const sign = isSend ? '−' : isReceive ? '+' : ''
-  const amountColor = isReceive ? 'text-[#16A34A]' : isSend && tx.status !== 'failed' ? 'text-on-surface' : 'text-on-surface-variant'
+  const amountColor = isReceive ? 'text-primary' : isSend && tx.status !== 'failed' ? 'text-on-surface' : 'text-on-surface-variant'
 
   let title = ''
   if (isSend) title = `Sent to ${tx.counterparty}`
@@ -274,7 +274,7 @@ function TransactionDetailSheet({ tx, onClose }: { tx: Transaction | null, onClo
 
   const iconCircleClass = isFailed ? 'bg-error-container/30 text-error' :
                           isPending ? 'bg-primary/10 text-primary' :
-                          'bg-[#16A34A]/10 text-[#16A34A]'
+                          'bg-primary/10 text-primary'
   
   const iconName = isFailed ? 'close' : isPending ? 'sync' : 'check'
   
@@ -282,7 +282,7 @@ function TransactionDetailSheet({ tx, onClose }: { tx: Transaction | null, onClo
   const isReceive = tx.type === 'receive' || tx.type === 'claim' || tx.type === 'onramp'
   
   const sign = isSend ? '−' : isReceive ? '+' : ''
-  const color = isReceive && isSuccess ? 'text-[#16A34A]' : isFailed ? 'text-on-surface-variant' : 'text-on-surface'
+  const color = isReceive && isSuccess ? 'text-primary' : isFailed ? 'text-on-surface-variant' : 'text-on-surface'
 
   return (
     <>
@@ -304,7 +304,7 @@ function TransactionDetailSheet({ tx, onClose }: { tx: Transaction | null, onClo
             <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 ${iconCircleClass} ${isPending ? 'animate-pulse' : ''}`}>
               <span className={`material-symbols-outlined text-[32px] ${isPending ? 'animate-spin' : ''}`} style={{ fontVariationSettings: "'wght' 600" }}>{iconName}</span>
             </div>
-            <span className={`font-label font-bold text-sm tracking-widest uppercase mb-2 ${isFailed ? 'text-error' : isPending ? 'text-primary' : 'text-[#16A34A]'}`}>
+            <span className={`font-label font-bold text-sm tracking-widest uppercase mb-2 ${isFailed ? 'text-error' : isPending ? 'text-primary' : 'text-primary'}`}>
               {tx.status}
             </span>
             <div className={`font-headline font-extrabold text-[36px] ${color}`}>
@@ -333,7 +333,7 @@ function TransactionDetailSheet({ tx, onClose }: { tx: Transaction | null, onClo
             <div className="w-full h-px bg-outline-variant/10" />
             <div className="flex justify-between items-center">
               <span className="font-body text-sm text-on-surface-variant">Fee</span>
-              <span className="font-headline font-bold text-sm text-[#16A34A]">{tx.fee === 0 ? 'Free' : `< ₦0.01`}</span>
+              <span className="font-headline font-bold text-sm text-primary">{tx.fee === 0 ? 'Free' : `< ₦0.01`}</span>
             </div>
             <div className="w-full h-px bg-outline-variant/10" />
             <div className="flex flex-col gap-1">

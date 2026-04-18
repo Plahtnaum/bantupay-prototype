@@ -112,7 +112,7 @@ function BuyPageInner() {
 
         {/* ── AMOUNT ──────────────────────────────────────────────── */}
         {step === 'amount' && (
-          <motion.div key="amount" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} className="flex flex-col min-h-screen pb-12">
+          <motion.div key="amount" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} className="flex flex-col min-h-screen pb-36">
             <header className="flex items-center gap-3 px-6 pt-12 pb-5">
               <button onClick={() => { haptics.light(); router.back() }} className="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors active:scale-95">
                 <span className="material-symbols-outlined text-[20px]">arrow_back</span>
@@ -173,7 +173,7 @@ function BuyPageInner() {
                 <div className="flex items-center gap-2 bg-surface-container px-4 py-2 rounded-full mb-5">
                   <span className="font-label font-bold text-[11px] text-on-surface-variant">Rate</span>
                   <span className="font-headline font-bold text-[13px] text-on-surface">₦{market.buyRate.toLocaleString()}/{selectedAsset}</span>
-                  <span className={`font-label font-bold text-[11px] ${market.change24h >= 0 ? 'text-[#16A34A]' : 'text-error'}`}>
+                  <span className={`font-label font-bold text-[11px] ${market.change24h >= 0 ? 'text-primary' : 'text-error'}`}>
                     {market.change24h >= 0 ? '+' : ''}{market.change24h}% 24h
                   </span>
                 </div>
@@ -204,7 +204,7 @@ function BuyPageInner() {
 
         {/* ── MARKET (P2P) ────────────────────────────────────────── */}
         {step === 'market' && (
-          <motion.div key="market" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} className="flex flex-col min-h-screen pb-12">
+          <motion.div key="market" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} className="flex flex-col min-h-screen pb-36">
             <header className="flex items-center gap-3 px-6 pt-12 pb-5">
               <button onClick={() => { haptics.light(); setStep('amount') }} className="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors active:scale-95">
                 <span className="material-symbols-outlined text-[20px]">arrow_back</span>
@@ -213,7 +213,7 @@ function BuyPageInner() {
                 <h1 className="font-headline font-bold text-[22px] text-on-surface leading-tight">Market Rate</h1>
                 <p className="font-body text-[12px] text-on-surface-variant">via Timbuktu P2P · {market?.peers} active peers</p>
               </div>
-              <span className="font-label font-bold text-[10px] bg-[#16A34A]/10 text-[#16A34A] px-3 py-1.5 rounded-full uppercase tracking-widest animate-pulse">Live</span>
+              <span className="font-label font-bold text-[10px] bg-primary/10 text-primary px-3 py-1.5 rounded-full uppercase tracking-widest animate-pulse">Live</span>
             </header>
 
             <main className="px-6 flex-1 space-y-4">
@@ -234,7 +234,7 @@ function BuyPageInner() {
                 </div>
                 <div className="pt-4 flex justify-between items-center">
                   <span className="font-body text-[13px] text-on-surface-variant">Network fee</span>
-                  <span className="font-headline font-bold text-[13px] text-[#16A34A]">Free</span>
+                  <span className="font-headline font-bold text-[13px] text-primary">Free</span>
                 </div>
               </div>
 
@@ -243,7 +243,7 @@ function BuyPageInner() {
                 <div className="bg-surface rounded-[24px] p-5 border border-outline-variant/10 shadow-sm">
                   <div className="flex items-center justify-between mb-3">
                     <p className="font-label font-bold text-[10px] text-on-surface-variant uppercase tracking-widest">Best available buy rate</p>
-                    <span className={`font-label font-bold text-[11px] px-2 py-1 rounded-full ${market.change24h >= 0 ? 'bg-[#16A34A]/10 text-[#16A34A]' : 'bg-error/10 text-error'}`}>
+                    <span className={`font-label font-bold text-[11px] px-2 py-1 rounded-full ${market.change24h >= 0 ? 'bg-primary/10 text-primary' : 'bg-error/10 text-error'}`}>
                       {market.change24h >= 0 ? '▲' : '▼'} {Math.abs(market.change24h)}%
                     </span>
                   </div>
@@ -285,8 +285,8 @@ function BuyPageInner() {
                   <p className="font-body text-[13px] text-error font-medium">Insufficient liquidity for this amount. Try a smaller order or check back later.</p>
                 </div>
               ) : (
-                <div className="flex items-start gap-3 bg-[#16A34A]/5 border border-[#16A34A]/10 rounded-2xl p-4">
-                  <span className="material-symbols-outlined text-[#16A34A] text-[20px] mt-0.5 flex-shrink-0">check_circle</span>
+                <div className="flex items-start gap-3 bg-primary/5 border border-primary/10 rounded-2xl p-4">
+                  <span className="material-symbols-outlined text-primary text-[20px] mt-0.5 flex-shrink-0">check_circle</span>
                   <p className="font-body text-[13px] text-on-surface-variant font-medium">Sufficient liquidity available. Rate is locked for 30 s once you confirm.</p>
                 </div>
               )}
@@ -303,7 +303,7 @@ function BuyPageInner() {
 
         {/* ── MATCH (P2P) ──────────────────────────────────────────── */}
         {step === 'match' && (
-          <motion.div key="match" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} className="flex flex-col min-h-screen pb-12">
+          <motion.div key="match" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} className="flex flex-col min-h-screen pb-36">
             <header className="flex items-center gap-3 px-6 pt-12 pb-5">
               <div className="flex-1">
                 <h1 className="font-headline font-bold text-[22px] text-on-surface">Order Matched</h1>
@@ -328,7 +328,7 @@ function BuyPageInner() {
                   <div className="flex-1 min-w-0">
                     <p className="font-headline font-bold text-[16px] text-on-surface">{MOCK_PEER.alias}</p>
                     <div className="flex items-center gap-1.5 mt-0.5">
-                      <span className="material-symbols-outlined text-[14px] text-[#F59E0B]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                      <span className="material-symbols-outlined text-[14px] text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
                       <span className="font-label font-bold text-[12px] text-on-surface">{MOCK_PEER.rating}</span>
                       <span className="font-body text-[12px] text-on-surface-variant">· {MOCK_PEER.trades} trades</span>
                     </div>
@@ -370,8 +370,8 @@ function BuyPageInner() {
               </div>
 
               {/* Warning */}
-              <div className="flex items-start gap-3 bg-[#F59E0B]/5 border border-[#F59E0B]/20 rounded-2xl p-4">
-                <span className="material-symbols-outlined text-[#F59E0B] text-[20px] mt-0.5 flex-shrink-0">warning</span>
+              <div className="flex items-start gap-3 bg-primary/5 border border-primary/20 rounded-2xl p-4">
+                <span className="material-symbols-outlined text-primary text-[20px] mt-0.5 flex-shrink-0">warning</span>
                 <p className="font-body text-[13px] text-on-surface-variant font-medium leading-relaxed">
                   Only tap <strong className="text-on-surface">"I've Sent the Payment"</strong> after your bank transfer is complete. Tapping early may open a dispute.
                 </p>
@@ -390,7 +390,7 @@ function BuyPageInner() {
 
         {/* ── METHOD (cNGN fiat) ───────────────────────────────────── */}
         {step === 'method' && (
-          <motion.div key="method" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} className="flex flex-col min-h-screen pb-12">
+          <motion.div key="method" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} className="flex flex-col min-h-screen pb-36">
             <header className="flex items-center gap-3 px-6 pt-12 pb-5">
               <button onClick={() => { haptics.light(); setStep('amount') }} className="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors active:scale-95">
                 <span className="material-symbols-outlined text-[20px]">arrow_back</span>
@@ -406,12 +406,12 @@ function BuyPageInner() {
                   <p className="font-headline font-bold text-[28px] text-on-surface">{receiveAmount.toFixed(2)} cNGN</p>
                   <p className="font-body text-[12px] text-on-surface-variant mt-0.5">for ₦{numAmount.toLocaleString()}</p>
                 </div>
-                <div className="w-14 h-14 rounded-full bg-[#EDE9FE] flex items-center justify-center font-headline font-extrabold text-[#7C3AED] text-[22px]">₦</div>
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center font-headline font-extrabold text-primary text-[22px]">₦</div>
               </div>
 
               {[
-                { id: 'bank', icon: 'account_balance', label: 'Bank Transfer', sub: 'Direct transfer from any Nigerian bank', fee: '0% fee', time: 'Instant', color: '#16A34A' },
-                { id: 'card', icon: 'credit_card',     label: 'Debit / Credit Card', sub: 'Visa, Mastercard accepted', fee: '1.5% fee', time: 'Instant', color: '#2563EB' },
+                { id: 'bank', icon: 'account_balance', label: 'Bank Transfer', sub: 'Direct transfer from any Nigerian bank', fee: '0% fee', time: 'Instant', color: '#FC690A' },
+                { id: 'card', icon: 'credit_card',     label: 'Debit / Credit Card', sub: 'Visa, Mastercard accepted', fee: '1.5% fee', time: 'Instant', color: '#FC690A' },
                 { id: 'ussd', icon: 'dialpad',          label: 'USSD', sub: 'Works without internet', fee: '0% fee', time: '~2 min', color: '#FC690A' },
               ].map(m => (
                 <button key={m.id} onClick={() => { haptics.light(); setPayMethod(m.id) }}
@@ -423,7 +423,7 @@ function BuyPageInner() {
                     <p className="font-headline font-semibold text-[15px] text-on-surface">{m.label}</p>
                     <p className="font-body text-[12px] text-on-surface-variant mt-0.5">{m.sub}</p>
                     <div className="flex items-center gap-2 mt-1.5">
-                      <span className="font-label font-bold text-[10px] px-2 py-0.5 rounded-full bg-[#16A34A]/10 text-[#16A34A]">{m.time}</span>
+                      <span className="font-label font-bold text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary">{m.time}</span>
                       <span className="font-label font-bold text-[10px] text-on-surface-variant">{m.fee}</span>
                     </div>
                   </div>
@@ -470,8 +470,8 @@ function BuyPageInner() {
         {step === 'success' && (
           <motion.div key="success" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="flex flex-col min-h-screen items-center justify-center px-8 text-center">
             <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', stiffness: 400, damping: 18 }}
-              className="w-24 h-24 rounded-full bg-[#16A34A]/10 flex items-center justify-center mb-6">
-              <div className="w-16 h-16 rounded-full bg-[#16A34A] flex items-center justify-center">
+              className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+              <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
                 <span className="material-symbols-outlined text-white text-[32px]" style={{ fontVariationSettings: "'wght' 700" }}>check</span>
               </div>
             </motion.div>

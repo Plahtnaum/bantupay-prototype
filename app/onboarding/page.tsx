@@ -9,7 +9,9 @@ import { MOCK_PERSONAS } from '@/mock/users'
 type Step = 'splash' | 'welcome' | 'mode' | 'phone' | 'otp' | 'name' | 'pin' | 'pinConfirm' | 'biometric' | 'created'
 
 export default function OnboardingPage() {
-  const [step, setStep] = useState<Step>('splash')
+  const { setPersona, completeOnboarding, darkMode } = useUserStore()
+  const router = useRouter()
+  const [step, setStep] = useState<Step>(darkMode ? 'splash' : 'welcome')
   const [mode, setMode] = useState<'personal' | 'merchant'>('personal')
   const [phone, setPhone] = useState('')
   const [otp, setOtp] = useState('')
@@ -18,9 +20,6 @@ export default function OnboardingPage() {
   const [pinConfirm, setPinConfirm] = useState('')
   const [pinError, setPinError] = useState(false)
   const [bioLoading, setBioLoading] = useState(false)
-
-  const { setPersona, completeOnboarding } = useUserStore()
-  const router = useRouter()
 
   useEffect(() => {
     if (step === 'splash') {

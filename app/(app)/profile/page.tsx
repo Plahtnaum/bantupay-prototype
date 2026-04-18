@@ -23,8 +23,8 @@ type MenuItem = {
 const KYC_LABELS: Record<number, { label: string; color: string }> = {
   0: { label: 'Unverified', color: '#EF4444' },
   1: { label: 'Basic (Tier 1)', color: '#F59E0B' },
-  2: { label: 'Verified (Tier 2)', color: '#16A34A' },
-  3: { label: 'Full KYC (Tier 3)', color: '#16A34A' },
+  2: { label: 'Verified (Tier 2)', color: '#FC690A' },
+  3: { label: 'Full KYC (Tier 3)', color: '#FC690A' },
 }
 
 const MODES: { id: UserMode; icon: string; label: string }[] = [
@@ -112,7 +112,11 @@ export default function ProfilePage() {
     <div className="bg-background min-h-screen text-on-background pb-40 w-full max-w-[430px] mx-auto">
 
       {/* Header */}
-      <header className="px-6 pt-16 pb-6 bg-surface border-b border-outline-variant/10">
+      <header className="px-6 pt-12 pb-6 bg-surface border-b border-outline-variant/10">
+        <button onClick={() => { haptics.light(); router.back() }} className="flex items-center gap-1 text-on-surface-variant hover:text-on-surface transition-colors mb-4">
+          <span className="material-symbols-outlined text-[20px]">arrow_back</span>
+          <span className="font-label font-bold text-[13px]">Back</span>
+        </button>
         <div className="flex items-center gap-4">
           <div className="relative">
             <div className="w-16 h-16 rounded-full bg-primary-container text-primary flex items-center justify-center font-headline font-bold text-2xl border-2 border-primary/20">

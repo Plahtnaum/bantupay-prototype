@@ -146,7 +146,7 @@ export default function AddTokenPage() {
                       disabled={isAdded}
                       className={`flex-shrink-0 h-9 px-4 rounded-full font-label font-bold text-[12px] transition-all active:scale-95 ${
                         isAdded
-                          ? 'bg-[#16A34A]/10 text-[#16A34A]'
+                          ? 'bg-primary/10 text-primary'
                           : 'bg-primary text-white shadow-sm'
                       }`}
                     >

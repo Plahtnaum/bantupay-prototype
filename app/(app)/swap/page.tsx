@@ -103,7 +103,7 @@ export default function SwapPage() {
       <AnimatePresence mode="wait">
         {/* INPUT */}
         {state === 'input' && (
-          <motion.div key="input" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="px-6 pt-12 pb-8">
+          <motion.div key="input" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="px-6 pt-12 pb-36">
             <header className="flex justify-between items-center mb-8">
               <button onClick={() => { haptics.light(); router.back() }} className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
                 <span className="material-symbols-outlined text-[20px]">arrow_back</span>
@@ -203,7 +203,7 @@ export default function SwapPage() {
               <div className="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/10 flex flex-col gap-2">
                 <div className="flex justify-between items-center text-[12px]">
                   <span className="text-on-surface-variant font-medium">Network fee</span>
-                  <span className="text-[#16A34A] font-bold">&lt; ₦0.01</span>
+                  <span className="text-primary font-bold">&lt; ₦0.01</span>
                 </div>
                 <div className="flex justify-between items-center text-[12px]">
                   <span className="text-on-surface-variant font-medium">Slippage Tolerance</span>
@@ -258,7 +258,7 @@ export default function SwapPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">You receive (estimated)</p>
-                    <p className="font-headline font-bold text-[24px] text-[#16A34A]">≈ {estimatedReceive} {receiveAsset.symbol}</p>
+                    <p className="font-headline font-bold text-[24px] text-primary">≈ {estimatedReceive} {receiveAsset.symbol}</p>
                   </div>
                   <div className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-[15px]" style={{ backgroundColor: receiveAsset.iconBg, color: receiveAsset.color }}>{receiveAsset.iconText}</div>
                 </div>
@@ -271,11 +271,11 @@ export default function SwapPage() {
                 </div>
                 <div className="flex justify-between items-center text-[13px]">
                   <span className="text-on-surface-variant font-medium">Price Impact</span>
-                  <span className="text-[#16A34A] font-bold">&lt;0.01%</span>
+                  <span className="text-primary font-bold">&lt;0.01%</span>
                 </div>
                 <div className="flex justify-between items-center text-[13px]">
                   <span className="text-on-surface-variant font-medium">Network fee</span>
-                  <span className="text-[#16A34A] font-bold">&lt; ₦0.01</span>
+                  <span className="text-primary font-bold">&lt; ₦0.01</span>
                 </div>
               </div>
 
@@ -326,7 +326,7 @@ export default function SwapPage() {
               <div className="h-px bg-outline-variant/10 mb-4" />
               <div className="flex justify-between items-center text-[12px] mb-2">
                 <span className="text-on-surface-variant">Network Fee</span>
-                <span className="text-[#16A34A] font-bold">&lt; ₦0.01</span>
+                <span className="text-primary font-bold">&lt; ₦0.01</span>
               </div>
               <div className="flex justify-between items-center text-[12px]">
                 <span className="text-on-surface-variant">Transaction Hash</span>
