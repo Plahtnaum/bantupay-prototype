@@ -78,32 +78,71 @@ function SplashScreen() {
   return (
     <motion.div
       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-      className="relative h-screen w-full bg-gradient-to-br from-[#FC690A] to-[#D4560A] flex flex-col items-center justify-center overflow-hidden"
+      className="relative h-screen w-full flex flex-col overflow-hidden"
+      style={{ background: '#0A0A0C' }}
     >
-      <div className="absolute -bottom-24 -right-24 pointer-events-none">
-        <div className="absolute border border-white/10 rounded-full w-[600px] h-[600px] translate-x-1/4 translate-y-1/4" />
-        <div className="absolute border border-white/10 rounded-full w-[450px] h-[450px] translate-x-1/4 translate-y-1/4" />
-        <div className="absolute border border-white/10 rounded-full w-[300px] h-[300px] translate-x-1/4 translate-y-1/4" />
+      {/* Depth layers */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 110%, rgba(252,105,10,0.22) 0%, transparent 55%)' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 20% 40%, rgba(252,140,40,0.06) 0%, transparent 45%)' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 80% 10%, rgba(10,10,20,0.9) 0%, transparent 50%)' }} />
       </div>
 
-      <div className="z-10 flex flex-col items-center justify-center mb-[10%]">
-        <motion.div 
-          initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.2 }}
-          className="flex flex-col items-center gap-6"
+      {/* Logo zone — upper half */}
+      <div className="flex-1 flex items-center justify-center relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="flex flex-col items-center gap-5"
         >
-          <div className="w-20 h-20 flex items-center justify-center bg-white rounded-2xl shadow-lg">
-            <span className="text-4xl font-headline font-black text-[#FC690A]">B</span>
+          {/* Mark */}
+          <div
+            className="w-24 h-24 rounded-[28px] flex items-center justify-center"
+            style={{
+              background: 'radial-gradient(circle at 35% 30%, rgba(255,255,255,0.12) 0%, rgba(0,0,0,0) 70%), #1A1A1E',
+              boxShadow: '0 0 0 1px rgba(255,255,255,0.06), 0 24px 48px rgba(0,0,0,0.6)',
+            }}
+          >
+            <span
+              className="font-headline font-black text-[44px] leading-none"
+              style={{ color: '#FC690A', letterSpacing: '-0.02em' }}
+            >
+              B
+            </span>
           </div>
-          <h1 className="font-headline font-bold text-[28px] tracking-tight text-white">BantuPay</h1>
-          <p className="mt-4 font-body text-[15px] text-white/80 tracking-wide font-medium">Empowering Humanity</p>
+          <p
+            className="font-headline font-bold tracking-[0.22em] uppercase text-[13px]"
+            style={{ color: 'rgba(255,255,255,0.35)' }}
+          >
+            BantuPay
+          </p>
         </motion.div>
       </div>
 
-      <div className="absolute bottom-16 flex items-center gap-3">
-        <div className="w-2 h-2 rounded-full bg-white/40 animate-pulse" />
-        <div className="w-2.5 h-2.5 rounded-full bg-white/80 animate-pulse delay-150" />
-        <div className="w-2 h-2 rounded-full bg-white/40 animate-pulse delay-300" />
-      </div>
+      {/* Text + loading — lower half */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.55, duration: 0.5 }}
+        className="relative z-10 px-8 pb-20"
+      >
+        <h1 className="font-headline font-extrabold text-[34px] text-white leading-tight tracking-tight mb-2">
+          Your money.<br />Your rules.
+        </h1>
+        <p className="font-body text-[15px]" style={{ color: '#8A8A9A' }}>
+          Send, receive, and save — instantly.
+        </p>
+        <div className="flex items-center gap-2 mt-8">
+          {[0, 1, 2].map(i => (
+            <motion.div
+              key={i}
+              animate={{ opacity: [0.3, 1, 0.3] }}
+              transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.2 }}
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ background: '#FC690A' }}
+            />
+          ))}
+        </div>
+      </motion.div>
     </motion.div>
   )
 }
@@ -112,65 +151,82 @@ function WelcomeScreen({ onNext, onSignIn }: { onNext: () => void; onSignIn: () 
   return (
     <motion.div
       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-      className="bg-surface min-h-screen flex flex-col overflow-x-hidden w-full flex-1"
+      className="min-h-screen flex flex-col overflow-hidden w-full"
+      style={{ background: '#0A0A0C' }}
     >
-      <section className="relative h-[486px] w-full flex flex-col justify-end px-8 pb-12 overflow-hidden bg-gradient-to-br from-[#FC690A] to-[#D4560A]">
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_2px_2px,rgba(255,255,255,0.15)_1px,transparent_0)]" style={{ backgroundSize: '24px 24px' }} />
-        <div className="absolute -bottom-40 -left-20 w-[300px] h-[300px] rounded-full bg-white/10 blur-[80px]" />
-        
-        <div className="relative z-10 max-w-md mx-auto w-full">
-          <div className="mb-6 inline-flex items-center space-x-2 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
-            <span className="w-2 h-2 rounded-full bg-white" />
-            <span className="text-white text-[11px] font-bold tracking-widest uppercase">BANTUPAY 3.0</span>
+      {/* Depth layers */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 110%, rgba(252,105,10,0.18) 0%, transparent 55%)' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 15% 50%, rgba(252,140,40,0.05) 0%, transparent 45%)' }} />
+      </div>
+
+      {/* Hero — fills upper portion */}
+      <div className="flex-1 relative z-10 flex flex-col justify-end px-8 pb-12 pt-20">
+        {/* Mark */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="mb-10"
+        >
+          <div
+            className="w-16 h-16 rounded-[20px] flex items-center justify-center mb-8"
+            style={{
+              background: 'radial-gradient(circle at 35% 30%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0) 70%), #1A1A1E',
+              boxShadow: '0 0 0 1px rgba(255,255,255,0.06)',
+            }}
+          >
+            <span className="font-headline font-black text-[30px] leading-none" style={{ color: '#FC690A' }}>B</span>
           </div>
-          <h1 className="text-white font-headline font-bold text-[32px] leading-tight tracking-tight mb-4">
-            More than just a wallet
+          <h1 className="font-headline font-extrabold text-[40px] text-white leading-tight tracking-tight mb-4">
+            Your money.<br />Your rules.
           </h1>
-          <p className="text-white/85 font-body text-[15px] leading-relaxed max-w-[280px]">
-            Send, receive and save digital assets with simplicity
+          <p className="font-body text-[16px] leading-relaxed" style={{ color: '#8A8A9A', maxWidth: 280 }}>
+            Send, receive and save digital assets — instantly, securely, on your terms.
           </p>
-          <p className="text-white/60 font-body text-[12px] mt-2 italic">Supports cNGN natively</p>
-        </div>
-      </section>
+        </motion.div>
 
-      <main className="relative flex-grow bg-surface-container-lowest rounded-t-[28px] -mt-8 z-20 shadow-[0_-12px_40px_rgba(0,0,0,0.08)] px-8 pt-10 pb-12 flex flex-col justify-between items-center w-full">
-        <div className="w-full max-w-md space-y-8 flex-1">
-          <div className="flex justify-between items-center gap-4">
-            <div className="flex flex-col items-center gap-3 flex-1">
-              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary transition-transform active:scale-95">
-                <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>bolt</span>
-              </div>
-              <span className="text-[12px] font-semibold text-on-surface-variant tracking-tight">Instant</span>
-            </div>
-            <div className="flex flex-col items-center gap-3 flex-1">
-              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary transition-transform active:scale-95">
-                <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>shield_lock</span>
-              </div>
-              <span className="text-[12px] font-semibold text-on-surface-variant tracking-tight">Secure</span>
-            </div>
-            <div className="flex flex-col items-center gap-3 flex-1">
-              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary transition-transform active:scale-95">
-                <span className="material-symbols-outlined text-[28px]">sync_alt</span>
-              </div>
-              <span className="text-[12px] font-semibold text-on-surface-variant tracking-tight">Limitless</span>
-            </div>
-          </div>
-        </div>
+        {/* Feature pills */}
+        <motion.div
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
+          className="flex gap-2 flex-wrap mb-12"
+        >
+          {['Instant transfers', 'cNGN native', 'P2P exchange', 'Self-custody'].map(f => (
+            <span
+              key={f}
+              className="font-label font-bold text-[11px] px-3 py-1.5 rounded-full"
+              style={{ background: 'rgba(252,105,10,0.12)', color: '#FC690A', border: '1px solid rgba(252,105,10,0.2)' }}
+            >
+              {f}
+            </span>
+          ))}
+        </motion.div>
+      </div>
 
-        <div className="w-full max-w-md mt-10 space-y-4">
-          <button onClick={onNext} className="w-full h-[56px] bg-gradient-to-br from-[#FC690A] to-[#D4560A] text-white rounded-full font-headline font-bold text-base shadow-lg shadow-[#FC690A]/20 active:scale-[0.98] transition-all">
-            Get Started
-          </button>
-          <button onClick={() => { haptics.light(); onSignIn() }} className="w-full h-[56px] flex items-center justify-center gap-2 text-on-surface font-semibold text-[15px] hover:bg-surface-container-high rounded-full transition-colors active:scale-[0.98]">
-            I already have a wallet
-            <span className="material-symbols-outlined text-primary text-[20px]">arrow_forward</span>
-          </button>
-          <div className="mt-8 text-center flex flex-col items-center gap-2">
-            <p className="text-[10px] text-on-surface-variant/60 font-bold tracking-widest uppercase">Powered by</p>
-            <p className="text-[11px] text-on-surface-variant font-bold tracking-wider uppercase">Bantu Network Technology</p>
-          </div>
-        </div>
-      </main>
+      {/* CTAs */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.35 }}
+        className="relative z-10 px-8 pb-16 space-y-4"
+        style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: 32 }}
+      >
+        <button
+          onClick={onNext}
+          className="w-full h-[56px] rounded-full font-headline font-bold text-[16px] text-white active:scale-95 transition-all"
+          style={{ background: 'linear-gradient(135deg, #FC690A 0%, #D4560A 100%)', boxShadow: '0 8px 24px rgba(252,105,10,0.3)' }}
+        >
+          Get Started
+        </button>
+        <button
+          onClick={() => { haptics.light(); onSignIn() }}
+          className="w-full h-[56px] rounded-full font-headline font-semibold text-[15px] transition-all active:scale-95"
+          style={{ color: 'rgba(255,255,255,0.7)', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
+        >
+          I already have a wallet
+        </button>
+        <p className="text-center font-label font-bold text-[10px] uppercase tracking-widest pt-2" style={{ color: '#4A4A5A' }}>
+          Powered by Bantu Network Technology
+        </p>
+      </motion.div>
     </motion.div>
   )
 }

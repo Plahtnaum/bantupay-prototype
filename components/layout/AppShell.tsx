@@ -1,5 +1,5 @@
 'use client'
-import { BottomNav } from './BottomNav'
+import { FloatingTabBar } from './FloatingTabBar'
 import { ToastContainer } from '@/components/ui/ToastContainer'
 
 interface AppShellProps {
@@ -11,10 +11,10 @@ export function AppShell({ children, hideNav = false }: AppShellProps) {
   return (
     <div className="min-h-screen bg-surface flex flex-col">
       <ToastContainer />
-      <main className={`flex-1 ${hideNav ? '' : 'pb-[80px]'}`}>
+      <main className="flex-1">
         {children}
       </main>
-      {!hideNav && <BottomNav />}
+      {!hideNav && <FloatingTabBar />}
     </div>
   )
 }
